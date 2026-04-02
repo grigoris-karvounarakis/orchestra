@@ -1,0 +1,64 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+<<<<<<< .mine
+import java.util.HashMap;
+import java.util.Map;
+
+import net.sf.javabdd.BDDFactory;
+import rice.p2p.commonapi.Id;
+=======
+>>>>>>> .r6244
+<<<<<<< .mine
+=======
+import net.sf.javabdd.BDDFactory;
+>>>>>>> .r6244
+
+public class ProvenanceTokenHashFactory {
+	static final int NODENUM = 1000000;
+	static final int CACHESIZE = 100000;
+	static final int MAXVARNUM = 1023;
+	static BDDFactory bddFactory = BDDFactory.init(NODENUM, CACHESIZE);
+	
+    private static final ProvenanceTokenHashFactory instance;
+	
+	static {
+		instance = new ProvenanceTokenHashFactory();
+	}
+	
+	public static ProvenanceTokenHashFactory getInstance() {
+		return instance;
+	}
+	
+	ProvenanceTokenHashFactory() {
+		if (bddFactory != null) {
+			if (!bddFactory.isInitialized()) {
+				bddFactory = BDDFactory.init(NODENUM, CACHESIZE);
+			}
+	        bddFactory.setVarNum(MAXVARNUM);
+		} else {
+			throw new RuntimeException("Inproper use of provenanceTokenHash!");
+		}
+	}
+	
+	public static BDDFactory getBDDFactory() {
+		if (bddFactory == null || !bddFactory.isInitialized()) {
+			throw new RuntimeException("BDDFactory is null!");
+		} else {
+			try {
+				bddFactory.varNum();
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("Wrong getting bddFactory varnum!");
+			}
+		}
+		return bddFactory;
+	}
+	
+	public void stop() {
+		if (bddFactory != null) {
+			bddFactory.done();
+		} else {
+			throw new RuntimeException("Cannot stop noninstantiated bddFactory!");
+		}
+	}
+}

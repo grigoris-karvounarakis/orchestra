@@ -1,0 +1,153 @@
+PARAMETERS:
+tukwilaport=7777
+nullscycles=false
+import=true
+dbname=VLDBTEST
+db2server=jdbc:db2:VLDBTEST
+fulldebug=false
+indexall=true
+runs=1
+skipdelpost=true
+batch=false
+insert=true
+setsemantics=true
+db2host=dbserv.cis.upenn.edu
+workdir=/dev/orchestra/experiments/tests
+stratified=true
+jdbc-driver=COM.ibm.db2.jdbc.app.DB2Driver
+tukwilahost=localhost
+scalability2=false
+db2pwd=GREG#00
+scalability1=false
+debug=false
+db2dbname=DEFEAT
+tablesize=0
+tukwilafiles=orchestra.bdb
+incremental=true
+union=false
+outerunion=false
+schema=5p1n-1c1v
+db2user=gkarvoun
+delete=true
+scalability=false
+autocommit=false
+reset=true
+cygwinhome=C:/cygwin
+sqlschema=GKARVOUN
+dred=false
+migrate=true
+workload=2p1n-100i10d
+apply=true
+prepare=true
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p1n-1c1v.create
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: CREATE DB TIME: 14547msec
+TOTAL RULE MANIPULATION TIME: 16msec
++++ Migration +++

@@ -1,0 +1,722 @@
+package edu.upenn.cis.orchestra.datamodel;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import edu.upenn.cis.orchestra.datamodel.exceptions.InvalidBeanException;
+import edu.upenn.cis.orchestra.datamodel.exceptions.UnknownRefFieldException;
+import edu.upenn.cis.orchestra.datamodel.exceptions.UnsupportedTypeException;
+import edu.upenn.cis.orchestra.reconciliation.DbException;
+import edu.upenn.cis.orchestra.repository.model.beans.ScConstraintBean;
+import edu.upenn.cis.orchestra.repository.model.beans.ScFieldBean;
+import edu.upenn.cis.orchestra.repository.model.beans.ScRelationBean;
+import edu.upenn.cis.orchestra.util.ReadOnlyList;
+
+public abstract class AbstractRelation implements Serializable {
+
+	public static class BadColumnName extends DbException {
+		private static final long serialVersionUID = 1L;
+
+		BadColumnName(String name) {
+			super("Column name '" + name + "' is not valid");
+		}
+	}
+
+	public class NameNotFound extends Exception {
+		private static final long serialVersionUID = 1L;
+
+		public NameNotFound(String name) {
+			super("Attribute '" + name + "' not found in tuple schema " + AbstractRelation.this);
+		}
+	}
+
+	public class SchemaMismatch extends Exception {
+		private static final long serialVersionUID = 1L;
+
+		SchemaMismatch(Relation tupleSchema) {
+			super("Attempt to perform operation between tuple with schema " + AbstractRelation.this +
+					" and tuple with schema " + tupleSchema);
+		}
+	}
+
+	/** Relation name */	
+	protected String _name;
+	/** Relation description */
+	protected String _description;
+	/** Relation fields */
+	private List<ScField> _fields;
+	// An unmodifiable copy of _fields, created when relation is
+	// finished
+	private List<ScField> _publicFields = null;
+
+	/** Map fields name to the field object to avoid scanning _fields for access by name, which will be frequent */
+	protected Map<String, ScField> _fieldsByName;
+
+
+	/*** Constraints. 
+	 * Note that constraints are not stored as a list of ScConstraint to avoid scanning the list for Pk, 
+	 * casting too often... 
+	 * If check constraint ... are to be added, they will be stored as a list of ScConstraint or a new abstract subclass
+	 * to avoid adding Pk... to this list
+	 */
+	/** Relation's primary key, can stay null */
+	protected ScPrimaryKey _pk=null;
+	/** Relation foreign keys */
+	protected List<ScForeignKey> _foreignKeys = new ArrayList<ScForeignKey> ();
+	/** Relation unique indexes */
+	protected List<ScUniqueIndex> _uniqueIndexes = new ArrayList<ScUniqueIndex> ();
+	/** Non unique indexes */
+	protected List<ScNonUniqueIndex> _nonUniqueIndexes = new ArrayList<ScNonUniqueIndex> ();
+
+
+	// columnTypes[i] contains the type of the ith attribute
+	//private ArrayList<Type> columnTypes;
+	// getColumnNum[name] =	gives the index of the type of the column
+	//							with called name
+	private HashMap<String,Integer> _columnNum;
+	// columnNames[i] gives the name of the ith attribute
+	//private ArrayList<String> columnNames;
+	// True if we've finished creating this schema and it won't be modified
+	// in the future.
+	protected boolean finished;
+
+	private ReadOnlyList<Integer> _keyColumnList;
+
+	public AbstractRelation() {
+		this((String) null);
+	}
+
+	public AbstractRelation(String name) {
+		_name = name; 
+		//columnNames = new ArrayList<String>();
+		_columnNum = new HashMap<String,Integer>();
+		//columnTypes = new ArrayList<Type>();
+		finished = false;
+		_fields = new ArrayList<ScField> ();
+
+		// TODO: raise exception if fields.size=0
+		initFieldsByNamesMap ();
+	}
+
+	/**
+	 * Creates a new relation
+	 * @param name Relation name
+	 * @param description Relation description
+	 * @param fields Relation fields
+	 */
+	public AbstractRelation (String name, 
+			String description, List<ScField> fields) 
+	{
+		_columnNum = new HashMap<String,Integer>();
+		finished = false;
+
+		// TODO: raise exception if fields.size=0
+		_name = name;
+		_description = description;
+		_fields = new ArrayList<ScField> ();
+		_fields.addAll(fields);
+		initFieldsByNamesMap ();
+
+//		markFinished();
+
+	}
+
+	/**
+	 * Creates a new relation
+	 * @param name Relation name
+	 * @param description Relation description
+	 * @param pkName The primary key constraint name
+	 * @param pkFieldNames The names of the fields in the primary key
+	 * @throws UnknownRefFieldException 
+	 */
+	public AbstractRelation(String name, String description,
+			List<ScField> fields, String pkName,
+			Collection<String> pkFieldNames) throws UnknownRefFieldException {
+		_columnNum = new HashMap<String,Integer>();
+		finished = false;
+
+		// TODO: raise exception if fields.size=0
+		_name = name;
+		_description = description;
+		_fields = new ArrayList<ScField> ();
+		_fields.addAll(fields);
+		initFieldsByNamesMap ();
+
+		if (pkName != null && pkFieldNames != null) {
+			_pk = new ScPrimaryKey(pkName,this,pkFieldNames);
+		}
+
+		markFinished();
+
+	}
+
+	/**
+	 * Creates a new relation from its bean description. <BR>
+	 * Foreign keys not loaded there because the referenced relation 
+	 * might not exist yet 
+	 * @param relBean Relation bean 
+	 * @throws InvalidBeanException If the fields list is empty,
+	 *    or a direct constraint implies a field not known in the 
+	 *    relation , or a mandatory field is missing
+	 * @throws UnsupportedTypeException 
+	 */
+	public AbstractRelation (ScRelationBean relBean)
+	throws InvalidBeanException, UnsupportedTypeException
+	{
+		_columnNum = new HashMap<String,Integer>();
+		_name = relBean.getName();
+		if (_name == null)
+			throw new InvalidBeanException (relBean, "A name is mandatory for each relation");
+		_description = relBean.getDescription();
+		if (_description==null)
+			_description = _name;
+		_fields = new ArrayList<ScField> ();
+		if (relBean.getFields().size()==0)
+			throw new InvalidBeanException (relBean, "A relation must have at least one field");
+
+		int i = 0;
+		for (ScFieldBean fldB : relBean.getFields())
+		{
+			ScField fld = new ScField(fldB);
+			_fields.add(fld);
+			_columnNum.put(fld.getName(), i++);
+		}
+		initFieldsByNamesMap();
+		/** Load constraints */
+		//	TODO: error if two pks...
+		for (ScConstraintBean cstBean : relBean.getDirectConstraints()) {
+			if (cstBean.getType().equals("P")) {
+				_pk = new ScPrimaryKey (cstBean, this);
+			} else {
+				if (cstBean.getType().equals("U")) {
+					_uniqueIndexes.add (new ScUniqueIndex(cstBean, this));
+				} else {
+					if (cstBean.getType().equals("I")) {
+						_nonUniqueIndexes.add (new ScNonUniqueIndex(cstBean, this));
+					} else {
+						if (!cstBean.getType().equals("F")) {
+							throw new InvalidBeanException (relBean, "Unknown constraint type: " + cstBean.getType());
+						}
+					}
+				}
+			}
+		}
+		markFinished();
+	}
+
+	/**
+	 * Deep copy of the relation
+	 * Use the method deepCopy to benefit from polymorphism
+	 * @param relation Relation to copy
+	 * @roseuid 449AEA650271
+	 * @see AbstractRelation#deepCopy()
+	 */
+	protected AbstractRelation(AbstractRelation relation) 
+	{
+		_name = relation.getName();
+		_description = relation.getDescription();
+		_fields = new ArrayList<ScField> ();
+		_columnNum = new HashMap<String,Integer>();
+		int i = 0;
+		for (ScField fld : relation._fields){
+			_fields.add(fld.deepCopy ());
+			_columnNum.put(fld.getName(), i++);
+		}
+		initFieldsByNamesMap ();
+	}   
+
+	/**
+	 * Gets the number of columns in the schema.
+	 * 
+	 * @return			The number of columns
+	 */
+	public int getNumCols() {
+		return _fields.size();
+	}
+
+	/**
+	 * Get the name of a column.
+	 * 
+	 * @param whichCol			The index of the column of interest
+	 * @return					The name of the column, or <code>null</code>
+	 * 							if it does not exist
+	 */
+	public String getColName(int whichCol) {
+		try {
+			return _fields.get(whichCol).getName();
+		} catch (IndexOutOfBoundsException ioobe) {
+			return null;
+		}
+	}
+
+	/**
+	 * Get the number of a column
+	 * 
+	 * @param whichCol			The name of the column of interest
+	 * @return					The index of the column, or <code>null</code>
+	 * 							if it does not exist
+	 */
+	public Integer getColNum(String whichCol) {
+		return _columnNum.get(whichCol);
+	}
+
+	/**
+	 * Get the type of a column
+	 * 
+	 * @param whichCol			The index of the column of interest
+	 * @return					The <CODE>Type</CODE> of the column
+	 */
+	public Type getColType(int whichCol) {
+		return _fields.get(whichCol).getType();
+	}
+
+	/**
+	 * Get the type of a column
+	 * 
+	 * @param whichCol			The name of the column of interest
+	 * @return					The <CODE>Type</CODE> of the column
+	 */
+	public Type getColType(String whichCol) {
+		return _fields.get(_columnNum.get(whichCol)).getType();
+	}
+
+	public void markFinished() {
+		finished = true;
+
+		ArrayList<Integer> keyColumnIndices = new ArrayList<Integer>();
+		_keyColumnList = ReadOnlyList.create(keyColumnIndices);
+		for (ScField f : (_pk == null ? _fields : _pk.getFields())) {
+			keyColumnIndices.add(_columnNum.get(f.getName()));				
+		}
+		_publicFields = Collections.unmodifiableList(_fields);
+	}
+
+	/**
+	 * Get the column numbers of the key columns, in ascending order
+	 * 
+	 * @return			A list of the numbers, which is immutable
+	 */
+	public List<Integer> getKeyCols() {
+		return _keyColumnList;
+	}
+
+	public boolean isFinished() {
+		return finished;
+	}
+
+
+	public boolean equals(Object o) {
+		if (o == this) {
+			return true;
+		}
+		if (o == null || o.getClass() != this.getClass()) {
+			return false;
+		}
+		AbstractRelation ts = (AbstractRelation) o;
+
+		return equals(ts, true);
+
+	}
+
+	public boolean equalsOnColumns(AbstractRelation ts) {
+		return equals(ts, false);
+	}
+
+	private boolean equals(AbstractRelation ts, boolean includeName) {
+		if (includeName && (! getRelationName().equals(ts.getRelationName()))) {
+			return false;
+		}
+
+		final int numCols = getNumCols();
+
+		if (ts._fields.size() != numCols) {
+			return false;
+		}
+
+		for (int i = 0; i < numCols; ++i) {
+			Type t1 = _fields.get(i).getType();
+			Type t2 = ts._fields.get(i).getType();
+			if (! _fields.get(i).getName().equals(ts._fields.get(i).getName())) {
+				return false;
+			}
+			if (! t1.equals(t2)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	/////////////////////////////////////
+
+	/**
+	 * Init the map used to access fields by name
+	 */
+	private synchronized void initFieldsByNamesMap ()
+	{
+		_fieldsByName = new Hashtable<String, ScField> ();
+		int i = 0;
+		for (ScField fld : _fields) {
+			_fieldsByName.put(fld.getName(), fld);
+			_columnNum.put(fld.getName(), i++);
+		}
+	}
+
+
+
+	/**
+	 * Add a new column to the current schema
+	 * 
+	 * @param name		The name of the column to add
+	 * @param se		The column to add
+	 * @throws Exception	If the column name is reserved
+	 */
+	public void addCol(String name, Type se) throws BadColumnName {
+		if (finished) {
+			throw new RuntimeException("Attempt to modify finished schema");
+		}
+		// TODO: move these checks into reconciliation code
+		if (name.equals("peer") || name.equals("recno") || name.equals("tid") ||
+				name.equals("conflict") || name.equals("option") ||
+				name.equals("tid1") || name.equals("tid2") ||
+				name.equals("serialno") || name.equals("txn") ||
+				name.equals("truster") ||  name.equals("trusted") ||
+				name.endsWith("_old") || name.endsWith("_new")) {
+			throw new BadColumnName(name);
+		}
+		addField(new ScField(name, "column", se));
+	}
+
+	/**
+	 * Add a new field to this relation, inserted at a given index (to respect the 
+	 * source database order)
+	 * @param f Field to be added
+	 * @param index Index at which the field is to be inserted
+	 * @roseuid 449AE4D401A5
+	 */
+	public synchronized void addField(ScField f, int index) throws BadColumnName 
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify finished schema");
+		}
+		//	TODO: LOW Error if index KO
+		_fields.add (index, f);
+		_columnNum.put(f.getName(), index);
+		_fieldsByName.put(f.getName(), f);
+	}
+
+	/**
+	 * Add a new field at the end of the relation
+	 * @param f New field
+	 */
+	public synchronized void addField(ScField f) throws BadColumnName
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify finished schema");
+		}
+		_fields.add (f);
+		_columnNum.put(f.getName(), _fields.size() - 1);
+		_fieldsByName.put(f.getName(), f);
+	}
+
+	/**
+	 * Get the fields contained in this relation.
+	 * To optimize performance this is not a deep copy. DO NOT MODIFY.
+	 * @return List
+	 * @roseuid 449AE61A001F
+	 */
+	public synchronized List<ScField> getFields() 
+	{
+		if (_publicFields != null) {
+			return _publicFields;
+		} else {
+			return Collections.unmodifiableList(_fields);
+		}
+	}
+
+	/**
+	 * Get a field by index
+	 * @param index Index of the field to retrieve
+	 * @return Field if found TODO : LOW Exception if not found
+	 */
+	public synchronized ScField getField (int index)
+	{
+		//	TODO:LOW error if ind KO
+		return _fields.get(index);
+	}
+
+	/**
+	 * Get a field by name
+	 * @param name Name of the field to retrieve
+	 * @return Field if found, null if it does not exist
+	 */
+	public synchronized ScField getField (String name)
+	{
+		return _fieldsByName.get(name);
+
+	}
+
+	/**
+	 * Get the name of this relation
+	 * @return java.lang.String Relation name
+	 * @roseuid 44AD2CC800AB
+	 */
+	public String getName() 
+	{
+		return _name;
+	}
+
+	/**
+	 * Get the description of this relation
+	 * @return java.lang.String Relation description
+	 * @roseuid 44AD2CCF037A
+	 */
+	public synchronized String getDescription() 
+	{
+		return _description;
+	}
+
+	/**
+	 * Change the relation description
+	 * @param description New description
+	 */
+	public synchronized void setDescription (String description)
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		_description = description;
+	}
+
+
+	/**
+	 * Set the primary key for this relation. The primary key cannot
+	 * be changed once set
+	 * @param pk primary key, fields must exist in the relation
+	 */
+	public synchronized void setPrimaryKey (ScPrimaryKey pk)
+	{
+		if (_pk != null) {
+			throw new IllegalStateException("Cannot change the primary key once it is set");
+		}
+		if (pk == null) {
+			throw new NullPointerException();
+		}
+		for (ScField f : pk.getFields()) {
+			ScField found = getField(f.getName());
+			if (found == null || (! found.equals(f))) {
+				throw new IllegalArgumentException("Fields is primary key must match those in relation");
+			}
+		}
+		_pk = pk;
+	}
+
+	/**
+	 * Set the primary key for this relation. The primary key cannot
+	 * be changed once set
+	 * @param keyColNames	A collection of fields in this relation
+	 * @throws UnknownRefFieldException
+	 */
+	public void setPrimaryKey(Collection<String> keyColNames) throws UnknownRefFieldException {
+		this.setPrimaryKey(new ScPrimaryKey("pk", this, keyColNames));
+	}
+
+	/**
+	 * Add a foreign key to this relation
+	 * Referenced table fields / pk coherency is not checked
+	 * @param fk New foreign key, fields must exist in the relation.
+	 */
+	public synchronized void addForeignKey (ScForeignKey fk)
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		if (! fk.getRelation().equals(_name)) {
+			throw new IllegalArgumentException("Foreign key is not for this relation");
+		}
+		// Check that fields exist and have the same type etc.
+		for (ScField sf : fk._fields) {
+			ScField inRel = _fieldsByName.get(sf.getName());
+			if (inRel == null) {
+				throw new IllegalArgumentException("Relation does not contain fields " + sf.getName());
+			} else if (! sf.equals(inRel)) {
+				throw new IllegalArgumentException("Field in relation is not the same as field in foreign key");
+			}
+		}
+		_foreignKeys.add(fk);
+	}
+
+	/**
+	 * Remove a given foreign key from the relation.
+	 * Will not raise an exception if the foreign key is not found
+	 * @param fk Foreign key to remove
+	 */
+	public synchronized void removeForeignKey (ScForeignKey fk)
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		_foreignKeys.remove(fk);
+	}
+
+	/**
+	 * Remove all foreign keys
+	 *
+	 */
+	public synchronized void clearForeignKeys ()
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		_foreignKeys.clear();
+	}
+
+	/**
+	 * Add a non unique index to this relation
+	 * @param idx New "non unique" index, fields must exist in the relation
+	 */
+	public synchronized void addNonUniqueIndex (ScNonUniqueIndex idx)
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		//	TODO:MID Check that fields exist
+		_nonUniqueIndexes.add (idx);
+	}
+
+	/**
+	 * Remove a given non unique index
+	 * @param idx Non unique index to remove
+	 */
+	public synchronized void removeNonUniqueIndex (ScNonUniqueIndex idx)
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		_nonUniqueIndexes.remove (idx);
+	}
+
+	/**
+	 * Remove all non unique indexes from the relation
+	 *
+	 */
+	public synchronized void clearNonUniqueIndexes ()
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		_nonUniqueIndexes.clear();
+	}
+
+	/**
+	 * Add a unique index to this relation
+	 * @param idx New unique index, fields must exist in the relation
+	 */
+	public synchronized void addUniqueIndex (ScUniqueIndex idx)
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		//	TODO:MID Check that fields exist
+		_uniqueIndexes.add (idx);
+	}
+
+	/**
+	 * Remove a given unique index
+	 * @param idx Unique index to remove
+	 */
+	public synchronized void removeUniqueIndex (ScUniqueIndex idx)
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		_uniqueIndexes.remove (idx);
+	}
+
+	/**
+	 * Remove all unique indexes from the relation
+	 *
+	 */
+	public synchronized void clearUniqueIndexes ()
+	{
+		if (finished) {
+			throw new RuntimeException("Attempt to modify a finished schema");
+		}
+		_uniqueIndexes.clear();
+	}	
+
+	/**
+	 * Returns the primary key
+	 * @return Primary key, null if none
+	 */
+	public synchronized ScPrimaryKey getPrimaryKey ()
+	{
+		return _pk;
+	}
+
+	/**
+	 * Returns the list of unique indexes.
+	 * @return Unique indexes
+	 */
+	public synchronized List<ScUniqueIndex> getUniqueIndexes ()
+	{
+		return Collections.unmodifiableList(_uniqueIndexes);
+	}
+
+	/**
+	 * Returns the list of NON unique indexes.
+	 * @return Non unique indexes
+	 */
+	public synchronized List<ScNonUniqueIndex> getNonUniqueIndexes ()
+	{
+		return Collections.unmodifiableList(_nonUniqueIndexes);
+	}	
+
+	/**
+	 * Returns the list of foreign keys (from this relation to another of to itself)
+	 * @return Foreign keys
+	 */
+	public synchronized List<ScForeignKey> getForeignKeys ()
+	{
+		return Collections.unmodifiableList(_foreignKeys);
+	}
+
+	// Alias to TableSchema version
+	public String getRelationName() {
+		return getName();
+	}
+
+	/// Original TableSchema version
+	public String toStringText() {
+		StringBuffer retval = new StringBuffer(getRelationName() + "(\n");
+
+		int size = _fields.size();
+		for (int i = 0; i < size; ++i) {
+			String name = _fields.get(i).getName();
+			retval.append(name + "\t" + _fields.get(i).getType().getSQLType());
+			if (i != (size - 1)) {
+				retval.append(",");
+			}
+			retval.append("\n");
+		}
+		retval.append(", PRIMARY KEY (");
+		Iterator<Integer> colIt = _keyColumnList.iterator();
+		while (colIt.hasNext()) {
+			retval.append(_fields.get(colIt.next()).getName());
+			if (colIt.hasNext()) {
+				retval.append(",");
+			}
+		}
+		retval.append(")\n");
+
+		retval.append(")\n");
+		return retval.toString();
+	}
+}

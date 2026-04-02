@@ -1,0 +1,280 @@
+PARAMETERS:
+cygwinhome=C:/cygwin
+insert=true
+autocommit=false
+prepare=true
+union=false
+dred=false
+outerunion=false
+tukwilafiles=orchestra.bdb
+sqlschema=GKARVOUN
+workdir=/dev/orchestra/experiments/tests
+db2host=dbserv.cis.upenn.edu
+db2pwd=GREG#00
+db2server=jdbc:db2:VLDBTEST
+db2dbname=DEFEAT
+tablesize=0
+stratified=true
+batch=false
+debug=false
+schema=5p1n-1c1v
+workload=2p1n-100i10d
+setsemantics=true
+apply=true
+incremental=true
+dbname=VLDBTEST
+tukwilaport=7777
+fulldebug=false
+delete=true
+tukwilahost=localhost
+migrate=true
+indexall=true
+db2user=gkarvoun
+reset=true
+jdbc-driver=COM.ibm.db2.jdbc.app.DB2Driver
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p1n-1c1v.create
+Process returned non-zero value:4
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P0_S0_R0" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P0_S0_R0_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P0_S0_R0_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P0_S0_R1" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P0_S0_R1_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P0_S0_R1_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P0_S0_R2" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P0_S0_R2_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P0_S0_R2_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P1_S1_R0" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P1_S1_R0_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P1_S1_R0_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P1_S1_R1" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P1_S1_R1_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P1_S1_R1_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P1_S1_R2" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P1_S1_R2_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P1_S1_R2_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P2_S2_R0" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P2_S2_R0_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P2_S2_R0_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P2_S2_R1" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P2_S2_R1_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P2_S2_R1_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P2_S2_R2" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P2_S2_R2_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P2_S2_R2_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P3_S3_R0" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P3_S3_R0_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P3_S3_R0_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P3_S3_R1" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P3_S3_R1_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P3_S3_R1_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P3_S3_R2" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P3_S3_R2_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P3_S3_R2_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P4_S4_R0" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P4_S4_R0_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P4_S4_R0_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P4_S4_R1" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P4_S4_R1_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P4_S4_R1_R" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P4_S4_R2" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P4_S4_R2_L" of type "TABLE".  SQLSTATE=42710
+
+DB21034E  The command was processed as an SQL statement because it was not a 
+valid Command Line Processor command.  During SQL processing it returned:
+SQL0601N  The name of the object to be created is identical to the existing 
+name "GKARVOUN.P4_S4_R2_R" of type "TABLE".  SQLSTATE=42710
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: CREATE DB TIME: 1844msec
+TOTAL RULE MANIPULATION TIME: 15msec

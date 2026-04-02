@@ -1,0 +1,1010 @@
+insert into REFSEQ.M0_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN from TAXO.NAMES_INS R0 where (((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.M0_INS R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))))))))
+insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.INTERPRO2GO R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_INS R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_INS R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.ENTRY2METH R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.ENTRY2METH_INS R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_INS R0, REFSEQ.RMVRECORDS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_NEW R0, REFSEQ.RMVRECORDS_INS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+insert into PLASMO.M4_INS  (select distinct 1 STRATUM, R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from PLASMO.M4_INS R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+insert into PLASMO.M5_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from PLASMO.M5_INS R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+SQL: insert into REFSEQ.M0_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN from TAXO.NAMES_INS R0 where (((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.M0_INS R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 31
+TUPLE COUNT: 347
+SQL: insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.INTERPRO2GO R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 32
+TUPLE COUNT: 347
+SQL: insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_INS R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 33
+TUPLE COUNT: 347
+SQL: insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_INS R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 34
+TUPLE COUNT: 347
+SQL: insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.ENTRY2METH R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 35
+TUPLE COUNT: 347
+SQL: insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.ENTRY2METH_INS R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 36
+TUPLE COUNT: 347
+SQL: insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_INS R0, REFSEQ.RMVRECORDS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 37
+TUPLE COUNT: 347
+SQL: insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_NEW R0, REFSEQ.RMVRECORDS_INS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 38
+TUPLE COUNT: 347
+SQL: insert into PLASMO.M4_INS  (select distinct 1 STRATUM, R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from PLASMO.M4_INS R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 39
+TUPLE COUNT: 347
+SQL: insert into PLASMO.M5_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from PLASMO.M5_INS R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 40
+TUPLE COUNT: 347
+INSERT RETURNED COUNT: 0
+Recursive sequence - SUBPROGRAM RETURNED COUNT: 0
+QQQQQ: 
+insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN SPECIES_LN from TAXO.NAMES_INS R0 where ((((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.NAME_LN)))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.NAME_LN)))))))
+insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C2 GO_ID, 'Interpro' SOURCE, R0.C0_LN SRC_ID_LN, R0.C2_LN GO_ID_LN, 1 SOURCE_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN))) and (R1.SOURCE_LN = 1))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN))) and (R2.SOURCE_LN = 1)))))))
+insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.C2 GO_ID, R0.C4 GO_NAME, R0.C2_LN GO_ID_LN, R0.C4_LN GO_NAME_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN)) and (R1.GO_NAME_LN = R0.C4_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN)) and (R2.GO_NAME_LN = R0.C4_LN)))))))
+insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C3 DB, R0.C2 DBACC, R0.C0_LN SRC_ID_LN, R0.C3_LN DB_LN, R0.C2_LN DBACC_LN from PLASMO.M2_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.DB = R0.C3) and (R1.DB_LN = R0.C3_LN))) and ((R1.DBACC = R0.C2) and (R1.DBACC_LN = R0.C2_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.DB = R0.C3) and (R2.DB_LN = R0.C3_LN))) and ((R2.DBACC = R0.C2) and (R2.DBACC_LN = R0.C2_LN))))))))
+insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.C3 GI, R0.C2 ACC, R0.C5 SEQ, 'YES' DEPRECATED, R0.C3_LN GI_LN, R0.C2_LN ACC_LN, R0.C5_LN SEQ_LN, 1 DEPRECATED_LN from PLASMO.M3_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.C3) and (R1.GI_LN = R0.C3_LN)) and (R1.ACC_LN = R0.C2_LN)) and (R1.SEQ_LN = R0.C5_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.C3) and (R2.GI_LN = R0.C3_LN)) and (R2.ACC_LN = R0.C2_LN)) and (R2.SEQ_LN = R0.C5_LN)) and (R2.DEPRECATED_LN = 1)))))))
+insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, 'NO' DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, 1 DEPRECATED_LN from REFSEQ.CATALOG_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = 1)))))))
+insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.NAME) and (R1.TAX_NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.NAME) and (R2.TAX_NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+insert into INTERPRO.ENTRY_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))) and (not (exists (select 1 from INTERPRO.ENTRY_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R2.NAME_LN = R0.NAME_LN)))))))
+insert into INTERPRO.ENTRY2METH_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY2METH_R R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))) and (not (exists (select 1 from INTERPRO.ENTRY2METH_INS R2 where ((((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.METHOD_AC = R0.METHOD_AC) and (R2.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))))))))
+insert into INTERPRO.INTERPRO2GO_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_L_INS R0 where ((not (exists (select 1 from INTERPRO.INTERPRO2GO_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))) and (not (exists (select 1 from INTERPRO.INTERPRO2GO_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.GO_AC = R0.GO_AC) and (R2.GO_AC_LN = R0.GO_AC_LN))))))))
+insert into GO.TERM_INS  (select distinct 1 STRATUM, R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_L_INS R0 where ((not (exists (select 1 from GO.TERM_R R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))) and (not (exists (select 1 from GO.TERM_INS R2 where (((R2.ID_LN = R0.ID_LN) and (R2.NAME_LN = R0.NAME_LN)) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))))))))
+insert into REFSEQ.CATALOG_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_L_INS R0 where ((not (exists (select 1 from REFSEQ.CATALOG_R R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))) and (not (exists (select 1 from REFSEQ.CATALOG_INS R2 where ((((R2.GI_LN = R0.GI_LN) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)))))))
+insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_L_INS R0 where ((not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.SPECIES_LN)))))))
+insert into REFSEQ.RMVRECORDS_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_L_INS R0 where ((not (exists (select 1 from REFSEQ.RMVRECORDS_R R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))) and (not (exists (select 1 from REFSEQ.RMVRECORDS_INS R2 where ((((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.replacedby_LN = R0.replacedby_LN)))))))
+insert into TAXO.NAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_L_INS R0 where ((not (exists (select 1 from TAXO.NAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from TAXO.NAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.NAME = R0.NAME) and (R2.NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+insert into PLASMO.GENEFEAT_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_L_INS R0 where ((not (exists (select 1 from PLASMO.GENEFEAT_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))) and (not (exists (select 1 from PLASMO.GENEFEAT_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and (R2.PRODUCT_LN = R0.PRODUCT_LN)) and (R2.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN)))))))
+insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_L_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = R0.DEPRECATED_LN)))))))
+insert into PLASMO.GENETAX_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_L_INS R0 where ((not (exists (select 1 from PLASMO.GENETAX_R R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))) and (not (exists (select 1 from PLASMO.GENETAX_INS R2 where (((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN))))))))
+insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_L_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.TAX_NAME) and (R2.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_L_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))) and ((R2.DBACC = R0.DBACC) and (R2.DBACC_LN = R0.DBACC_LN))))))))
+insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN))) and (R2.SOURCE_LN = R0.SOURCE_LN)))))))
+insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN)) and (R2.GO_NAME_LN = R0.GO_NAME_LN)))))))
+SQL: insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN SPECIES_LN from TAXO.NAMES_INS R0 where ((((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.NAME_LN)))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 41
+TUPLE COUNT: 347
+SQL: insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C2 GO_ID, 'Interpro' SOURCE, R0.C0_LN SRC_ID_LN, R0.C2_LN GO_ID_LN, 1 SOURCE_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN))) and (R1.SOURCE_LN = 1))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN))) and (R2.SOURCE_LN = 1)))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 42
+TUPLE COUNT: 347
+SQL: insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.C2 GO_ID, R0.C4 GO_NAME, R0.C2_LN GO_ID_LN, R0.C4_LN GO_NAME_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN)) and (R1.GO_NAME_LN = R0.C4_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN)) and (R2.GO_NAME_LN = R0.C4_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 43
+TUPLE COUNT: 347
+SQL: insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C3 DB, R0.C2 DBACC, R0.C0_LN SRC_ID_LN, R0.C3_LN DB_LN, R0.C2_LN DBACC_LN from PLASMO.M2_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.DB = R0.C3) and (R1.DB_LN = R0.C3_LN))) and ((R1.DBACC = R0.C2) and (R1.DBACC_LN = R0.C2_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.DB = R0.C3) and (R2.DB_LN = R0.C3_LN))) and ((R2.DBACC = R0.C2) and (R2.DBACC_LN = R0.C2_LN))))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 44
+TUPLE COUNT: 347
+SQL: insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.C3 GI, R0.C2 ACC, R0.C5 SEQ, 'YES' DEPRECATED, R0.C3_LN GI_LN, R0.C2_LN ACC_LN, R0.C5_LN SEQ_LN, 1 DEPRECATED_LN from PLASMO.M3_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.C3) and (R1.GI_LN = R0.C3_LN)) and (R1.ACC_LN = R0.C2_LN)) and (R1.SEQ_LN = R0.C5_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.C3) and (R2.GI_LN = R0.C3_LN)) and (R2.ACC_LN = R0.C2_LN)) and (R2.SEQ_LN = R0.C5_LN)) and (R2.DEPRECATED_LN = 1)))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 45
+TUPLE COUNT: 347
+SQL: insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, 'NO' DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, 1 DEPRECATED_LN from REFSEQ.CATALOG_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = 1)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 46
+TUPLE COUNT: 347
+SQL: insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.NAME) and (R1.TAX_NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.NAME) and (R2.TAX_NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 47
+TUPLE COUNT: 347
+SQL: insert into INTERPRO.ENTRY_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))) and (not (exists (select 1 from INTERPRO.ENTRY_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R2.NAME_LN = R0.NAME_LN)))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 19
+QUERY COUNT: 48
+TUPLE COUNT: 366
+SQL: insert into INTERPRO.ENTRY2METH_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY2METH_R R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))) and (not (exists (select 1 from INTERPRO.ENTRY2METH_INS R2 where ((((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.METHOD_AC = R0.METHOD_AC) and (R2.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 48
+QUERY COUNT: 49
+TUPLE COUNT: 414
+SQL: insert into INTERPRO.INTERPRO2GO_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_L_INS R0 where ((not (exists (select 1 from INTERPRO.INTERPRO2GO_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))) and (not (exists (select 1 from INTERPRO.INTERPRO2GO_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.GO_AC = R0.GO_AC) and (R2.GO_AC_LN = R0.GO_AC_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 41
+QUERY COUNT: 50
+TUPLE COUNT: 455
+SQL: insert into GO.TERM_INS  (select distinct 1 STRATUM, R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_L_INS R0 where ((not (exists (select 1 from GO.TERM_R R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))) and (not (exists (select 1 from GO.TERM_INS R2 where (((R2.ID_LN = R0.ID_LN) and (R2.NAME_LN = R0.NAME_LN)) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 33
+QUERY COUNT: 51
+TUPLE COUNT: 488
+SQL: insert into REFSEQ.CATALOG_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_L_INS R0 where ((not (exists (select 1 from REFSEQ.CATALOG_R R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))) and (not (exists (select 1 from REFSEQ.CATALOG_INS R2 where ((((R2.GI_LN = R0.GI_LN) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 52
+TUPLE COUNT: 515
+SQL: insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_L_INS R0 where ((not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.SPECIES_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 53
+TUPLE COUNT: 517
+SQL: insert into REFSEQ.RMVRECORDS_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_L_INS R0 where ((not (exists (select 1 from REFSEQ.RMVRECORDS_R R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))) and (not (exists (select 1 from REFSEQ.RMVRECORDS_INS R2 where ((((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.replacedby_LN = R0.replacedby_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 54
+TUPLE COUNT: 517
+SQL: insert into TAXO.NAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_L_INS R0 where ((not (exists (select 1 from TAXO.NAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from TAXO.NAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.NAME = R0.NAME) and (R2.NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 55
+TUPLE COUNT: 519
+SQL: insert into PLASMO.GENEFEAT_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_L_INS R0 where ((not (exists (select 1 from PLASMO.GENEFEAT_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))) and (not (exists (select 1 from PLASMO.GENEFEAT_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and (R2.PRODUCT_LN = R0.PRODUCT_LN)) and (R2.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN)))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 56
+TUPLE COUNT: 546
+SQL: insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_L_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = R0.DEPRECATED_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 57
+TUPLE COUNT: 573
+SQL: insert into PLASMO.GENETAX_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_L_INS R0 where ((not (exists (select 1 from PLASMO.GENETAX_R R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))) and (not (exists (select 1 from PLASMO.GENETAX_INS R2 where (((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 29
+QUERY COUNT: 58
+TUPLE COUNT: 602
+SQL: insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_L_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.TAX_NAME) and (R2.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 59
+TUPLE COUNT: 604
+SQL: insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_L_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))) and ((R2.DBACC = R0.DBACC) and (R2.DBACC_LN = R0.DBACC_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 20
+QUERY COUNT: 60
+TUPLE COUNT: 624
+SQL: insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN))) and (R2.SOURCE_LN = R0.SOURCE_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 37
+QUERY COUNT: 61
+TUPLE COUNT: 661
+SQL: insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN)) and (R2.GO_NAME_LN = R0.GO_NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 33
+QUERY COUNT: 62
+TUPLE COUNT: 694
+INSERT RETURNED COUNT: 347
+Recursive sequence - SUBPROGRAM RETURNED COUNT: 347
+QQQQQ: 
+insert into REFSEQ.SPECIES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_INS R0 where (not (exists (select 1 from REFSEQ.SPECIES_NEW R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))))
+insert into PLASMO.GOTERM_NEW  (select distinct R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_NEW R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))))
+insert into PLASMO.GOTERM_SUMMARY_NEW  (select distinct R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))))
+insert into GO.TERM_NEW  (select distinct R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_INS R0 where (not (exists (select 1 from GO.TERM_NEW R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))))
+insert into TAXO.NAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from TAXO.NAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+insert into PLASMO.GENEFEAT_NEW  (select distinct R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_INS R0 where (not (exists (select 1 from PLASMO.GENEFEAT_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))))
+insert into REFSEQ.CATALOG_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from REFSEQ.CATALOG_NEW R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))))
+insert into PLASMO.REFSEQ_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_INS R0 where (not (exists (select 1 from PLASMO.REFSEQ_NEW R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))))
+insert into REFSEQ.RMVRECORDS_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_INS R0 where (not (exists (select 1 from REFSEQ.RMVRECORDS_NEW R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))))
+insert into INTERPRO.ENTRY_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))))
+insert into INTERPRO.ENTRY2METH_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY2METH_NEW R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))))
+insert into PLASMO.TAXNAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_INS R0 where (not (exists (select 1 from PLASMO.TAXNAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+insert into PLASMO.DOMAIN_REF_NEW  (select distinct R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_INS R0 where (not (exists (select 1 from PLASMO.DOMAIN_REF_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))))
+insert into PLASMO.GENETAX_NEW  (select distinct R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_INS R0 where (not (exists (select 1 from PLASMO.GENETAX_NEW R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))))
+insert into INTERPRO.INTERPRO2GO_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_INS R0 where (not (exists (select 1 from INTERPRO.INTERPRO2GO_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))))
+SQL: insert into REFSEQ.SPECIES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_INS R0 where (not (exists (select 1 from REFSEQ.SPECIES_NEW R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 63
+TUPLE COUNT: 696
+SQL: insert into PLASMO.GOTERM_NEW  (select distinct R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_NEW R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 33
+QUERY COUNT: 64
+TUPLE COUNT: 729
+SQL: insert into PLASMO.GOTERM_SUMMARY_NEW  (select distinct R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 37
+QUERY COUNT: 65
+TUPLE COUNT: 766
+SQL: insert into GO.TERM_NEW  (select distinct R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_INS R0 where (not (exists (select 1 from GO.TERM_NEW R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 33
+QUERY COUNT: 66
+TUPLE COUNT: 799
+SQL: insert into TAXO.NAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from TAXO.NAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 67
+TUPLE COUNT: 801
+SQL: insert into PLASMO.GENEFEAT_NEW  (select distinct R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_INS R0 where (not (exists (select 1 from PLASMO.GENEFEAT_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 68
+TUPLE COUNT: 828
+SQL: insert into REFSEQ.CATALOG_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from REFSEQ.CATALOG_NEW R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 69
+TUPLE COUNT: 855
+SQL: insert into PLASMO.REFSEQ_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_INS R0 where (not (exists (select 1 from PLASMO.REFSEQ_NEW R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 70
+TUPLE COUNT: 882
+SQL: insert into REFSEQ.RMVRECORDS_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_INS R0 where (not (exists (select 1 from REFSEQ.RMVRECORDS_NEW R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 71
+TUPLE COUNT: 882
+SQL: insert into INTERPRO.ENTRY_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 19
+QUERY COUNT: 72
+TUPLE COUNT: 901
+SQL: insert into INTERPRO.ENTRY2METH_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY2METH_NEW R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 48
+QUERY COUNT: 73
+TUPLE COUNT: 949
+SQL: insert into PLASMO.TAXNAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_INS R0 where (not (exists (select 1 from PLASMO.TAXNAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 74
+TUPLE COUNT: 951
+SQL: insert into PLASMO.DOMAIN_REF_NEW  (select distinct R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_INS R0 where (not (exists (select 1 from PLASMO.DOMAIN_REF_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 20
+QUERY COUNT: 75
+TUPLE COUNT: 971
+SQL: insert into PLASMO.GENETAX_NEW  (select distinct R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_INS R0 where (not (exists (select 1 from PLASMO.GENETAX_NEW R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 29
+QUERY COUNT: 76
+TUPLE COUNT: 1000
+SQL: insert into INTERPRO.INTERPRO2GO_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_INS R0 where (not (exists (select 1 from INTERPRO.INTERPRO2GO_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 41
+QUERY COUNT: 77
+TUPLE COUNT: 1041
+DELETE RETURNED COUNT: 347
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 347
+QQQQQ: 
+insert into REFSEQ.M0_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN from TAXO.NAMES_INS R0 where (((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.M0_INS R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))))))))
+insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.INTERPRO2GO R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_INS R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_INS R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.ENTRY2METH R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.ENTRY2METH_INS R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_INS R0, REFSEQ.RMVRECORDS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_NEW R0, REFSEQ.RMVRECORDS_INS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+insert into PLASMO.M4_INS  (select distinct 1 STRATUM, R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from PLASMO.M4_INS R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+insert into PLASMO.M5_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from PLASMO.M5_INS R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+SQL: insert into REFSEQ.M0_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN from TAXO.NAMES_INS R0 where (((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.M0_INS R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 78
+TUPLE COUNT: 1043
+SQL: insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.INTERPRO2GO R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 79
+TUPLE COUNT: 1043
+SQL: insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_INS R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 80
+TUPLE COUNT: 1043
+SQL: insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_INS R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 44
+QUERY COUNT: 81
+TUPLE COUNT: 1087
+SQL: insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.ENTRY2METH R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 82
+TUPLE COUNT: 1087
+SQL: insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.ENTRY2METH_INS R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 49
+QUERY COUNT: 83
+TUPLE COUNT: 1136
+SQL: insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_INS R0, REFSEQ.RMVRECORDS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 84
+TUPLE COUNT: 1136
+SQL: insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_NEW R0, REFSEQ.RMVRECORDS_INS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 85
+TUPLE COUNT: 1136
+SQL: insert into PLASMO.M4_INS  (select distinct 1 STRATUM, R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from PLASMO.M4_INS R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 86
+TUPLE COUNT: 1163
+SQL: insert into PLASMO.M5_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from PLASMO.M5_INS R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 87
+TUPLE COUNT: 1165
+INSERT RETURNED COUNT: 124
+Recursive sequence - SUBPROGRAM RETURNED COUNT: 124
+QQQQQ: 
+insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN SPECIES_LN from TAXO.NAMES_INS R0 where ((((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.NAME_LN)))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.NAME_LN)))))))
+insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C2 GO_ID, 'Interpro' SOURCE, R0.C0_LN SRC_ID_LN, R0.C2_LN GO_ID_LN, 1 SOURCE_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN))) and (R1.SOURCE_LN = 1))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN))) and (R2.SOURCE_LN = 1)))))))
+insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.C2 GO_ID, R0.C4 GO_NAME, R0.C2_LN GO_ID_LN, R0.C4_LN GO_NAME_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN)) and (R1.GO_NAME_LN = R0.C4_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN)) and (R2.GO_NAME_LN = R0.C4_LN)))))))
+insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C3 DB, R0.C2 DBACC, R0.C0_LN SRC_ID_LN, R0.C3_LN DB_LN, R0.C2_LN DBACC_LN from PLASMO.M2_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.DB = R0.C3) and (R1.DB_LN = R0.C3_LN))) and ((R1.DBACC = R0.C2) and (R1.DBACC_LN = R0.C2_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.DB = R0.C3) and (R2.DB_LN = R0.C3_LN))) and ((R2.DBACC = R0.C2) and (R2.DBACC_LN = R0.C2_LN))))))))
+insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.C3 GI, R0.C2 ACC, R0.C5 SEQ, 'YES' DEPRECATED, R0.C3_LN GI_LN, R0.C2_LN ACC_LN, R0.C5_LN SEQ_LN, 1 DEPRECATED_LN from PLASMO.M3_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.C3) and (R1.GI_LN = R0.C3_LN)) and (R1.ACC_LN = R0.C2_LN)) and (R1.SEQ_LN = R0.C5_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.C3) and (R2.GI_LN = R0.C3_LN)) and (R2.ACC_LN = R0.C2_LN)) and (R2.SEQ_LN = R0.C5_LN)) and (R2.DEPRECATED_LN = 1)))))))
+insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, 'NO' DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, 1 DEPRECATED_LN from REFSEQ.CATALOG_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = 1)))))))
+insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.NAME) and (R1.TAX_NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.NAME) and (R2.TAX_NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+insert into INTERPRO.ENTRY_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))) and (not (exists (select 1 from INTERPRO.ENTRY_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R2.NAME_LN = R0.NAME_LN)))))))
+insert into INTERPRO.ENTRY2METH_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY2METH_R R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))) and (not (exists (select 1 from INTERPRO.ENTRY2METH_INS R2 where ((((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.METHOD_AC = R0.METHOD_AC) and (R2.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))))))))
+insert into INTERPRO.INTERPRO2GO_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_L_INS R0 where ((not (exists (select 1 from INTERPRO.INTERPRO2GO_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))) and (not (exists (select 1 from INTERPRO.INTERPRO2GO_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.GO_AC = R0.GO_AC) and (R2.GO_AC_LN = R0.GO_AC_LN))))))))
+insert into GO.TERM_INS  (select distinct 1 STRATUM, R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_L_INS R0 where ((not (exists (select 1 from GO.TERM_R R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))) and (not (exists (select 1 from GO.TERM_INS R2 where (((R2.ID_LN = R0.ID_LN) and (R2.NAME_LN = R0.NAME_LN)) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))))))))
+insert into REFSEQ.CATALOG_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_L_INS R0 where ((not (exists (select 1 from REFSEQ.CATALOG_R R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))) and (not (exists (select 1 from REFSEQ.CATALOG_INS R2 where ((((R2.GI_LN = R0.GI_LN) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)))))))
+insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_L_INS R0 where ((not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.SPECIES_LN)))))))
+insert into REFSEQ.RMVRECORDS_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_L_INS R0 where ((not (exists (select 1 from REFSEQ.RMVRECORDS_R R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))) and (not (exists (select 1 from REFSEQ.RMVRECORDS_INS R2 where ((((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.replacedby_LN = R0.replacedby_LN)))))))
+insert into TAXO.NAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_L_INS R0 where ((not (exists (select 1 from TAXO.NAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from TAXO.NAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.NAME = R0.NAME) and (R2.NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+insert into PLASMO.GENEFEAT_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_L_INS R0 where ((not (exists (select 1 from PLASMO.GENEFEAT_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))) and (not (exists (select 1 from PLASMO.GENEFEAT_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and (R2.PRODUCT_LN = R0.PRODUCT_LN)) and (R2.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN)))))))
+insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_L_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = R0.DEPRECATED_LN)))))))
+insert into PLASMO.GENETAX_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_L_INS R0 where ((not (exists (select 1 from PLASMO.GENETAX_R R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))) and (not (exists (select 1 from PLASMO.GENETAX_INS R2 where (((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN))))))))
+insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_L_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.TAX_NAME) and (R2.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_L_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))) and ((R2.DBACC = R0.DBACC) and (R2.DBACC_LN = R0.DBACC_LN))))))))
+insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN))) and (R2.SOURCE_LN = R0.SOURCE_LN)))))))
+insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN)) and (R2.GO_NAME_LN = R0.GO_NAME_LN)))))))
+SQL: insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN SPECIES_LN from TAXO.NAMES_INS R0 where ((((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.NAME_LN)))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 88
+TUPLE COUNT: 1165
+SQL: insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C2 GO_ID, 'Interpro' SOURCE, R0.C0_LN SRC_ID_LN, R0.C2_LN GO_ID_LN, 1 SOURCE_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN))) and (R1.SOURCE_LN = 1))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN))) and (R2.SOURCE_LN = 1)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 89
+TUPLE COUNT: 1165
+SQL: insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.C2 GO_ID, R0.C4 GO_NAME, R0.C2_LN GO_ID_LN, R0.C4_LN GO_NAME_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN)) and (R1.GO_NAME_LN = R0.C4_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN)) and (R2.GO_NAME_LN = R0.C4_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 90
+TUPLE COUNT: 1165
+SQL: insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C3 DB, R0.C2 DBACC, R0.C0_LN SRC_ID_LN, R0.C3_LN DB_LN, R0.C2_LN DBACC_LN from PLASMO.M2_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.DB = R0.C3) and (R1.DB_LN = R0.C3_LN))) and ((R1.DBACC = R0.C2) and (R1.DBACC_LN = R0.C2_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.DB = R0.C3) and (R2.DB_LN = R0.C3_LN))) and ((R2.DBACC = R0.C2) and (R2.DBACC_LN = R0.C2_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 49
+QUERY COUNT: 91
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.C3 GI, R0.C2 ACC, R0.C5 SEQ, 'YES' DEPRECATED, R0.C3_LN GI_LN, R0.C2_LN ACC_LN, R0.C5_LN SEQ_LN, 1 DEPRECATED_LN from PLASMO.M3_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.C3) and (R1.GI_LN = R0.C3_LN)) and (R1.ACC_LN = R0.C2_LN)) and (R1.SEQ_LN = R0.C5_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.C3) and (R2.GI_LN = R0.C3_LN)) and (R2.ACC_LN = R0.C2_LN)) and (R2.SEQ_LN = R0.C5_LN)) and (R2.DEPRECATED_LN = 1)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 92
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, 'NO' DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, 1 DEPRECATED_LN from REFSEQ.CATALOG_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = 1)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 93
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.NAME) and (R1.TAX_NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.NAME) and (R2.TAX_NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 94
+TUPLE COUNT: 1214
+SQL: insert into INTERPRO.ENTRY_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))) and (not (exists (select 1 from INTERPRO.ENTRY_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R2.NAME_LN = R0.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 95
+TUPLE COUNT: 1214
+SQL: insert into INTERPRO.ENTRY2METH_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY2METH_R R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))) and (not (exists (select 1 from INTERPRO.ENTRY2METH_INS R2 where ((((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.METHOD_AC = R0.METHOD_AC) and (R2.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 96
+TUPLE COUNT: 1214
+SQL: insert into INTERPRO.INTERPRO2GO_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_L_INS R0 where ((not (exists (select 1 from INTERPRO.INTERPRO2GO_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))) and (not (exists (select 1 from INTERPRO.INTERPRO2GO_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.GO_AC = R0.GO_AC) and (R2.GO_AC_LN = R0.GO_AC_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 97
+TUPLE COUNT: 1214
+SQL: insert into GO.TERM_INS  (select distinct 1 STRATUM, R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_L_INS R0 where ((not (exists (select 1 from GO.TERM_R R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))) and (not (exists (select 1 from GO.TERM_INS R2 where (((R2.ID_LN = R0.ID_LN) and (R2.NAME_LN = R0.NAME_LN)) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 98
+TUPLE COUNT: 1214
+SQL: insert into REFSEQ.CATALOG_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_L_INS R0 where ((not (exists (select 1 from REFSEQ.CATALOG_R R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))) and (not (exists (select 1 from REFSEQ.CATALOG_INS R2 where ((((R2.GI_LN = R0.GI_LN) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 99
+TUPLE COUNT: 1214
+SQL: insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_L_INS R0 where ((not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.SPECIES_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 100
+TUPLE COUNT: 1214
+SQL: insert into REFSEQ.RMVRECORDS_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_L_INS R0 where ((not (exists (select 1 from REFSEQ.RMVRECORDS_R R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))) and (not (exists (select 1 from REFSEQ.RMVRECORDS_INS R2 where ((((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.replacedby_LN = R0.replacedby_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 101
+TUPLE COUNT: 1214
+SQL: insert into TAXO.NAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_L_INS R0 where ((not (exists (select 1 from TAXO.NAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from TAXO.NAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.NAME = R0.NAME) and (R2.NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 102
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.GENEFEAT_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_L_INS R0 where ((not (exists (select 1 from PLASMO.GENEFEAT_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))) and (not (exists (select 1 from PLASMO.GENEFEAT_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and (R2.PRODUCT_LN = R0.PRODUCT_LN)) and (R2.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN)))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 103
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_L_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = R0.DEPRECATED_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 104
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.GENETAX_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_L_INS R0 where ((not (exists (select 1 from PLASMO.GENETAX_R R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))) and (not (exists (select 1 from PLASMO.GENETAX_INS R2 where (((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 105
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_L_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.TAX_NAME) and (R2.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 106
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_L_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))) and ((R2.DBACC = R0.DBACC) and (R2.DBACC_LN = R0.DBACC_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 107
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN))) and (R2.SOURCE_LN = R0.SOURCE_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 108
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN)) and (R2.GO_NAME_LN = R0.GO_NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 109
+TUPLE COUNT: 1214
+INSERT RETURNED COUNT: 49
+Recursive sequence - SUBPROGRAM RETURNED COUNT: 49
+QQQQQ: 
+insert into REFSEQ.SPECIES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_INS R0 where (not (exists (select 1 from REFSEQ.SPECIES_NEW R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))))
+insert into PLASMO.GOTERM_NEW  (select distinct R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_NEW R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))))
+insert into PLASMO.GOTERM_SUMMARY_NEW  (select distinct R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))))
+insert into GO.TERM_NEW  (select distinct R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_INS R0 where (not (exists (select 1 from GO.TERM_NEW R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))))
+insert into TAXO.NAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from TAXO.NAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+insert into PLASMO.GENEFEAT_NEW  (select distinct R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_INS R0 where (not (exists (select 1 from PLASMO.GENEFEAT_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))))
+insert into REFSEQ.CATALOG_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from REFSEQ.CATALOG_NEW R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))))
+insert into PLASMO.REFSEQ_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_INS R0 where (not (exists (select 1 from PLASMO.REFSEQ_NEW R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))))
+insert into REFSEQ.RMVRECORDS_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_INS R0 where (not (exists (select 1 from REFSEQ.RMVRECORDS_NEW R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))))
+insert into INTERPRO.ENTRY_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))))
+insert into INTERPRO.ENTRY2METH_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY2METH_NEW R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))))
+insert into PLASMO.TAXNAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_INS R0 where (not (exists (select 1 from PLASMO.TAXNAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+insert into PLASMO.DOMAIN_REF_NEW  (select distinct R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_INS R0 where (not (exists (select 1 from PLASMO.DOMAIN_REF_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))))
+insert into PLASMO.GENETAX_NEW  (select distinct R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_INS R0 where (not (exists (select 1 from PLASMO.GENETAX_NEW R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))))
+insert into INTERPRO.INTERPRO2GO_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_INS R0 where (not (exists (select 1 from INTERPRO.INTERPRO2GO_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))))
+SQL: insert into REFSEQ.SPECIES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_INS R0 where (not (exists (select 1 from REFSEQ.SPECIES_NEW R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 110
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.GOTERM_NEW  (select distinct R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_NEW R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 111
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.GOTERM_SUMMARY_NEW  (select distinct R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 112
+TUPLE COUNT: 1214
+SQL: insert into GO.TERM_NEW  (select distinct R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_INS R0 where (not (exists (select 1 from GO.TERM_NEW R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 113
+TUPLE COUNT: 1214
+SQL: insert into TAXO.NAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from TAXO.NAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 114
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.GENEFEAT_NEW  (select distinct R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_INS R0 where (not (exists (select 1 from PLASMO.GENEFEAT_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 115
+TUPLE COUNT: 1214
+SQL: insert into REFSEQ.CATALOG_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from REFSEQ.CATALOG_NEW R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 116
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.REFSEQ_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_INS R0 where (not (exists (select 1 from PLASMO.REFSEQ_NEW R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 117
+TUPLE COUNT: 1214
+SQL: insert into REFSEQ.RMVRECORDS_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_INS R0 where (not (exists (select 1 from REFSEQ.RMVRECORDS_NEW R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 118
+TUPLE COUNT: 1214
+SQL: insert into INTERPRO.ENTRY_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 119
+TUPLE COUNT: 1214
+SQL: insert into INTERPRO.ENTRY2METH_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY2METH_NEW R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 120
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.TAXNAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_INS R0 where (not (exists (select 1 from PLASMO.TAXNAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 121
+TUPLE COUNT: 1214
+SQL: insert into PLASMO.DOMAIN_REF_NEW  (select distinct R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_INS R0 where (not (exists (select 1 from PLASMO.DOMAIN_REF_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 49
+QUERY COUNT: 122
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GENETAX_NEW  (select distinct R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_INS R0 where (not (exists (select 1 from PLASMO.GENETAX_NEW R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 123
+TUPLE COUNT: 1263
+SQL: insert into INTERPRO.INTERPRO2GO_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_INS R0 where (not (exists (select 1 from INTERPRO.INTERPRO2GO_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 124
+TUPLE COUNT: 1263
+DELETE RETURNED COUNT: 49
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 173
+QQQQQ: 
+insert into REFSEQ.M0_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN from TAXO.NAMES_INS R0 where (((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.M0_INS R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))))))))
+insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.INTERPRO2GO R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_INS R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_INS R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.ENTRY2METH R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.ENTRY2METH_INS R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_INS R0, REFSEQ.RMVRECORDS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_NEW R0, REFSEQ.RMVRECORDS_INS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+insert into PLASMO.M4_INS  (select distinct 1 STRATUM, R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from PLASMO.M4_INS R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+insert into PLASMO.M5_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from PLASMO.M5_INS R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+SQL: insert into REFSEQ.M0_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN from TAXO.NAMES_INS R0 where (((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.M0_INS R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 125
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.INTERPRO2GO R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 126
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_INS R1, GO.TERM R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 127
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.M1_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.GO_AC C2, R2.ID C3, R2.NAME C4, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.GO_AC_LN C2_LN, R2.ID_LN C3_LN, R2.NAME_LN C4_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_INS R2 where (((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and (not (exists (select 1 from PLASMO.M1_INS R3 where ((((((R3.C0 = R0.SRC_ID) and (R3.C0_LN = R0.SRC_ID_LN)) and ((R3.C1 = R0.DBACC) and (R3.C1_LN = R0.DBACC_LN))) and ((R3.C2 = R1.GO_AC) and (R3.C2_LN = R1.GO_AC_LN))) and (R3.C3_LN = R2.ID_LN)) and (R3.C4_LN = R2.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 128
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_INS R0, INTERPRO.ENTRY2METH R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 129
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.M2_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.DBACC C1, R1.METHOD_AC C2, R1.DB C3, R0.SRC_ID_LN C0_LN, R0.DBACC_LN C1_LN, R1.METHOD_AC_LN C2_LN, R1.DB_LN C3_LN from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.ENTRY2METH_INS R1 where ((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and (not (exists (select 1 from PLASMO.M2_INS R2 where (((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and ((R2.C1 = R0.DBACC) and (R2.C1_LN = R0.DBACC_LN))) and ((R2.C2 = R1.METHOD_AC) and (R2.C2_LN = R1.METHOD_AC_LN))) and ((R2.C3 = R1.DB) and (R2.C3_LN = R1.DB_LN))))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 130
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_INS R0, REFSEQ.RMVRECORDS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 131
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.M3_INS  (select distinct 1 STRATUM, R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R1.GI C3, R1.TAX_ID C4, R1.SEQ C5, R1.replacedby C6, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN, R1.GI_LN C3_LN, R1.TAX_ID_LN C4_LN, R1.SEQ_LN C5_LN, R1.replacedby_LN C6_LN from PLASMO.GENEFEAT_NEW R0, REFSEQ.RMVRECORDS_INS R1 where ((R1.ACC_LN = R0.REFSEQ_ACC_LN) and (not (exists (select 1 from PLASMO.M3_INS R2 where ((((((((R2.C0 = R0.SRC_ID) and (R2.C0_LN = R0.SRC_ID_LN)) and (R2.C1_LN = R0.PRODUCT_LN)) and (R2.C2_LN = R0.REFSEQ_ACC_LN)) and ((R2.C3 = R1.GI) and (R2.C3_LN = R1.GI_LN))) and (R2.C4_LN = R1.TAX_ID_LN)) and (R2.C5_LN = R1.SEQ_LN)) and (R2.C6_LN = R1.replacedby_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 132
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.M4_INS  (select distinct 1 STRATUM, R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from PLASMO.M4_INS R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 133
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.M5_INS  (select distinct 1 STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from PLASMO.M5_INS R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 134
+TUPLE COUNT: 1263
+INSERT RETURNED COUNT: 0
+Recursive sequence - SUBPROGRAM RETURNED COUNT: 0
+QQQQQ: 
+insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN SPECIES_LN from TAXO.NAMES_INS R0 where ((((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.NAME_LN)))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.NAME_LN)))))))
+insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C2 GO_ID, 'Interpro' SOURCE, R0.C0_LN SRC_ID_LN, R0.C2_LN GO_ID_LN, 1 SOURCE_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN))) and (R1.SOURCE_LN = 1))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN))) and (R2.SOURCE_LN = 1)))))))
+insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.C2 GO_ID, R0.C4 GO_NAME, R0.C2_LN GO_ID_LN, R0.C4_LN GO_NAME_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN)) and (R1.GO_NAME_LN = R0.C4_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN)) and (R2.GO_NAME_LN = R0.C4_LN)))))))
+insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C3 DB, R0.C2 DBACC, R0.C0_LN SRC_ID_LN, R0.C3_LN DB_LN, R0.C2_LN DBACC_LN from PLASMO.M2_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.DB = R0.C3) and (R1.DB_LN = R0.C3_LN))) and ((R1.DBACC = R0.C2) and (R1.DBACC_LN = R0.C2_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.DB = R0.C3) and (R2.DB_LN = R0.C3_LN))) and ((R2.DBACC = R0.C2) and (R2.DBACC_LN = R0.C2_LN))))))))
+insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.C3 GI, R0.C2 ACC, R0.C5 SEQ, 'YES' DEPRECATED, R0.C3_LN GI_LN, R0.C2_LN ACC_LN, R0.C5_LN SEQ_LN, 1 DEPRECATED_LN from PLASMO.M3_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.C3) and (R1.GI_LN = R0.C3_LN)) and (R1.ACC_LN = R0.C2_LN)) and (R1.SEQ_LN = R0.C5_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.C3) and (R2.GI_LN = R0.C3_LN)) and (R2.ACC_LN = R0.C2_LN)) and (R2.SEQ_LN = R0.C5_LN)) and (R2.DEPRECATED_LN = 1)))))))
+insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, 'NO' DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, 1 DEPRECATED_LN from REFSEQ.CATALOG_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = 1)))))))
+insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.NAME) and (R1.TAX_NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.NAME) and (R2.TAX_NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+insert into INTERPRO.ENTRY_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))) and (not (exists (select 1 from INTERPRO.ENTRY_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R2.NAME_LN = R0.NAME_LN)))))))
+insert into INTERPRO.ENTRY2METH_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY2METH_R R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))) and (not (exists (select 1 from INTERPRO.ENTRY2METH_INS R2 where ((((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.METHOD_AC = R0.METHOD_AC) and (R2.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))))))))
+insert into INTERPRO.INTERPRO2GO_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_L_INS R0 where ((not (exists (select 1 from INTERPRO.INTERPRO2GO_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))) and (not (exists (select 1 from INTERPRO.INTERPRO2GO_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.GO_AC = R0.GO_AC) and (R2.GO_AC_LN = R0.GO_AC_LN))))))))
+insert into GO.TERM_INS  (select distinct 1 STRATUM, R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_L_INS R0 where ((not (exists (select 1 from GO.TERM_R R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))) and (not (exists (select 1 from GO.TERM_INS R2 where (((R2.ID_LN = R0.ID_LN) and (R2.NAME_LN = R0.NAME_LN)) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))))))))
+insert into REFSEQ.CATALOG_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_L_INS R0 where ((not (exists (select 1 from REFSEQ.CATALOG_R R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))) and (not (exists (select 1 from REFSEQ.CATALOG_INS R2 where ((((R2.GI_LN = R0.GI_LN) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)))))))
+insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_L_INS R0 where ((not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.SPECIES_LN)))))))
+insert into REFSEQ.RMVRECORDS_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_L_INS R0 where ((not (exists (select 1 from REFSEQ.RMVRECORDS_R R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))) and (not (exists (select 1 from REFSEQ.RMVRECORDS_INS R2 where ((((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.replacedby_LN = R0.replacedby_LN)))))))
+insert into TAXO.NAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_L_INS R0 where ((not (exists (select 1 from TAXO.NAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from TAXO.NAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.NAME = R0.NAME) and (R2.NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+insert into PLASMO.GENEFEAT_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_L_INS R0 where ((not (exists (select 1 from PLASMO.GENEFEAT_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))) and (not (exists (select 1 from PLASMO.GENEFEAT_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and (R2.PRODUCT_LN = R0.PRODUCT_LN)) and (R2.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN)))))))
+insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_L_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = R0.DEPRECATED_LN)))))))
+insert into PLASMO.GENETAX_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_L_INS R0 where ((not (exists (select 1 from PLASMO.GENETAX_R R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))) and (not (exists (select 1 from PLASMO.GENETAX_INS R2 where (((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN))))))))
+insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_L_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.TAX_NAME) and (R2.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_L_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))) and ((R2.DBACC = R0.DBACC) and (R2.DBACC_LN = R0.DBACC_LN))))))))
+insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN))) and (R2.SOURCE_LN = R0.SOURCE_LN)))))))
+insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN)) and (R2.GO_NAME_LN = R0.GO_NAME_LN)))))))
+SQL: insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN SPECIES_LN from TAXO.NAMES_INS R0 where ((((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.NAME_LN)))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.NAME_LN)))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 135
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C2 GO_ID, 'Interpro' SOURCE, R0.C0_LN SRC_ID_LN, R0.C2_LN GO_ID_LN, 1 SOURCE_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN))) and (R1.SOURCE_LN = 1))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN))) and (R2.SOURCE_LN = 1)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 136
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.C2 GO_ID, R0.C4 GO_NAME, R0.C2_LN GO_ID_LN, R0.C4_LN GO_NAME_LN from PLASMO.M1_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.C2) and (R1.GO_ID_LN = R0.C2_LN)) and (R1.GO_NAME_LN = R0.C4_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.C2) and (R2.GO_ID_LN = R0.C2_LN)) and (R2.GO_NAME_LN = R0.C4_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 137
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.C0 SRC_ID, R0.C3 DB, R0.C2 DBACC, R0.C0_LN SRC_ID_LN, R0.C3_LN DB_LN, R0.C2_LN DBACC_LN from PLASMO.M2_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.C0) and (R1.SRC_ID_LN = R0.C0_LN)) and ((R1.DB = R0.C3) and (R1.DB_LN = R0.C3_LN))) and ((R1.DBACC = R0.C2) and (R1.DBACC_LN = R0.C2_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.C0) and (R2.SRC_ID_LN = R0.C0_LN)) and ((R2.DB = R0.C3) and (R2.DB_LN = R0.C3_LN))) and ((R2.DBACC = R0.C2) and (R2.DBACC_LN = R0.C2_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 138
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.C3 GI, R0.C2 ACC, R0.C5 SEQ, 'YES' DEPRECATED, R0.C3_LN GI_LN, R0.C2_LN ACC_LN, R0.C5_LN SEQ_LN, 1 DEPRECATED_LN from PLASMO.M3_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.C3) and (R1.GI_LN = R0.C3_LN)) and (R1.ACC_LN = R0.C2_LN)) and (R1.SEQ_LN = R0.C5_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.C3) and (R2.GI_LN = R0.C3_LN)) and (R2.ACC_LN = R0.C2_LN)) and (R2.SEQ_LN = R0.C5_LN)) and (R2.DEPRECATED_LN = 1)))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 139
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, 'NO' DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, 1 DEPRECATED_LN from REFSEQ.CATALOG_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = 1))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = 1)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 140
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.NAME) and (R1.TAX_NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.NAME) and (R2.TAX_NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 141
+TUPLE COUNT: 1263
+SQL: insert into INTERPRO.ENTRY_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))) and (not (exists (select 1 from INTERPRO.ENTRY_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R2.NAME_LN = R0.NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 142
+TUPLE COUNT: 1263
+SQL: insert into INTERPRO.ENTRY2METH_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_L_INS R0 where ((not (exists (select 1 from INTERPRO.ENTRY2METH_R R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))) and (not (exists (select 1 from INTERPRO.ENTRY2METH_INS R2 where ((((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.METHOD_AC = R0.METHOD_AC) and (R2.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 143
+TUPLE COUNT: 1263
+SQL: insert into INTERPRO.INTERPRO2GO_INS  (select distinct 1 STRATUM, R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_L_INS R0 where ((not (exists (select 1 from INTERPRO.INTERPRO2GO_R R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))) and (not (exists (select 1 from INTERPRO.INTERPRO2GO_INS R2 where (((R2.ENTRY_AC = R0.ENTRY_AC) and (R2.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R2.GO_AC = R0.GO_AC) and (R2.GO_AC_LN = R0.GO_AC_LN))))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 144
+TUPLE COUNT: 1263
+SQL: insert into GO.TERM_INS  (select distinct 1 STRATUM, R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_L_INS R0 where ((not (exists (select 1 from GO.TERM_R R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))) and (not (exists (select 1 from GO.TERM_INS R2 where (((R2.ID_LN = R0.ID_LN) and (R2.NAME_LN = R0.NAME_LN)) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 145
+TUPLE COUNT: 1263
+SQL: insert into REFSEQ.CATALOG_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_L_INS R0 where ((not (exists (select 1 from REFSEQ.CATALOG_R R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))) and (not (exists (select 1 from REFSEQ.CATALOG_INS R2 where ((((R2.GI_LN = R0.GI_LN) and ((R2.ACC = R0.ACC) and (R2.ACC_LN = R0.ACC_LN))) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 146
+TUPLE COUNT: 1263
+SQL: insert into REFSEQ.SPECIES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_L_INS R0 where ((not (exists (select 1 from REFSEQ.SPECIES_R R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))) and (not (exists (select 1 from REFSEQ.SPECIES_INS R2 where (((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SPECIES_LN = R0.SPECIES_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 147
+TUPLE COUNT: 1263
+SQL: insert into REFSEQ.RMVRECORDS_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_L_INS R0 where ((not (exists (select 1 from REFSEQ.RMVRECORDS_R R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))) and (not (exists (select 1 from REFSEQ.RMVRECORDS_INS R2 where ((((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.replacedby_LN = R0.replacedby_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 148
+TUPLE COUNT: 1263
+SQL: insert into TAXO.NAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_L_INS R0 where ((not (exists (select 1 from TAXO.NAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from TAXO.NAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.NAME = R0.NAME) and (R2.NAME_LN = R0.NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 149
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GENEFEAT_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_L_INS R0 where ((not (exists (select 1 from PLASMO.GENEFEAT_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))) and (not (exists (select 1 from PLASMO.GENEFEAT_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and (R2.PRODUCT_LN = R0.PRODUCT_LN)) and (R2.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 150
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.REFSEQ_INS  (select distinct 1 STRATUM, R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_L_INS R0 where ((not (exists (select 1 from PLASMO.REFSEQ_R R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))) and (not (exists (select 1 from PLASMO.REFSEQ_INS R2 where (((((R2.GI = R0.GI) and (R2.GI_LN = R0.GI_LN)) and (R2.ACC_LN = R0.ACC_LN)) and (R2.SEQ_LN = R0.SEQ_LN)) and (R2.DEPRECATED_LN = R0.DEPRECATED_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 151
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GENETAX_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_L_INS R0 where ((not (exists (select 1 from PLASMO.GENETAX_R R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))) and (not (exists (select 1 from PLASMO.GENETAX_INS R2 where (((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN))))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 152
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.TAXNAMES_INS  (select distinct 1 STRATUM, R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_L_INS R0 where ((not (exists (select 1 from PLASMO.TAXNAMES_R R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))) and (not (exists (select 1 from PLASMO.TAXNAMES_INS R2 where ((((R2.TAX_ID = R0.TAX_ID) and (R2.TAX_ID_LN = R0.TAX_ID_LN)) and ((R2.TAX_NAME = R0.TAX_NAME) and (R2.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R2.NAME_CLASS = R0.NAME_CLASS) and (R2.NAME_CLASS_LN = R0.NAME_CLASS_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 153
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.DOMAIN_REF_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_L_INS R0 where ((not (exists (select 1 from PLASMO.DOMAIN_REF_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))) and (not (exists (select 1 from PLASMO.DOMAIN_REF_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.DB = R0.DB) and (R2.DB_LN = R0.DB_LN))) and ((R2.DBACC = R0.DBACC) and (R2.DBACC_LN = R0.DBACC_LN))))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 154
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GOTERM_SUMMARY_INS  (select distinct 1 STRATUM, R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_SUMMARY_R R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_INS R2 where ((((R2.SRC_ID = R0.SRC_ID) and (R2.SRC_ID_LN = R0.SRC_ID_LN)) and ((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN))) and (R2.SOURCE_LN = R0.SOURCE_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 155
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GOTERM_INS  (select distinct 1 STRATUM, R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_L_INS R0 where ((not (exists (select 1 from PLASMO.GOTERM_R R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))) and (not (exists (select 1 from PLASMO.GOTERM_INS R2 where (((R2.GO_ID = R0.GO_ID) and (R2.GO_ID_LN = R0.GO_ID_LN)) and (R2.GO_NAME_LN = R0.GO_NAME_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 156
+TUPLE COUNT: 1263
+INSERT RETURNED COUNT: 0
+Recursive sequence - SUBPROGRAM RETURNED COUNT: 0
+QQQQQ: 
+insert into REFSEQ.SPECIES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_INS R0 where (not (exists (select 1 from REFSEQ.SPECIES_NEW R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))))
+insert into PLASMO.GOTERM_NEW  (select distinct R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_NEW R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))))
+insert into PLASMO.GOTERM_SUMMARY_NEW  (select distinct R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))))
+insert into GO.TERM_NEW  (select distinct R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_INS R0 where (not (exists (select 1 from GO.TERM_NEW R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))))
+insert into TAXO.NAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from TAXO.NAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+insert into PLASMO.GENEFEAT_NEW  (select distinct R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_INS R0 where (not (exists (select 1 from PLASMO.GENEFEAT_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))))
+insert into REFSEQ.CATALOG_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from REFSEQ.CATALOG_NEW R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))))
+insert into PLASMO.REFSEQ_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_INS R0 where (not (exists (select 1 from PLASMO.REFSEQ_NEW R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))))
+insert into REFSEQ.RMVRECORDS_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_INS R0 where (not (exists (select 1 from REFSEQ.RMVRECORDS_NEW R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))))
+insert into INTERPRO.ENTRY_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))))
+insert into INTERPRO.ENTRY2METH_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY2METH_NEW R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))))
+insert into PLASMO.TAXNAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_INS R0 where (not (exists (select 1 from PLASMO.TAXNAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+insert into PLASMO.DOMAIN_REF_NEW  (select distinct R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_INS R0 where (not (exists (select 1 from PLASMO.DOMAIN_REF_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))))
+insert into PLASMO.GENETAX_NEW  (select distinct R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_INS R0 where (not (exists (select 1 from PLASMO.GENETAX_NEW R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))))
+insert into INTERPRO.INTERPRO2GO_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_INS R0 where (not (exists (select 1 from INTERPRO.INTERPRO2GO_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))))
+SQL: insert into REFSEQ.SPECIES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.SPECIES SPECIES, R0.TAX_ID_LN TAX_ID_LN, R0.SPECIES_LN SPECIES_LN from REFSEQ.SPECIES_INS R0 where (not (exists (select 1 from REFSEQ.SPECIES_NEW R1 where (((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SPECIES_LN = R0.SPECIES_LN))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 157
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GOTERM_NEW  (select distinct R0.GO_ID GO_ID, R0.GO_NAME GO_NAME, R0.GO_ID_LN GO_ID_LN, R0.GO_NAME_LN GO_NAME_LN from PLASMO.GOTERM_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_NEW R1 where (((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN)) and (R1.GO_NAME_LN = R0.GO_NAME_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 158
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GOTERM_SUMMARY_NEW  (select distinct R0.SRC_ID SRC_ID, R0.GO_ID GO_ID, R0.SOURCE SOURCE, R0.SRC_ID_LN SRC_ID_LN, R0.GO_ID_LN GO_ID_LN, R0.SOURCE_LN SOURCE_LN from PLASMO.GOTERM_SUMMARY_INS R0 where (not (exists (select 1 from PLASMO.GOTERM_SUMMARY_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.GO_ID = R0.GO_ID) and (R1.GO_ID_LN = R0.GO_ID_LN))) and (R1.SOURCE_LN = R0.SOURCE_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 159
+TUPLE COUNT: 1263
+SQL: insert into GO.TERM_NEW  (select distinct R0.ID ID, R0.NAME NAME, R0.ACC ACC, R0.ID_LN ID_LN, R0.NAME_LN NAME_LN, R0.ACC_LN ACC_LN from GO.TERM_INS R0 where (not (exists (select 1 from GO.TERM_NEW R1 where (((R1.ID_LN = R0.ID_LN) and (R1.NAME_LN = R0.NAME_LN)) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 160
+TUPLE COUNT: 1263
+SQL: insert into TAXO.NAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.NAME NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.NAME_LN NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from TAXO.NAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.NAME = R0.NAME) and (R1.NAME_LN = R0.NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 161
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GENEFEAT_NEW  (select distinct R0.SRC_ID SRC_ID, R0.PRODUCT PRODUCT, R0.REFSEQ_ACC REFSEQ_ACC, R0.SRC_ID_LN SRC_ID_LN, R0.PRODUCT_LN PRODUCT_LN, R0.REFSEQ_ACC_LN REFSEQ_ACC_LN from PLASMO.GENEFEAT_INS R0 where (not (exists (select 1 from PLASMO.GENEFEAT_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and (R1.PRODUCT_LN = R0.PRODUCT_LN)) and (R1.REFSEQ_ACC_LN = R0.REFSEQ_ACC_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 162
+TUPLE COUNT: 1263
+SQL: insert into REFSEQ.CATALOG_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from REFSEQ.CATALOG_NEW R1 where ((((R1.GI_LN = R0.GI_LN) and ((R1.ACC = R0.ACC) and (R1.ACC_LN = R0.ACC_LN))) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 163
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.REFSEQ_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.SEQ SEQ, R0.DEPRECATED DEPRECATED, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.SEQ_LN SEQ_LN, R0.DEPRECATED_LN DEPRECATED_LN from PLASMO.REFSEQ_INS R0 where (not (exists (select 1 from PLASMO.REFSEQ_NEW R1 where (((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.DEPRECATED_LN = R0.DEPRECATED_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 164
+TUPLE COUNT: 1263
+SQL: insert into REFSEQ.RMVRECORDS_NEW  (select distinct R0.GI GI, R0.ACC ACC, R0.TAX_ID TAX_ID, R0.SEQ SEQ, R0.replacedby replacedby, R0.GI_LN GI_LN, R0.ACC_LN ACC_LN, R0.TAX_ID_LN TAX_ID_LN, R0.SEQ_LN SEQ_LN, R0.replacedby_LN replacedby_LN from REFSEQ.RMVRECORDS_INS R0 where (not (exists (select 1 from REFSEQ.RMVRECORDS_NEW R1 where ((((((R1.GI = R0.GI) and (R1.GI_LN = R0.GI_LN)) and (R1.ACC_LN = R0.ACC_LN)) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and (R1.SEQ_LN = R0.SEQ_LN)) and (R1.replacedby_LN = R0.replacedby_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 165
+TUPLE COUNT: 1263
+SQL: insert into INTERPRO.ENTRY_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.NAME NAME, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.NAME_LN NAME_LN from INTERPRO.ENTRY_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and (R1.NAME_LN = R0.NAME_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 166
+TUPLE COUNT: 1263
+SQL: insert into INTERPRO.ENTRY2METH_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.METHOD_AC METHOD_AC, R0.DB DB, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.METHOD_AC_LN METHOD_AC_LN, R0.DB_LN DB_LN from INTERPRO.ENTRY2METH_INS R0 where (not (exists (select 1 from INTERPRO.ENTRY2METH_NEW R1 where ((((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.METHOD_AC = R0.METHOD_AC) and (R1.METHOD_AC_LN = R0.METHOD_AC_LN))) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 167
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.TAXNAMES_NEW  (select distinct R0.TAX_ID TAX_ID, R0.TAX_NAME TAX_NAME, R0.NAME_CLASS NAME_CLASS, R0.TAX_ID_LN TAX_ID_LN, R0.TAX_NAME_LN TAX_NAME_LN, R0.NAME_CLASS_LN NAME_CLASS_LN from PLASMO.TAXNAMES_INS R0 where (not (exists (select 1 from PLASMO.TAXNAMES_NEW R1 where ((((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)) and ((R1.TAX_NAME = R0.TAX_NAME) and (R1.TAX_NAME_LN = R0.TAX_NAME_LN))) and ((R1.NAME_CLASS = R0.NAME_CLASS) and (R1.NAME_CLASS_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 168
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.DOMAIN_REF_NEW  (select distinct R0.SRC_ID SRC_ID, R0.DB DB, R0.DBACC DBACC, R0.SRC_ID_LN SRC_ID_LN, R0.DB_LN DB_LN, R0.DBACC_LN DBACC_LN from PLASMO.DOMAIN_REF_INS R0 where (not (exists (select 1 from PLASMO.DOMAIN_REF_NEW R1 where ((((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.DB = R0.DB) and (R1.DB_LN = R0.DB_LN))) and ((R1.DBACC = R0.DBACC) and (R1.DBACC_LN = R0.DBACC_LN)))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 169
+TUPLE COUNT: 1263
+SQL: insert into PLASMO.GENETAX_NEW  (select distinct R0.SRC_ID SRC_ID, R0.TAX_ID TAX_ID, R0.SRC_ID_LN SRC_ID_LN, R0.TAX_ID_LN TAX_ID_LN from PLASMO.GENETAX_INS R0 where (not (exists (select 1 from PLASMO.GENETAX_NEW R1 where (((R1.SRC_ID = R0.SRC_ID) and (R1.SRC_ID_LN = R0.SRC_ID_LN)) and ((R1.TAX_ID = R0.TAX_ID) and (R1.TAX_ID_LN = R0.TAX_ID_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 170
+TUPLE COUNT: 1263
+SQL: insert into INTERPRO.INTERPRO2GO_NEW  (select distinct R0.ENTRY_AC ENTRY_AC, R0.GO_AC GO_AC, R0.ENTRY_AC_LN ENTRY_AC_LN, R0.GO_AC_LN GO_AC_LN from INTERPRO.INTERPRO2GO_INS R0 where (not (exists (select 1 from INTERPRO.INTERPRO2GO_NEW R1 where (((R1.ENTRY_AC = R0.ENTRY_AC) and (R1.ENTRY_AC_LN = R0.ENTRY_AC_LN)) and ((R1.GO_AC = R0.GO_AC) and (R1.GO_AC_LN = R0.GO_AC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 171
+TUPLE COUNT: 1263
+DELETE RETURNED COUNT: 0
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+QQQQQ: 
+insert into REFSEQ.M0_NEW  (select distinct R0.TAX_ID C0, R0.NAME C1, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN from TAXO.NAMES_INS R0 where (((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.M0_NEW R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))))))))
+insert into PLASMO.M1_NEW  (select distinct R0.C0 C0, R0.C1 C1, R0.C2 C2, R0.C3 C3, R0.C4 C4, R0.C0_LN C0_LN, R0.C1_LN C1_LN, R0.C2_LN C2_LN, R0.C3_LN C3_LN, R0.C4_LN C4_LN from PLASMO.M1_INS R0 where (not (exists (select 1 from PLASMO.M1_NEW R1 where ((((((R1.C0 = R0.C0) and (R1.C0_LN = R0.C0_LN)) and ((R1.C1 = R0.C1) and (R1.C1_LN = R0.C1_LN))) and ((R1.C2 = R0.C2) and (R1.C2_LN = R0.C2_LN))) and (R1.C3_LN = R0.C3_LN)) and (R1.C4_LN = R0.C4_LN))))))
+insert into PLASMO.M2_NEW  (select distinct R0.C0 C0, R0.C1 C1, R0.C2 C2, R0.C3 C3, R0.C0_LN C0_LN, R0.C1_LN C1_LN, R0.C2_LN C2_LN, R0.C3_LN C3_LN from PLASMO.M2_INS R0 where (not (exists (select 1 from PLASMO.M2_NEW R1 where (((((R1.C0 = R0.C0) and (R1.C0_LN = R0.C0_LN)) and ((R1.C1 = R0.C1) and (R1.C1_LN = R0.C1_LN))) and ((R1.C2 = R0.C2) and (R1.C2_LN = R0.C2_LN))) and ((R1.C3 = R0.C3) and (R1.C3_LN = R0.C3_LN)))))))
+insert into PLASMO.M3_NEW  (select distinct R0.C0 C0, R0.C1 C1, R0.C2 C2, R0.C3 C3, R0.C4 C4, R0.C5 C5, R0.C6 C6, R0.C0_LN C0_LN, R0.C1_LN C1_LN, R0.C2_LN C2_LN, R0.C3_LN C3_LN, R0.C4_LN C4_LN, R0.C5_LN C5_LN, R0.C6_LN C6_LN from PLASMO.M3_INS R0 where (not (exists (select 1 from PLASMO.M3_NEW R1 where ((((((((R1.C0 = R0.C0) and (R1.C0_LN = R0.C0_LN)) and (R1.C1_LN = R0.C1_LN)) and (R1.C2_LN = R0.C2_LN)) and ((R1.C3 = R0.C3) and (R1.C3_LN = R0.C3_LN))) and (R1.C4_LN = R0.C4_LN)) and (R1.C5_LN = R0.C5_LN)) and (R1.C6_LN = R0.C6_LN))))))
+insert into PLASMO.M4_NEW  (select distinct R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from PLASMO.M4_NEW R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+insert into PLASMO.M5_NEW  (select distinct R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from PLASMO.M5_NEW R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+insert into INTERPRO.M6_NEW  (select distinct R0.ENTRY_AC C0, R0.NAME C1, R0.ENTRY_AC_LN C0_LN, R0.NAME_LN C1_LN from INTERPRO.ENTRY_L_INS R0 where (not (exists (select 1 from INTERPRO.M6_NEW R1 where (((R1.C0 = R0.ENTRY_AC) and (R1.C0_LN = R0.ENTRY_AC_LN)) and (R1.C1_LN = R0.NAME_LN))))))
+insert into INTERPRO.M7_NEW  (select distinct R0.ENTRY_AC C0, R0.METHOD_AC C1, R0.DB C2, R0.ENTRY_AC_LN C0_LN, R0.METHOD_AC_LN C1_LN, R0.DB_LN C2_LN from INTERPRO.ENTRY2METH_L_INS R0 where (not (exists (select 1 from INTERPRO.M7_NEW R1 where ((((R1.C0 = R0.ENTRY_AC) and (R1.C0_LN = R0.ENTRY_AC_LN)) and ((R1.C1 = R0.METHOD_AC) and (R1.C1_LN = R0.METHOD_AC_LN))) and ((R1.C2 = R0.DB) and (R1.C2_LN = R0.DB_LN)))))))
+insert into INTERPRO.M8_NEW  (select distinct R0.ENTRY_AC C0, R0.GO_AC C1, R0.ENTRY_AC_LN C0_LN, R0.GO_AC_LN C1_LN from INTERPRO.INTERPRO2GO_L_INS R0 where (not (exists (select 1 from INTERPRO.M8_NEW R1 where (((R1.C0 = R0.ENTRY_AC) and (R1.C0_LN = R0.ENTRY_AC_LN)) and ((R1.C1 = R0.GO_AC) and (R1.C1_LN = R0.GO_AC_LN)))))))
+insert into GO.M9_NEW  (select distinct R0.ID C0, R0.NAME C1, R0.ACC C2, R0.ID_LN C0_LN, R0.NAME_LN C1_LN, R0.ACC_LN C2_LN from GO.TERM_L_INS R0 where (not (exists (select 1 from GO.M9_NEW R1 where (((R1.C0_LN = R0.ID_LN) and (R1.C1_LN = R0.NAME_LN)) and ((R1.C2 = R0.ACC) and (R1.C2_LN = R0.ACC_LN)))))))
+insert into REFSEQ.M10_NEW  (select distinct R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_L_INS R0 where (not (exists (select 1 from REFSEQ.M10_NEW R1 where ((((R1.C0_LN = R0.GI_LN) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+insert into REFSEQ.M11_NEW  (select distinct R0.TAX_ID C0, R0.SPECIES C1, R0.TAX_ID_LN C0_LN, R0.SPECIES_LN C1_LN from REFSEQ.SPECIES_L_INS R0 where (not (exists (select 1 from REFSEQ.M11_NEW R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and (R1.C1_LN = R0.SPECIES_LN))))))
+insert into REFSEQ.M12_NEW  (select distinct R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.replacedby C4, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN, R0.replacedby_LN C4_LN from REFSEQ.RMVRECORDS_L_INS R0 where (not (exists (select 1 from REFSEQ.M12_NEW R1 where ((((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and (R1.C1_LN = R0.ACC_LN)) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN)) and (R1.C4_LN = R0.replacedby_LN))))))
+insert into TAXO.M13_NEW  (select distinct R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_L_INS R0 where (not (exists (select 1 from TAXO.M13_NEW R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+insert into PLASMO.M14_NEW  (select distinct R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN from PLASMO.GENEFEAT_L_INS R0 where (not (exists (select 1 from PLASMO.M14_NEW R1 where ((((R1.C0 = R0.SRC_ID) and (R1.C0_LN = R0.SRC_ID_LN)) and (R1.C1_LN = R0.PRODUCT_LN)) and (R1.C2_LN = R0.REFSEQ_ACC_LN))))))
+insert into PLASMO.M15_NEW  (select distinct R0.GI C0, R0.ACC C1, R0.SEQ C2, R0.DEPRECATED C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.SEQ_LN C2_LN, R0.DEPRECATED_LN C3_LN from PLASMO.REFSEQ_L_INS R0 where (not (exists (select 1 from PLASMO.M15_NEW R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and (R1.C1_LN = R0.ACC_LN)) and (R1.C2_LN = R0.SEQ_LN)) and (R1.C3_LN = R0.DEPRECATED_LN))))))
+insert into PLASMO.M16_NEW  (select distinct R0.SRC_ID C0, R0.TAX_ID C1, R0.SRC_ID_LN C0_LN, R0.TAX_ID_LN C1_LN from PLASMO.GENETAX_L_INS R0 where (not (exists (select 1 from PLASMO.M16_NEW R1 where (((R1.C0 = R0.SRC_ID) and (R1.C0_LN = R0.SRC_ID_LN)) and ((R1.C1 = R0.TAX_ID) and (R1.C1_LN = R0.TAX_ID_LN)))))))
+insert into PLASMO.M17_NEW  (select distinct R0.TAX_ID C0, R0.TAX_NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.TAX_NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from PLASMO.TAXNAMES_L_INS R0 where (not (exists (select 1 from PLASMO.M17_NEW R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.TAX_NAME) and (R1.C1_LN = R0.TAX_NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+insert into PLASMO.M18_NEW  (select distinct R0.SRC_ID C0, R0.DB C1, R0.DBACC C2, R0.SRC_ID_LN C0_LN, R0.DB_LN C1_LN, R0.DBACC_LN C2_LN from PLASMO.DOMAIN_REF_L_INS R0 where (not (exists (select 1 from PLASMO.M18_NEW R1 where ((((R1.C0 = R0.SRC_ID) and (R1.C0_LN = R0.SRC_ID_LN)) and ((R1.C1 = R0.DB) and (R1.C1_LN = R0.DB_LN))) and ((R1.C2 = R0.DBACC) and (R1.C2_LN = R0.DBACC_LN)))))))
+insert into PLASMO.M19_NEW  (select distinct R0.SRC_ID C0, R0.GO_ID C1, R0.SOURCE C2, R0.SRC_ID_LN C0_LN, R0.GO_ID_LN C1_LN, R0.SOURCE_LN C2_LN from PLASMO.GOTERM_SUMMARY_L_INS R0 where (not (exists (select 1 from PLASMO.M19_NEW R1 where ((((R1.C0 = R0.SRC_ID) and (R1.C0_LN = R0.SRC_ID_LN)) and ((R1.C1 = R0.GO_ID) and (R1.C1_LN = R0.GO_ID_LN))) and (R1.C2_LN = R0.SOURCE_LN))))))
+insert into PLASMO.M20_NEW  (select distinct R0.GO_ID C0, R0.GO_NAME C1, R0.GO_ID_LN C0_LN, R0.GO_NAME_LN C1_LN from PLASMO.GOTERM_L_INS R0 where (not (exists (select 1 from PLASMO.M20_NEW R1 where (((R1.C0 = R0.GO_ID) and (R1.C0_LN = R0.GO_ID_LN)) and (R1.C1_LN = R0.GO_NAME_LN))))))
+SQL: insert into REFSEQ.M0_NEW  (select distinct R0.TAX_ID C0, R0.NAME C1, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN from TAXO.NAMES_INS R0 where (((R0.NAME_CLASS = 'scientific name') and (R0.NAME_CLASS_LN = 1)) and (not (exists (select 1 from REFSEQ.M0_NEW R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 172
+TUPLE COUNT: 1265
+SQL: insert into PLASMO.M1_NEW  (select distinct R0.C0 C0, R0.C1 C1, R0.C2 C2, R0.C3 C3, R0.C4 C4, R0.C0_LN C0_LN, R0.C1_LN C1_LN, R0.C2_LN C2_LN, R0.C3_LN C3_LN, R0.C4_LN C4_LN from PLASMO.M1_INS R0 where (not (exists (select 1 from PLASMO.M1_NEW R1 where ((((((R1.C0 = R0.C0) and (R1.C0_LN = R0.C0_LN)) and ((R1.C1 = R0.C1) and (R1.C1_LN = R0.C1_LN))) and ((R1.C2 = R0.C2) and (R1.C2_LN = R0.C2_LN))) and (R1.C3_LN = R0.C3_LN)) and (R1.C4_LN = R0.C4_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 44
+QUERY COUNT: 173
+TUPLE COUNT: 1309
+SQL: insert into PLASMO.M2_NEW  (select distinct R0.C0 C0, R0.C1 C1, R0.C2 C2, R0.C3 C3, R0.C0_LN C0_LN, R0.C1_LN C1_LN, R0.C2_LN C2_LN, R0.C3_LN C3_LN from PLASMO.M2_INS R0 where (not (exists (select 1 from PLASMO.M2_NEW R1 where (((((R1.C0 = R0.C0) and (R1.C0_LN = R0.C0_LN)) and ((R1.C1 = R0.C1) and (R1.C1_LN = R0.C1_LN))) and ((R1.C2 = R0.C2) and (R1.C2_LN = R0.C2_LN))) and ((R1.C3 = R0.C3) and (R1.C3_LN = R0.C3_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 49
+QUERY COUNT: 174
+TUPLE COUNT: 1358
+SQL: insert into PLASMO.M3_NEW  (select distinct R0.C0 C0, R0.C1 C1, R0.C2 C2, R0.C3 C3, R0.C4 C4, R0.C5 C5, R0.C6 C6, R0.C0_LN C0_LN, R0.C1_LN C1_LN, R0.C2_LN C2_LN, R0.C3_LN C3_LN, R0.C4_LN C4_LN, R0.C5_LN C5_LN, R0.C6_LN C6_LN from PLASMO.M3_INS R0 where (not (exists (select 1 from PLASMO.M3_NEW R1 where ((((((((R1.C0 = R0.C0) and (R1.C0_LN = R0.C0_LN)) and (R1.C1_LN = R0.C1_LN)) and (R1.C2_LN = R0.C2_LN)) and ((R1.C3 = R0.C3) and (R1.C3_LN = R0.C3_LN))) and (R1.C4_LN = R0.C4_LN)) and (R1.C5_LN = R0.C5_LN)) and (R1.C6_LN = R0.C6_LN))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 175
+TUPLE COUNT: 1358
+SQL: insert into PLASMO.M4_NEW  (select distinct R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_INS R0 where (not (exists (select 1 from PLASMO.M4_NEW R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 176
+TUPLE COUNT: 1385
+SQL: insert into PLASMO.M5_NEW  (select distinct R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_INS R0 where (not (exists (select 1 from PLASMO.M5_NEW R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 177
+TUPLE COUNT: 1387
+SQL: insert into INTERPRO.M6_NEW  (select distinct R0.ENTRY_AC C0, R0.NAME C1, R0.ENTRY_AC_LN C0_LN, R0.NAME_LN C1_LN from INTERPRO.ENTRY_L_INS R0 where (not (exists (select 1 from INTERPRO.M6_NEW R1 where (((R1.C0 = R0.ENTRY_AC) and (R1.C0_LN = R0.ENTRY_AC_LN)) and (R1.C1_LN = R0.NAME_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 19
+QUERY COUNT: 178
+TUPLE COUNT: 1406
+SQL: insert into INTERPRO.M7_NEW  (select distinct R0.ENTRY_AC C0, R0.METHOD_AC C1, R0.DB C2, R0.ENTRY_AC_LN C0_LN, R0.METHOD_AC_LN C1_LN, R0.DB_LN C2_LN from INTERPRO.ENTRY2METH_L_INS R0 where (not (exists (select 1 from INTERPRO.M7_NEW R1 where ((((R1.C0 = R0.ENTRY_AC) and (R1.C0_LN = R0.ENTRY_AC_LN)) and ((R1.C1 = R0.METHOD_AC) and (R1.C1_LN = R0.METHOD_AC_LN))) and ((R1.C2 = R0.DB) and (R1.C2_LN = R0.DB_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 48
+QUERY COUNT: 179
+TUPLE COUNT: 1454
+SQL: insert into INTERPRO.M8_NEW  (select distinct R0.ENTRY_AC C0, R0.GO_AC C1, R0.ENTRY_AC_LN C0_LN, R0.GO_AC_LN C1_LN from INTERPRO.INTERPRO2GO_L_INS R0 where (not (exists (select 1 from INTERPRO.M8_NEW R1 where (((R1.C0 = R0.ENTRY_AC) and (R1.C0_LN = R0.ENTRY_AC_LN)) and ((R1.C1 = R0.GO_AC) and (R1.C1_LN = R0.GO_AC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 41
+QUERY COUNT: 180
+TUPLE COUNT: 1495
+SQL: insert into GO.M9_NEW  (select distinct R0.ID C0, R0.NAME C1, R0.ACC C2, R0.ID_LN C0_LN, R0.NAME_LN C1_LN, R0.ACC_LN C2_LN from GO.TERM_L_INS R0 where (not (exists (select 1 from GO.M9_NEW R1 where (((R1.C0_LN = R0.ID_LN) and (R1.C1_LN = R0.NAME_LN)) and ((R1.C2 = R0.ACC) and (R1.C2_LN = R0.ACC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 33
+QUERY COUNT: 181
+TUPLE COUNT: 1528
+SQL: insert into REFSEQ.M10_NEW  (select distinct R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN from REFSEQ.CATALOG_L_INS R0 where (not (exists (select 1 from REFSEQ.M10_NEW R1 where ((((R1.C0_LN = R0.GI_LN) and ((R1.C1 = R0.ACC) and (R1.C1_LN = R0.ACC_LN))) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 182
+TUPLE COUNT: 1555
+SQL: insert into REFSEQ.M11_NEW  (select distinct R0.TAX_ID C0, R0.SPECIES C1, R0.TAX_ID_LN C0_LN, R0.SPECIES_LN C1_LN from REFSEQ.SPECIES_L_INS R0 where (not (exists (select 1 from REFSEQ.M11_NEW R1 where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and (R1.C1_LN = R0.SPECIES_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 183
+TUPLE COUNT: 1557
+SQL: insert into REFSEQ.M12_NEW  (select distinct R0.GI C0, R0.ACC C1, R0.TAX_ID C2, R0.SEQ C3, R0.replacedby C4, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.TAX_ID_LN C2_LN, R0.SEQ_LN C3_LN, R0.replacedby_LN C4_LN from REFSEQ.RMVRECORDS_L_INS R0 where (not (exists (select 1 from REFSEQ.M12_NEW R1 where ((((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and (R1.C1_LN = R0.ACC_LN)) and (R1.C2_LN = R0.TAX_ID_LN)) and (R1.C3_LN = R0.SEQ_LN)) and (R1.C4_LN = R0.replacedby_LN))))))
+QUERY EXECUTION TIME: 15msec
+LAST QUERY COUNT: 0
+QUERY COUNT: 184
+TUPLE COUNT: 1557
+SQL: insert into TAXO.M13_NEW  (select distinct R0.TAX_ID C0, R0.NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from TAXO.NAMES_L_INS R0 where (not (exists (select 1 from TAXO.M13_NEW R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 185
+TUPLE COUNT: 1559
+SQL: insert into PLASMO.M14_NEW  (select distinct R0.SRC_ID C0, R0.PRODUCT C1, R0.REFSEQ_ACC C2, R0.SRC_ID_LN C0_LN, R0.PRODUCT_LN C1_LN, R0.REFSEQ_ACC_LN C2_LN from PLASMO.GENEFEAT_L_INS R0 where (not (exists (select 1 from PLASMO.M14_NEW R1 where ((((R1.C0 = R0.SRC_ID) and (R1.C0_LN = R0.SRC_ID_LN)) and (R1.C1_LN = R0.PRODUCT_LN)) and (R1.C2_LN = R0.REFSEQ_ACC_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 186
+TUPLE COUNT: 1586
+SQL: insert into PLASMO.M15_NEW  (select distinct R0.GI C0, R0.ACC C1, R0.SEQ C2, R0.DEPRECATED C3, R0.GI_LN C0_LN, R0.ACC_LN C1_LN, R0.SEQ_LN C2_LN, R0.DEPRECATED_LN C3_LN from PLASMO.REFSEQ_L_INS R0 where (not (exists (select 1 from PLASMO.M15_NEW R1 where (((((R1.C0 = R0.GI) and (R1.C0_LN = R0.GI_LN)) and (R1.C1_LN = R0.ACC_LN)) and (R1.C2_LN = R0.SEQ_LN)) and (R1.C3_LN = R0.DEPRECATED_LN))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 27
+QUERY COUNT: 187
+TUPLE COUNT: 1613
+SQL: insert into PLASMO.M16_NEW  (select distinct R0.SRC_ID C0, R0.TAX_ID C1, R0.SRC_ID_LN C0_LN, R0.TAX_ID_LN C1_LN from PLASMO.GENETAX_L_INS R0 where (not (exists (select 1 from PLASMO.M16_NEW R1 where (((R1.C0 = R0.SRC_ID) and (R1.C0_LN = R0.SRC_ID_LN)) and ((R1.C1 = R0.TAX_ID) and (R1.C1_LN = R0.TAX_ID_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 29
+QUERY COUNT: 188
+TUPLE COUNT: 1642
+SQL: insert into PLASMO.M17_NEW  (select distinct R0.TAX_ID C0, R0.TAX_NAME C1, R0.NAME_CLASS C2, R0.TAX_ID_LN C0_LN, R0.TAX_NAME_LN C1_LN, R0.NAME_CLASS_LN C2_LN from PLASMO.TAXNAMES_L_INS R0 where (not (exists (select 1 from PLASMO.M17_NEW R1 where ((((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.TAX_NAME) and (R1.C1_LN = R0.TAX_NAME_LN))) and ((R1.C2 = R0.NAME_CLASS) and (R1.C2_LN = R0.NAME_CLASS_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 2
+QUERY COUNT: 189
+TUPLE COUNT: 1644
+SQL: insert into PLASMO.M18_NEW  (select distinct R0.SRC_ID C0, R0.DB C1, R0.DBACC C2, R0.SRC_ID_LN C0_LN, R0.DB_LN C1_LN, R0.DBACC_LN C2_LN from PLASMO.DOMAIN_REF_L_INS R0 where (not (exists (select 1 from PLASMO.M18_NEW R1 where ((((R1.C0 = R0.SRC_ID) and (R1.C0_LN = R0.SRC_ID_LN)) and ((R1.C1 = R0.DB) and (R1.C1_LN = R0.DB_LN))) and ((R1.C2 = R0.DBACC) and (R1.C2_LN = R0.DBACC_LN)))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 20
+QUERY COUNT: 190
+TUPLE COUNT: 1664
+SQL: insert into PLASMO.M19_NEW  (select distinct R0.SRC_ID C0, R0.GO_ID C1, R0.SOURCE C2, R0.SRC_ID_LN C0_LN, R0.GO_ID_LN C1_LN, R0.SOURCE_LN C2_LN from PLASMO.GOTERM_SUMMARY_L_INS R0 where (not (exists (select 1 from PLASMO.M19_NEW R1 where ((((R1.C0 = R0.SRC_ID) and (R1.C0_LN = R0.SRC_ID_LN)) and ((R1.C1 = R0.GO_ID) and (R1.C1_LN = R0.GO_ID_LN))) and (R1.C2_LN = R0.SOURCE_LN))))))
+QUERY EXECUTION TIME: 0msec
+LAST QUERY COUNT: 37
+QUERY COUNT: 191
+TUPLE COUNT: 1701
+SQL: insert into PLASMO.M20_NEW  (select distinct R0.GO_ID C0, R0.GO_NAME C1, R0.GO_ID_LN C0_LN, R0.GO_NAME_LN C1_LN from PLASMO.GOTERM_L_INS R0 where (not (exists (select 1 from PLASMO.M20_NEW R1 where (((R1.C0 = R0.GO_ID) and (R1.C0_LN = R0.GO_ID_LN)) and (R1.C1_LN = R0.GO_NAME_LN))))))
+QUERY EXECUTION TIME: 16msec
+LAST QUERY COUNT: 33
+QUERY COUNT: 192
+TUPLE COUNT: 1734
+INSERT RETURNED COUNT: 471
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 719msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 719msec
+TOTAL QUERY COUNT: 192
+TOTAL PREPARED STMT COUNT: 0
+PREPARE CALLS: 0
+SLOWEST QUERY: 6
+SLOWEST QUERY TIME: 16msec
+TOTAL TUPLE COUNT: 1734
+LOGGING TIME: 0msec

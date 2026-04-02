@@ -1,0 +1,213 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+import static edu.upenn.cis.orchestra.p2pqp.TestDistributedQP.initNodes;
+
+import static edu.upenn.cis.orchestra.p2pqp.plan.ScanNode.Type.*;
+import static org.junit.Assert.assertEquals;
+
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.sleepycat.je.Environment;
+
+import edu.upenn.cis.orchestra.datamodel.IntType;
+import edu.upenn.cis.orchestra.datamodel.PrimaryKey;
+import edu.upenn.cis.orchestra.optimization.Aggregate.AggFunc;
+import edu.upenn.cis.orchestra.p2pqp.QpApplication.RecoveryMode;
+import edu.upenn.cis.orchestra.p2pqp.TestDistributedQP.InitializedNodes;
+import edu.upenn.cis.orchestra.p2pqp.plan.AggregateNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.AggregateNode.OutputColumn;
+import edu.upenn.cis.orchestra.p2pqp.plan.CentralizedLoc;
+import edu.upenn.cis.orchestra.p2pqp.plan.DistributedLoc;
+import edu.upenn.cis.orchestra.p2pqp.plan.ScanNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.ProjectNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.QueryPlan;
+import edu.upenn.cis.orchestra.p2pqp.plan.QueryPlanWithSchemas;
+import edu.upenn.cis.orchestra.p2pqp.plan.ShipNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.SpoolNode;
+
+public class TestDistributedQPwithCounts {
+	static List<QpApplication<Integer>> nodes;
+	static Environment e;
+	
+	static final Logger logger = Logger.getLogger(TestDistributedQPwithCounts.class);
+	static final Map<String,InetSocketAddress> namedNodes = Collections.emptyMap();
+	static final int numNodes = 4;
+	
+	static QpSchema r, s;
+
+	static QpTuple<Integer> r111, r112, r113, r121, r131;
+	static QpTuple<Integer> s15, s36, s37;
+	static List<QpTuple<Integer>> rTuples, sTuples;
+
+	@BeforeClass
+	public static void setUpNetwork() {
+		Logger.getRootLogger().setLevel(Level.INFO);
+		Logger.getRootLogger().removeAllAppenders();
+		Logger.getRootLogger().addAppender(new ConsoleAppender(new SimpleLayout()));
+		
+		try {
+			InetAddress localhost = InetAddress.getLocalHost();
+
+			InitializedNodes<Integer> initData = initNodes(logger, numNodes, localhost, 6000, CountMetadataFactory.getInstance(), namedNodes);
+			e = initData.e;
+			nodes = initData.nodes;
+
+			r = new QpSchema("R", 1);
+			r.addCol("a", IntType.INT);
+			r.addCol("b", IntType.INT);
+			r.addCol("c", IntType.INT);
+			r.setPrimaryKey(new PrimaryKey("pk", r, Arrays.asList("a", "b", "c")));
+			r.setHashCols(new int[] {0});
+			r.markFinished();
+
+			s = new QpSchema("S", 2);
+			s.addCol("b", IntType.INT);
+			s.addCol("c", IntType.INT);
+			s.setPrimaryKey(new PrimaryKey("pk", s, Collections.singleton("b")));
+			s.setHashCols(new int[] {0});
+			s.markFinished();
+			
+			r111 = new QpTuple<Integer>(r, new Object[] {1,1,1});
+			r112 = new QpTuple<Integer>(r, new Object[] {1,1,2});
+			r113 = new QpTuple<Integer>(r, new Object[] {1,1,3});
+			r121 = new QpTuple<Integer>(r, new Object[] {1,2,1});
+			r131 = new QpTuple<Integer>(r, new Object[] {1,3,1});
+			
+			s15 = new QpTuple<Integer>(s, new Object[] {1,5});
+			s36 = new QpTuple<Integer>(s, new Object[] {3,6});
+			s37 = new QpTuple<Integer>(s, new Object[] {3,7});
+
+		} catch (Exception e) {
+			logger.fatal("Exception setting up network", e);
+		}
+
+		List<QpTuple<Integer>> rTuples = new ArrayList<QpTuple<Integer>>();
+		rTuples.add(r111);
+		rTuples.add(r112);
+		rTuples.add(r113);
+		rTuples.add(r121);
+		rTuples.add(r131);
+		TestDistributedQPwithCounts.rTuples = Collections.unmodifiableList(rTuples);
+		
+		List<QpTuple<Integer>> sTuples = new ArrayList<QpTuple<Integer>>();
+		sTuples.add(s15);
+		sTuples.add(s36);
+		sTuples.add(s37);
+		TestDistributedQPwithCounts.sTuples = Collections.unmodifiableList(sTuples);
+	}
+
+	
+	@AfterClass
+	public static void tearDownNetwork() {
+		try {
+			for (QpApplication<?> node : nodes) {
+				node.stop();
+			}
+			e.close();
+		} catch (Exception e) {
+			logger.fatal("Error tearing down network", e);
+		}
+	}
+
+	@Before
+	public void setUp() {
+		try {
+			for (QpApplication<?> node : nodes) {
+				node.clear();
+				node.addTable(r, 0);
+				node.addTable(s, 0);
+			}
+			System.out.println("Reset network state");
+		} catch (Exception e) {
+			logger.fatal("Error clearing network state", e);
+		}
+	}
+	
+	@Test
+	public void testScanWithProjection() throws Exception {
+		QpApplication<Integer> n0 = nodes.get(0), n1 = nodes.get(1);
+		n0.dht.addTuples(r.relId, rTuples, 0);
+		n0.dht.finishEpochForRelation("R");
+		
+		QpSchema rr = new QpSchema("RR", -2);
+		rr.addCol("a", IntType.INT);
+		rr.addCol("b", IntType.INT);
+		rr.setCentralized();
+		rr.markFinished();
+		
+		QueryPlan<Null> qp = new ScanNode<Null>(r, null, null, DistributedLoc.getInstance(), 0, DistributedScan);
+		int[] map = {0, 1};
+		qp = new ProjectNode<Null>(r, map, rr, DistributedLoc.getInstance(), 1, qp);
+		qp = new ShipNode<Null>(rr, DistributedLoc.getInstance(), 2, qp);
+		qp = new SpoolNode<Null>(rr,3,qp);
+		
+		QueryPlanWithSchemas<Null> qpws = new QueryPlanWithSchemas<Null>(qp, Collections.singletonList(rr), Null.class);
+		n1.beginQueryFromNonMetadataPlan(5, 0, qpws, RecoveryMode.ABORT);
+		List<QpTuple<Integer>> result = n1.getQueryResultWithMetadata(5);
+		
+		Map<QpTuple<Null>,Integer> resultMap = new HashMap<QpTuple<Null>,Integer>();
+		for (QpTuple<Integer> t : result) {
+			resultMap.put(t.changeMetadata((Null) null, null), t.getMetadata(null, CountMetadataFactory.getInstance()));
+		}
+		
+		Map<QpTuple<Null>,Integer> expectedMap = new HashMap<QpTuple<Null>,Integer>();
+		expectedMap.put(new QpTuple<Null>(rr, new Object[] {1,1}), 3);
+		expectedMap.put(new QpTuple<Null>(rr, new Object[] {1,2}), 1);
+		expectedMap.put(new QpTuple<Null>(rr, new Object[] {1,3}), 1);
+		
+		assertEquals("Incorrect result from scan with projection", expectedMap, resultMap);
+	}
+	
+	@Test
+	public void testScanWithAggregation() throws Exception {
+		QpApplication<Integer> n0 = nodes.get(0), n1 = nodes.get(1);
+		n0.dht.addTuples(r.relId, rTuples, 0);
+		n0.dht.finishEpochForRelation("R");
+		
+		QpSchema rr = new QpSchema("RR", -2);
+		rr.addCol("a", IntType.INT);
+		rr.addCol("b", IntType.INT);
+		rr.setCentralized();
+		rr.markFinished();
+		
+		QpSchema agg = new QpSchema("AGG", -3);
+		agg.addCol("a", IntType.INT);
+		agg.addCol("sum", IntType.INT);
+		agg.setCentralized();
+		agg.markFinished();
+		
+		QueryPlan<Integer> qp = new ScanNode<Integer>(r, null, null, DistributedLoc.getInstance(), 0, DistributedScan);
+		int[] map = {0, 1};
+		qp = new ProjectNode<Integer>(r, map, rr, DistributedLoc.getInstance(), 1, qp);
+		qp = new ShipNode<Integer>(rr, DistributedLoc.getInstance(), 2, qp);
+		qp = new AggregateNode<Integer>(rr, agg, Arrays.asList(0), Arrays.asList(new OutputColumn(0), new OutputColumn(1,AggFunc.SUM)), CentralizedLoc.getInstance(), 3, qp);
+		qp = new SpoolNode<Integer>(agg,4,qp);
+		
+		QueryPlanWithSchemas<Integer> qpws = new QueryPlanWithSchemas<Integer>(qp, Arrays.asList(rr,agg), Integer.class);
+		n1.beginQuery(6, 0, qpws, RecoveryMode.ABORT);
+		List<QpTuple<Null>> result = n1.getQueryResultWithoutMetadata(6);
+		
+		assertEquals("Incorrect number of aggregate tuples", 1, result.size());
+		
+		QpTuple<Null> expected = new QpTuple<Null>(agg,new Object[] {1,8});
+		assertEquals("Incorrect result from scan with aggregation", expected, result.get(0));
+		
+	}
+
+}

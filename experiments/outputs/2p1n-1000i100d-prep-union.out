@@ -1,0 +1,1497 @@
+PARAMETERS:
+insert=true
+autocommit=false
+prepare=true
+union=true
+dred=false
+outerunion=false
+tukwilafiles=orchestra.bdb
+sqlschema=GKARVOUN
+workdir=/cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests
+db2host=dbserv.cis.upenn.edu
+db2pwd=GREG#00
+db2server=jdbc:db2:SIGMOD
+db2dbname=DEFEAT
+tablesize=0
+stratified=true
+batch=false
+debug=false
+schema=2p1n
+workload=2p1n-1000i100d
+setsemantics=true
+apply=true
+incremental=true
+tukwilaport=7777
+fulldebug=false
+delete=true
+tukwilahost=localhost
+indexall=true
+db2user=gkarvoun
+reset=true
+jdbc-driver=COM.ibm.db2.jdbc.app.DB2Driver
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n.create
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: CREATE DB TIME: 14829msec
+TOTAL RULE MANIPULATION TIME: 63msec
++++ Migration +++
+EXP: MIGRATE TIME: 205692 msec
+================
+SCHEMA: 2p1n-1000i100d
+#INSERTIONS: 1000
+#DELETIONS: 100
+================
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 14938msec
+100 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R3_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R3_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+EXP: NON-INCREMENTAL PREPARATION TIME: 47msec
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 218msec
+TOTAL TUPLE COUNT: 1400
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 55157msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 55157msec
+TOTAL TUPLE COUNT: 68400
+POST INSERTION TIME: 84798msec
+TOTAL TUPLE COUNT: 76500
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER NON-INCREMENTAL: 50400
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER NON-INCREMENTAL: 24300
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 50400
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 14938msec
+100 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R3_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R3_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+EXP: NON-INCREMENTAL PREPARATION TIME: 31msec
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 141msec
+TOTAL TUPLE COUNT: 1400
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 61533msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 61533msec
+TOTAL TUPLE COUNT: 68400
+POST INSERTION TIME: 115627msec
+TOTAL TUPLE COUNT: 76500
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER NON-INCREMENTAL: 50400
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER NON-INCREMENTAL: 24300
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 50400
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 15187msec
+100 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R3_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R3_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+EXP: NON-INCREMENTAL PREPARATION TIME: 31msec
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 203msec
+TOTAL TUPLE COUNT: 1400
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 84690msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 84690msec
+TOTAL TUPLE COUNT: 68400
+POST INSERTION TIME: 130221msec
+TOTAL TUPLE COUNT: 76500
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER NON-INCREMENTAL: 50400
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER NON-INCREMENTAL: 24300
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 50400
+EXP: AVG INS TIME: 61564msec
+EXP: AVG DEL TIME: 0msec
+================
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 17000msec
+100 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R3_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R3_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 1547msec
+TOTAL TUPLE COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 89174msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 89174msec
+TOTAL TUPLE COUNT: 76000
+POST INSERTION TIME: 128315msec
+TOTAL TUPLE COUNT: 85000
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 56000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 27000
+TOTAL TUPLE COUNT: 0
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 56173msec
+TOTAL TUPLE COUNT: 56000
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 9594msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET DELETION TIME: 9594msec
+TOTAL TUPLE COUNT: 25600
+POST DELETION TIME: 21844msec
+TOTAL TUPLE COUNT: 4900
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 50400
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 24300
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 50400
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 15078msec
+100 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R3_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R3_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 437msec
+TOTAL TUPLE COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 61001msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 61001msec
+TOTAL TUPLE COUNT: 76000
+POST INSERTION TIME: 127956msec
+TOTAL TUPLE COUNT: 85000
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 56000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 27000
+TOTAL TUPLE COUNT: 0
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 58939msec
+TOTAL TUPLE COUNT: 56000
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 78720msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET DELETION TIME: 78720msec
+TOTAL TUPLE COUNT: 25600
+POST DELETION TIME: 26673msec
+TOTAL TUPLE COUNT: 4900
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 50400
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 24300
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 50400
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf 2p1n-1000i100d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = SIGMOD
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 17079msec
+100 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R3_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R3_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 468msec
+TOTAL TUPLE COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 103815msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 103815msec
+TOTAL TUPLE COUNT: 76000
+POST INSERTION TIME: 142831msec
+TOTAL TUPLE COUNT: 85000
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 56000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 27000
+TOTAL TUPLE COUNT: 0
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 73267msec
+TOTAL TUPLE COUNT: 56000
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 71314msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET DELETION TIME: 71314msec
+TOTAL TUPLE COUNT: 25600
+POST DELETION TIME: 30906msec
+TOTAL TUPLE COUNT: 4900
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 50400
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 24300
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 50400
+EXP: AVG INS TIME: 89174msec
+EXP: AVG DEL TIME: 71314msec
+================
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+ERROR: JDWP Unable to get JNI 1.2 environment, jvm->GetEnv() return code = -2
+JDWP exit error AGENT_ERROR_NO_JNI_ENV(183):  [../../../src/share/back/util.c:820]

@@ -1,0 +1,1 @@
+db2jdbcbind -url jdbc:db2://LOCALHOST:50000/VLDBTEST -user GKARVOUN -password GREG#00 -size 2000

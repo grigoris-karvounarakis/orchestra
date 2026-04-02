@@ -1,0 +1,138 @@
+<?xml version="1.0"?><project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.upenn.cis.orchestra</groupId>
+  <artifactId>orchestra</artifactId>
+  <name>orchestra</name>
+  <version>1.0-SNAPSHOT</version>
+  <description>Whole orchestra project</description>
+  <packaging>pom</packaging>
+
+	<modules>
+		<module>engine</module>
+		<module>gui</module>
+		<module>RepositoryServer</module>
+		<!--module>RepositoryClient</module-->
+	</modules>
+	
+  <organization>
+    <name>University of Pennsylvania - Database Group</name>
+    <url>http://db.cis.upenn.edu</url>
+  </organization>
+	
+  <licenses>
+    <license>
+      <name>Internal UPenn development</name>
+      <url>https://dbgrpbuild.cis.upenn.edu/licenses/licenseSHARQ.txt</url>
+      <distribution>repo</distribution>
+      <comments>No license file yet, under development. UPenn internal only.</comments>
+    </license>
+  </licenses>	
+	
+  <issueManagement>
+    <system>Bugzilla</system>
+    <url>https://dbgrpbuild.cis.upenn.edu/bugzilla</url>
+  </issueManagement>	
+	
+  <repositories>
+    <repository>
+        <id>dbappserv.cis.upenn.edu-releases</id>
+        <name>dbappserv.cis.upenn.edu-releases</name>
+        <url>http://dbappserv.cis.upenn.edu:8080/artifactory-2.0.2/ext-releases-local</url>
+    </repository>
+    <repository>
+      <id>dbGroup</id>
+      <url>http://db.cis.upenn.edu/maven/</url>
+    </repository>
+    <repository>
+      <id>Mergere</id>
+      <url>http://repo1.maven.org/maven2</url>
+    </repository>        
+    <repository>
+      <id>ibiblio</id>
+      <url>http://www.ibiblio.org/maven2/</url>
+    </repository>
+  </repositories>	
+	
+  <reporting>
+    <plugins> 
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>dependencies</report>
+              <report>project-team</report>
+              <report>issue-tracking</report>
+              <report>license</report>
+              <report>scm</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>surefire-report-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jxr-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clover-plugin</artifactId>
+        <configuration>
+          <licenseLocation>${clover.license.path}</licenseLocation>
+          <jdk>1.5</jdk>
+        </configuration>
+      </plugin>
+<!-- Commented because the plugin has moved to the sandbox and the old
+     release does not work anymore. The new version should be released 
+     soon 
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>changelog-maven-plugin</artifactId>
+      </plugin>
+-->      
+    </plugins>
+  </reporting>	
+  
+  <dependencies>
+    <dependency> 
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.0.4</version>
+    </dependency>     
+    <dependency> 
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.15</version>
+    </dependency>    
+    <dependency>
+      <groupId>edu.upenn.cis.tukwila</groupId>
+      <artifactId>tukwilagui</artifactId>
+      <version>0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>java_cup</groupId>
+      <artifactId>runtime</artifactId>
+      <version>0.1</version>
+    </dependency>
+  </dependencies>
+	
+	
+  <distributionManagement>
+    <site>
+      <id>OrchestraRepositorySite</id>
+      <name>Orchestra Repository API Maven website</name>
+      <url>http://db.cis.upenn.edu/maven/</url>
+    </site>
+    <repository>
+        <id>dbappserv.cis.upenn.edu-releases</id>
+        <name>dbappserv.cis.upenn.edu-releases</name>
+        <url>http://dbappserv.cis.upenn.edu:8080/artifactory-2.0.2/ext-releases-local</url>
+    </repository>
+  </distributionManagement>	
+	
+</project>

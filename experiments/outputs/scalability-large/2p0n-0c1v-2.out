@@ -1,0 +1,280 @@
+PARAMETERS:
+tukwilaport=7777
+nullscycles=false
+dbname=VLDBTEST
+db2server=jdbc:db2:VLDBTEST
+fulldebug=false
+indexall=true
+batch=false
+insert=true
+setsemantics=true
+db2host=dbserv.cis.upenn.edu
+workdir=/dev/orchestra/experiments/tests
+stratified=true
+jdbc-driver=COM.ibm.db2.jdbc.app.DB2Driver
+tukwilahost=localhost
+scalability2=true
+db2pwd=GREG#00
+scalability1=false
+debug=false
+db2dbname=DEFEAT
+tablesize=0
+tukwilafiles=orchestra.bdb
+incremental=true
+union=false
+outerunion=false
+schema=2p0n-0c1v
+db2user=gkarvoun
+delete=true
+scalability=false
+autocommit=false
+reset=true
+cygwinhome=C:/cygwin
+sqlschema=GKARVOUN
+dred=false
+migrate=true
+workload=2p1n-100i10d
+apply=true
+prepare=true
+TOTAL RULE MANIPULATION TIME: 16msec
++++ Migration +++
+EXP: MIGRATE TIME: 344 msec
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 2p0n-0c1v-100i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 2p0n-0c1v-100i100d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 4219msec
+100 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+100 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+100 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+100 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+100 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+100 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+100 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 104985msec
+TOTAL TUPLE COUNT: 220000
+LAST ITERATION (1) COUNT: 100
+
+LAST ITERATION (2) COUNT: 300
+
+LAST ITERATION (3) COUNT: 300
+
+LAST ITERATION (4) COUNT: 0
+
+LAST ITERATION (1) COUNT: 300
+
+LAST ITERATION (2) COUNT: 300
+
+LAST ITERATION (3) COUNT: 0
+
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 300
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 300
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1297msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET DELETION TIME: 1297msec
+TOTAL TUPLE COUNT: 7000
+POST DELETION TIME: 110610msec
+TOTAL TUPLE COUNT: 659300
+# OF BASE AND MAPPING TABLES: 25
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 218700
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 149100
+TOTAL TUPLE COUNT: 0
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 55547msec
+TOTAL TUPLE COUNT: 218700
+LAST ITERATION (1) COUNT: 1500
+
+LAST ITERATION (2) COUNT: 700
+
+LAST ITERATION (3) COUNT: 0
+
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 3875msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 3875msec
+TOTAL TUPLE COUNT: 2800

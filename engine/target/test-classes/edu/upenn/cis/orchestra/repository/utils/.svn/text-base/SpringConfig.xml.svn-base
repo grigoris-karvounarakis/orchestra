@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+  <bean id="mysqlConn"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+        destroy-method="close">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://dbgrpbuild.cis.upenn.edu/test"/>
+    <property name="username" value="orchestra"/>
+    <property name="password" value="orchestra"/>
+  </bean>
+  
+  <bean id="provenanceConn"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+        destroy-method="close">
+    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+    <property name="url" value="jdbc:oracle:thin:@lvn303-3.cis.upenn.edu:1521:PROVENANCE"/>
+    <property name="username" value="provenance"/>
+    <property name="password" value="provenance"/>
+  </bean>  
+
+  <bean id="orchestraDB2TestConn"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+        destroy-method="close">
+    <property name="driverClassName" value="com.ibm.db2.jcc.DB2Driver"/>
+    <property name="url" value="jdbc:db2://dbserv.cis.upenn.edu:50000/TESTORCH"/>
+    <property name="username" value="db2User"/>
+    <property name="password" value="db2#PWD"/>
+  </bean>  
+  
+</beans>

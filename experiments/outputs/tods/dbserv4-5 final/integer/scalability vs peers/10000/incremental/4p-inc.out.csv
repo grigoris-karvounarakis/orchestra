@@ -1,0 +1,53 @@
+#PEERS:  4
+EXP:schema=4p
+>           set applybaseDel=false
+EXP:applybaseDel=false
+>           set applybaseIns=false
+EXP:applybaseIns=false
+7052 
+7176 
+7207 
+7176 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=true
+EXP:applybaseIns=true
+7207 
+>            set applybaseDel=false
+EXP:applybaseDel=false
+>            set applybaseIns=false
+EXP:applybaseIns=false
+2215 
+468 
+468 
+468 
+484 
+998 
+1061 
+1061 
+1061 
+1061 
+3776 
+4072 
+4071 
+4072 
+4071 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=false
+EXP:applybaseIns=false
+1123 
+1108 
+1092 
+1107 
+1092 
+1653 
+1716 
+1716 
+1716 
+1700 
+4228 
+4556 
+4524 
+4524 
+4524 

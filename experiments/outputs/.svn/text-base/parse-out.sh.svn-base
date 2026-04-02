@@ -1,0 +1,1 @@
+egrep 'EXP:|AVG|SCHEMA|NET|ALL NUM' $1

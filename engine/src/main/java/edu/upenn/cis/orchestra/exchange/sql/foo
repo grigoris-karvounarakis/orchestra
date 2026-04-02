@@ -1,0 +1,8 @@
+insert into REFSEQ.M0_DEL  
+(select distinct ? STRATUM, R0.TAX_ID C0, R0.NAME C1, R0.TAX_ID_LN C0_LN, R0.NAME_LN C1_LN 
+from TAXO.NAMES_DEL R0 
+where (((R0.NAME_CLASS = 'scientific name') 
+and (R0.NAME_CLASS_LN = 1)) 
+and (not (exists (select 1 
+from REFSEQ.M0_DEL R1 
+where (((R1.C0 = R0.TAX_ID) and (R1.C0_LN = R0.TAX_ID_LN)) and ((R1.C1 = R0.NAME) and (R1.C1_LN = R0.NAME_LN))))))))

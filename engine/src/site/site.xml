@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="${project.name}">
+  <bannerLeft>
+    <name>${project.name}</name>
+    <src>https://dbgrpbuild.cis.upenn.edu/infrastructure/images/penn_logo.gif</src>
+    <href>https://dbgrpbuild.cis.upenn.edu/</href>
+  </bannerLeft>
+  <body>
+    <links>
+      <item name="DB Group Infrastructure" href="https://dbgrpbuild.cis.upenn.edu/"/>
+      <item name="DB Group" href="http://db.cis.upenn.edu/" />
+    </links>
+
+    <menu name="Documentation">
+      <item name="Introduction" href="index.html"/>
+    </menu>
+
+    ${reports}
+
+
+  </body>
+</project>

@@ -1,0 +1,13 @@
+K 10
+svn:ignore
+V 159
+FlatRepository.java
+FlatRepositoryConstants.java
+FlatRepositoryTokenManager.java
+ParseException.java
+SimpleCharStream.java
+Token.java
+TokenMgrError.java
+*.bak
+
+END

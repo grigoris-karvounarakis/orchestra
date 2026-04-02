@@ -1,0 +1,345 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+import java.awt.Point;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import rice.p2p.commonapi.Id;
+
+import com.sleepycat.je.Environment;
+import com.sleepycat.je.EnvironmentConfig;
+
+import edu.upenn.cis.orchestra.datamodel.IntType;
+import edu.upenn.cis.orchestra.datamodel.ScPrimaryKey;
+import edu.upenn.cis.orchestra.datamodel.StringType;
+import edu.upenn.cis.orchestra.datamodel.TupleSet;
+import edu.upenn.cis.orchestra.p2pqp.PastryNodeFactory.PastryIdFactory;
+
+public class Querytests {
+	NodeFactory nf;
+	Environment e;
+	rice.environment.Environment env;
+	List<QpApplication<Null>> nodes;
+	QpApplication<Null> n0, n1, n2, n3, n4;
+	final static int numNodes = 10, length = 5, width = 2;
+	static int port = 5000;
+	final byte[] nodeIdBytes = {100};
+	final Id nodeId = new PastryIdFactory().getIdFromByteArray(nodeIdBytes);
+	int queryId = 102;
+	int dim_length, dim_width, spacing;
+	QpSchema r, s, t, u;
+	QpTuple<Null> r1, r2, r3,r4, s1, s2,s3, t1, t2;
+	QpTuple<Null> u12, u23, u34, u66, u13, u14, u24;
+	Map<Integer,Set<Integer>> deps = Collections.emptyMap();
+	static Map<Id, Point> m;
+	MetadataFactory<Null> mdf = NullMetadataFactory.getInstance();
+	
+	@Before
+	public void setUp() throws Exception {
+		try {
+			if(numNodes != length*width)
+				throw new Exception("Number of nodes must be equal to length*width");
+			int keyCols[] = {0};
+
+			r = new QpSchema("R");
+			r.addCol("a", IntType.INT);
+			r.addCol("b", new StringType(true, true, 10));
+			r.setPrimaryKey(new ScPrimaryKey("pk", r, Collections.singleton("a")));
+			r.setHashCols(keyCols);
+			r.markFinished();
+
+			s = new QpSchema("S");
+			s.addCol("b", new StringType(true, true, 10));
+			s.addCol("c", new StringType(true, true, 15));
+			s.setPrimaryKey(new ScPrimaryKey("pk", s, Collections.singleton("b")));
+			s.setHashCols(keyCols);
+			s.markFinished();
+
+			t = new QpSchema("T");
+			t.addCol("a", IntType.INT);
+			t.addCol("c", new StringType(true, true, 15));
+			t.setPrimaryKey(new ScPrimaryKey("pk", t, Collections.singleton("a")));
+			t.setHashCols(keyCols);
+			t.markFinished();
+
+			u = new QpSchema("U");
+			u.addCol("x", IntType.INT);
+			u.addCol("y", IntType.INT);
+			u.setPrimaryKey(new ScPrimaryKey("pk", u, Collections.singleton("x")));
+			u.setHashCols(keyCols);
+			u.markFinished();
+
+			r1 = new QpTuple<Null>(r,0,null);
+			r2 = new QpTuple<Null>(r,1,null);
+			r3 = new QpTuple<Null>(r,1,null);
+			r4 = new QpTuple<Null>(r,1, null);
+			r1.set("a", 5);
+			r1.set("b", "Hello!");
+			r2.set("a", 6);
+			r2.set("b", "Good-bye!");
+			r3.set("a", 7);
+			r3.set("b", "Hello!");
+			r4.set("a", 9);
+			r4.set("b", "Hello!");
+			r1.setReadOnly();
+			r2.setReadOnly();
+			r3.setReadOnly();
+			r4.setReadOnly();
+			s1 = new QpTuple<Null>(s,1,null);
+			s1.set("b", "Hello!");
+			s1.set("c", "Ciao!");
+			s1.setReadOnly();
+			s2 = new QpTuple<Null>(s,2, null);
+			s2.set("b", "Good-bye!");
+			s2.set("c", "Tablo");
+			s2.setReadOnly();
+			s3 = new QpTuple<Null>(s, 2, null);
+			s3.set("b", "Esc!");
+			s3.set("c", "Nino");
+			t1 = new QpTuple<Null>(t,1,null);
+			t2 = new QpTuple<Null>(t,1,null);
+			t1.set("a", 5);
+			t2.set("a", 7);
+			t1.set("c", "Ciao!");
+			t2.set("c", "Ciao!");
+			t1.setReadOnly();
+			t2.setReadOnly();
+
+			u12 = new QpTuple<Null>(u,0,null);
+			u12.set("x", 1);
+			u12.set("y", 2);
+			u23 = new QpTuple<Null>(u,0,null);
+			u23.set("x", 2);
+			u23.set("y", 3);
+			u34 = new QpTuple<Null>(u,0,null);
+			u34.set("x", 3);
+			u34.set("y", 4);
+			u66 = new QpTuple<Null>(u,0,null);
+			u66.set("x", 6);
+			u66.set("y", 6);
+			u13 = new QpTuple<Null>(u,0,null);
+			u13.set("x", 1);
+			u13.set("y", 3);
+			u14 = new QpTuple<Null>(u,0,null);
+			u14.set("x", 1);
+			u14.set("y", 4);
+			u24 = new QpTuple<Null>(u,0,null);
+			u24.set("x", 2);
+			u24.set("y", 4);
+			u12.setReadOnly();
+			u23.setReadOnly();
+			u34.setReadOnly();
+			u66.setReadOnly();
+			u13.setReadOnly();
+			u14.setReadOnly();
+			u24.setReadOnly();
+			File f = new File("dbenv");
+			if (f.exists()) {
+				File[] files = f.listFiles();
+				for (File file : files) {
+					file.delete();
+				}
+			} else {
+				f.mkdir();
+			}
+			EnvironmentConfig ec = new EnvironmentConfig();
+			ec.setAllowCreate(true);
+			e = new Environment(f, ec);
+
+
+			env = new rice.environment.Environment();
+			nf = new PastryNodeFactory(env, 5000);
+			nodes = new ArrayList<QpApplication<Null>>(numNodes);
+
+			
+			nodes.add(new QpApplication<Null>(nf,mdf,null));
+
+			while (! nodes.get(0).isReady()) {
+				Thread.sleep(5);
+			}
+
+			List<Integer> notFinished = new ArrayList<Integer>(numNodes);
+			m = new HashMap<Id, Point>();
+			List<Point> gridPoints = this.generateGridNetwork(length, width, 1);
+			m.put(nodes.get(0).getNodeId(), gridPoints.get(0));
+			for (int i = 1; i < numNodes; ++i) {
+				nodes.add(new QpApplication<Null>(nf,mdf,null));
+				notFinished.add(i);
+
+			}
+
+			while (notFinished.size() > 0) {
+				Thread.sleep(5);
+				Iterator<Integer> it = notFinished.iterator();
+				while (it.hasNext()) {
+					int i = it.next();
+					if (nodes.get(i).isReady()) {
+						it.remove();
+						m.put(nodes.get(i).getNodeId(), gridPoints.get(i));
+					}
+				}
+			}
+
+			for (int i = 0; i < numNodes; ++i) {
+				nodes.get(i).start( e, "store" + i, "index" + i);
+			}
+
+			for(int i = 0; i<numNodes; i++)
+			{
+				n0 = nodes.get(i);
+				n0.addTable(r, 0);
+				n0.addTable(s, 1);
+				n0.addTable(u, 0);
+			}
+			n0 = nodes.get(0);
+			n1 = nodes.get(1);
+			n2 = nodes.get(2);
+			n3 = nodes.get(3);
+			n4 = nodes.get(4);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public List<Point> generateGridNetwork(int length, int width, int spacing)
+	{
+		this.dim_length = length;
+		this.dim_width = width;
+		this.spacing = spacing;
+		
+		List<Point> lt = new LinkedList<Point>();
+		for(int i=0; i<length*spacing;i+=spacing)
+		{
+			for(int j =0; j<width*spacing; j+=spacing)
+			{
+				lt.add(new Point(i,j));
+			}
+		}
+		return lt;
+		//setUpNeighbours();
+	}
+	@After
+	public void tearDown() throws Exception {
+		List<rice.environment.Environment> envs = new ArrayList<rice.environment.Environment>();
+		envs.add(env);
+		for (QpApplication<Null> app : nodes) {
+			envs.add(app.getNodeEnv());
+			app.stop();
+		}
+
+		// Wait for the nodes to be destroyed
+		boolean busy = true;
+		while (busy) {
+			busy = false;
+			for (rice.environment.Environment riceEnv : envs) {
+				if (riceEnv.getSelectorManager().getNumInvocations() > 0) {
+					busy = true;
+				}
+			}
+			if (busy) {
+				Thread.sleep(5);
+			}
+		}
+
+//		env.destroy();
+		e.close();
+		port += numNodes;
+	}
+	
+	@Test
+	public void testStreamJoin() throws Exception
+	{
+		System.out.println("N0 is"+n0.getNodeId());
+		System.out.println("N1 is"+n1.getNodeId());
+		System.out.println("N2 is"+n2.getNodeId());
+		System.out.println("N3 is"+n3.getNodeId());
+		System.out.println("N4 is"+n4.getNodeId());
+		n0.dht.addTuple(r1);
+		n0.dht.finishEpochForRelation("R");
+		
+		n1.dht.addTuple(r2);
+		n1.dht.addTuple(r3);
+		n1.dht.addTuple(r4);
+		n1.dht.finishEpochForRelation("R");
+		n2.dht.addTuple(s1);
+		n2.dht.finishEpochForRelation("S");
+		n2.dht.addTuple(s3);
+		n2.dht.addTuple(s2);
+		
+		n2.dht.finishEpochForRelation("S");
+		
+		//n2.dht.finishEpochForRelation("S");
+		
+		TupleSet<QpTuple<Null>> output = new TupleSet<QpTuple<Null>>();
+		CollectionOperator<Null> co = new CollectionOperator<Null>(output, 100);
+		RecordTuplesLocal tr = new RecordTuplesLocal(null, deps, new HashSet<Integer>());
+
+		List<Integer> leftOutputPos = new ArrayList<Integer>(2), rightOutputPos = new ArrayList<Integer>(2); 
+		leftOutputPos.add(0);
+		leftOutputPos.add(null);
+		rightOutputPos.add(null);
+		rightOutputPos.add(1);
+		
+		
+		StreamPipelinedHashJoin<Null> sphj = new StreamPipelinedHashJoin<Null>("R", "S", Collections.singletonList(1), Collections.singletonList(0),
+				leftOutputPos, rightOutputPos, true,t, co, null, queryId, nodeId, 100, tr,mdf,"window", 0,2,1);
+		
+//		QpApplication.joinStarted = true;
+		PushScanOperator<Null> so = n2.dht.beginBroadcastScan("R", null, 1, sphj, QpTuple.Dest.LEFT, queryId, nodeId, 12, tr);
+		PushScanOperator<Null> s1 = n2.dht.beginBroadcastScan("S", null, 2, sphj, QpTuple.Dest.RIGHT, queryId, nodeId, 12, tr);
+		s1.waitUntilFinished();
+		so.waitUntilFinished();
+		
+		sphj.waitUntilFinished();
+		System.out.println(output); // No way to assert correct output here (need to check order in which tuples were
+									// received and then check output...
+		/*
+		System.out.println("Total number of messages sent for join:"+ QpApplication.numMessages);
+		System.out.println("Average Hop length:" +  (QpApplication.hopLength*1.0)/QpApplication.count);
+		System.out.println("Average Hop length:" +  computeAvg(QpApplication.pathlengths.values()));
+		*/
+	}
+	
+
+	public void testGridNetwork() throws Exception
+	{
+		n0.dht.addTuple(r1);
+		n0.dht.finishEpochForRelation("R");
+		
+		n1.dht.addTuple(r2);
+		n1.dht.addTuple(r3);
+		n1.dht.addTuple(r4);
+		n1.dht.finishEpochForRelation("R");
+		n2.dht.addTuple(s1);
+		n2.dht.finishEpochForRelation("S");
+		n2.dht.addTuple(s3);
+		n2.dht.addTuple(s2);
+		
+		n2.dht.finishEpochForRelation("S");
+	}
+	
+	public static double computeAvg(Collection values)
+	{
+		double sum = 0;
+		for(Object i:values)
+		{
+			sum+= (Integer)i;
+		}
+		return sum/values.size();
+	}
+	
+	
+}

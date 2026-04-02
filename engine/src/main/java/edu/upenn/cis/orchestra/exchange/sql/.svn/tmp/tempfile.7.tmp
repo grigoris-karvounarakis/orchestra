@@ -1,0 +1,1586 @@
+package edu.upenn.cis.orchestra.exchange.sql;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Vector;
+
+import com.experlog.zql.ZExp;
+
+import edu.upenn.cis.orchestra.Config;
+import edu.upenn.cis.orchestra.Debug;
+import edu.upenn.cis.orchestra.datamodel.AbstractRelation;
+import edu.upenn.cis.orchestra.datamodel.Relation;
+import edu.upenn.cis.orchestra.datamodel.ScField;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtom;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtomArgument;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtomConst;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtomSkolem;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtomVariable;
+import edu.upenn.cis.orchestra.datamodel.Schema;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtom.AtomType;
+import edu.upenn.cis.orchestra.exchange.RuleCodeGen;
+import edu.upenn.cis.orchestra.exchange.sql.generation.DB2SqlStatementGen;
+import edu.upenn.cis.orchestra.exchange.sql.generation.HsqlSqlStatementGen;
+import edu.upenn.cis.orchestra.exchange.sql.generation.OracleSqlStatementGen;
+import edu.upenn.cis.orchestra.exchange.sql.generation.SqlConstant;
+import edu.upenn.cis.orchestra.exchange.sql.generation.SqlDelete;
+import edu.upenn.cis.orchestra.exchange.sql.generation.SqlExpression;
+import edu.upenn.cis.orchestra.exchange.sql.generation.SqlFromItem;
+import edu.upenn.cis.orchestra.exchange.sql.generation.SqlInsert;
+import edu.upenn.cis.orchestra.exchange.sql.generation.SqlQuery;
+import edu.upenn.cis.orchestra.exchange.sql.generation.SqlSelectItem;
+import edu.upenn.cis.orchestra.exchange.sql.generation.SqlStatementGen;
+import edu.upenn.cis.orchestra.mappings.Rule;
+import edu.upenn.cis.orchestra.repository.constants.ModelConstants;
+
+/**
+ * A wrapper that takes a rule and generates updates or queries
+ * 
+ * @author zives, gkarvoun
+ *
+ */
+public class RuleSqlGen implements RuleCodeGen {
+	protected Map<String,String> m_varmap;
+	protected Rule m_rule;
+	protected boolean m_stratified;
+	protected boolean m_external;
+	protected Map<String,Schema> _builtIns;
+	protected SqlStatementGen m_sqlString;
+	
+	protected Map<String,SqlExpression> _whereExpressions;
+	protected Set<SqlExpression> _whereRoots;
+
+	// TO DO:  add info about the Schemas for each item.
+	// If the Schemas have no labeled nulls, we shouldn't add them.
+	// If the rule atom doesn't match the Schema, then we should throw an exception.
+
+	public RuleSqlGen(Rule rule, Map<String,Schema> builtIns) {
+		this(rule, builtIns, Config.getStratified(), false);
+	}
+
+	public RuleSqlGen(Rule rule, Map<String,Schema> builtIns, boolean stratified, boolean external) {
+		m_rule = rule;
+		m_stratified = stratified;
+		m_external = external;
+		_builtIns = builtIns;
+		
+		if(Config.isDB2())
+			m_sqlString = new DB2SqlStatementGen();
+		else if(Config.isOracle())
+			m_sqlString = new OracleSqlStatementGen();
+		else if(Config.isHsql())
+			m_sqlString = new HsqlSqlStatementGen();
+		else
+			m_sqlString = null;
+	}
+
+	public SqlQuery toQuery(int curIterCnt) 
+	{
+		SqlQuery q = new SqlQuery();
+		_whereExpressions = new HashMap<String,SqlExpression>();
+		_whereRoots = new HashSet<SqlExpression>();
+		m_varmap = buildVarMap(m_rule);
+
+		q.addSelectClause(buildSelect(curIterCnt));
+		q.addFromClause(buildFrom());
+		q.addWhere(buildWhere(curIterCnt));
+		
+		//System.out.println(q.toString());
+		return q;
+	}    
+
+	public SqlQuery toQuery() 
+	{
+		return toQuery(0);
+	}
+
+	public SqlInsert toInsert()
+	{
+		return toInsert(0);
+	}
+
+	public SqlInsert toInsert(int curIterCnt)
+	{
+		ScMappingAtom head = m_rule.getHead();
+		SqlInsert ins;
+		if (m_rule.getBody().size() == 0) {
+			// INSERT INTO statement using VALUES
+			Relation rel = head.getRelation();
+			ins = new SqlInsert(rel.toAtomString(head.getType()));
+			SqlExpression comma = new SqlExpression(SqlExpression.COMMA);
+			List<ScMappingAtomArgument> values = head.getValues();
+			for (int j = 0; j < values.size(); j++) {
+				String str = values.get(j).toString();
+				int type = getSqlConstantType(head.getRelation().getField(j));
+				SqlConstant c = new SqlConstant(str, type);
+				comma.addOperand(c);
+			}
+			ins.addValueSpec(comma);
+		} else {
+			// INSERT INTO statement with a subquery
+			ins = new SqlInsert(head.toString3());
+			if (Config.getSetSemantics()) {
+				// Enforce set semantics
+				ScMappingAtom last = m_rule.getBody().get(m_rule.getBody().size()-1);
+
+				if(m_rule.getHead().getRelation().equals(last.getRelation()) && 
+						m_rule.getHead().getType().equals(last.getType()) && 
+						last.isNeg()){
+					// already contains "not exists"
+					Debug.println("NOT EXISTS ALREADY THERE");
+				}else{
+					ScMappingAtom notExists = m_rule.getHead().deepCopy();
+					notExists.negate();
+					if(notExists.getType() == AtomType.DEL || notExists.getType() == AtomType.INS)
+						notExists.setAllStrata();
+					m_rule.getBody().add(notExists);
+				}
+			}
+			SqlQuery q1 = this.toQuery(curIterCnt);
+			if(Config.getSetSemantics())
+				q1.setDistinct(true);
+			ins.addValueSpec(q1);
+		}
+		return ins;
+	}
+
+	public SqlDelete toDelete()
+	{
+		ScMappingAtom head = m_rule.getHead();
+		SqlDelete del = new SqlDelete(head.toString3());
+		if (m_rule.getBody().size() == 0) {
+			AbstractRelation rel = head.getRelation();
+			SqlExpression exp=null;
+			List<ScMappingAtomArgument> values = head.getValues();
+			for (int i = 0; i < values.size(); i++) {
+				SqlExpression eq = new SqlExpression(SqlExpression.EQ);
+				ScField f = rel.getField(i);
+				SqlConstant c1 = new SqlConstant(f.getName(), SqlConstant.COLUMNNAME);
+				SqlConstant c2 = new SqlConstant(values.get(i).toString(), getSqlConstantType(f));
+				eq.addOperand(c1);
+				eq.addOperand(c2);
+				exp = conjoin(exp, eq);
+			}
+			del.addWhere(exp);
+		} else {
+//			SqlQuery q1 = this.toQuery(curIterCnt);
+//			del.addValueSpec(q1);
+			assert(false);	// UNIMPLEMENTED
+			return null;
+		}
+
+		return del;
+	}
+
+	public List<String> getCode(UPDATE_TYPE u, int curIterCnt) {
+		List<String> ret = new ArrayList<String>();
+
+		if (u == UPDATE_TYPE.CLEAR_AND_COPY){
+			ScMappingAtom oldA = m_rule.getHead();
+			ScMappingAtom newA = m_rule.getBody().get(0);
+
+			ret.addAll(m_sqlString.clearAndCopy(oldA.toString3(), newA.toString3()));
+//			}else if (u == UPDATE_TYPE.DELETE_FROM_HEAD){
+		}else if ((u == UPDATE_TYPE.DELETE_FROM_HEAD) 
+//				&& (_r.getHead().getRelation().equals(_r.getBody().get(0).getRelation())) &&
+//				(_r.getHead().getType().equals(_r.getBody().get(0).getType()))
+		) {
+			ScMappingAtom rel = m_rule.getHead();
+			ScMappingAtom del = m_rule.getBody().get(1);
+
+			//	String delete = new String("DELETE FROM " + rel.toString3() + " WHERE (SELECT * FROM " + del.toString3() + ")");
+			//db2 => DELETE FROM M0_OLD WHERE EXISTS (SELECT * FROM M0_DEL M WHERE C0 = M.C0 a
+			//		nd C1 = M.C1)
+			//ret.add(delete);
+
+			SqlQuery n = new SqlQuery();
+			m_varmap = buildVarMapForAtom(rel, 0, null, true);
+			HashMap<String,String> atomMap = buildVarMapForAtom(del, 1, null, true);
+			n.addSelectClause(buildSelectForAtom(del, atomMap, false, false, curIterCnt));
+			Vector<SqlFromItem> v = new Vector<SqlFromItem>();
+			v.add(buildFromItem(del, 1));
+			n.addFromClause(v);
+//			n.addWhere(OLDbuildWhereForAtom(del, 1, m_varmap, null, curIterCnt));
+			n.addWhere(buildWhereForAtom(del, 1, m_varmap, null, curIterCnt));
+			
+			SqlExpression expr = new SqlExpression(SqlExpression.EXISTS, n);
+
+			SqlDelete d = new SqlDelete(rel.toString3(), "R0");
+			d.addWhere(expr);
+			ret.add(d.toString());
+			
+//			String delete = new String("DELETE FROM " + rel.toString3() + " R0 WHERE " + expr.toString());
+//			ret.add(delete);
+		}else{ // DELETE FROM HEAD where bodyat0 <> head goes here, too
+			if (m_rule.getHead().isNeg() || m_rule.getBody().size() == 0){
+				SqlDelete del = new SqlDelete(m_rule.getHead().toString3());
+				ret.add(del.toString());
+			}else{	
+				ret.add(toInsert(curIterCnt).toString());
+			}
+		}
+		//Integer retsize = new Integer(ret.size());
+		//Debug.println(retsize.toString());
+		return ret;
+	}    
+
+	/**
+	 * Given an existing set of SQL statements, see if
+	 * we can merge with any, and return the combined list.
+	 *  
+	 */
+	public List<String> getCode(List<String> existing, UPDATE_TYPE u, int curIterCnt) {
+		List<String> newItem = getCode(u, curIterCnt);
+		List<String> ret = new ArrayList<String>();
+
+		ret.addAll(existing);
+
+		int count = 0;
+
+		for (String n : newItem) {
+			if((Config.getUnion()) && (n.startsWith("insert into "))) {
+				final int start = 12;
+				int end = n.indexOf(' ', 12);
+
+				String table = n.substring(start, end);
+
+				boolean found = false;
+				for (int i = 0; i < ret.size(); i++) {
+					String n2 = ret.get(i);
+
+					if (n2.startsWith("insert into ")) {
+						int end2 = n2.indexOf(' ', 12);
+
+						String table2 = n2.substring(start, end2);
+
+						found = (table.equals(table2));// && false;
+
+						//int length = n2.length() + n.length();
+//						Debug.println("LENGTH: " + length);
+						// We have found an insertion into the same table 
+						if (found && !(n.equals(n2)) && (n2.length() + n.length() < 10000)) {
+							count++;
+							ret.set(i, n2 + "\n UNION " + n.substring(end + 1));
+							break;
+						}else{
+							found = false;
+						}
+					}
+				}
+				if (!found)
+					ret.add(n);
+			} else
+				ret.add(n);
+		}
+
+
+		return ret;
+	}
+
+
+	protected HashMap<String,String> buildVarMapForAtom(ScMappingAtom a, int i, 
+			HashMap<String,String> oldmap, boolean buildNew) {
+		HashMap<String,String> newmap = new HashMap<String,String>();
+		HashMap<String,String> map;
+
+		if(buildNew){
+			map = newmap;
+		}else{
+			map = oldmap;
+		}
+
+		for (int j = 0; j < a.getValues().size(); j++) 
+		{
+			ScMappingAtomArgument val = a.getValues().get(j);
+
+			if (val instanceof ScMappingAtomVariable)
+			{
+				if (!map.containsKey(val.toString())) {
+					String value;
+					if (val.toString().equals("-")) {
+						value = "NULL";
+					} else if(i >= 0){
+						value = "R" + i + "." + a.getRelation().getField(j).getName();
+					}else{
+						value = a.getRelation().getField(j).getName();
+					}
+					map.put(val.toString(), value);
+				}
+			}
+		}
+		return map;
+	}
+
+	protected HashMap<String,String> buildVarMap(Rule r) throws RuntimeException {
+		HashMap<String,String> varmap = new HashMap<String,String>();
+		List<ScMappingAtom> atomsToProcess = new ArrayList<ScMappingAtom>();
+		HashMap<ScMappingAtom,Integer> inx = new HashMap<ScMappingAtom,Integer>();
+		for (int i = 0; i < r.getBody().size(); i++) {
+			ScMappingAtom a = r.getBody().get(i);
+			if(!a.isNeg() && !a.isSkolem()) {
+				atomsToProcess.add(a);
+				inx.put(a, i);
+			}
+		}
+		
+		while (atomsToProcess.size() > 0 ){
+
+			int x = atomsToProcess.size();
+			boolean didSomething = false;
+			
+			for (int i = 0; i < x; i++) {
+				ScMappingAtom a = atomsToProcess.get(i);//r.getBody().get(i);
+	
+				if (isBuiltIn(a.getSchema().getSchemaId(), a.getRelation().getName())) {
+					String val = evaluateBuiltIn(a, varmap);
+					if (val.length() != 0) {
+						didSomething = true;
+						if (varmap.get(a.getValues().get(0).toString()) == null)
+							varmap.put(a.getValues().get(0).toString(), val);
+					}
+				} else {
+					didSomething = true;
+				//	Debug.println("Var map for " + a.toString() + "/" + a.getRelation().toString());
+					buildVarMapForAtom(a, inx.get(a), varmap, false);
+				}
+				if (didSomething) {
+					atomsToProcess.remove(i);
+					x--;
+					i--;
+				}
+			}
+			
+			// Test whether we were able to process this atom -- if not,
+			// add to pending list
+			if (!didSomething && atomsToProcess.size() > 0)
+				throw new RuntimeException("Unable to find all variables in " + r);
+		}
+
+		//Debug.println(varmap);
+		return varmap;
+	}    
+
+	protected SqlFromItem buildFromItem(ScMappingAtom a, int i){
+		//SqlFromItem f = new SqlFromItem(a.getRelation().getFullQualifiedDbId());
+		SqlFromItem f = new SqlFromItem(a.toString3());
+		if(i >= 0)
+			f.setAlias("R" + i);
+		return f;
+	}
+
+	/**
+	 * Create FROM clauses for all atoms that correspond to relations.
+	 * This excludes negated atoms, Skolemized atoms, and built-in atoms.
+	 * 
+	 * @return
+	 */
+	protected Vector<SqlFromItem> buildFrom() {
+		Vector<SqlFromItem> vf = new Vector<SqlFromItem>();
+		int i = 0;
+		for (ScMappingAtom a : m_rule.getBody()) {
+			if(!a.isNeg() && !a.isSkolem() && !isBuiltIn(a.getSchema().getSchemaId(), a.getRelation().getName())){
+				vf.add(buildFromItem(a, i++));
+			}else{
+				i++;
+			}
+		}
+		return vf;
+	}
+
+	protected SqlExpression hack(SqlConstant c1, SqlConstant c2){
+		return(new SqlExpression(SqlExpression.OR,
+				new SqlExpression(SqlExpression.AND,
+						new SqlExpression(SqlExpression.IS_NULL, c1), 
+						new SqlExpression(SqlExpression.IS_NULL, c2)),
+						new SqlExpression(SqlExpression.AND,
+								new SqlExpression(SqlExpression.IS_NOT_NULL, c1), 
+								new SqlExpression(SqlExpression.IS_NOT_NULL, c2))
+		)
+		);
+	}
+
+	protected static int getSqlConstantType(ScField field) {
+		String name = field.getSQLTypeName();
+		return zType(name);
+	}
+
+	protected static int zType(String type){
+		if(type.contains("char")){
+			return SqlConstant.STRING;
+		}else if(type.contains("integer") || type.contains("decimal")){
+			return SqlConstant.NUMBER;
+		}else if(type.contains("date")){
+			return SqlConstant.DATE;
+		}
+
+		return SqlConstant.UNKNOWN;
+	}
+
+	/**
+	 * 
+	 * @param a
+	 * @param i
+	 * @param map
+	 * @param expr
+	 * @param curIterCnt
+	 * @return
+	 * @deprecated
+	 */
+	protected SqlExpression OLDbuildWhereForAtom(ScMappingAtom a, int i, Map<String,String> map, SqlExpression expr, int curIterCnt){
+			if(a.isSkolem()){ // this is a "fake" atom to represent a skolem term - ignore
+				return expr;
+			}else{
+				if (m_stratified) { 
+	//				This is an "internal" Orchestra delta rule ... 
+	
+					boolean isStratifiedAtom = (a.getType() == AtomType.DEL || a.getType() == AtomType.INS);
+					if(isStratifiedAtom && !a.allStrata()){
+	//					... involving relations that have a "stratum" attribute, that should be treated specially
+						SqlConstant c1;
+						if(i >= 0)
+							c1 = new SqlConstant("R" + i + ".STRATUM", SqlConstant.COLUMNNAME);
+						else
+							c1 = new SqlConstant("STRATUM", SqlConstant.COLUMNNAME);
+	
+						SqlConstant c2;
+						if(Config.getPrepare()){
+	//						c2 = new SqlConstant("CAST(? AS INTEGER)", SqlConstant.NUMBER);
+							c2 = new SqlConstant("?", SqlConstant.NUMBER);
+	//						c2 = new SqlConstant("?", SqlConstant.STRING);
+							if(a.getRelationContext().isMapping()){
+								m_rule.addPreparedParam(0);
+							}else{
+								m_rule.addPreparedParam(-1);
+							}
+	
+						}else{
+							if(a.getRelationContext().isMapping()){
+								c2 = new SqlConstant(Integer.toString(curIterCnt), SqlConstant.NUMBER);
+							}else{
+								c2 = new SqlConstant(Integer.toString(curIterCnt-1), SqlConstant.NUMBER);
+							}
+						}
+	
+						expr = conjoin(expr, new SqlExpression(SqlExpression.EQ, c1, c2));
+					}
+				}
+	
+	//			Need to add condition if one of the variables corresponds to a skolem term/atom
+				for (int j = 0; j < a.getValues().size(); j++){
+					boolean specialAttrib;
+	
+					if(Config.getOuterUnion()){
+						specialAttrib = a.getRelation().getField(j).getName().equals("MRULE");
+					}else{
+						specialAttrib = false;
+					}
+	
+					//boolean comparable = a.getRelation().getField(j).getName().equals("KID");
+					boolean comparable;
+					try{
+						if(m_external)
+							comparable = true;
+						else
+							comparable = a.getRelation().getPrimaryKey().getFields().contains(a.getRelation().getField(j));
+	
+					}catch(NullPointerException e){
+						throw e;
+					}
+	
+					// Normal behaviour would be:
+					// boolean comparable = true;
+	
+					ScMappingAtomArgument val = a.getValues().get(j);
+					String l;
+					if(i >= 0){
+						l = "R" + i + "." + a.getRelation().getField(j).getName();
+					}else{
+						l = a.getRelation().getField(j).getName();
+					}
+	
+					if (val instanceof ScMappingAtomConst) 
+					{
+						SqlConstant c1 = new SqlConstant(l, SqlConstant.COLUMNNAME);
+						ScMappingAtomConst c = (ScMappingAtomConst)val;
+	
+	//					hack for experiments
+						if(c.getValue() == null || "-".equals(c.getValue())){
+	//						expr = conjoin(expr, new SqlExpression(SqlExpression.IS_NULL, c1));
+	
+							if(comparable)
+								expr = conjoin(expr, new SqlExpression(SqlExpression.IS_NULL, c1));
+	
+							if(!specialAttrib && a.getRelation().hasLabeledNulls()){
+								SqlConstant c2 = new SqlConstant(l + ModelConstants.LABEL_NULL_EXT, SqlConstant.COLUMNNAME);
+								SqlConstant c3 = new SqlConstant("-1", SqlConstant.NUMBER);
+								SqlExpression expr2 = new SqlExpression(SqlExpression.EQ, c2, c3);
+	
+								expr = conjoin(expr, expr2);
+							}
+						}else{	
+	//						SqlConstant c2 = new SqlConstant(c.getValue(), zType(a.getRelation().getField(j).getDbType()));
+							SqlConstant c2 = new SqlConstant(val.toString(), zType(a.getRelation().getField(j).getSQLTypeName()));
+							if(comparable){
+								expr = conjoin(expr, new SqlExpression(SqlExpression.EQ, c1, c2));
+							}
+	
+							if(!specialAttrib && a.getRelation().hasLabeledNulls()){
+								SqlConstant c3 = new SqlConstant(l + ModelConstants.LABEL_NULL_EXT, SqlConstant.COLUMNNAME);
+	
+								SqlConstant c4 = new SqlConstant("1", SqlConstant.NUMBER);
+								SqlExpression expr2 = new SqlExpression(SqlExpression.EQ, c3, c4);
+	
+								expr = conjoin(expr, expr2);
+							}
+							//else{
+							//expr = conjoin(expr, hack(c1,c2));
+							//}
+						}
+					} 
+					else if (val instanceof ScMappingAtomVariable) 
+					{
+						ScMappingAtomVariable var = (ScMappingAtomVariable)val;
+	
+						if(var.isSkolem()){
+	//						SqlConstant c1 = new SqlConstant(l, SqlConstant.COLUMNNAME);
+	//						SqlConstant c2 = new SqlConstant("-1", SqlConstant.NUMBER);
+							SqlConstant c3 = new SqlConstant(l + ModelConstants.LABEL_NULL_EXT, SqlConstant.COLUMNNAME);
+							SqlConstant c4 = new SqlConstant(getSkolemTerm(var.skolemDef()), SqlConstant.COLUMNNAME);
+	
+	//						SqlExpression skolemExpr = new SqlExpression(SqlExpression.AND, new SqlExpression(SqlExpression.EQ, c1, c2), new SqlExpression(SqlExpression.EQ, c3, c4));
+							SqlExpression skolemExpr = new SqlExpression(SqlExpression.EQ, c3, c4);
+							expr = conjoin(expr, skolemExpr);
+						}else{
+	//						otherwise, this is just a projected out var in a negated clause
+							if (!val.toString().equals("-") && map.containsKey(val.toString())){ 
+								String n = map.get(val.toString());
+	
+								SqlConstant c1 = new SqlConstant(l, SqlConstant.COLUMNNAME);
+								SqlConstant c2 = new SqlConstant(n, SqlConstant.COLUMNNAME);
+								if (c1.toString().compareTo(c2.toString()) != 0) 
+								{
+									SqlExpression exprLoc = null;
+	
+									//comparable = true;
+									if(comparable){
+										exprLoc = new SqlExpression(SqlExpression.EQ, c1, c2);
+									}else{
+										//exprLoc = hack(c1,c2);
+									}
+	
+									SqlConstant c3 = new SqlConstant(l + ModelConstants.LABEL_NULL_EXT, SqlConstant.COLUMNNAME);
+									SqlConstant c4 = new SqlConstant(n + ModelConstants.LABEL_NULL_EXT, SqlConstant.COLUMNNAME);
+	
+									if (l.equals("NULL"))
+										c3 = new SqlConstant("-1", SqlConstant.NUMBER);
+									if (n.equals("NULL"))
+										c4 = new SqlConstant("-1", SqlConstant.NUMBER);
+									SqlExpression expr3 = new SqlExpression(SqlExpression.EQ, c3, c4);
+									//expr = conjoin(expr, new SqlExpression(SqlExpression.OR, exprLoc, expr3));
+	
+									if(!specialAttrib){
+										if(a.getRelation().hasLabeledNulls()){
+											expr = conjoin(expr, expr3);
+										}
+										if(comparable){
+											expr = conjoin(expr, exprLoc);
+										}
+									}
+								}
+							}
+						}
+					} else // Old skolems Skolem -- shouldn't matter for now
+					{
+						l += ModelConstants.LABEL_NULL_EXT;
+						String str = skolemExpr((ScMappingAtomSkolem)val);
+						SqlConstant c1 = new SqlConstant(l, SqlConstant.COLUMNNAME);
+						SqlConstant c2 = new SqlConstant(str, SqlConstant.COLUMNNAME);
+	
+						if(specialAttrib && a.getRelation().hasLabeledNulls()){
+							if(comparable){
+								expr = conjoin(expr, new SqlExpression(SqlExpression.EQ, c1, c2));
+							}else{
+								expr = conjoin(expr, hack(c1,c2));
+							}
+						}
+					}
+				}
+	
+			}
+			return expr;
+		}
+
+	/**
+	 * 
+	 * @param a
+	 * @param varmap
+	 * @param keysAndNulls
+	 * @param isHeadAtom
+	 * @param curIterCnt
+	 * @return
+	 * @deprecated
+	 */
+	protected Vector<SqlSelectItem> OLDbuildSelectForAtom(ScMappingAtom a, 
+				Map<String, String> varmap, boolean keysAndNulls, 
+				boolean isHeadAtom, int curIterCnt) {
+			Vector<SqlSelectItem> vs = new Vector<SqlSelectItem>();
+			Vector<SqlSelectItem> vsNull = new Vector<SqlSelectItem>();
+	
+			if(a.isSkolem()){
+				return null;
+			}else if (a.isNeg()){ // && !m_rule.deleteFromHead()){
+				vs.add(new SqlSelectItem("1"));
+			}else{
+				boolean isStratifiedAtom = (a.getType() == AtomType.DEL || a.getType() == AtomType.INS);
+	
+				if (m_stratified) {
+					// Hack for stratum
+					if(isStratifiedAtom){
+						if(isHeadAtom){
+							if(Config.getPrepare()){
+								if (Config.isDB2()){
+									vs.add(aliasedSelect(null, "CAST(? AS INTEGER)", "", "STRATUM", false, true));
+								}else{
+									vs.add(aliasedSelect(null, "?", "", "STRATUM", false, true));
+								}
+//								vs.add(aliasedSelect(null, "'?'", "", "STRATUM", false, true));
+								m_rule.addPreparedParam(0);
+							}else{
+								vs.add(aliasedSelect(null, Integer.toString(curIterCnt), "", "STRATUM", false, true));
+							}
+						}else{
+//							I don't think I need to project this		 
+//							vs.add(aliasedSelect(null, , "", "STRATUM", true, true));
+						}
+					}
+				}
+	
+				for (int i = 0; i < a.getValues().size(); i++) {
+					boolean specialAttrib;
+	
+					if(Config.getOuterUnion()){
+	//					specialAttrib = (i == 0);
+						try{
+							specialAttrib = a.getRelation().getField(i).getName().equals("MRULE");
+						}catch(Exception e){
+							e.printStackTrace();
+							return null;
+						}
+					}else{
+						specialAttrib = false;
+					}
+	
+	//				if(_r.edb())			
+	
+					ScMappingAtomArgument val = a.getValues().get(i);
+					String fieldName = a.getRelation().getField(i).getName();
+					String labNullFieldName = fieldName + ModelConstants.LABEL_NULL_EXT;
+	
+					if (val instanceof ScMappingAtomVariable) 
+					{
+						String col = varmap.get(val.toString());
+						ScMappingAtomVariable var = (ScMappingAtomVariable)val;
+	
+						if(var.isSkolem()){ // New Skolem case
+							vs.add(typedNull(a.getRelation().getField(i), false));
+	
+							if (!specialAttrib){
+	//							And this is the second part of the - for labeled null ...
+								String skolemTerm = getSkolemTerm(var.skolemDef());
+	
+								SqlSelectItem s = new SqlSelectItem(skolemTerm);
+								s.setAlias(a.getRelation().getField(i).getName() + ModelConstants.LABEL_NULL_EXT);
+								vsNull.add(s);
+							}
+						}else{
+	
+							boolean fldInKey;
+							try{	
+								fldInKey = a.getRelation().getPrimaryKey().getFields().contains(a.getRelation().getField(i));
+								if(!fldInKey){
+									for(ScField f : a.getRelation().getSkolemizedFields()){
+										if(f.getName().equals(fieldName)){
+											fldInKey = true;
+											break;
+										}
+									}
+								}
+							}catch(NullPointerException e){
+								throw e;
+							}
+	
+							if(keysAndNulls && m_rule.onlyKeyAndNulls() && !fldInKey) /*!fieldName.equals("KID"))*/
+							{
+								vs.add(typedNull(a.getRelation().getField(i), false));
+								//vsNull.add(typedNull(a.getRelation().getField(i), true, typesMap));
+								if (!specialAttrib)
+									vsNull.add(aliasedSelect(a.getRelation().getField(i), col, ModelConstants.LABEL_NULL_EXT, labNullFieldName, true, m_rule.replaceValsWithNullValues()));
+							} else if(m_rule.onlyKeyAndNulls()){
+								vs.add(aliasedSelect(a.getRelation().getField(i), col, "", fieldName, false, m_rule.replaceValsWithNullValues()));
+								if (!specialAttrib)
+									vsNull.add(aliasedSelect(a.getRelation().getField(i), col, ModelConstants.LABEL_NULL_EXT, labNullFieldName, true, m_rule.replaceValsWithNullValues()));
+							} else if (col == null || col.equals("NULL") || col.equals("null")) {
+								vs.add(typedNull(a.getRelation().getField(i), false));
+								if (!specialAttrib)
+									vsNull.add(aliasedSelect(a.getRelation().getField(i), col, ModelConstants.LABEL_NULL_EXT, labNullFieldName, true, m_rule.replaceValsWithNullValues()));
+							}else{
+								vs.add(aliasedSelect(a.getRelation().getField(i), col, "", fieldName, false, m_rule.replaceValsWithNullValues()));
+								if (!specialAttrib)
+									vsNull.add(aliasedSelect(a.getRelation().getField(i), col, ModelConstants.LABEL_NULL_EXT, labNullFieldName, true, m_rule.replaceValsWithNullValues()));
+							}
+						}
+					} 
+					else if (val instanceof ScMappingAtomConst) 
+					{
+						//String col = 
+	
+						//varmap.get(val.toString());
+	
+						boolean fldInKey = true;
+						if(!fldInKey){
+							for(ScField f : a.getRelation().getSkolemizedFields()){
+								if(f.getName().equals(fieldName)){
+									fldInKey = true;
+									break;
+								}
+							}
+						}
+	
+						// If the primary key is null, assume that the whole thing is the key
+						if (a.getRelation().getPrimaryKey() != null)
+							fldInKey = a.getRelation().getPrimaryKey().getFields().contains(a.getRelation().getField(i));
+	
+						if(keysAndNulls && m_rule.onlyKeyAndNulls() && !fldInKey)
+						{
+							vs.add(typedNull(a.getRelation().getField(i), false));
+							//vsNull.add(typedNull(a.getRelation().getField(i), true, typesMap));
+						}else if(m_rule.onlyKeyAndNulls()){
+							if (((ScMappingAtomConst) val).getValue()!=null && !"-".equals(((ScMappingAtomConst) val).getValue())){
+								if(fldInKey)
+									vs.add(aliasedSelect(a.getRelation().getField(i), val.toString(), "", fieldName, false, m_rule.replaceValsWithNullValues()));
+								else
+									vs.add(typedNull(a.getRelation().getField(i), false));
+							}else{
+								vs.add(aliasedSelect(a.getRelation().getField(i), val.toString(), "", fieldName, false, false));
+							}
+						}else if (((ScMappingAtomConst) val).getValue()!=null && !"-".equals(((ScMappingAtomConst) val).getValue())){
+	//						Real constant case
+							vs.add(aliasedSelect(a.getRelation().getField(i), val.toString(), "", fieldName, false, m_rule.replaceValsWithNullValues()));
+	//						if (!specialAttrib){
+	//						SqlSelectItem s = new SqlSelectItem("1");
+	//						s.setAlias(a.getRelation().getField(i).getName());
+	//						vsNull.add(s);
+	//						}
+						}else{
+	//						This must be one part of the - for null case
+							vs.add(typedNull(a.getRelation().getField(i), false));
+							// Set lab. null to -1
+	//						if (!specialAttrib)
+	//						vsNull.add(typedNull(a.getRelation().getField(i), true));  // looks wrong!
+						}
+	
+						if (((ScMappingAtomConst) val).getValue()!=null && !"-".equals(((ScMappingAtomConst) val).getValue())){
+							if (!specialAttrib){
+								SqlSelectItem s = new SqlSelectItem("1");
+								s.setAlias(a.getRelation().getField(i).getName() + ModelConstants.LABEL_NULL_EXT);
+								vsNull.add(s);
+							}
+						}else{
+							if (!specialAttrib){
+	//							And this is the second part of the - for labeled null ...
+								SqlSelectItem s = new SqlSelectItem("-1");
+								s.setAlias(a.getRelation().getField(i).getName() + ModelConstants.LABEL_NULL_EXT);
+								vsNull.add(s);
+							}
+						}
+					} else { // Old Skolem case
+						vs.add(typedNull(a.getRelation().getField(i), false));
+						String str = skolemExpr((ScMappingAtomSkolem)val);
+						if (!specialAttrib)
+							vsNull.add(aliasedSelect(a.getRelation().getField(i), str, ModelConstants.LABEL_NULL_EXT, labNullFieldName, true, m_rule.replaceValsWithNullValues()));
+					}
+				}
+				if (a.getRelation().hasLabeledNulls())
+					vs.addAll(vsNull);
+			}
+			return vs;
+		}
+
+	protected SqlExpression stratumCondition(ScMappingAtom a, int i, int curIterCnt)
+	{
+		if (m_stratified) { 
+//			This is an "internal" Orchestra delta rule and 
+//			"stratified" (i.e., optimized/non-redundant) evaluation is "activated"
+
+			boolean isStratifiedAtom = (a.getType() == AtomType.DEL || a.getType() == AtomType.INS);
+			if(isStratifiedAtom && !a.allStrata()){
+//				... involving relations that have a "stratum" attribute, that should be treated specially
+				SqlConstant c1;
+				if(i >= 0)
+					c1 = new SqlConstant("R" + i + ".STRATUM", SqlConstant.COLUMNNAME);
+				else
+					c1 = new SqlConstant("STRATUM", SqlConstant.COLUMNNAME);
+
+				SqlConstant c2;
+				if(Config.getPrepare()){
+//					c2 = new SqlConstant("CAST(? AS INTEGER)", SqlConstant.NUMBER);
+					c2 = new SqlConstant("?", SqlConstant.NUMBER);
+//					c2 = new SqlConstant("?", SqlConstant.STRING);
+					if(a.getRelationContext().isMapping()){
+						m_rule.addPreparedParam(0);
+					}else{
+						m_rule.addPreparedParam(-1);
+					}
+
+				}else{
+					if(a.getRelationContext().isMapping()){
+						c2 = new SqlConstant(Integer.toString(curIterCnt), SqlConstant.NUMBER);
+					}else{
+						c2 = new SqlConstant(Integer.toString(curIterCnt-1), SqlConstant.NUMBER);
+					}
+				}
+
+				return new SqlExpression(SqlExpression.EQ, c1, c2);
+			}
+		}
+		return null;
+	}
+	
+	protected SqlExpression conditionsForConstant(ScField attribute, ScMappingAtomConst c, 
+			int pos, boolean comparable, boolean compareNullColumn)
+	{
+		String l = fullNameForAttr(attribute, pos);
+		SqlConstant c1 = new SqlConstant(l, SqlConstant.COLUMNNAME);
+		SqlExpression expr = null;
+		
+		boolean fakeSkolemConstant = (c.getValue() == null || "-".equals(c.getValue()));
+//		hack for experiments
+//		Use - instead of skolems
+//		Do we need this anymore?
+		if(comparable){
+			if(fakeSkolemConstant){
+				expr = new SqlExpression(SqlExpression.IS_NULL, c1);
+			}else{	
+				SqlConstant c2 = new SqlConstant(c.toString(), zType(attribute.getSQLTypeName()));
+				expr = new SqlExpression(SqlExpression.EQ, c1, c2);
+			}
+		}
+
+		if(compareNullColumn){
+			SqlConstant c2 = new SqlConstant(l + ModelConstants.LABEL_NULL_EXT, SqlConstant.COLUMNNAME);
+			SqlConstant c3;
+			
+			if(fakeSkolemConstant){
+				c3 = new SqlConstant("-1", SqlConstant.NUMBER);
+			}else{
+				c3 = new SqlConstant("1", SqlConstant.NUMBER);
+			}
+			
+			expr = conjoin(expr, new SqlExpression(SqlExpression.EQ, c2, c3));
+		}
+		
+		return expr;
+	}
+
+	protected SqlExpression conditionsForVariable(ScField attribute, ScMappingAtomVariable var,
+			int pos, boolean comparable, boolean compareNullColumn, Map<String,String> map)
+	{
+		SqlExpression expr = null;
+		String l = fullNameForAttr(attribute, pos);
+		
+		if(var.isSkolem()){
+			SqlConstant c3 = new SqlConstant(l + ModelConstants.LABEL_NULL_EXT, SqlConstant.COLUMNNAME);
+			SqlConstant c4 = new SqlConstant(getSkolemTerm(var.skolemDef()), SqlConstant.COLUMNNAME);
+
+//			SqlExpression skolemExpr = new SqlExpression(SqlExpression.AND, new SqlExpression(SqlExpression.EQ, c1, c2), new SqlExpression(SqlExpression.EQ, c3, c4));
+			SqlExpression skolemExpr = new SqlExpression(SqlExpression.EQ, c3, c4);
+			expr = conjoin(expr, skolemExpr);
+		}else{
+//			otherwise, this is just a projected out var in a negated clause 
+//			-- why negated???
+
+			if (!var.toString().equals("-") && map.containsKey(var.toString())){ 
+				String n = map.get(var.toString());
+
+				SqlConstant c1 = new SqlConstant(l, SqlConstant.COLUMNNAME);
+				SqlConstant c2 = new SqlConstant(n, SqlConstant.COLUMNNAME);
+				
+				if (c1.toString().compareTo(c2.toString()) == 0){
+//					this is the attribute/column in the map, 
+//					no need to add any condition
+				}else{
+					if(comparable)
+						expr = conjoin(expr, new SqlExpression(SqlExpression.EQ, c1, c2));
+
+					if(compareNullColumn){
+						SqlConstant c3 = new SqlConstant(l + ModelConstants.LABEL_NULL_EXT, SqlConstant.COLUMNNAME);
+						SqlConstant c4 = new SqlConstant(n + ModelConstants.LABEL_NULL_EXT, SqlConstant.COLUMNNAME);
+
+//						Do the following ever happen? 
+//						I suppose if we write NULL in the rule without quotes ...	
+						if (l.equals("NULL"))
+							c3 = new SqlConstant("-1", SqlConstant.NUMBER);
+						if (n.equals("NULL"))
+							c4 = new SqlConstant("-1", SqlConstant.NUMBER);
+
+						expr = conjoin(expr, new SqlExpression(SqlExpression.EQ, c3, c4));
+					}
+				}
+			}else{
+//				if this is a -, it should be a Const
+//				otherwise this is a var that is not in the map, which should never happen
+				assert(false);	
+			}
+		}
+		return expr;
+	}
+	
+	protected String fullNameForAttr(ScField attribute, int i){
+		String l;
+		if(i >= 0){
+			l = "R" + i + "." + attribute.getName();
+		}else{
+			l = attribute.getName();
+		}
+		return l;
+	}
+	
+	protected SqlExpression buildWhereForAtom(ScMappingAtom a, int i, Map<String,String> map, SqlExpression expr, int curIterCnt){
+		if(a.isSkolem()){ // this is a "fake" atom to represent a skolem term - ignore
+			return expr;
+		}else{
+			SqlExpression stratumExpr = stratumCondition(a, i, curIterCnt);
+
+//			No need to check - conjoin does that anyway
+//			if(stratumExpr != null)
+			expr = conjoin(expr, stratumExpr);
+
+//			Need to add condition if one of the variables corresponds to a skolem term/atom
+			for (int j = 0; j < a.getValues().size(); j++){
+				ScField attribute = a.getRelation().getField(j);
+
+				boolean isSpecialAttrib;
+
+//				In the case of "Outer Union" we need to treat the "MRULE" attribute specially 
+//				(i.e., there is no labeled null column for that)	
+				if(Config.getOuterUnion()){
+					isSpecialAttrib = attribute.getName().equals("MRULE");
+				}else{
+					isSpecialAttrib = false;
+				}
+
+//				If this is an internal Orchestra rule, we only need to compare
+//				key attributes and labeled nulls, as an optimization
+//				For "external" rules issued by the user, compare everything
+
+//				 "Normal" behaviour would be:
+//				 boolean comparable = true;
+
+				//boolean comparable = attribute.getName().equals("KID");
+				boolean comparable;
+				
+				try{
+					if(m_external)
+						comparable = true;
+					else
+						comparable = a.getRelation().getPrimaryKey().getFields().contains(attribute);
+
+				}catch(NullPointerException e){
+					throw e;
+				}
+
+				ScMappingAtomArgument atomVal = a.getValues().get(j);
+
+//				Always compare null columns if the relation has null columns and the attribute
+//				is not a special OU attribute
+				boolean compareNullCol = !isSpecialAttrib && a.getRelation().hasLabeledNulls();
+				
+				if (atomVal instanceof ScMappingAtomConst) 
+				{
+					SqlExpression constConditions = conditionsForConstant(attribute, (ScMappingAtomConst)atomVal, i, comparable, compareNullCol);
+					
+					expr = conjoin(expr, constConditions);
+				} 
+				else if (atomVal instanceof ScMappingAtomVariable) 
+				{
+					SqlExpression varConditions = conditionsForVariable(attribute, (ScMappingAtomVariable)atomVal, i, comparable && !isSpecialAttrib, compareNullCol, map);
+					
+					expr = conjoin(expr, varConditions);
+					
+				} else // Old skolems Skolem -- shouldn't matter for now
+				{
+					assert(false);
+//					l += ModelConstants.LABEL_NULL_EXT;
+//					String str = skolemExpr((ScMappingAtomSkolem)atomVal);
+//					SqlConstant c1 = new SqlConstant(l, SqlConstant.COLUMNNAME);
+//					SqlConstant c2 = new SqlConstant(str, SqlConstant.COLUMNNAME);
+//
+//					if(isSpecialAttrib && a.getRelation().hasLabeledNulls()){
+//						if(comparable){
+//							expr = conjoin(expr, new SqlExpression(SqlExpression.EQ, c1, c2));
+//						}else{
+//							expr = conjoin(expr, hack(c1,c2));
+//						}
+//					}
+				}
+			}
+
+		}
+		return expr;
+	}
+
+	protected SqlExpression buildWhere(int curIterCnt) {
+		SqlExpression expr = null;
+		for (int i = 0; i < m_rule.getBody().size(); i++) 
+		{
+			ScMappingAtom a = m_rule.getBody().get(i);
+			
+			if (this.isBuiltIn(a.getSchema().getSchemaId(), a.getRelation().getName())) {
+				;
+			} else if(!a.isNeg()){
+//				SqlExpression oldExpr = OLDbuildWhereForAtom(a, i, m_varmap, expr, curIterCnt);
+//				expr = OLDbuildWhereForAtom(a, i, m_varmap, expr, curIterCnt);
+				expr = buildWhereForAtom(a, i, m_varmap, expr, curIterCnt);
+				
+//				if(expr != null && oldExpr != null && !expr.toString().equals(oldExpr.toString())){
+//					float x = 1/0;
+//				}
+			} else { // Negated atom -- convert to SQL antisemijoin (not-exists)
+				SqlQuery n = new SqlQuery();
+
+				HashMap<String,String> atomMap = buildVarMapForAtom(a, i, null, true);
+//				n.addSelect(buildSelectForAtom(a, atomMap, false));
+				n.addSelectClause(buildSelectForAtom(a, atomMap, true, false, curIterCnt));
+				Vector<SqlFromItem> v = new Vector<SqlFromItem>();
+				v.add(buildFromItem(a, i));
+				n.addFromClause(v);
+
+//				SqlExpression oldExpr = OLDbuildWhereForAtom(a, i, m_varmap, null, curIterCnt);
+//				SqlExpression newExpr = OLDbuildWhereForAtom(a, i, m_varmap, null, curIterCnt);
+				SqlExpression newExpr = buildWhereForAtom(a, i, m_varmap, null, curIterCnt);
+				
+//				if(newExpr != null && oldExpr != null && !newExpr.toString().equals(oldExpr.toString())){
+//					float x = 1/0;
+//				}
+				n.addWhere(newExpr);
+
+				expr = conjoin(expr, new SqlExpression(SqlExpression.NOT, new SqlExpression(SqlExpression.EXISTS, n)));
+			}
+		}
+		Iterator<SqlExpression> whereExps = _whereRoots.iterator();
+		
+		while (whereExps.hasNext()) {
+			SqlExpression nx = whereExps.next();
+			
+			expr = conjoin(expr, nx);
+		}
+		return expr;
+	}
+
+	protected SqlSelectItem stratumSelection(ScMappingAtom a, boolean isHeadAtom, int curIterCnt)
+	{
+		boolean isStratifiedAtom = (a.getType() == AtomType.DEL || a.getType() == AtomType.INS);
+		
+		// Hack for stratum
+		if(isStratifiedAtom){
+			if(isHeadAtom){
+				if(Config.getPrepare()){
+					m_rule.addPreparedParam(0);
+					return aliasedSelect(null, m_sqlString.preparedParameterProjection(), "", "STRATUM", false, true);
+				}else{
+					return aliasedSelect(null, Integer.toString(curIterCnt), "", "STRATUM", false, true);
+				}
+			}else{
+//				I don't think I need to project this		 
+//				return aliasedSelect(null, , "", "STRATUM", true, true);
+			}
+		}
+		return null;
+	}
+	
+	protected SqlSelectItem selectionForVariable(ScMappingAtom a, ScMappingAtomVariable var, 
+			ScField attribute, Map<String, String> varmap, boolean fldInKey, boolean keysAndNulls){
+		String col = varmap.get(var.toString());
+	
+//		keysAndNulls = true is used for internal Orchestra rules
+		
+		if(var.isSkolem()){ // New Skolem case
+			return typedNull(attribute, false);
+		}else{
+
+//			If this is an internal Orchestra maintenance rule, project only key attributes
+//			and put nulls in rest, otherwise project everything
+//			Note: some "internal" rules, for "delete from head", need to project everything, too
+			if(fldInKey || !keysAndNulls || !m_rule.onlyKeyAndNulls()){
+				return aliasedSelect(attribute, col, "", attribute.getName(), false, m_rule.replaceValsWithNullValues());
+			}else{
+//				Includes case for:
+//				if (col == null || col.equals("NULL") || col.equals("null"))
+//				I don't think there is any reason to treat this separately
+				return typedNull(attribute, false);
+			}
+		}
+	}
+
+	protected SqlSelectItem selectionNullForVariable(ScMappingAtomVariable var,
+			ScField attribute, Map<String, String> varmap){
+		String col = varmap.get(var.toString());
+		String lnExt = ModelConstants.LABEL_NULL_EXT;
+		String lnAttName = attribute.getName() + ModelConstants.LABEL_NULL_EXT;
+		
+		if(var.isSkolem()){ // New Skolem case
+			String skolemTerm = getSkolemTerm(var.skolemDef());
+
+			SqlSelectItem s = new SqlSelectItem(skolemTerm);
+			s.setAlias(lnAttName);
+			return s;
+		}else{
+			return aliasedSelect(attribute, col, lnExt, 
+					lnAttName, true, 
+					m_rule.replaceValsWithNullValues());
+		}
+	}
+	
+	protected SqlSelectItem selectionForConst(ScMappingAtomConst c, 
+			ScField attribute, boolean fldInKey, boolean keysAndNulls)
+	{
+		
+				
+		if(keysAndNulls && m_rule.onlyKeyAndNulls() && !fldInKey)
+		{
+			return typedNull(attribute, false);
+		}
+		else if(m_rule.onlyKeyAndNulls()){
+			
+			if (c.getValue()!= null && !"-".equals(c.getValue())){
+				if(fldInKey)
+					return aliasedSelect(attribute, c.toString(), "", attribute.getName(), false, m_rule.replaceValsWithNullValues());
+				else
+					return typedNull(attribute, false);
+			}else{
+				return aliasedSelect(attribute, c.toString(), "", attribute.getName(), false, false);
+			}
+		}else if (c.getValue()!=null && !"-".equals(c.getValue())){
+//			Real constant case
+			return aliasedSelect(attribute, c.toString(), "", attribute.getName(), false, m_rule.replaceValsWithNullValues());
+		}else{
+//			This must be one part of the - for null case
+			return typedNull(attribute, false);
+		}
+
+
+	}
+
+	protected SqlSelectItem selectionNullForConst(ScMappingAtomConst c, ScField attribute)
+	{
+		SqlSelectItem s;
+
+		if (c.getValue()!=null && !"-".equals(c.getValue())){
+			s = new SqlSelectItem("1");
+		}else{
+//			And this is the second part of the - for labeled null ...
+			s = new SqlSelectItem("-1");
+		}
+		s.setAlias(attribute.getName() + ModelConstants.LABEL_NULL_EXT);
+		return s;
+	}
+
+	
+	protected Vector<SqlSelectItem> buildSelectForAtom(ScMappingAtom a, 
+			Map<String, String> varmap, boolean keysAndNulls, 
+			boolean isHeadAtom, int curIterCnt) {
+		Vector<SqlSelectItem> vs = new Vector<SqlSelectItem>();
+		Vector<SqlSelectItem> vsNull = new Vector<SqlSelectItem>();
+
+		if(a.isSkolem()){ // this is a "fake" atom to represent a skolem term - ignore
+			return null;
+		}else if (a.isNeg()){ 
+// 			This is a negated atom, that we translate into a 
+//			"not exists" query that doesn't need to return any data
+//			Maybe add that this is the "proper" translation only for 
+//			"internal" orchestra rules?	
+			// && !m_rule.deleteFromHead()){
+			vs.add(new SqlSelectItem("1"));
+		}else{
+
+			if (m_stratified) {
+				SqlSelectItem s = stratumSelection(a, isHeadAtom, curIterCnt);
+				if(s != null)
+					vs.add(s);
+			}
+			
+			for (int i = 0; i < a.getValues().size(); i++) {
+				ScMappingAtomArgument atomVal = a.getValues().get(i);
+				ScField attribute = a.getRelation().getField(i);
+				
+				boolean specialAttrib = false;
+				boolean fldInKey;
+
+				try{
+					if(Config.getOuterUnion()){
+						specialAttrib = attribute.getName().equals("MRULE");
+					}
+
+					if (a.getRelation().getPrimaryKey() != null){
+
+						fldInKey = a.getRelation().getPrimaryKey().getFields().contains(a.getRelation().getField(i));
+						if(!fldInKey){
+							for(ScField f : a.getRelation().getSkolemizedFields()){
+								if(f.getName().equals(attribute.getName())){
+									fldInKey = true;
+									break;
+								}
+							}
+						}
+					}else{
+//				If the primary key is null, assume that the whole thing is the key
+						fldInKey = true;
+					}
+
+				}catch(NullPointerException e){
+					e.printStackTrace();
+					return null;
+				}
+				
+				if (atomVal instanceof ScMappingAtomVariable) 
+				{
+					vs.add(selectionForVariable(a, (ScMappingAtomVariable)atomVal, attribute, varmap, fldInKey, keysAndNulls));
+					if(!specialAttrib)
+						vsNull.add(selectionNullForVariable((ScMappingAtomVariable)atomVal, attribute, varmap));
+					
+				} 
+				else if (atomVal instanceof ScMappingAtomConst) 
+				{
+					vs.add(selectionForConst((ScMappingAtomConst)atomVal, attribute, fldInKey, keysAndNulls));
+					if(!specialAttrib)
+						vsNull.add(selectionNullForConst((ScMappingAtomConst)atomVal, attribute));
+				} else { // Old Skolem case
+					vs.add(typedNull(a.getRelation().getField(i), false));
+					String str = skolemExpr((ScMappingAtomSkolem)atomVal);
+					if (!specialAttrib)
+						vsNull.add(aliasedSelect(attribute, str, ModelConstants.LABEL_NULL_EXT, attribute.getName() + ModelConstants.LABEL_NULL_EXT, true, m_rule.replaceValsWithNullValues()));
+				}
+			}
+			if (a.getRelation().hasLabeledNulls())
+				vs.addAll(vsNull);
+		}
+		return vs;
+	}
+
+	protected Vector<SqlSelectItem> buildSelect(int curIterCnt) {
+		return buildSelectForAtom(m_rule.getHead(), m_varmap, true, true, curIterCnt);
+//		return OLDbuildSelectForAtom(m_rule.getHead(), m_varmap, true, true, curIterCnt);
+	}
+
+	protected SqlSelectItem typedNull(ScField field, boolean useNLExt) {
+		SqlSelectItem s;
+		if(useNLExt){
+			s = new SqlSelectItem("-1");
+		}else{
+			s = new SqlSelectItem(m_sqlString.nullProjection(field.getSQLTypeName()));
+		}
+		s.setAlias(field.getName());
+		return s;
+
+//		return aliasedSelect("cast(null as " 
+//		+ (useNLExt?"NUMERIC(10)":typesMap.get(field))         						
+//		+ ")", field.getName() + (useNLExt?ModelConstants.LABEL_NULL_EXT:""), true);
+	}
+
+
+
+	protected SqlSelectItem aliasedSelect(ScField field, String name, String ext, String alias, boolean isLabNull, boolean replaceValsWithNulls) {
+		SqlSelectItem s;
+
+		/*
+        if (name == null)
+        	throw new RuntimeException("Unable to alias variable to " + alias + " because source is null");
+        if (alias == null)
+        	throw new RuntimeException("Unable to alias variable " + name + ": alias is null");
+		 */
+
+		if (name == null || name.equals("NULL") || name.equals("null")){        	
+			s = typedNull(field, isLabNull);
+		} else if(isLabNull){
+			if(replaceValsWithNulls){
+				s = new SqlSelectItem(m_sqlString.caseNull(name));
+				s.setAlias(alias);
+			}else{
+				s = new SqlSelectItem(name + ext);
+				s.setAlias(alias);        	
+			}
+		}else{
+			s = new SqlSelectItem(name + ext);
+			s.setAlias(alias);        	
+		}
+		return s;
+	}
+
+
+	protected SqlExpression conjoin(SqlExpression expr, SqlExpression cond) {
+		if (expr == null) {
+			return cond;
+		} else if (cond == null) {
+			return expr; 
+		} else {
+			return new SqlExpression(SqlExpression.AND, expr, cond);
+		}
+	}
+
+
+	protected String skolemExpr(ScMappingAtomSkolem sk) {
+		// assume for now all parameters are plain variables
+		StringBuffer buf = new StringBuffer();
+
+		for (int i = 0 ; i <= sk.getParams().size() ; i++)
+			buf.append ("CONCAT(");
+
+		buf.append("'" + sk.getName() + "('");
+		boolean f = true;
+		for (ScMappingAtomArgument val : sk.getParams()) 
+		{
+			buf.append (",");
+			buf.append ((f?"":"CONCAT(',' ,"));
+			if (val instanceof ScMappingAtomVariable)
+			{
+				buf.append ("CONCAT(CONCAT(");
+				buf.append ("'''', " + m_varmap.get(val.toString()));
+				buf.append ( "), '''')");
+			}
+			else if (val instanceof ScMappingAtomConst)
+			{
+				buf.append(val.toString());
+			}
+			else if (val instanceof ScMappingAtomSkolem)
+				buf.append (skolemExpr((ScMappingAtomSkolem)val));
+
+
+			buf.append ((f?"":")"));
+			f = false;
+			buf.append (")");
+		}
+		buf.append(",')')");
+
+
+		return buf.toString();
+	}
+
+	public String getSkolemTerm(ScMappingAtom skolemDef){
+//		throws SkolemException{
+
+//		Skip first attribute, which is the variable to which this skolem should be assigned
+		Map<String, String> varmap = buildVarMap(m_rule);
+		AbstractRelation rel = skolemDef.getRelation();
+		StringBuffer buf = new StringBuffer();
+
+		buf.append("SKOLEM.SKOLEM");
+		int i = 0;
+		//Olivier: loop on skol values instead of rel fields
+		for(int j = 0 ; j < skolemDef.getValues().size()-1 ; j++){
+//			if(i > 0){
+			buf.append("STR");
+//			if(f.getType() instanceof StringType){
+//			buf.append("STR");
+//			}else if(f.getType() instanceof DateType){
+//			buf.append("DAT");
+//			}else if(f.getType() instanceof IntType){
+//			buf.append("INT");
+//			}else{
+////			throw new SkolemException("Unsupported type in skolem term");
+//			return null;
+//			}
+//			}else{
+//			buf.append("STR");
+//			}
+			i++;
+		}
+
+		i = 0;
+		buf.append("(");
+
+//		Name too long?
+//		buf.append("'" + skolemDef.getRelation().getName() + "'");
+		String shortName = skolemDef.getRelation().getName().substring(skolemDef.getRelation().getName().indexOf(':')+1);
+		buf.append("'" + shortName + "'");
+
+		List<ScMappingAtomArgument> keyFields = skolemDef.skolemKeyVals();
+
+		for(ScMappingAtomArgument v : skolemDef.getValues()){
+			if(i > 0){
+				if(varmap.containsKey(v.toString())){
+					if(keyFields.contains(v)){
+//						buf.append(", CASE WHEN " + varmap.get(v.toString()) + " IS NOT NULL THEN CHAR(" + varmap.get(v.toString()) + ") ELSE '' END ");
+						buf.append(", SUBSTR(CHAR(" + varmap.get(v.toString()) + "),1,CASE WHEN LENGTH(CHAR(" + varmap.get(v.toString()) + ")) > 128 THEN 128 ELSE LENGTH(CHAR(" + varmap.get(v.toString()) + ")) END )");
+					}else{
+						buf.append(", SUBSTR(CHAR(" + varmap.get(v.toString()) + ModelConstants.LABEL_NULL_EXT + "),1,CASE WHEN LENGTH(CHAR(" + varmap.get(v.toString()) + ModelConstants.LABEL_NULL_EXT + "))>128 THEN 128 ELSE LENGTH(CHAR(" + varmap.get(v.toString()) + ModelConstants.LABEL_NULL_EXT + ")) END )");
+//						buf.append(", CASE WHEN " + varmap.get(v.toString()) + " IS NOT NULL THEN CHAR(" + varmap.get(v.toString()) + ") ELSE '' END " +
+//						"|| CHAR(" + varmap.get(v.toString()) + ModelConstants.LABEL_NULL_EXT + ") ");
+					}
+				}else
+					System.out.println("Variable for skolem param not found in varmap!");
+			}
+			i++;
+		}
+		buf.append(")");
+
+		return buf.toString();
+
+	}
+
+	/**
+	 * Is this schema / function combo something built in?
+	 * 
+	 * @param sch
+	 * @param fn
+	 * @return
+	 */
+	public boolean isBuiltIn(String sch, String fn) {
+		if (!_builtIns.keySet().contains(sch))
+			return false;
+
+		if (_builtIns.get(sch).getIDForName(fn) == -1)
+			return true;
+		
+		return true;
+	}
+	
+	public static boolean isBuiltIn(String sch, String fn, Map<String,Schema> builtIns) {
+		if (!builtIns.keySet().contains(sch))
+			return false;
+
+		if (builtIns.get(sch).getIDForName(fn) == -1)
+			return true;
+		
+		return true;
+	}
+	
+	protected String evaluateBuiltIn(ScMappingAtom atom, HashMap<String,String> varmap) {
+		String sch = atom.getSchema().getSchemaId();
+		String fn = atom.getRelation().getName();
+		
+		List<String> args = new ArrayList<String>();
+		List<ZExp> children = new ArrayList<ZExp>();
+		//args.add(atom.getValues().get(0).toString());
+		
+		// Make sure the parameters are defined
+		for (int i = 0/*getFirstParm(sch, fn)*/; i < atom.getValues().size(); i++) {
+			String arg = atom.getValues().get(i).toString();
+			if (atom.getValues().get(i) instanceof ScMappingAtomConst) {
+				args.add(arg);
+				try {
+					Integer.valueOf(arg);
+					children.add(new SqlConstant(arg, SqlConstant.NUMBER));
+				} catch (NumberFormatException ne) {
+					children.add(new SqlConstant(arg, SqlConstant.STRING));
+				}
+			} else if (varmap.get(arg) == null && i >= getFirstParm(sch, fn))
+				return "";
+			else if (i >= getFirstParm(sch, fn)) {
+				args.add(varmap.get(arg));
+				if (_whereExpressions.get(arg) != null)
+					children.add(_whereExpressions.get(arg));
+				else
+					children.add(new SqlConstant(varmap.get(arg), SqlConstant.COLUMNNAME));
+				// This is no longer the root of a condition -- it's a subexpression
+//				_whereRoots.remove(_whereExpressions.get(arg));
+			}
+		}
+		
+		SqlExpression newExpr = getExpression(sch, fn, children);
+		
+		if (newExpr.isBoolean())
+			_whereRoots.add(newExpr);
+		else
+			_whereExpressions.put(atom.getValues().get(0).toString(), newExpr);
+		
+		return getResultString(sch, fn, args);
+	}
+	
+	protected int getFirstParm(String sch, String fn) {
+		if (sch.equals("COMPARE"))
+			return 0;
+		else
+			return 1;
+	}
+	
+	public SqlExpression getExpression(String sch, String fn, List<ZExp> args) {
+		if (sch.equals("COMPARE")) {
+			if (fn.equals("INTLESS")) {
+				return new SqlExpression(SqlExpression.LT, args.get(0), args.get(1));
+			} else if (fn.equals("INTLESSEQUAL")) {
+				return new SqlExpression(SqlExpression.LTE, args.get(0), args.get(1));
+			} else if (fn.equals("INTGREATER")) {
+				return new SqlExpression(SqlExpression.GT, args.get(0), args.get(1));
+			} else if (fn.equals("INTGREATEREQUAL")) {
+				return new SqlExpression(SqlExpression.GTE, args.get(0), args.get(1));
+			} else if (fn.equals("INTEQUAL")) {
+				return new SqlExpression(SqlExpression.EQ, args.get(0), args.get(1));
+			} else if (fn.equals("INTNOTEQUAL")) {
+				return new SqlExpression(SqlExpression.NEQ, args.get(0), args.get(1));
+			}  
+		} else if (sch.equals("ARITH")) {
+			if (fn.equals("INTADD")) {
+				return new SqlExpression(SqlExpression.PLUSSIGN, args.get(0), args.get(1));
+			} else if (fn.equals("INTSUB")) {
+				return new SqlExpression(SqlExpression.MINUSSIGN, args.get(0), args.get(1));
+			} else if (fn.equals("INTMUL")) {
+				return new SqlExpression(SqlExpression.MULTSIGN, args.get(0), args.get(1));
+			} else if (fn.equals("INTDIV")) {
+				return new SqlExpression(SqlExpression.DIVSIGN, args.get(0), args.get(1));
+			}  
+		} else if (sch.equals("STRING")) {
+			if (fn.equals("STRCAT")) {
+				return new SqlExpression(SqlExpression.PIPESSIGN, args.get(0), args.get(1));
+				/*
+			} else if (fn.equals("SUBSTR")) {
+				return new SqlExpression(SqlExpression.)
+			} else if (fn.equals("STRLEN")) {
+				return "LENGTH(" + args.get(1) + ")";
+				*/
+			}  
+		}
+		return null;
+	}
+	
+	public String getResultString(String sch, String fn, List<String> args) {
+		if (sch.equals("COMPARE")) {
+			if (fn.equals("INTLESS")) {
+				return "(" + args.get(0) + " < " + args.get(1) + ")";
+			} else if (fn.equals("INTLESSEQUAL")) {
+				return "(" + args.get(0) + " <= " + args.get(1) + ")";
+			} else if (fn.equals("INTGREATER")) {
+				return "(" + args.get(0) + " > " + args.get(1) + ")";
+			} else if (fn.equals("INTGREATEREQUAL")) {
+				return "(" + args.get(0) + " >= " + args.get(1) + ")";
+			} else if (fn.equals("INTEQUAL")) {
+				return "(" + args.get(0) + " = " + args.get(1) + ")";
+			} else if (fn.equals("INTNOTEQUAL")) {
+				return "(" + args.get(0) + " <> " + args.get(1) + ")";
+			}  
+		} else if (sch.equals("ARITH")) {
+			if (fn.equals("INTADD")) {
+				return "(" + args.get(0) + " + " + args.get(1) + ")";
+			} else if (fn.equals("INTSUB")) {
+				return "(" + args.get(0) + " - " + args.get(1) + ")";
+			} else if (fn.equals("INTMUL")) {
+				return "(" + args.get(0) + " * " + args.get(1) + ")";
+			} else if (fn.equals("INTDIV")) {
+				return "(" + args.get(0) + " / " + args.get(1) + ")";
+			}  
+		} else if (sch.equals("STRING")) {
+			if (fn.equals("STRCAT")) {
+				return "(" + args.get(0) + " || " + args.get(1) + ")";
+			} else if (fn.equals("SUBSTR")) {
+				return "SUBSTR(" + args.get(0) + "," + args.get(1) + "," + args.get(2) + ")";
+			} else if (fn.equals("STRLEN")) {
+				return "LENGTH(" + args.get(0) + ")";
+			}  
+		}
+		return "";
+	}
+}

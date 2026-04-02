@@ -1,0 +1,179 @@
+package edu.upenn.cis.orchestra.optimization;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import edu.upenn.cis.orchestra.p2pqp.plan.CentralizedLoc;
+import edu.upenn.cis.orchestra.p2pqp.plan.DistributedLoc;
+import edu.upenn.cis.orchestra.p2pqp.plan.NamedLoc;
+
+public class Location extends PhysicalProperties {
+	public static final Location CENTRALIZED = new Location(new HashSet<Variable>(0));
+	
+	// If both are null, location represents the query coordinator
+	// If hashVars is not null, then location represents data striped across
+	// the DHT
+	// If namedNode is not null, then the location represents a single
+	// node identified by a name
+	private final Set<Variable> hashVars;
+	private final String namedNode;
+	
+	public Location(Collection<Variable> hashVars) {
+		if (hashVars.isEmpty()) {
+			throw new IllegalArgumentException("Cannot supply empty set of hash variables");
+		}
+		this.hashVars = new HashSet<Variable>(hashVars);
+		namedNode = null;
+	}
+	
+	public Location() {
+		hashVars = null;
+		namedNode = null;
+	}
+	
+	public Location(String namedNode) {
+		this.hashVars = null;
+		this.namedNode = namedNode;
+	}
+	
+	public Set<Variable> getHashVars() {
+		if (hashVars == null) {
+			throw new IllegalStateException("Location does not represent striped data");
+		}
+		return Collections.unmodifiableSet(hashVars);
+	}
+	
+	public String getLocationName() {
+		if (namedNode == null) {
+			throw new IllegalStateException("Location does not represent a named location");
+		}
+		return namedNode;
+	}
+	
+	public boolean isCentralized() {
+		return namedNode == null && hashVars == null;
+	}
+	
+	public boolean isDistributed() {
+		return hashVars != null;
+	}
+	
+	public boolean isNamedLocation() {
+		return namedNode != null;
+	}
+	
+	
+	public boolean equals(Object o) {
+		if (o == null || o.getClass() != this.getClass()) {
+			return false;
+		}
+		Location l = (Location) o;
+		if (hashVars == null && namedNode == null) {
+			return l.hashVars == null && l.namedNode == null;
+		} else if (hashVars != null) {
+			return hashVars.equals(l.hashVars);
+		} else {
+			return namedNode.equals(l.namedNode);
+		}
+	}
+
+	
+	public int hashCode() {
+		if (namedNode == null && hashVars == null) {
+			return 0;
+		} else if (hashVars != null) {
+			return hashVars.hashCode();
+		} else {
+			return namedNode.hashCode();
+		}
+	}
+
+	
+	public String toString() {
+		return hashVars.toString();
+	}
+	
+	public static class Factory implements PhysicalPropertiesFactory<Location> {
+		
+		public Set<Location> enumerateAllProperties(Expression e, RelationTypes<? extends Location,?> rt) {
+			List<Set<Variable>> varCombos = Optimizer.createAllSubsets(e.getExposedVariables(), true);
+			Set<Location> retval = new HashSet<Location>(varCombos.size());
+			
+			for (Set<Variable> vars : varCombos) {
+				if (vars.isEmpty()) {
+					retval.add(new Location());
+				} else {
+					retval.add(new Location(vars));
+				}
+			}
+			
+			
+			return retval;
+		}
+	}
+
+	public edu.upenn.cis.orchestra.p2pqp.plan.Location getPlanLocation() {
+		if (isCentralized()) {
+			return CentralizedLoc.getInstance();
+		} else if (isDistributed()) {
+			return DistributedLoc.getInstance();
+		} else {
+			return new NamedLoc(namedNode);
+		}
+	}
+	
+	public Location applyMorphism(Morphism m, RelationTypes<?,?> rt) throws VariableNotInMapping {
+		if (m == null || hashVars == null || hashVars.isEmpty()) {
+			return this;
+		}
+		
+		boolean changed = false;
+		Set<Variable> morphed = new HashSet<Variable>(hashVars.size());
+		for (Variable v : hashVars) {
+			Variable vv = v.applyMorphism(m, rt);
+			if (vv == null) {
+				vv = v;
+			} else {
+				changed = true;
+			}
+			morphed.add(vv);
+		}
+		if (! changed) {
+			return this;
+		} else {
+			return new Location(morphed);
+		}
+	}
+	
+	public boolean isValidFor(Expression e) {
+		for (Variable v : hashVars) {
+			if (v instanceof Function) {
+				if (! e.functions.contains(v)) {
+					return false;
+				}
+			} else if (v instanceof Aggregate) {
+				if (! e.aggregates.contains(v)) {
+					return false;
+				}
+			} else if (v instanceof EquivClass) {
+				if (! e.equivClasses.contains(v)) {
+					return false;
+				}
+			} else if (v instanceof AtomVariable) {
+				AtomVariable av = (AtomVariable) v;
+				Integer count = e.relAtoms.get(av.relation);
+				if (count == null || count < av.occurrence) {
+					return false;
+				}
+			}
+			// Also check that variables haven't been removed by aggregation
+			if (e.groupBy.size() > 0 && (! v.isAggregatedComputable(e.groupBy))) {
+				return false;
+			}
+		}
+		return true;
+	}
+}

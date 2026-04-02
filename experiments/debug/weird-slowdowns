@@ -1,0 +1,7 @@
+With BATCH/UNION, downward tree traversal is slow, e.g.
+1st loop: 13344msec
+2nd loop: 1797msec
+2nd loop: 1735msec
+
+Corresponding individual queries for non BATCH/UNION are
+in the order of 30msec each.

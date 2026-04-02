@@ -1,0 +1,165 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static edu.upenn.cis.orchestra.p2pqp.Id.ZERO;
+import static edu.upenn.cis.orchestra.p2pqp.IdRange.empty;
+
+public class TestIdRange {
+	
+	Id one, two, three, four;
+	
+	@Before
+	public void setUp() {
+		byte[] data = new byte[Id.idLengthBytes];
+		data[0] = 1;
+		one = Id.fromMSBBytes(data);
+		data[0] = 2;
+		two = Id.fromMSBBytes(data);
+		data[0] = 3;
+		three = Id.fromMSBBytes(data);
+		data[0] = 4;
+		four = Id.fromMSBBytes(data);
+	}
+	
+	@Test
+	public void testContainsNoZero() {
+		IdRange larger = new IdRange(one,four);
+		IdRange smaller1 = new IdRange(one,two);
+		IdRange smaller2 = new IdRange(two,three);
+		IdRange smaller3 = new IdRange(two,four);
+		IdRange overlapping2 = new IdRange(three,ZERO);
+		assertTrue(larger.contains(smaller1));
+		assertTrue(larger.contains(smaller2));
+		assertTrue(larger.contains(smaller3));
+		assertFalse(smaller1.contains(larger));
+		assertFalse(smaller2.contains(larger));
+		assertFalse(smaller3.contains(larger));
+		assertFalse(larger.contains(overlapping2));
+		assertFalse(overlapping2.contains(larger));
+	}
+	
+	@Test
+	public void testLargerContainsZero() {
+		IdRange larger = new IdRange(four,two);
+		IdRange smaller1 = new IdRange(one,two);
+		IdRange disjoint = new IdRange(two,four);
+		assertTrue(larger.contains(smaller1));
+		assertFalse(smaller1.contains(larger));
+		assertFalse(larger.contains(disjoint));
+		assertFalse(disjoint.contains(larger));
+	}
+		
+	@Test
+	public void testBothContainZero() {
+		IdRange larger = new IdRange(three,one);
+		IdRange smaller1 = new IdRange(three,ZERO);
+		IdRange smaller2 = new IdRange(four,ZERO);
+		IdRange smaller3 = new IdRange(four,one);
+		assertTrue(larger.contains(larger));
+		assertTrue(larger.contains(smaller1));
+		assertTrue(larger.contains(smaller2));
+		assertTrue(larger.contains(smaller3));
+		assertFalse(smaller1.contains(larger));
+		assertFalse(smaller2.contains(larger));
+		assertFalse(smaller3.contains(larger));
+		IdRange overlapping1 = new IdRange(four,two);
+		IdRange overlapping2 = new IdRange(two,ZERO);
+		assertFalse(larger.contains(overlapping1));
+		assertFalse(larger.contains(overlapping2));
+		assertFalse(overlapping1.contains(larger));
+		assertFalse(overlapping2.contains(larger));
+	}
+	
+	@Test
+	public void testFullIdRange() {
+		IdRange full = new IdRange(ZERO,ZERO);
+		IdRange full2 = new IdRange(one,one);
+		assertTrue(full.contains(full));
+		assertTrue(full.contains(full2));
+		assertTrue(full2.contains(full));
+		assertTrue(full2.contains(full2));
+		
+		IdRange wraps = new IdRange(three,one);
+		assertTrue(full.contains(wraps));
+		assertTrue(full2.contains(wraps));
+		assertFalse(wraps.contains(full));
+		assertFalse(wraps.contains(full2));
+		
+		IdRange small = new IdRange(one,three);
+		assertTrue(full.contains(small));
+		assertTrue(full2.contains(small));
+		assertFalse(small.contains(full));
+		assertFalse(small.contains(full2));
+	}
+	
+	@Test
+	public void testIntersects() {
+		IdRange full = new IdRange(ZERO,ZERO);
+		IdRange full2 = new IdRange(one,one);
+		
+		IdRange big = new IdRange(one,four);
+		IdRange medium = new IdRange(one,three);
+		IdRange medium2 = new IdRange(two,four);
+		IdRange medium3 = new IdRange(four,one);
+		IdRange small = new IdRange(one,two);
+		
+		assertTrue(full.intersects(full2));
+		assertTrue(full.intersects(big));
+
+		assertTrue(big.intersects(full2));
+		assertTrue(big.intersects(medium));
+		assertTrue(big.intersects(medium2));
+		assertFalse(big.intersects(medium3));
+		assertTrue(big.intersects(small));
+		
+		assertTrue(medium.intersects(medium2));
+		assertTrue(medium.intersects(small));
+		assertFalse(medium.intersects(medium3));
+	}
+	
+	@Test
+	public void testContains() {
+		IdRange larger = new IdRange(two,one);
+		IdRange smaller = new IdRange(two,three);
+		assertTrue(larger.contains(smaller));
+		assertFalse(smaller.contains(larger));
+	}
+	
+	@Test
+	public void testIntersectCornerCases() {
+		IdRange full = new IdRange(one,one);
+		IdRange small = new IdRange(one,two);
+		IdRange large = new IdRange(ZERO,three);
+		
+		assertEquals(full, full.intersect(full));
+		assertEquals(small, full.intersect(small));
+		assertEquals(empty(), full.intersect(empty()));
+		assertEquals(empty(), small.intersect(empty()));
+		assertEquals(small, large.intersect(small));
+		assertEquals(small, small.intersect(large));
+	}
+	
+	@Test
+	public void testIntersect() {
+		IdRange start = new IdRange(one,three);
+		IdRange middle = new IdRange(two,four);
+		IdRange end = new IdRange(three, four);
+		IdRange wrap = new IdRange(two,ZERO);
+		IdRange wrap2 = new IdRange(three,one);
+		IdRange wrap3 = new IdRange(four, two);
+		
+		assertEquals(empty(), start.intersect(end));
+		assertEquals(new IdRange(two,three),start.intersect(middle));
+		assertEquals(new IdRange(two,three), start.intersect(wrap));
+		assertEquals(new IdRange(three,ZERO), wrap.intersect(wrap2));
+		
+		assertEquals(new IdRange(one,two), start.intersect(wrap3));
+		assertEquals(new IdRange(one,two), wrap3.intersect(start));
+	}
+}

@@ -1,0 +1,57 @@
+#PEERS:  30
+EXP:schema=30p
+>           set applybaseDel=false
+EXP:applybaseDel=false
+>           set applybaseIns=false
+EXP:applybaseIns=false
+NET: Cleanup prepared statements
+208188 
+399519 
+381453 
+380525 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=true
+EXP:applybaseIns=true
+NET: Cleanup prepared statements
+373965 
+>            set applybaseDel=false
+EXP:applybaseDel=false
+>            set applybaseIns=false
+EXP:applybaseIns=false
+NET: Cleanup prepared statements
+86429 
+89163 
+89840 
+89644 
+88247 
+104596 
+104842 
+105243 
+107299 
+99577 
+139033 
+151728 
+136359 
+168684 
+162234 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=false
+EXP:applybaseIns=false
+NET: Cleanup prepared statements
+103152 
+93728 
+91557 
+91793 
+98111 
+127360 
+126613 
+142419 
+143602 
+146536 
+314205 
+319491 
+328056 
+313782 
+297308 

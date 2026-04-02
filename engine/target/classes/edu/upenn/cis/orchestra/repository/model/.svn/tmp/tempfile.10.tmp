@@ -1,0 +1,497 @@
+/**
+ * This package contains all classes used to describe the Orchestra Repository objects, 
+ * and conversions to/from beans.
+ */
+package edu.upenn.cis.orchestra.repository.model;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.springframework.beans.BeanUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import edu.upenn.cis.orchestra.XMLParseException;
+import edu.upenn.cis.orchestra.datamodel.StringPeerID;
+import edu.upenn.cis.orchestra.engine.BasicEngine;
+import edu.upenn.cis.orchestra.engine.IDb;
+import edu.upenn.cis.orchestra.engine.sql.SqlDb;
+import edu.upenn.cis.orchestra.engine.sql.SqlEngine;
+import edu.upenn.cis.orchestra.engine.tukwila.TukwilaDb;
+import edu.upenn.cis.orchestra.engine.tukwila.TukwilaEngine;
+import edu.upenn.cis.orchestra.reconciliation.ClientCentricDb;
+import edu.upenn.cis.orchestra.reconciliation.Db;
+import edu.upenn.cis.orchestra.reconciliation.DbException;
+import edu.upenn.cis.orchestra.reconciliation.StateStore;
+import edu.upenn.cis.orchestra.reconciliation.UpdateStore;
+import edu.upenn.cis.orchestra.repository.model.beans.OrchestraSystemBean;
+import edu.upenn.cis.orchestra.repository.model.beans.PeerBean;
+import edu.upenn.cis.orchestra.repository.model.exceptions.DuplicateMappingIdException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.DuplicatePeerIdException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.DuplicateRelationIdException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.DuplicateSchemaIdException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.InvalidBeanException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.UnknownRefFieldException;
+import edu.upenn.cis.orchestra.util.DomUtils;
+
+/****************************************************************
+ * Class used to group multiple peers (global view of the system)
+ * @author Olivier Biton
+ *****************************************************************
+ */
+public class OrchestraSystem {
+
+	/** Set of peers composing the system */
+	private Map<String,Peer> _peers;
+	
+
+	/** Local objects: mapping and reconciliation engines */
+	protected BasicEngine _mappingEngine;
+	protected IDb _mappingDb;
+	protected UpdateStore.Factory _usf;
+	protected StateStore.Factory _ssf;
+	protected Map<String,Db> _recDbs;
+
+	protected edu.upenn.cis.orchestra.datamodel.Schema _schema;
+	/**
+	 * Creates an empty Orchestra system
+	 */
+	public OrchestraSystem ()
+	{
+		super ();
+		_peers = new HashMap<String, Peer>();
+		_recDbs = new HashMap<String,Db>();
+	}
+
+	/**
+	 * Deep copy of a given OrchestraSystem (use method 
+	 * deepCopy to benefit from polymorphism)
+	 * @param system System to copy
+	 * @see OrchestraSystem#deepCopy()
+	 */
+	protected OrchestraSystem (OrchestraSystem system)
+	{
+		this ();
+		
+		// First: Create deep copy of peers without their 
+		// mappings (would'nt be possible to load mappings 
+		// if the referenced peer does not exist yet)
+		Map<Peer,Peer> oldNewPeers = new HashMap<Peer, Peer> (); 
+		for (Peer p : system.getPeers())
+		{
+			Peer np = p.deepCopy();
+			oldNewPeers.put (p,np);
+			try
+			{
+				addPeer(np);
+			} catch (DuplicatePeerIdException ex)
+			{
+				System.out.println ("Peer id conflict should not happen in a deep copy!");
+				ex.printStackTrace();
+			}
+		}
+		// Second: Complete the deep copy by copying the peers
+		for (Map.Entry<Peer, Peer> entry : oldNewPeers.entrySet())
+			entry.getValue().deepCopyMappings(entry.getKey(), this);
+
+		// Third: shallow-copy the stuff more recently added to OrchestraSystem
+		// TODO: deep-copy?
+		_mappingEngine = system._mappingEngine;
+		_mappingDb = system._mappingDb;
+		_usf = system._usf;
+		_ssf = system._ssf;
+
+		// _recDbs will get filled in as needed
+	}
+	
+	/**
+	 * Create a new OrchestraSystem from its bean representation
+	 * @param bean Bean describing the system
+	 * @throws DuplicatePeerIdException If two peers in the bean share a common id
+	 * @throws InvalidBeanException If any of the system bean subproperties is an invalid bean
+	 */
+	public OrchestraSystem (OrchestraSystemBean bean)
+				throws DuplicatePeerIdException, InvalidBeanException
+	{ 
+		
+		this ();
+
+		// First create the peers with no mappings
+		Map<PeerBean, Peer> mapPeers = new HashMap<PeerBean, Peer> (); 	
+		for (PeerBean peerBean : bean.getPeers())
+		{
+			Peer peer = new Peer(peerBean);
+			addPeer (peer);
+			
+			mapPeers.put(peerBean, peer);
+		}
+		
+		//TODO: Exception handling if a peer is missing...
+		
+		// Then complete the creation with the mappings (all referenced peers must exist)
+		for (Map.Entry<PeerBean, Peer> peerEntry : mapPeers.entrySet())
+			peerEntry.getValue().loadMappings(peerEntry.getKey(), this);
+		
+	}
+	
+	//TODO: Errors if ids not unique
+	
+	/**
+	 * Add a new peer to the system
+	 * @param peer peer to add
+	 * @throws DuplicatePeerIdException If a peer already exists with the same id
+	 */
+	public void addPeer (Peer peer)
+						throws DuplicatePeerIdException
+	{
+		if (_peers.containsKey(peer.getId()))
+			throw new DuplicatePeerIdException (peer.getId());
+		else
+			_peers.put(peer.getId(), peer);
+	}
+	
+	/** 
+	 * Add a list of peers to the system
+	 * @param peers new peers
+	 * @throws DuplicatePeerIdException If at least one peer in <code>peers</code>
+	 *     uses an id already used in the system, or if at least two peers in this 
+	 *     list have a common id.
+	 */
+	public void addPeers (List<Peer> peers)
+					throws DuplicatePeerIdException
+	{
+		for (Peer p : peers)
+			addPeer (p);
+	}
+	
+	/**
+	 * Get a peer from its id
+	 * @param peerId Id to look for
+	 * @return Peer if it exists, null otherwise
+	 */
+	public Peer getPeer (String peerId)
+	{
+		return _peers.get(peerId);
+	}
+	
+	/**
+	 * Get the list of peers in this system <br>
+	 * WARNING: Not a deep copy (to improve performances)
+	 * @return List of peers, can be empty, cannot be null
+	 */
+	public Collection<Peer> getPeers ()
+	{
+		return _peers.values();
+	}
+	
+	//TODO: Check if mappings ref this peer!
+	/**
+	 * Removes the peer from the system
+	 * @param peerId Id of the peer to remove
+	 */
+	public void removePeer (String peerId)
+	{
+		_peers.remove(peerId);
+	}
+	
+	
+	/**
+	 * Get a deep copy of this Orchestra system
+	 * @return Deep copy
+	 * @see OrchestraSystem#OrchestraSystem(OrchestraSystem)
+	 */
+	public OrchestraSystem deepCopy ()
+	{
+		return new OrchestraSystem(this);
+	}
+	
+	
+	/**
+	 * Convert this object to its bean representation
+	 * @return Bean describing the object
+	 */
+	public OrchestraSystemBean toBean ()
+	{
+		
+		OrchestraSystemBean bean = new OrchestraSystemBean ();
+		// Copy simple properties
+		BeanUtils.copyProperties(this, bean, new String[] {"peers"});
+		
+		// Create the list of peers beans
+		List<PeerBean> peers = new ArrayList<PeerBean> ();
+		for (Peer p : getPeers())
+			peers.add(p.toBean());
+		bean.setPeers(peers);
+		
+		return bean;
+	}
+	
+	
+	/**
+	 * String representation of this Orchestra system. <BR>
+	 * Conforms with the flat file representation defined in RepositoryDAO
+	 * @return String representation
+	 */
+	public String toString ()
+	{
+		
+		StringBuffer buff = new StringBuffer ();
+		buff.append("PEERS\n"); 
+		for (Peer p : getPeers())
+			buff.append(p.toString(1) + "\n");
+		return buff.toString();
+	}
+	
+	/**
+	 * Extract mappings from all the system peers
+	 * @param materialized If true, only materialized mappings will be returned. 
+	 * 					   If false only not materialized
+	 * @return Mappings
+	 */
+	public List<ScMapping> getAllSystemMappings (boolean materialized)
+	{
+		List<ScMapping> res = new ArrayList<ScMapping> ();
+		for (Peer p : getPeers())
+			for (ScMapping mapping : p.getMappings ())
+				if (mapping.isMaterialized()==materialized)
+					res.add(mapping);
+		return res;
+	}
+
+	public List<ScRelationContext> getAllUserRelations ()
+	{
+		List<ScRelationContext>rels = new ArrayList<ScRelationContext>();
+
+		for (Peer p : getPeers()){
+			for (Schema s : p.getSchemas()){
+				for(ScRelation r : s.getRelations()) {
+					if(!r.getDbRelName().endsWith("_L") && !r.getDbRelName().endsWith("_R")){
+						rels.add(new ScRelationContext(r, s, p, false));
+					}
+				}
+			}
+		}
+		return rels;
+	}
+	
+	public ScRelationContext getRelationByName(String peer, String schema, String relation) {
+		Peer p = _peers.get(peer);
+		if (p != null) {
+			Schema s = p.getSchema(schema);
+			if (s != null) {
+				ScRelation r;
+				try{
+					r= s.getRelation(relation);
+				}catch(Exception e){
+					e.printStackTrace();
+					return null;
+				}
+				if (r != null) {
+					return new ScRelationContext(r, s, p, false);
+				}
+			}
+		}
+		return null;
+	}
+	
+	public Schema getSchemaByName(String peer, String schema) {
+		Peer p = _peers.get(peer);
+		if (p != null) {
+			return p.getSchema(schema);
+		}
+		return null;
+	}
+	
+	public List<Schema> getAllSchemas() {
+		List<Schema> ret = new ArrayList<Schema>();
+		for (Peer p : getPeers())
+			ret.addAll(p.getSchemas());
+		return ret;
+	}
+
+	public Db getRecDb(String name) throws DbException {
+		Peer p = _peers.get(name);
+		if (p == null) {
+			throw new IllegalArgumentException("Peer " + name + " is not in the Orchestra system");
+		}
+		Collection<Schema> schemas = p.getSchemas();
+		if (schemas.size() != 1) {
+			throw new IllegalArgumentException("Cannot get a reconciliation DB for a peer without exactly one schema");
+		}
+		Schema schema = null;
+		for (Schema s : schemas) {
+			schema = s;
+		}
+		if (_schema == null) {
+			_schema = new edu.upenn.cis.orchestra.datamodel.Schema(schema);
+		} else {
+			if (! _schema.equals(new edu.upenn.cis.orchestra.datamodel.Schema(schema))) {
+				throw new DbException("Cannot create reconciliation DBs with different schemas");
+			}
+		}
+		Db db = _recDbs.get(name);
+		if (db == null) {
+			db = new ClientCentricDb(_schema, new StringPeerID(name), _usf, _ssf);
+			_recDbs.put(name, db);
+			return db;
+		} else {
+			if (! db.isConnected()) {
+				db.reconnect();
+			}
+			return db;
+		}
+	}
+		
+	public BasicEngine getMappingEngine() {
+		return _mappingEngine;
+	}
+	
+	public void setMappingEngine(BasicEngine engine) {
+		_mappingEngine = engine;
+	}
+
+	public IDb getMappingDb() {
+		return _mappingDb;
+	}
+	
+	public void setMappingDb(IDb db) {
+		_mappingDb = db;
+	}
+
+	public void disconnect() throws Exception {
+		if (_mappingEngine != null) {
+			_mappingEngine.close();
+			_mappingEngine = null;
+		}
+		if (_mappingDb != null) {
+			_mappingDb.disconnect();
+			_mappingDb = null;
+		}
+	}
+	
+	static protected Element addChild(Document doc, Element parent, String label, String name) { 
+		Element child = doc.createElement(label);
+		child.setAttribute("name", name);
+		parent.appendChild(child);
+		return child;
+	}
+
+	public void serialize(OutputStream out) {
+		try {
+			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = builderFactory.newDocumentBuilder();
+			Document doc = builder.newDocument();
+			Element cat = doc.createElement("catalog"); 
+			doc.appendChild(cat);
+			for (String id : _peers.keySet()) {
+				Element peer = addChild(doc, cat, "peer", id);
+				_peers.get(id).serialize(doc, peer);
+			}
+			for (String id : _peers.keySet()) {
+				Peer peer = _peers.get(id);
+				for (ScMapping mapping : peer.getMappings()) {
+					Element m = DomUtils.addChild(doc, cat, "mapping");
+					mapping.serialize(doc, m);
+				}
+			}
+			if (_mappingDb != null) {
+				Element engine = DomUtils.addChild(doc, cat, "engine");
+				_mappingDb.serialize(doc, engine);
+			}
+			Element store = DomUtils.addChild(doc, cat, "store");
+			Element update = DomUtils.addChild(doc, store, "update");
+			Element state = DomUtils.addChild(doc, store, "state");
+			if (_usf != null) {
+				_usf.serialize(doc, update);
+			}
+			if (_ssf != null) {
+				_ssf.serialize(doc, state);
+			}
+			DomUtils.write(doc, out);
+		} catch (ParserConfigurationException e) {
+			assert(false);	// can't happen
+		}
+	}
+
+	static public OrchestraSystem deserialize(InputStream in) throws FileNotFoundException, IOException, SAXException, XMLParseException {
+		try {
+			OrchestraSystem catalog = new OrchestraSystem();
+			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = builderFactory.newDocumentBuilder();
+			Document document = builder.parse(in);
+			Element root = document.getDocumentElement();
+			if (!root.getNodeName().equals("catalog")) {
+				throw new XMLParseException("Missing top-level catalog element");
+			}
+			NodeList list = root.getChildNodes();
+			for (int i = 0; i < list.getLength(); i++) {
+				Node node = list.item(i);
+				if (node instanceof Element) {
+					Element el = (Element)node;
+					if (el.getNodeName().equals("peer")) {
+						Peer peer = Peer.deserialize(el);
+						catalog.addPeer(peer);
+					} else if (el.getNodeName().equals("mapping")) {
+						ScMapping mapping = ScMapping.deserialize(catalog, el);
+						Peer peer = mapping.getMappingHead().get(0).getPeer();
+						peer.addMapping(mapping);
+					} else if (el.getNodeName().equals("engine")) {
+						String type = el.getAttribute("type");
+						if (type.compareToIgnoreCase("sql") == 0) {
+							SqlDb db = SqlDb.deserialize(catalog, el);
+							SqlEngine engine = new SqlEngine(db, catalog);
+							catalog.setMappingDb(db);
+							catalog.setMappingEngine(engine);
+						} else if (type.compareToIgnoreCase("tukwila") == 0) {
+							TukwilaDb db = TukwilaDb.deserialize(catalog, el);
+							TukwilaEngine engine = new TukwilaEngine(db, catalog);
+							catalog.setMappingDb(db);
+							catalog.setMappingEngine(engine);
+						} else {
+							throw new XMLParseException("Unknown engine type: " + type, el);
+						}
+					} else if (el.getNodeName().equals("store")) {
+						Element update = DomUtils.getChildElementByName(el, "update");
+						Element state = DomUtils.getChildElementByName(el, "state");
+						if (update == null || state == null) {
+							throw new XMLParseException("Missing <update> or <state> tag", el);
+						}
+						catalog._usf = UpdateStore.deserialize(update);
+						catalog._ssf = StateStore.deserialize(state);
+					}
+				}
+			}
+			if (catalog._usf == null || catalog._ssf == null) {
+				throw new XMLParseException("Missing <store> element to describe state and update stores");
+			}
+			return catalog;
+		} catch (ParserConfigurationException e) {
+			assert(false);	// can't happen
+		} catch (DuplicatePeerIdException e) {
+			throw new XMLParseException("Duplicate peer name " + e.getPeerId());
+		} catch (DuplicateSchemaIdException e) {
+			throw new XMLParseException("Duplicate schema name " + e.getSchemaId());
+		} catch (DuplicateRelationIdException e) {
+			throw new XMLParseException("Duplicate relation name " + e.getRelId());
+		} catch (UnknownRefFieldException e) {
+			throw new XMLParseException("Unknown field in key: " + e);
+		} catch (DuplicateMappingIdException e) {
+			throw new XMLParseException("Duplicate mapping name " + e.getMappingId());
+		}
+		return null;
+	}
+}

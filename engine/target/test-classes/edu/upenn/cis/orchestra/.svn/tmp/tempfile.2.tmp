@@ -1,0 +1,142 @@
+# Apply SQL to DBMS
+apply=true
+
+# Apply migration SQL to DBMS
+migrate=true
+
+# Apply import SQL to DBMS
+import=true
+
+# Put multiple queries in one batch
+batch=false
+
+# Use autocommit
+autocommit=true
+
+# Create deletion rules
+delete=true
+
+# Debug mode
+debug=false
+
+# Create insertion rules
+insert=true
+
+# Do incremental maintenance (false overrides insert, delete options)
+incremental=true
+
+# Create outer unions, versus individual mapping relations
+outerunion=false
+
+# Prepare statements before executing
+prepare=true
+
+# Reset the tables at the end
+reset=false
+
+# Put rules with the same body in one union query
+union=false
+
+# Index all fields
+indexall=true
+
+# URL for DB2 server
+db2server=jdbc:db2:SIGMOD
+#db2server=jdbc:db2://dbserv.cis.upenn.edu:50000/sigmod
+
+# local dbname
+dbname=orchestra
+
+# JDBC driver to use
+jdbc-driver=COM.ibm.db2.jdbc.app.DB2Driver
+
+# Username for DB2
+db2user=gkarvoun
+
+# Password for DB2
+db2pwd=GREG#00
+
+# DB2 hostname for Tukwila to use in migration
+db2host=dbserv.cis.upenn.edu
+
+# DB2 database for Tukwila to use in migration
+db2dbname=DEFEAT
+
+# Schema file prefix
+schema=complex
+
+# Workload files prefix
+workload=complex
+
+# Directory with workload and schema files
+workdir=D:/dev/orchestra/experiments/tests
+
+# Estimated table size
+tablesize=0
+
+# If in debug mode, output verbose debug messages
+fulldebug=false
+
+# Schema name for SQL (may be different from user name!)
+sqlschema=GKARVOUN
+
+setsemantics=true
+
+# Run DRed instead of our algorithm
+dred=false
+
+# Hostname for Tukwila server
+tukwilahost=localhost
+
+# Port for Tukwila server
+tukwilaport=7777
+
+# Filename for Tukwila B-trees
+tukwilafiles=orchestra.bdb
+
+# Introduce stratum number in rules to "merge" DEL/ALLDEL relations
+stratified=true
+
+# Cygwin root directory
+cygwinhome=C:/cygwin
+
+# Recompute queries
+recompute=false
+
+# Apply updates to base
+applybase=true
+
+# For experiments
+scalability=false
+
+scalability1=false
+
+scalability2=false
+
+nullscycles=false
+
+skipdelpost=false
+
+runs=1
+
+# Use XML format for schema file, or flat text file format?
+xmlformat=true
+
+localpeer=P0
+
+localschema=S0
+
+# Skolem user defined function home
+udfhome=C:/cygwin
+
+# Max # arguments to a Skolem UDF
+udfdepth=8
+
+# Skolem class name
+skolemclass=Skolem
+
+# Skolem server host name (requires rebuild of GenerateSkolemUDFs to take effect)
+skolemhost=grw561-2.cis.upenn.edu
+
+#JDBC driver for update store
+US-jdbc-driver=com.ibm.db2.jcc.DB2Driver

@@ -1,0 +1,358 @@
+/**
+ * This package contains all classes used to describe the Orchestra Repository objects, 
+ * and conversions to/from beans.
+ */
+package edu.upenn.cis.orchestra.repository.model;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.springframework.beans.BeanUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import edu.upenn.cis.orchestra.repository.model.beans.OrchestraSystemBean;
+import edu.upenn.cis.orchestra.repository.model.beans.PeerBean;
+import edu.upenn.cis.orchestra.repository.model.exceptions.DuplicateMappingIdException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.DuplicatePeerIdException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.DuplicateRelationIdException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.DuplicateSchemaIdException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.InvalidBeanException;
+import edu.upenn.cis.orchestra.repository.model.exceptions.UnknownRefFieldException;
+import edu.upenn.cis.orchestra.util.DomUtils;
+
+/****************************************************************
+ * Class used to group multiple peers (global view of the system)
+ * @author Olivier Biton
+ *****************************************************************
+ */
+public class OrchestraSystem {
+
+	/** Set of peers composing the system */
+	private Map<String,Peer> _peers;
+	
+	private TranslationState _state;
+	
+	/**
+	 * Creates an empty Orchestra system
+	 */
+	public OrchestraSystem ()
+	{
+		super ();
+		_peers = new HashMap<String, Peer> ();
+	}
+
+	/**
+	 * Deep copy of a given OrchestraSystem (use method 
+	 * deepCopy to benefit from polymorphism)
+	 * @param system System to copy
+	 * @see OrchestraSystem#deepCopy()
+	 */
+	protected OrchestraSystem (OrchestraSystem system)
+	{
+		this ();
+		
+		// First: Create deep copy of peers without their 
+		// mappings (would'nt be possible to load mappings 
+		// if the referenced peer does not exist yet)
+		Map<Peer,Peer> oldNewPeers = new HashMap<Peer, Peer> (); 
+		for (Peer p : system.getPeers())
+		{
+			Peer np = p.deepCopy();
+			oldNewPeers.put (p,np);
+			try
+			{
+				addPeer(np);
+			} catch (DuplicatePeerIdException ex)
+			{
+				System.out.println ("Peer id conflict should not happen in a deep copy!");
+				ex.printStackTrace();
+			}
+		}
+		// Second: Complete the deep copy by copying the peers
+		for (Map.Entry<Peer, Peer> entry : oldNewPeers.entrySet())
+			entry.getValue().deepCopyMappings(entry.getKey(), this);
+			
+	}
+	
+	/**
+	 * Create a new OrchestraSystem from its bean representation
+	 * @param bean Bean describing the system
+	 * @throws DuplicatePeerIdException If two peers in the bean share a common id
+	 * @throws InvalidBeanException If any of the system bean subproperties is an invalid bean
+	 */
+	public OrchestraSystem (OrchestraSystemBean bean)
+				throws DuplicatePeerIdException, InvalidBeanException
+	{ 
+		
+		this ();
+
+		// First create the peers with no mappings
+		Map<PeerBean, Peer> mapPeers = new HashMap<PeerBean, Peer> (); 	
+		for (PeerBean peerBean : bean.getPeers())
+		{
+			Peer peer = new Peer(peerBean);
+			addPeer (peer);
+			
+			mapPeers.put(peerBean, peer);
+		}
+		
+		//TODO: Exception handling if a peer is missing...
+		
+		// Then complete the creation with the mappings (all referenced peers must exist)
+		for (Map.Entry<PeerBean, Peer> peerEntry : mapPeers.entrySet())
+			peerEntry.getValue().loadMappings(peerEntry.getKey(), this);
+		
+	}
+	
+	//TODO: Errors if ids not unique
+	
+	/**
+	 * Add a new peer to the system
+	 * @param peer peer to add
+	 * @throws DuplicatePeerIdException If a peer already exists with the same id
+	 */
+	public void addPeer (Peer peer)
+						throws DuplicatePeerIdException
+	{
+		if (_peers.containsKey(peer.getId()))
+			throw new DuplicatePeerIdException (peer.getId());
+		else
+			_peers.put(peer.getId(), peer);
+	}
+	
+	/** 
+	 * Add a list of peers to the system
+	 * @param peers new peers
+	 * @throws DuplicatePeerIdException If at least one peer in <code>peers</code>
+	 *     uses an id already used in the system, or if at least two peers in this 
+	 *     list have a common id.
+	 */
+	public void addPeers (List<Peer> peers)
+					throws DuplicatePeerIdException
+	{
+		for (Peer p : peers)
+			addPeer (p);
+	}
+	
+	/**
+	 * Get a peer from its id
+	 * @param peerId Id to look for
+	 * @return Peer if it exists, null otherwise
+	 */
+	public Peer getPeer (String peerId)
+	{
+		return _peers.get(peerId);
+	}
+	
+	/**
+	 * Get the list of peers in this system <br>
+	 * WARNING: Not a deep copy (to improve performances)
+	 * @return List of peers, can be empty, cannot be null
+	 */
+	public Collection<Peer> getPeers ()
+	{
+		return _peers.values();
+	}
+	
+	//TODO: Check if mappings ref this peer!
+	/**
+	 * Removes the peer from the system
+	 * @param peerId Id of the peer to remove
+	 */
+	public void removePeer (String peerId)
+	{
+		_peers.remove(peerId);
+	}
+	
+	
+	/**
+	 * Get a deep copy of this Orchestra system
+	 * @return Deep copy
+	 * @see OrchestraSystem#OrchestraSystem(OrchestraSystem)
+	 */
+	public OrchestraSystem deepCopy ()
+	{
+		return new OrchestraSystem(this);
+	}
+	
+	
+	/**
+	 * Convert this object to its bean representation
+	 * @return Bean describing the object
+	 */
+	public OrchestraSystemBean toBean ()
+	{
+		
+		OrchestraSystemBean bean = new OrchestraSystemBean ();
+		// Copy simple properties
+		BeanUtils.copyProperties(this, bean, new String[] {"peers"});
+		
+		// Create the list of peers beans
+		List<PeerBean> peers = new ArrayList<PeerBean> ();
+		for (Peer p : getPeers())
+			peers.add(p.toBean());
+		bean.setPeers(peers);
+		
+		return bean;
+	}
+	
+	
+	/**
+	 * String representation of this Orchestra system. <BR>
+	 * Conforms with the flat file representation defined in RepositoryDAO
+	 * @return String representation
+	 */
+	public String toString ()
+	{
+		
+		StringBuffer buff = new StringBuffer ();
+		buff.append("PEERS\n"); 
+		for (Peer p : getPeers())
+			buff.append(p.toString(1) + "\n");
+		return buff.toString();
+	}
+	
+	/**
+	 * Extract mappings from all the system peers
+	 * @param materialized If true, only materialized mappings will be returned. 
+	 * 					   If false only not materialized
+	 * @return Mappings
+	 */
+	public List<ScMapping> getAllSystemMappings (boolean materialized)
+	{
+		List<ScMapping> res = new ArrayList<ScMapping> ();
+		for (Peer p : getPeers())
+			for (ScMapping mapping : p.getMappings ())
+				if (mapping.isMaterialized()==materialized)
+					res.add(mapping);
+		return res;
+	}
+
+	public List<ScRelationContext> getAllUserRelations ()
+	{
+		List<ScRelationContext>rels = new ArrayList<ScRelationContext>();
+
+		for (Peer p : getPeers()){
+			for (Schema s : p.getSchemas()){
+				for(ScRelation r : s.getRelations()) {
+					if(!r.getDbRelName().endsWith("_L") && !r.getDbRelName().endsWith("_R")){
+						rels.add(new ScRelationContext(r, s, p, false));
+					}
+				}
+			}
+		}
+		return rels;
+	}
+	
+	public ScRelationContext getRelationByName(String peer, String schema, String relation) {
+		for (Peer p : _peers.values()) {
+			if (p.getId().equals(peer)) {
+				for (Schema s : p.getSchemas()) {
+					if (s.getSchemaId().equals(schema)) {
+						for (ScRelation r : s.getRelations()) {
+							if (r.getName().equals(relation)) {
+								return new ScRelationContext(r, s, p, false);
+							}
+						}
+					}
+				}
+			}
+		}
+		return null;
+	}
+	
+	public List<Schema> getAllSchemas() {
+		List<Schema> ret = new ArrayList<Schema>();
+		for (Peer p : getPeers())
+			ret.addAll(p.getSchemas());
+		return ret;
+	}
+
+	static protected Element addChild(Document doc, Element parent, String label, String name) { 
+		Element child = doc.createElement(label);
+		child.setAttribute("name", name);
+		parent.appendChild(child);
+		return child;
+	}
+
+	public void serialize(OutputStream out) {
+		try {
+			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = builderFactory.newDocumentBuilder();
+			Document doc = builder.newDocument();
+			Element cat = doc.createElement("catalog"); 
+			doc.appendChild(cat);
+			for (String name : _peers.keySet()) {
+				Element peer = addChild(doc, cat, "peer", name);
+				_peers.get(name).serialize(doc, peer);
+			}
+			for (String name : _peers.keySet()) {
+				Peer peer = _peers.get(name);
+				for (ScMapping mapping : peer.getMappings()) {
+					Element m = DomUtils.addChild(doc, cat, "mapping");
+					mapping.serialize(doc, m);
+				}
+			}
+			DomUtils.write(doc, out);
+		} catch (ParserConfigurationException e) {
+			assert(false);	// can't happen
+		}
+	}
+
+	static public OrchestraSystem deserialize(InputStream in) throws FileNotFoundException, IOException, SAXException {
+		try {
+			OrchestraSystem catalog = new OrchestraSystem();
+			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = builderFactory.newDocumentBuilder();
+			Document document = builder.parse(in);
+			Element root = document.getDocumentElement();
+			if (!root.getNodeName().equals("catalog")) {
+				throw new SAXException("Missing top-level catalog element");
+			}
+			NodeList list = root.getChildNodes();
+			for (int i = 0; i < list.getLength(); i++) {
+				Node node = list.item(i);
+				if (node instanceof Element) {
+					Element el = (Element)node;
+					if (el.getNodeName().equals("peer")) {
+						Peer peer = Peer.deserialize(el);
+						catalog.addPeer(peer);
+					} else if (el.getNodeName().equals("mapping")) {
+						ScMapping mapping = ScMapping.deserialize(catalog, el);
+						Peer peer = mapping.getMappingHead().get(0).getPeer();
+						peer.addMapping(mapping);
+					}
+				}
+			}
+			return catalog;
+		} catch (ParserConfigurationException e) {
+			assert(false);	// can't happen
+		} catch (DuplicatePeerIdException e) {
+			throw new SAXException("Duplicate peer name " + e.getPeerId());
+		} catch (DuplicateSchemaIdException e) {
+			throw new SAXException("Duplicate schema name " + e.getSchemaId());
+		} catch (DuplicateRelationIdException e) {
+			throw new SAXException("Duplicate relation name " + e.getRelId());
+		} catch (UnknownRefFieldException e) {
+			throw new SAXException("Unknown field in key: " + e);
+		} catch (DuplicateMappingIdException e) {
+			throw new SAXException("Duplicate mapping name " + e.getMappingId());
+		}
+		return null;
+	}
+}

@@ -1,0 +1,157 @@
+#PEERS:  10
+EXP:schema=10p
+>         set applybaseDel=false
+EXP:applybaseDel=false
+>         set applybaseIns=false
+EXP:applybaseIns=false
+NET: Cleanup prepared statements
+>           subtractLInsDel
+26525 
+>           subtractLInsDel
+31210 
+>           subtractLInsDel
+28887 
+>           subtractLInsDel
+28826 
+>           subtractLInsDel
+29422 
+>           subtractLInsDel
+29332 
+>           subtractLInsDel
+28193 
+>           subtractLInsDel
+28331 
+>           subtractLInsDel
+28268 
+>           subtractLInsDel
+28547 
+>           subtractLInsDel
+27393 
+>           subtractLInsDel
+28240 
+>           subtractLInsDel
+29391 
+>           subtractLInsDel
+27663 
+>           subtractLInsDel
+28406 
+>           subtractLInsDel
+26412 
+>           subtractLInsDel
+26598 
+>           subtractLInsDel
+28906 
+>           subtractLInsDel
+26442 
+>           subtractLInsDel
+26535 
+>           subtractLInsDel
+25321 
+>           subtractLInsDel
+25350 
+>           subtractLInsDel
+24974 
+>           subtractLInsDel
+25131 
+>           subtractLInsDel
+25537 
+>           subtractLInsDel
+23931 
+>           subtractLInsDel
+24339 
+>           subtractLInsDel
+24397 
+>           subtractLInsDel
+24677 
+>           subtractLInsDel
+23825 
+>           subtractLInsDel
+22700 
+>           subtractLInsDel
+21994 
+>           subtractLInsDel
+24115 
+>           subtractLInsDel
+22228 
+>           subtractLInsDel
+24895 
+>           subtractLInsDel
+21186 
+>           subtractLInsDel
+21449 
+>           subtractLInsDel
+21296 
+>           subtractLInsDel
+21984 
+>           subtractLInsDel
+21446 
+>           subtractLInsDel
+20075 
+>           subtractLInsDel
+19937 
+>           subtractLInsDel
+20388 
+>           subtractLInsDel
+20503 
+>           subtractLInsDel
+20313 
+>           subtractLInsDel
+14682 
+>           subtractLInsDel
+14367 
+>           subtractLInsDel
+16893 
+>           subtractLInsDel
+14804 
+>           subtractLInsDel
+17125 
+34222 
+32725 
+34193 
+34290 
+33557 
+34943 
+35455 
+34576 
+35303 
+34039 
+36491 
+34899 
+36253 
+36143 
+33341 
+36710 
+38283 
+36657 
+37986 
+35347 
+35644 
+35800 
+34148 
+36159 
+35319 
+36300 
+35644 
+34711 
+36035 
+34681 
+36159 
+33884 
+35366 
+34555 
+41888 
+37331 
+36065 
+38937 
+36068 
+35306 
+35382 
+38770 
+39844 
+38029 
+35599 
+35771 
+37926 
+36661 
+35130 
+40407 

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--11:42:58 06/25/08 EDT
+{integers=0, inout=false, oracle=0, skip=0, cutoff=8, password=GREG#00, addBypasses=0, deletions=10, username=GKARVOUN, addValueAttr=true, relsize=9, tukwila=0, fanout=0, olivier=1, schemas=4, dbalias='BIOTBG', insertions=100, iterations=0, seed=2, mappingsServer=jdbc:db2://localhost:50000, bidir=0, updateAlias=null, addPeers=0, coverage=1.0, deleteBypasses=0, maxcycles=0, peers=4, filename=4p1n-0c1v-100i10d, mincycles=0, deletePeers=0}-->
+<deltas>
+  <iteration idx="0">
+    <operation type="addPeer" name="P0"/>
+    <operation type="addPeer" name="P1">
+      <mapping name="M0"/>
+    </operation>
+    <operation type="addPeer" name="P2">
+      <mapping name="M1"/>
+    </operation>
+    <operation type="addPeer" name="P3">
+      <mapping name="M2"/>
+    </operation>
+  </iteration>
+  <peer name="P0" address="grw561-3.cis.upenn.edu-7777">
+    <schema name="S0">
+      <relation name="P0_S0_R0" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P0_S0_R0"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="OC" type="varchar(8)"/>
+        <field name="PE" type="varchar(8)"/>
+        <field name="DT" type="varchar(8)"/>
+        <field name="RG" type="varchar(8)"/>
+        <field name="OS" type="varchar(8)"/>
+        <field name="RL" type="varchar(8)"/>
+        <field name="RP" type="varchar(8)"/>
+        <field name="RT" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P0_S0_R1" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P0_S0_R1"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="OG" type="varchar(8)"/>
+        <field name="KW" type="varchar(8)"/>
+        <field name="RC" type="varchar(8)"/>
+        <field name="FT" type="varchar(8)"/>
+        <field name="RX" type="varchar(8)"/>
+        <field name="CC" type="varchar(8)"/>
+        <field name="SQ" type="varchar(8)"/>
+        <field name="SD" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P0_S0_R2" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P0_S0_R2"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="ID" type="varchar(8)"/>
+        <field name="OH" type="varchar(8)"/>
+        <field name="OX" type="varchar(8)"/>
+        <field name="DE" type="varchar(8)"/>
+        <field name="GN" type="varchar(8)"/>
+        <field name="AC" type="varchar(8)"/>
+        <field name="RN" type="varchar(8)"/>
+        <field name="RA" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P0_S0_R3" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P0_S0_R3"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="DR" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+    </schema>
+  </peer>
+  <peer name="P1" address="grw561-3.cis.upenn.edu-7777">
+    <schema name="S1">
+      <relation name="P1_S1_R0" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P1_S1_R0"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="OS" type="varchar(8)"/>
+        <field name="OC" type="varchar(8)"/>
+        <field name="RN" type="varchar(8)"/>
+        <field name="ID" type="varchar(8)"/>
+        <field name="RP" type="varchar(8)"/>
+        <field name="RX" type="varchar(8)"/>
+        <field name="KW" type="varchar(8)"/>
+        <field name="SQ" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P1_S1_R1" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P1_S1_R1"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="DE" type="varchar(8)"/>
+        <field name="DT" type="varchar(8)"/>
+        <field name="CC" type="varchar(8)"/>
+        <field name="RA" type="varchar(8)"/>
+        <field name="RT" type="varchar(8)"/>
+        <field name="SD" type="varchar(8)"/>
+        <field name="RC" type="varchar(8)"/>
+        <field name="PE" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P1_S1_R2" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P1_S1_R2"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="RG" type="varchar(8)"/>
+        <field name="OG" type="varchar(8)"/>
+        <field name="GN" type="varchar(8)"/>
+        <field name="AC" type="varchar(8)"/>
+        <field name="OH" type="varchar(8)"/>
+        <field name="RL" type="varchar(8)"/>
+        <field name="FT" type="varchar(8)"/>
+        <field name="OX" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P1_S1_R3" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P1_S1_R3"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="DR" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+    </schema>
+  </peer>
+  <peer name="P2" address="grw561-3.cis.upenn.edu-7777">
+    <schema name="S2">
+      <relation name="P2_S2_R0" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P2_S2_R0"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="CC" type="varchar(8)"/>
+        <field name="OC" type="varchar(8)"/>
+        <field name="OS" type="varchar(8)"/>
+        <field name="RN" type="varchar(8)"/>
+        <field name="AC" type="varchar(8)"/>
+        <field name="SD" type="varchar(8)"/>
+        <field name="RP" type="varchar(8)"/>
+        <field name="RL" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P2_S2_R1" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P2_S2_R1"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="DE" type="varchar(8)"/>
+        <field name="RC" type="varchar(8)"/>
+        <field name="RT" type="varchar(8)"/>
+        <field name="DR" type="varchar(8)"/>
+        <field name="GN" type="varchar(8)"/>
+        <field name="OG" type="varchar(8)"/>
+        <field name="DT" type="varchar(8)"/>
+        <field name="PE" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P2_S2_R2" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P2_S2_R2"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="RA" type="varchar(8)"/>
+        <field name="ID" type="varchar(8)"/>
+        <field name="OH" type="varchar(8)"/>
+        <field name="FT" type="varchar(8)"/>
+        <field name="SQ" type="varchar(8)"/>
+        <field name="RX" type="varchar(8)"/>
+        <field name="OX" type="varchar(8)"/>
+        <field name="KW" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P2_S2_R3" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P2_S2_R3"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="RG" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+    </schema>
+  </peer>
+  <peer name="P3" address="grw561-3.cis.upenn.edu-7777">
+    <schema name="S3">
+      <relation name="P3_S3_R0" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P3_S3_R0"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="AC" type="varchar(8)"/>
+        <field name="RN" type="varchar(8)"/>
+        <field name="RL" type="varchar(8)"/>
+        <field name="FT" type="varchar(8)"/>
+        <field name="RX" type="varchar(8)"/>
+        <field name="GN" type="varchar(8)"/>
+        <field name="OS" type="varchar(8)"/>
+        <field name="PE" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P3_S3_R1" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P3_S3_R1"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="RA" type="varchar(8)"/>
+        <field name="OC" type="varchar(8)"/>
+        <field name="OG" type="varchar(8)"/>
+        <field name="RC" type="varchar(8)"/>
+        <field name="ID" type="varchar(8)"/>
+        <field name="SQ" type="varchar(8)"/>
+        <field name="DR" type="varchar(8)"/>
+        <field name="KW" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P3_S3_R2" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P3_S3_R2"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="CC" type="varchar(8)"/>
+        <field name="DT" type="varchar(8)"/>
+        <field name="OH" type="varchar(8)"/>
+        <field name="SD" type="varchar(8)"/>
+        <field name="RG" type="varchar(8)"/>
+        <field name="RT" type="varchar(8)"/>
+        <field name="OX" type="varchar(8)"/>
+        <field name="RP" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+      <relation name="P3_S3_R3" materialized="true">
+        <dbinfo schema="GKARVOUN" table="P3_S3_R3"/>
+        <field name="KID" type="integer" key="true"/>
+        <field name="DE" type="varchar(8)"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+    </schema>
+  </peer>
+  <mapping name="M0" materialized="true">
+    <head>
+      <atom>P0.S0.P0_S0_R0(KID, OC, PE, DT, RG, OS, RL, RP, RT, VALUE)</atom>
+      <atom>P0.S0.P0_S0_R1(KID, OG, KW, RC, FT, RX, CC, SQ, SD, VALUE)</atom>
+      <atom>P0.S0.P0_S0_R2(KID, ID, OH, OX, DE, GN, AC, RN, RA, VALUE)</atom>
+      <atom>P0.S0.P0_S0_R3(KID, DR, VALUE)</atom>
+    </head>
+    <body>
+      <atom>P1.S1.P1_S1_R0(KID, OS, OC, RN, ID, RP, RX, KW, SQ, VALUE)</atom>
+      <atom>P1.S1.P1_S1_R1(KID, DE, DT, CC, RA, RT, SD, RC, PE, VALUE)</atom>
+      <atom>P1.S1.P1_S1_R2(KID, RG, OG, GN, AC, OH, RL, FT, OX, VALUE)</atom>
+      <atom>P1.S1.P1_S1_R3(KID, DR, VALUE)</atom>
+    </body>
+  </mapping>
+  <mapping name="M1" materialized="true">
+    <head>
+      <atom>P2.S2.P2_S2_R0(KID, CC, OC, OS, RN, AC, SD, RP, RL, VALUE)</atom>
+      <atom>P2.S2.P2_S2_R1(KID, DE, RC, RT, DR, GN, OG, DT, PE, VALUE)</atom>
+      <atom>P2.S2.P2_S2_R2(KID, RA, ID, OH, FT, SQ, RX, OX, KW, VALUE)</atom>
+      <atom>P2.S2.P2_S2_R3(KID, RG, VALUE)</atom>
+    </head>
+    <body>
+      <atom>P1.S1.P1_S1_R0(KID, OS, OC, RN, ID, RP, RX, KW, SQ, VALUE)</atom>
+      <atom>P1.S1.P1_S1_R1(KID, DE, DT, CC, RA, RT, SD, RC, PE, VALUE)</atom>
+      <atom>P1.S1.P1_S1_R2(KID, RG, OG, GN, AC, OH, RL, FT, OX, VALUE)</atom>
+      <atom>P1.S1.P1_S1_R3(KID, DR, VALUE)</atom>
+    </body>
+  </mapping>
+  <mapping name="M2" materialized="true">
+    <head>
+      <atom>P3.S3.P3_S3_R0(KID, AC, RN, RL, FT, RX, GN, OS, PE, VALUE)</atom>
+      <atom>P3.S3.P3_S3_R1(KID, RA, OC, OG, RC, ID, SQ, DR, KW, VALUE)</atom>
+      <atom>P3.S3.P3_S3_R2(KID, CC, DT, OH, SD, RG, RT, OX, RP, VALUE)</atom>
+      <atom>P3.S3.P3_S3_R3(KID, DE, VALUE)</atom>
+    </head>
+    <body>
+      <atom>P0.S0.P0_S0_R0(KID, OC, PE, DT, RG, OS, RL, RP, RT, VALUE)</atom>
+      <atom>P0.S0.P0_S0_R1(KID, OG, KW, RC, FT, RX, CC, SQ, SD, VALUE)</atom>
+      <atom>P0.S0.P0_S0_R2(KID, ID, OH, OX, DE, GN, AC, RN, RA, VALUE)</atom>
+      <atom>P0.S0.P0_S0_R3(KID, DR, VALUE)</atom>
+    </body>
+  </mapping>
+</deltas>

@@ -1,0 +1,16 @@
+PEERS
+PEER P grw561-3.cis.upenn.edu-7777 "local peer"
+    SCHEMAS
+        SCHEMA S
+            RELATIONS
+                RELATION E MATERIALIZED
+                    DBINFO , GKARVOUN, E
+                    FIELDS x INTEGER 10, y INTEGER 10
+					PRIMARY KEY PK_P_S_E(x, y)
+                RELATION T MATERIALIZED
+                    DBINFO , GKARVOUN, T
+                    FIELDS y INTEGER 10, z INTEGER 10
+                    PRIMARY KEY PK_P_S_T(y, z)
+        MAPPINGS
+            M1 MATERIALIZED: P.S.T(x,y) :- P.S.E(y,x)
+            M2 MATERIALIZED: P.S.E(z,x) :- P.S.T(x,z)

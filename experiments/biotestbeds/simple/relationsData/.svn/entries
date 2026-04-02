@@ -1,0 +1,109 @@
+9
+
+dir
+12335
+https://dbappserv.cis.upenn.edu/svnroot/dbSHARQ/develop/orchestra/trunc/experiments/biotestbeds/simple/relationsData
+https://dbappserv.cis.upenn.edu/svnroot/dbSHARQ
+
+
+
+2009-01-07T22:20:48.461179Z
+10151
+gkarvoun
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+afaa3630-3810-0410-8cd3-fea04d49d3d2
+
+genBulkData.sql
+file
+
+
+
+
+2007-09-13T18:38:33.107742Z
+c4969808c77959109c40442781aeac27
+2007-05-27T23:41:03.512246Z
+4214
+biton
+
+db2import.sql
+file
+
+
+
+
+2007-09-13T18:38:33.029617Z
+e63d4005ac137ae38236c428b04e1637
+2007-06-14T21:24:45.682404Z
+4453
+biton
+
+db2import.delete
+file
+
+
+
+
+2007-09-13T18:38:33.013992Z
+ac303bb80f5a238f493569ba5b82a3ad
+2007-06-06T15:29:23.929343Z
+4412
+gkarvoun
+
+db2import.insert
+file
+
+
+
+
+2007-09-13T18:38:33.029617Z
+eb67a86c008653cbfba0ceee9d7da4e9
+2007-06-06T15:29:23.929343Z
+4412
+gkarvoun
+
+emptyTargets
+dir
+
+outFiles
+dir
+
+skolemTest
+dir
+
+prepareForBulkDataExtraction.sql
+file
+
+
+
+
+2007-09-13T18:38:33.998373Z
+0e3755f1866171287f83550666ad62de
+2007-05-23T05:05:09.306440Z
+4126
+biton
+
+extractData.sh
+file
+
+
+
+
+2007-12-13T20:00:55.562641Z
+def42d2d608a81fb982a396c2f85e44c
+2007-12-13T16:20:37.788917Z
+5838
+tjgreen
+

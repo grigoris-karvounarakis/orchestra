@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<!--11:49:52 05/21/07 EDT
+{'cutoff': 1024, 'help': False, 'skip': 0, 'fanout': 2, 'todd': False, 'schemas': 3, 'xmlformat': True, 'filename': 'bioSimple', 'maxcycles': None, 'deletions': 1, 'dbalias': 'BIOTB', 'coverage': 0.75, 'mincycles': None, 'password': 'db2#tmpIO', 'integers': False, 'peers': 3, 'insertions': 1, 'tukwila': False, 'username': 'db2', 'seed': 0, 'olivier': False, 'oracle': False, 'relsize': 4}-->
+<catalog recmode="false">
+  <peer address="localhost-7777" name="owldb">
+  	<description>OWLDB allows to access OWL ontologies as SQL databases.</description>
+    <schema name="OWLDB">
+  		<description>OWLDB.</description>
+      <relation materialized="true" name="MODELS" noNulls="true">
+        <dbinfo schema="AUER" table="MODELS"/>
+        <field key="true" name="modelID" type="integer"/>
+        <field name="modelURI" type="varchar(255)"/>
+        <field name="baseURI" type="varchar(255)"/>
+      </relation>
+      <relation materialized="true" name="LITERALS" noNulls="true">
+        <dbinfo schema="AUER" table="LITERALS"/>
+        <field key="true" name="ID" type="integer"/>
+        <field name="VALUE" type="CLOB(65535)"/>
+        <field name="LANGUAGE" type="integer"/>
+        <field name="DATATYPE" type="integer"/>
+      </relation>
+      <relation materialized="true" name="NS" noNulls="true">
+        <dbinfo schema="AUER" table="NS"/>
+        <field key="true" name="ID" type="integer"/>
+        <field name="NS" type="varchar(255)"/>
+      </relation>
+      <relation materialized="true" name="RESOURCES" noNulls="true">
+        <dbinfo schema="AUER" table="RESOURCES"/>
+        <field key="true" name="ID" type="integer"/>
+        <field name="NS" type="integer"/>
+        <field name="NAME" type="varchar(255)"/>
+      </relation>
+      <relation materialized="true" name="STATEMENTS" noNulls="true">
+        <dbinfo schema="AUER" table="STATEMENTS"/>
+        <field name="MODELID" type="integer"/>
+        <field name="SUBJECT" type="integer"/>
+        <field name="PREDICATE" type="integer"/>
+        <field name="OBJECT" type="integer"/>
+        <field name="OBJECT_IS" type="varchar(1)"/>
+      </relation>
+      <relation materialized="true" name="LISTS" noNulls="true">
+        <dbinfo schema="AUER" table="LISTS"/>
+        <field name="ID" type="integer"/>
+        <field name="MEMBER" type="integer"/>
+        <field name="MEMBER_IS" type="varchar(1)"/>
+      </relation>
+      <relation materialized="true" name="RESTRICTIONS" noNulls="true">
+        <dbinfo schema="AUER" table="RESTRICTIONS"/>
+        <field key="true" name="SUBJECT" type="integer"/>
+        <field name="TYPE" type="varchar(14)"/>
+        <field name="PROPERTY" type="integer"/>
+        <field name="VALUE" type="integer"/>
+      </relation>
+    </schema>
+  </peer>
+  <engine>
+    <mappings password="apollo13!" server="jdbc:db2://clust-dbserv.dbgroup.cis.upenn.edu:50000/BIOTBG" type="sql" username="orchestra"/>
+  </engine>
+  <store>
+    <update hostname="localhost" port="9999" type="bdb"/>
+    <state type="hash"/>
+  </store>
+</catalog>

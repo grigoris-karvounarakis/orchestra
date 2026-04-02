@@ -1,0 +1,779 @@
+PARAMETERS:
+tukwilaport=7777
+nullscycles=true
+dbname=VLDBTEST
+db2server=jdbc:db2:VLDBTEST
+fulldebug=false
+indexall=true
+batch=false
+insert=true
+setsemantics=true
+db2host=dbserv.cis.upenn.edu
+workdir=/dev/orchestra/experiments/tests
+stratified=true
+jdbc-driver=COM.ibm.db2.jdbc.app.DB2Driver
+tukwilahost=localhost
+scalability2=false
+db2pwd=GREG#00
+scalability1=false
+debug=false
+db2dbname=DEFEAT
+tablesize=0
+tukwilafiles=orchestra.bdb
+incremental=true
+union=false
+outerunion=false
+schema=5p1n-3c0.9v
+db2user=gkarvoun
+delete=true
+scalability=false
+autocommit=false
+reset=true
+cygwinhome=C:/cygwin
+sqlschema=GKARVOUN
+dred=false
+migrate=true
+workload=2p1n-100i10d
+apply=true
+prepare=true
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p1n-3c0.9v.create
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: CREATE DB TIME: 13391msec
+TOTAL RULE MANIPULATION TIME: 31msec
++++ Migration +++
+EXP: MIGRATE TIME: 172031 msec
+================
+SCHEMA: 5p1n-3c0.9v-1000i100d
+#INSERTIONS: 1000
+#DELETIONS: 100
+================
+EXP: INSERTIONS ONLY
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p1n-3c0.9v-1000i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p1n-3c0.9v-1000i100d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 6156msec
+100 tuples imported into GKARVOUN.P2_S2_R0_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R0_L_INS
+100 tuples imported into GKARVOUN.P4_S4_R2_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R2_L_INS
+100 tuples imported into GKARVOUN.P3_S3_R2_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R2_L_INS
+100 tuples imported into GKARVOUN.P4_S4_R1_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+100 tuples imported into GKARVOUN.P4_S4_R0_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R0_L_INS
+100 tuples imported into GKARVOUN.P3_S3_R1_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R1_L_INS
+100 tuples imported into GKARVOUN.P2_S2_R2_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R2_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+100 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+100 tuples imported into GKARVOUN.P2_S2_R1_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R1_L_INS
+100 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+100 tuples imported into GKARVOUN.P3_S3_R0_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R0_L_INS
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 312msec
+TOTAL TUPLE COUNT: 0
+LAST ITERATION (1) COUNT: 45000
+
+LAST ITERATION (2) COUNT: 56000
+
+LAST ITERATION (3) COUNT: 62000
+
+LAST ITERATION (4) COUNT: 169000
+
+LAST ITERATION (5) COUNT: 9188000
+
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0968C  The file system is full.  SQLSTATE=57011
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2PreparedStatement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2PreparedStatement.executeUpdate(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluatePrepared(SqlDb.java:417)
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:62)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.computeFixpoint(DatalogEngine.java:134)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:106)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:81)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:88)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+java.lang.RuntimeException: Terminating
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluatePrepared(SqlDb.java:433)
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:62)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.computeFixpoint(DatalogEngine.java:134)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:106)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:81)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:88)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+java.lang.RuntimeException: Aborting
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:101)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.computeFixpoint(DatalogEngine.java:134)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:106)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:81)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:88)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+LAST ITERATION (6) COUNT: 0
+
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 3264859msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 637828msec
+EXP: NET INSERTION TIME: 2627031msec
+TOTAL TUPLE COUNT: 9535000
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0968C  The file system is full.  SQLSTATE=57011
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2PreparedStatement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2PreparedStatement.executeUpdate(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluatePrepared(SqlDb.java:417)
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:62)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:110)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:81)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:102)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+java.lang.RuntimeException: Terminating
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluatePrepared(SqlDb.java:433)
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:62)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:110)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:81)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:102)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+java.lang.RuntimeException: Aborting
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:101)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:110)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:81)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:102)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL1476N  The current transaction was rolled back because of error "-289".  SQLSTATE=40506
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2PreparedStatement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2PreparedStatement.executeUpdate(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluatePrepared(SqlDb.java:417)
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:62)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:110)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:86)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:102)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+java.lang.RuntimeException: Terminating
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluatePrepared(SqlDb.java:433)
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:62)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:110)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:86)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:102)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+java.lang.RuntimeException: Aborting
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:101)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:110)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:86)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:102)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL1477N  For table "GKARVOUN.P1_S1_R2_INS" an object "129" in table space "2" cannot be accessed.  SQLSTATE=55019
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2PreparedStatement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2PreparedStatement.executeUpdate(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluatePrepared(SqlDb.java:417)
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:62)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:110)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:86)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:102)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+java.lang.RuntimeException: Terminating
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluatePrepared(SqlDb.java:433)
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:62)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:110)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:86)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:102)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+java.lang.RuntimeException: Aborting
+	at edu.upenn.cis.orchestra.engine.sql.SqlRuleQuery.evaluateSelf(SqlRuleQuery.java:101)
+	at edu.upenn.cis.orchestra.datalog.DatalogProgram.evaluate(DatalogProgram.java:131)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgramNoRecursion(DatalogEngine.java:177)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluateProgram(DatalogEngine.java:110)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:86)
+	at edu.upenn.cis.orchestra.datalog.DatalogEngine.evaluatePrograms(DatalogEngine.java:55)
+	at edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen.execute(InsertionDeltaRuleGen.java:102)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:351)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+POST INSERTION TIME: 574032msec
+TOTAL TUPLE COUNT: 1495000
+java.lang.RuntimeException: Unable to evaluate update[Ljava.lang.StackTraceElement;@186c730
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.countAllTables(SqlEngine.java:169)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:353)
+	at edu.upenn.cis.orchestra.SqlMap.run(SqlMap.java:205)
+	at edu.upenn.cis.orchestra.SqlMap.runIncremental(SqlMap.java:244)
+	at edu.upenn.cis.orchestra.SqlMap.runAllnoMigrateInsOnly(SqlMap.java:449)
+	at edu.upenn.cis.orchestra.SqlMap.main(SqlMap.java:122)
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0

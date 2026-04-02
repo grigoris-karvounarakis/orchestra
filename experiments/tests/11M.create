@@ -1,0 +1,20 @@
+-- 20:05:15 02/26/07 EST {'deletions': 1, 'cutoff': 1024, 'peers': 2, 'insertions': 1, 'help': False, 'skip': 0, 'username': 'GKARVOUN', 'todd': False, 'filename': '2p1n-1i1d', 'grigoris': True, 'dbalias': 'SIGMOD', 'fanout': 1, 'relsize': 6, 'olivier': True, 'mincycles': None, 'maxcycles': None, 'password': 'GREG#00', 'seed': 0, 'inout': True, 'schemas': 2}
+CONNECT TO BULK2 USER GKARVOUN USING GREG#00;
+CREATE TABLE BULKTEST (
+    KID INTEGER NOT NULL,
+    ID VARCHAR(44),
+    CC VARCHAR(1024),
+    DR VARCHAR(1024),
+    RX VARCHAR(1024),
+    AC VARCHAR(911)
+) NOT LOGGED INITIALLY;
+CREATE TABLE BULKTESTCOPY (
+    KID INTEGER NOT NULL,
+    ID VARCHAR(44),
+    CC VARCHAR(1024),
+    DR VARCHAR(1024),
+    RX VARCHAR(1024),
+    AC VARCHAR(911)
+) NOT LOGGED INITIALLY;
+COMMIT WORK;
+DISCONNECT ALL;

@@ -1,0 +1,5 @@
+#!/bin/bash
+#egrep 'AVG|EXP:schema=|EXP:runStatistics=|EXP:delete=|EXP:insert=|NET|DEAC|EMPTY' "$1"
+egrep 'PEERS|EXP:schema=|NET|subtr|applybaseDel|applybaseIns|EXP: UPDA|EXP: TOTAL UPD' $1 | sed 's/EXP: //' | sed 's/NET INSERTION TIME: //' | sed 's/NET DELETION TIME: //' | sed 's/msec//' > $1".csv"
+#egrep 'AVG|EXP:schema=|EXP:runStatistics=|EXP:delete=|EXP:insert=|NET|EXP:applybaseIns|EXP:applybaseDel|subtr' "$1"
+#egrep 'AVG|EXP:schema=|EXP:delete=|EXP:insert=|NET|import-bulk' "$1"

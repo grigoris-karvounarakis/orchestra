@@ -1,0 +1,51 @@
+#PEERS:  10
+EXP:schema=10p
+>         set applybaseDel=false
+EXP:applybaseDel=false
+>         set applybaseIns=false
+EXP:applybaseIns=false
+>         subtractLInsDel
+7753 
+>         subtractLInsDel
+5788 
+>         subtractLInsDel
+5788 
+>         subtractLInsDel
+5803 
+>         subtractLInsDel
+5788 
+>         subtractLInsDel
+5367 
+>         subtractLInsDel
+5288 
+>         subtractLInsDel
+5289 
+>         subtractLInsDel
+5289 
+>         subtractLInsDel
+5273 
+>         subtractLInsDel
+3182 
+>         subtractLInsDel
+3183 
+>         subtractLInsDel
+3183 
+>         subtractLInsDel
+3167 
+>         subtractLInsDel
+3182 
+5866 
+5866 
+5882 
+5881 
+5865 
+6318 
+6381 
+6381 
+6381 
+6380 
+8253 
+8596 
+8596 
+8611 
+8596 

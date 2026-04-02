@@ -1,0 +1,947 @@
+package edu.upenn.cis.orchestra.mappings;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import edu.upenn.cis.orchestra.Debug;
+import edu.upenn.cis.orchestra.engine.RuleCodeGen;
+import edu.upenn.cis.orchestra.engine.RuleCodeGen.UPDATE_TYPE;
+import edu.upenn.cis.orchestra.engine.sql.RuleSqlGen;
+import edu.upenn.cis.orchestra.mappings.exceptions.CompositionException;
+import edu.upenn.cis.orchestra.repository.model.ScMapping;
+import edu.upenn.cis.orchestra.repository.model.ScMappingAtom;
+import edu.upenn.cis.orchestra.repository.model.ScMappingAtomValSkolem;
+import edu.upenn.cis.orchestra.repository.model.ScMappingAtomValVariable;
+import edu.upenn.cis.orchestra.repository.model.ScMappingAtomValue;
+import edu.upenn.cis.orchestra.repository.model.ScRelationContext;
+import edu.upenn.cis.orchestra.repository.model.ScMappingAtom.AtomType;
+<<<<<<< .mine
+import edu.upenn.cis.orchestra.engine.RuleCodeGen;
+import edu.upenn.cis.orchestra.engine.sql.RuleSqlGen;
+import edu.upenn.cis.orchestra.engine.RuleCodeGen.UPDATE_TYPE;
+=======
+>>>>>>> .r3946
+
+public class Rule extends ScMapping
+{
+	List<RuleEqualityAtom> _eqAtoms=new ArrayList<RuleEqualityAtom> ();
+	
+	/** Maps a variables with a selection from the first relation in the
+	 *  body associated with this variable... cf. buildVarMap
+	 */
+	Map<String,String> _varmap;
+
+	private boolean _clearNcopy = false;
+//	private boolean _headEmpty = false;
+	private boolean _deleteFromHead = false; 
+	private boolean _onlyKeyAndNulls = false;
+	private boolean _replaceValsWithNullValues = false;
+	private boolean _edb = false;
+	private boolean _distinct = false;
+	
+	RuleCodeGen _code;
+	List<Integer> _preparedParams = new ArrayList<Integer>();
+	
+	public Rule (ScMappingAtom head, ScMappingAtom b)
+	{
+		super(head.deepCopy(), b.deepCopy());
+		_code = new RuleSqlGen(this);
+	}
+	
+	public Rule (ScMappingAtom head, List<ScMappingAtom> body)
+	{
+		_code = new RuleSqlGen(this);
+		_head.add(head.deepCopy());
+		for (ScMappingAtom atom : body)
+			_body.add(new ScMappingAtom(atom).deepCopy());
+	}
+
+	public Rule (ScMappingAtom head, List<ScMappingAtom> body, boolean onlyKeyAndNulls)
+	{
+		this (head, body);
+		_code = new RuleSqlGen(this);
+		_onlyKeyAndNulls = onlyKeyAndNulls;
+		//_onlyKeyAndNulls = false;
+	}
+	
+	/**
+	 * Get the rule's head 
+	 * @return Rule's head
+	 */
+	public ScMappingAtom getHead ()
+	{
+		return _head.get(0);
+	}
+
+	public void addPreparedParam(int i) {
+		_preparedParams.add(i);
+	}
+	
+	public List<Integer> preparedParams() {
+		return _preparedParams;
+	}
+	
+	public void setReplaceValsWithNullValues(){
+		_replaceValsWithNullValues = true;
+	}
+	
+	public boolean replaceValsWithNullValues(){
+		return _replaceValsWithNullValues;
+	}
+	
+	public void setEdb(){
+		_edb = true;
+	}
+	
+	public boolean edb(){
+		return _edb;
+	}
+	
+	public void setDistinct(){
+		_distinct = true;
+	}
+	
+	public boolean distinct(){
+		return _distinct;
+	}
+	
+	public void setOnlyKeyAndNulls(){
+		_onlyKeyAndNulls = true;
+	}
+	
+	public boolean onlyKeyAndNulls(){
+		return _onlyKeyAndNulls;
+	}
+	
+	public boolean deleteFromHead(){
+		return _deleteFromHead;
+	}
+	
+	public void setDeleteFromHead(){
+		_deleteFromHead = true;
+	}
+	
+//	public boolean headEmpty(){
+//		return _headEmpty;
+//	}
+//	
+//	public void setHeadEmpty(){
+//		_headEmpty = true;
+//	}
+	
+	public boolean clearNcopy(){
+		return _clearNcopy;
+	}
+	
+	public void setClearNcopy(){
+		_clearNcopy = true;
+	}
+	
+	public Rule composeWith (int atomIndex, Rule rule)
+				throws CompositionException
+	{
+		assert(getBody().get(atomIndex).getRelation() == rule.getHead().getRelation()) : 
+							"Impossible to compose with different relations in the atoms!";
+		// Freshen the mapping to compose with; to avoid variables confusions between the two mappings
+		rule = rule.fresh(true);
+		
+		// Prepare the new body: atom at atomIndex replaced by freshen rule body
+		List<ScMappingAtom> newBody = new ArrayList<ScMappingAtom> ();
+		newBody.addAll(getBody());
+		ScMappingAtom removedAtom = newBody.get(atomIndex);
+		newBody.remove(atomIndex);
+		int indAtom=0;
+		for (ScMappingAtom atom : rule.getBody())
+			newBody.add(atomIndex + indAtom++, atom);
+
+		// Create the new Rule
+		Rule res = new Rule (getHead(), newBody, onlyKeyAndNulls());
+		
+		// Copy the existing equalities atoms
+		for (RuleEqualityAtom atom : getEqAtoms())
+			res.addEqAtom(atom);
+		
+		// Add the equalities atoms to define equalities between the initial mapping variables
+		// and the new composed mapping variables
+		for (int i = 0 ; i < removedAtom.getValues().size() ; i++)
+			res.addEqAtom(new RuleEqualityAtom(removedAtom.getValues().get(i), rule.getHead().getValues().get(i)));
+		
+		return res;
+	}
+	
+	public void eliminateEqualities ()
+	{
+		for (int i = 0 ; i < getEqAtoms().size() ; i++)
+		{
+			// Get into val1 an atomValue that should be 
+			// substituted with val2
+			RuleEqualityAtom eqAtom = getEqAtoms().get(i);
+			ScMappingAtomValue val1 = eqAtom.getVal1();
+			ScMappingAtomValue val2 = eqAtom.getVal2();
+			assert (val1.couldBeSubstitutedWith(val2)
+						|| val2.couldBeSubstitutedWith(val1));
+			
+			// An equality between two skolems is actually an equality between the 
+			// skolems parameters one to one (f(x,y)=f(u,v) iff x=u and y=v)
+			if (val1 instanceof ScMappingAtomValSkolem && val2 instanceof ScMappingAtomValSkolem)
+			{
+				Iterator<ScMappingAtomValue> itParam1 = ((ScMappingAtomValSkolem) val1).getParams().iterator();
+				Iterator<ScMappingAtomValue> itParam2 = ((ScMappingAtomValSkolem) val2).getParams().iterator();
+				while (itParam1.hasNext())
+					try
+					{
+						addEqAtom(new RuleEqualityAtom(itParam1.next(), itParam2.next()));
+					} catch (CompositionException ex)
+					{
+						assert(false) : "Composition exception should not happen while removing equalities, compatibilities already checked when creating equalities!";
+					}
+			}
+			else
+			{
+				if (!val1.couldBeSubstitutedWith(val2))
+				{
+					val1 = val2;
+					val2 = eqAtom.getVal1();
+				}
+				
+				// Run the substitution for all the atoms
+				getHead().substitute(val1, val2);
+				for (ScMappingAtom atom : getBody())
+					atom.substitute(val1, val2);
+			}
+		}
+		_eqAtoms.clear();
+	}
+	
+	
+	/**
+	 * Return a new mapping with all variables renamed to a new, unique name
+	 * @param asNewObject If true then a new freshen rule will be returned, if false this rule will be
+	 * 					freshen and then returned 
+	 * @return
+	 */
+	public Rule fresh (boolean asNewObject)
+	{
+		Map<String,String> newNames = new HashMap<String, String> ();
+		return fresh (newNames, asNewObject);
+	}
+	
+	
+	/**
+	 * Return a new mapping with all variables renamed to a new, unique name or to the name mapped 
+	 * in varsNameMap if it exists in the map
+	 * @param varsNameMap Map old variable name to new variable name. Note: will be completed with new names 
+	 * 					  affected to variables which were not in the initial map
+	 * @param asNewObject If true then a new freshen rule will be returned, if false this rule will be
+	 * 					freshen and then returned 
+	 * @return
+	 */
+	public Rule fresh (Map<String,String> varsNameMap, boolean asNewObject)
+	{
+
+		ScMappingAtom newHead = getHead().fresh(varsNameMap, asNewObject);
+		List<ScMappingAtom> newBody = new ArrayList<ScMappingAtom> ();
+		for (ScMappingAtom atom : getBody())
+			newBody.add (atom.fresh(varsNameMap, asNewObject));
+		
+		List<RuleEqualityAtom> newEqAtoms = new ArrayList<RuleEqualityAtom> ();
+		for (RuleEqualityAtom eq : getEqAtoms())
+			newEqAtoms.add(eq.fresh (varsNameMap, asNewObject));
+		
+		if (asNewObject)
+		{
+			Rule res =  new Rule (newHead, newBody, onlyKeyAndNulls());		
+			for (RuleEqualityAtom eq : newEqAtoms)
+				res.addEqAtom(eq);		
+			return res;
+		}
+		else
+		{
+			_head.remove(0);
+			_head.add(newHead);
+			_body = newBody;
+			_eqAtoms = newEqAtoms;
+			return this;
+		}
+	}
+	
+	
+	/**
+	 * Get the rule's body.<BR>
+	 * Note: this is not a deep copy (even the list)
+	 * @return Rule's body
+	 */
+	public List<ScMappingAtom> getBody ()
+	{
+		return _body;
+	}
+	
+	public void addEqAtom (RuleEqualityAtom atom)
+	{
+		_eqAtoms.add (atom);
+	}
+	
+	/**
+	 * Get the rule's equalities atoms (define equality between two variables).<BR>
+	 * Note: this is not a deep copy
+	 * @return
+	 */
+	public List<RuleEqualityAtom> getEqAtoms ()
+	{
+		return _eqAtoms;
+	}
+	
+	@Override
+	public String toString ()
+	{
+		StringBuffer buffer = new StringBuffer ();
+		buffer.append(getHead().toString());
+		buffer.append (" :- ");
+		
+		boolean firstAtom = true;
+		for (ScMappingAtom atom : getBody())
+		{
+			buffer.append((firstAtom?"":", ") + atom.toString());
+			firstAtom = false;
+		}
+		buffer.append("  ");
+		firstAtom = true;
+		for (RuleEqualityAtom eq : getEqAtoms())
+		{
+			buffer.append ((firstAtom?"":", ") + eq.toString());
+			firstAtom = false;
+		}
+		
+		return buffer.toString();
+	}
+
+	public void printString ()
+	{
+		Debug.print(getHead().toString());
+		Debug.print(" :- ");
+		
+		boolean firstAtom = true;
+		for (ScMappingAtom atom : getBody())
+		{
+			Debug.print((firstAtom?"":", ") + atom.toString());
+			firstAtom = false;
+		}
+		Debug.print("  ");
+		firstAtom = true;
+		for (RuleEqualityAtom eq : getEqAtoms())
+		{
+			Debug.print ((firstAtom?"":", ") + eq.toString());
+			firstAtom = false;
+		}
+		Debug.print("\n");
+	}
+
+	
+	/***
+	 * Olivier: Added to integrate Greg's devt for SIGMOD 2007. Original method name was allVars.
+	 * @return
+	 */
+    public List<ScMappingAtomValVariable> getAllBodyVariables(){
+    	List<ScMappingAtomValVariable> allVars = new ArrayList<ScMappingAtomValVariable>();
+    	Set<String> allVarNames = new HashSet<String> ();
+    	
+    	for (ScMappingAtom atom : getBody())
+        	for(ScMappingAtomValue val : atom.getValues())
+        	{
+// ignore constants ... and there shouldn't be any skolems in the body anyway
+        		if (val instanceof ScMappingAtomValVariable && !allVarNames.contains(val.toString())) { 
+    				allVars.add((ScMappingAtomValVariable) val.deepCopy());
+    				allVarNames.add (val.toString());
+        		}
+        		else
+        			if (val instanceof ScMappingAtomValSkolem)
+        				assert false : "THERE SHOULD'NT BE ANY SKOLEM IN THE BODY FOR THIS FIRST IMPLEMENTATION";
+        	}
+    	
+        return allVars;
+    }	
+        
+    public List<String> toUpdate(int curIterCnt) {
+    	UPDATE_TYPE u = (clearNcopy() ? UPDATE_TYPE.CLEAR_AND_COPY : 
+    		(deleteFromHead() ? UPDATE_TYPE.DELETE_FROM_HEAD : 
+    			UPDATE_TYPE.OTHER));
+    	List<String> ret = _code.getCode(u, curIterCnt);
+    	return ret;
+    }
+    
+    public List<String> toUpdate(List<String> last, int curIterCnt, List<List<Integer>> preparedParams) {
+    	UPDATE_TYPE u = (clearNcopy() ? UPDATE_TYPE.CLEAR_AND_COPY : 
+    		(deleteFromHead() ? UPDATE_TYPE.DELETE_FROM_HEAD :
+    			UPDATE_TYPE.OTHER));
+    	List<String> ret =  _code.getCode(last, u, curIterCnt);
+    	
+//    	preparedParams.addAll(_preparedParams);
+    	
+//    	Hack - clearNcopy rules -> 3 sql queries. All other rules -> exactly 1 query
+    	preparedParams.add(_preparedParams);
+    	if(clearNcopy()){
+    		preparedParams.add(_preparedParams);
+    		preparedParams.add(_preparedParams);
+    		if(false /*Config.isDB2()*/){ // another two for "volatile card" + not logged initially
+    			preparedParams.add(_preparedParams);
+    			preparedParams.add(_preparedParams);
+    		}
+    	}
+    	_preparedParams = null;
+    	return ret;
+    }
+    
+    /*
+    public ZQuery toQuery(Map<ScField, String> typesMap) {
+        ZQuery q = new ZQuery();
+        _varmap = buildVarMap();
+        q.addSelect(buildSelect(typesMap));
+        q.addFrom(buildFrom());
+        q.addWhere(buildWhere(typesMap));
+        return q;
+    }    
+    
+       
+    public List<String> toUpdate(Map<ScField, String> typesMap) {
+        List<String> ret = new ArrayList<String>();
+    	
+        if(clearNcopy()){
+        	ScMappingAtom oldA = getHead();
+        	ScMappingAtom newA = getBody().get(0);
+        	
+        	String drop = new String("DROP TABLE " + oldA.toString3());
+        	String rename = new String("RENAME TABLE " + newA.toString3() + " TO " + oldA.toString3());
+        	String create = new String("CREATE TABLE " + newA.toString3() + " AS (SELECT * FROM " + oldA.toString3() + " WHERE 1=2) DEFINITION ONLY");
+        	//String create = new String("CREATE TABLE " + newA.toString3() + " AS (SELECT * FROM " + oldA.toString3() + " WHERE 1=2) WITH NO DATA");
+        	        	
+        	ret.add(drop);
+        	ret.add(rename);
+        	ret.add(create);
+        }else if (deleteFromHead()){
+        	ScMappingAtom rel = getHead();
+        	ScMappingAtom del = getBody().get(1);
+        	
+        //	String delete = new String("DELETE FROM " + rel.toString3() + " WHERE (SELECT * FROM " + del.toString3() + ")");
+        	//db2 => DELETE FROM M0_OLD WHERE EXISTS (SELECT * FROM M0_DEL M WHERE C0 = M.C0 a
+        	//		nd C1 = M.C1)
+        	//ret.add(delete);
+        	
+        	ZQuery n = new ZQuery();
+        	_varmap = buildVarMapForAtom(rel, 0, null, true);
+        	HashMap<String,String> atomMap = buildVarMapForAtom(del, 1, null, true);
+    		n.addSelect(buildSelectForAtom(del, atomMap, typesMap, false));
+    		Vector<ZFromItem> v = new Vector<ZFromItem>();
+    		v.add(buildFromItem(del, 1));
+    		n.addFrom(v);
+    		n.addWhere(buildWhereForAtom(del, 1, _varmap, null));
+    		ZExpression expr = new ZExpression(ZExpression.EXISTS, n);
+    		
+    		String delete = new String("DELETE FROM " + rel.toString3() + " R0 WHERE " + expr.toString());
+    		ret.add(delete);
+        }else{
+        	if(getHead().isNeg() || getBody().size() == 0){
+        		if("yes".equals(System.getProperty("drop"))){
+        			String rename = new String("RENAME TABLE " + getHead().toString3() + " TO " + getHead().toString3() + "_TEMP");
+        			String create = new String("CREATE TABLE " + getHead().toString3() + " AS (SELECT * FROM " + getHead().toString3() + "_TEMP WHERE 1=2) DEFINITION ONLY");
+        			String drop = new String("DROP TABLE " + getHead().toString3() + "_TEMP");
+        			
+                	ret.add(rename);
+                	ret.add(create);
+                	ret.add(drop);
+        		}else{
+        			ret.add((new ZDelete(getHead().toString3())).toString());
+        		}
+        	}else{	
+        		//ZInsert i = new ZInsert(_head.getRelation().getFullQualifiedDbId());
+        		ZInsert i = new ZInsert(getHead().toString3());
+        		
+        		if(headEmpty()){
+        			// I should probably not do that, even if the head 
+        			// is empty because I need to "guarantee" set semantics
+        			ZQuery q1 = this.toQuery(typesMap);
+        			i.addValueSpec(q1);
+        		}else{
+        			List<ScMappingAtom> body = new Vector<ScMappingAtom>();
+
+        			body.add(getHead().deepCopy());   	
+            		Rule foo = new Rule(getHead().deepCopy(), body, this.onlyKeyAndNulls());
+            		//ZQuery q = foo.toQuery();
+            		//ZExpression setinsert = new ZExpression(ZExpression.EXCEPT, this.toQuery(), q);
+            		//ZQuery iq = new ZQuery(setinsert);
+            		//i.addValueSpec(setinsert);
+            		ZQuery q1 = this.toQuery(typesMap);
+            		ZQuery q2 = foo.toQuery(typesMap);
+            		i.addValueSpec(q1);
+            		i.setExceptQuery(q2);	
+        		}
+        		ret.add(i.toString());
+        	}
+        }
+        Integer retsize = new Integer(ret.size());
+        Debug.println(retsize.toString());
+        return ret;
+    }    
+
+    protected HashMap<String,String> buildVarMapForAtom(ScMappingAtom a, int i, HashMap<String,String> oldmap, boolean buildNew) {
+    	HashMap<String,String> newmap = new HashMap<String,String>();
+    	HashMap<String,String> map;
+    	
+    	if(buildNew){
+    		map = newmap;
+    	}else{
+    		map = oldmap;
+    	}
+    		
+    	for (int j = 0; j < a.getValues().size(); j++) 
+        {
+    		 ScMappingAtomValue val = a.getValues().get(j);
+        
+    		 if (val instanceof ScMappingAtomValVariable)
+    		 {
+    			 if (!map.containsKey(val.toString())) {
+    				 String value;
+    				 if(i >= 0){
+    					 value = "R" + i + "." + a.getRelation().getField(j).getName();
+    				 }else{
+    					 value = a.getRelation().getField(j).getName();
+    				 }
+    				 map.put(val.toString(), value);
+    			 }
+    		 }
+        }
+    	return map;
+    }
+    
+    protected HashMap<String,String> buildVarMap() {
+    	HashMap<String,String> varmap = new HashMap<String,String>();
+        for (int i = 0; i < getBody().size(); i++) 
+        {
+        	ScMappingAtom a = getBody().get(i);
+        	if(!a.isNeg())
+        		buildVarMapForAtom(a, i, varmap, false);
+        }
+        return varmap;
+    }    
+
+    
+    protected ZFromItem buildFromItem(ScMappingAtom a, int i){
+		//ZFromItem f = new ZFromItem(a.getRelation().getFullQualifiedDbId());
+		ZFromItem f = new ZFromItem(a.toString3());
+		if(i >= 0)
+			f.setAlias("R" + i);
+		return f;
+    }
+       
+    protected Vector<ZFromItem> buildFrom() {
+        Vector<ZFromItem> vf = new Vector<ZFromItem>();
+        int i = 0;
+        for (ScMappingAtom a : getBody()) {
+        	if(!a.isNeg()){
+        		vf.add(buildFromItem(a, i++));
+        	}else{
+        		i++;
+        	}
+        }
+        return vf;
+    }
+
+    protected ZExpression hack(ZConstant c1, ZConstant c2){
+    	return(new ZExpression(ZExpression.OR,
+    			new ZExpression(ZExpression.AND,
+                               new ZExpression(ZExpression.IS_NULL, c1), 
+                               new ZExpression(ZExpression.IS_NULL, c2)),
+    	        new ZExpression(ZExpression.AND,
+                               new ZExpression(ZExpression.IS_NOT_NULL, c1), 
+                               new ZExpression(ZExpression.IS_NOT_NULL, c2))
+    			)
+    	);
+    }
+    protected ZExpression buildWhereForAtom(ScMappingAtom a, int i, Map<String,String> map, ZExpression expr){
+       	
+    	for (int j = 0; j < a.getValues().size(); j++) 
+		{
+    		//boolean comparable = a.getRelation().getField(j).getName().equals("KID");
+    		boolean comparable = a.getRelation().getPrimaryKey().getFields().contains(a.getRelation().getField(j));
+    		// Normal behaviour would be:
+    		// boolean comparable = true;
+    		
+			ScMappingAtomValue val = a.getValues().get(j);
+			String l;
+			if(i >= 0){
+				l = "R" + i + "." + a.getRelation().getField(j).getName();
+			}else{
+				l = a.getRelation().getField(j).getName();
+			}
+			if (val instanceof ScMappingAtomValConst) 
+			{
+				ZConstant c1 = new ZConstant(l, ZConstant.COLUMNNAME);
+				ScMappingAtomValConst c = (ScMappingAtomValConst)val;
+				
+				// hack for experiments
+				if(c.getValue() == null){
+					expr = conjoin(expr, new ZExpression(ZExpression.IS_NULL, c1));
+				}else{
+					ZConstant c2 = new ZConstant(c.getValue(), ZConstant.STRING);
+					//if(comparable){
+						expr = conjoin(expr, new ZExpression(ZExpression.EQ, c1, c2));
+					//}else{
+						//expr = conjoin(expr, hack(c1,c2));
+					//}
+				}
+			} 
+			else if (val instanceof ScMappingAtomValVariable) 
+			{
+//				otherwise, this is just a projected out var in a negated clause
+				if(map.containsKey(val.toString())){ 
+					String n = map.get(val.toString());
+					ZConstant c1 = new ZConstant(l, ZConstant.COLUMNNAME);
+					ZConstant c2 = new ZConstant(n, ZConstant.COLUMNNAME);
+					if (c1.toString().compareTo(c2.toString()) != 0) 
+					{
+						ZExpression exprLoc = null;
+						if(comparable){
+							exprLoc = new ZExpression(ZExpression.EQ, c1, c2);
+						}else{
+							//exprLoc = hack(c1,c2);
+						}
+						
+						ZConstant c3 = new ZConstant(l + ModelConstants.LABEL_NULL_EXT, ZConstant.COLUMNNAME);
+						ZConstant c4 = new ZConstant(n + ModelConstants.LABEL_NULL_EXT, ZConstant.COLUMNNAME);
+						ZExpression expr3 = new ZExpression(ZExpression.EQ, c3, c4);
+						//expr = conjoin(expr, new ZExpression(ZExpression.OR, exprLoc, expr3));
+						if(comparable){
+							expr = conjoin(expr, exprLoc);
+						}else{
+							expr = conjoin(expr, expr3);
+						}
+					}
+				}
+			} else // Skolem -- shouldn't matter for now
+			{
+				l += ModelConstants.LABEL_NULL_EXT;
+				String str = skolemExpr((ScMappingAtomValSkolem)val);
+				ZConstant c1 = new ZConstant(l, ZConstant.COLUMNNAME);
+				ZConstant c2 = new ZConstant(str, ZConstant.COLUMNNAME);
+				if(comparable){
+					expr = conjoin(expr, new ZExpression(ZExpression.EQ, c1, c2));
+				}else{
+					expr = conjoin(expr, hack(c1,c2));
+				}
+			}
+		}
+    	return expr;
+    }
+    
+    protected ZExpression buildWhere(Map<ScField, String> typesMap) {
+        ZExpression expr = null;
+        for (int i = 0; i < getBody().size(); i++) 
+        {
+        	ScMappingAtom a = getBody().get(i);
+        	if(!a.isNeg()){
+        		expr = buildWhereForAtom(a, i, _varmap, expr);
+        	} else { // Negated atom -- not exists
+        		ZQuery n = new ZQuery();
+        		HashMap<String,String> atomMap = buildVarMapForAtom(a, i, null, true);
+        		n.addSelect(buildSelectForAtom(a, atomMap, typesMap, false));
+        		Vector<ZFromItem> v = new Vector<ZFromItem>();
+        		v.add(buildFromItem(a, i));
+        		n.addFrom(v);
+        		n.addWhere(buildWhereForAtom(a, i, _varmap, null));
+        		expr = conjoin(expr, new ZExpression(ZExpression.NOT, new ZExpression(ZExpression.EXISTS, n)));
+        	}
+        }
+        return expr;
+    }
+    
+    protected Vector<ZSelectItem> buildSelectForAtom(ScMappingAtom a, Map<String, String> varmap, Map<ScField, String> typesMap, boolean keysAndNulls) {
+    	 Vector<ZSelectItem> vs = new Vector<ZSelectItem>();
+    	 Vector<ZSelectItem> vsNull = new Vector<ZSelectItem>();
+         for (int i = 0; i < a.getValues().size(); i++) {
+         	
+        	ScMappingAtomValue val = a.getValues().get(i);
+         	String fieldName = a.getRelation().getField(i).getName();
+         	String labNullFieldName = fieldName + ModelConstants.LABEL_NULL_EXT;
+         	
+             if (val instanceof ScMappingAtomValVariable) 
+             {
+                 String col = varmap.get(val.toString());
+                 boolean fldInKey = a.getRelation().getPrimaryKey().getFields().contains(a.getRelation().getField(i));
+                 if(keysAndNulls && onlyKeyAndNulls() && !fldInKey) //!fieldName.equals("KID"))
+                 {
+                	 vs.add(typedNull(a.getRelation().getField(i), false, typesMap));
+                	 //vsNull.add(typedNull(a.getRelation().getField(i), true, typesMap));
+                	 vsNull.add(aliasedSelect(col + ModelConstants.LABEL_NULL_EXT, labNullFieldName, false));
+                 }else if(onlyKeyAndNulls()){
+                	 vs.add(aliasedSelect(col, fieldName, false));
+                	 vsNull.add(aliasedSelect(col + ModelConstants.LABEL_NULL_EXT, labNullFieldName, false));
+                 }else{
+                	 vs.add(aliasedSelect(col, fieldName, false));
+                	 vsNull.add(aliasedSelect(col, labNullFieldName, true));
+                 }
+             } 
+             else if (val instanceof ScMappingAtomValConst) 
+             {
+            	 if (((ScMappingAtomValConst) val).getValue()!=null){
+            		 vs.add(aliasedSelect(val.toString(), fieldName, false));
+            	 }else{
+            		 vs.add(typedNull(a.getRelation().getField(i), false, typesMap));
+            	 }
+            	 // Set lab. null to -1
+            	 vsNull.add(typedNull(a.getRelation().getField(i), true, typesMap));
+            	 
+             } else {
+                 vs.add(typedNull(a.getRelation().getField(i), false, typesMap));
+                 String str = skolemExpr((ScMappingAtomValSkolem)val);
+                 vsNull.add(aliasedSelect(str, labNullFieldName, true));
+             }            
+         }
+         vs.addAll(vsNull);
+         return vs;
+    }
+    
+    protected Vector<ZSelectItem> buildSelect(Map<ScField, String> typesMap) {
+        return buildSelectForAtom(getHead(), _varmap, typesMap, true);
+    }
+    
+   
+	protected ZSelectItem typedNull(ScField field, boolean useNLExt, Map<ScField, String> typesMap) {
+		ZSelectItem s;
+		    if(useNLExt){
+		        s = new ZSelectItem("-1");
+			}else{
+				String t = typesMap.get(field);
+			    s = new ZSelectItem("cast(null as " + typesMap.get(field) + ")" );
+			}
+		s.setAlias(field.getName());
+		return s;
+		
+//		return aliasedSelect("cast(null as " 
+//        						+ (useNLExt?"NUMERIC(10)":typesMap.get(field))         						
+//        						+ ")", field.getName() + (useNLExt?ModelConstants.LABEL_NULL_EXT:""), true);
+    }
+    
+    
+    
+    protected static ZSelectItem aliasedSelect(String name, String alias, boolean isLabNull) {
+        ZSelectItem s;
+        
+        if(isLabNull){
+	        s = new ZSelectItem("CASE WHEN " + name + " IS NOT NULL THEN 1 ELSE -1 END");
+	        s.setAlias(alias);
+        }else{
+	        s = new ZSelectItem(name);
+	        s.setAlias(alias);        	
+        }
+        return s;
+    }
+    
+    
+    protected ZExpression conjoin(ZExpression expr, ZExpression cond) {
+        if (expr == null) {
+            return cond;
+        } else if (cond == null) {
+            return expr; 
+        } else {
+            return new ZExpression(ZExpression.AND, expr, cond);
+        }
+    }
+
+    
+    protected String skolemExpr(ScMappingAtomValSkolem sk) {
+        // assume for now all parameters are plain variables
+        StringBuffer buf = new StringBuffer();
+        
+        for (int i = 0 ; i <= sk.getParams().size() ; i++)
+        	buf.append ("CONCAT(");
+        
+        buf.append("'" + sk.getName() + "('");
+        boolean f = true;
+        for (ScMappingAtomValue val : sk.getParams()) 
+        {
+        	buf.append (",");
+        	buf.append ((f?"":"CONCAT(',' ,"));
+        	if (val instanceof ScMappingAtomValVariable)
+        	{
+	        	buf.append ("CONCAT(CONCAT(");
+	        	buf.append ("'''', " + _varmap.get(val.toString()));
+	        	buf.append ( "), '''')");
+        	}
+        	else if (val instanceof ScMappingAtomValConst)
+        	{
+        		buf.append(val.toString());
+        	}
+        	else if (val instanceof ScMappingAtomValSkolem)
+        		buf.append (skolemExpr((ScMappingAtomValSkolem)val));
+        		
+        	
+        	buf.append ((f?"":")"));
+        	f = false;        	        	
+        	buf.append (")");
+        }
+        buf.append(",')')");
+        
+        
+        return buf.toString();
+    }*/
+    
+    public Rule deepCopy(){
+    	List<ScMappingAtom> newbody = new ArrayList<ScMappingAtom> ();
+    	for(ScMappingAtom a : getBody())
+    		newbody.add(a.deepCopy());
+    	Rule res = new Rule(getHead().deepCopy(), newbody, onlyKeyAndNulls());
+    	res._clearNcopy = clearNcopy();
+    	res._deleteFromHead = deleteFromHead();
+//    	res._headEmpty = headEmpty();
+    	res._onlyKeyAndNulls = onlyKeyAndNulls();
+    	return res;
+    }
+    
+    public void substituteVars(Map<String,ScMappingAtomValue> varmap){
+    	getHead().substituteVars(varmap);
+    	for(ScMappingAtom a : getBody()){
+    		a.substituteVars(varmap);
+    	}
+    }
+    
+    /*
+     *  Greg: May overlap/provide the same functionality with composeWith ...
+     */
+    public List<Rule> substituteAtom(int pos, List<Rule> defs){
+    	List<Rule> res = new ArrayList<Rule>();
+    	Rule common = this.deepCopy();
+    	
+    	// Check if this leaves gap!
+    	ScMappingAtom a = common.getBody().remove(pos);
+    	
+    	for(Rule def : defs){
+//    		Map<String, ScMappingAtomValue> varmap = a.varHomomorphism(def.getHead());
+    		Map<String, ScMappingAtomValue> varmap = def.getHead().varHomomorphism(a);
+    		
+    		if(varmap != null){
+    			Rule newRule = common.deepCopy();
+    			Rule newDef = def.deepCopy();
+    			newDef.renameExistentialVars();
+    			newDef.substituteVars(varmap);
+    			newRule.getBody().addAll(newDef.getBody());
+    			res.add(newRule);
+    		}
+    	}
+    	return res;
+    }
+    
+    public void renameExistentialVars(){
+    	for(ScMappingAtom a : getBody()){
+    		a.renameExistentialVars(this);
+    	}
+    }
+    
+    public List<Rule> invertForReachabilityTest(boolean invertEdbs, boolean invertOthers, List<ScRelationContext> edbs) {
+		List<Rule> res = new ArrayList<Rule> ();
+		
+		for(ScMappingAtom a : getBody()){
+			if(!a.isNeg()){
+				if((invertEdbs && invertOthers) ||
+						(edbs.contains(a.getRelationContext()) && invertEdbs) ||
+						(!edbs.contains(a.getRelationContext()) && invertOthers)){
+					ScMappingAtom newHead = a.deepCopy();
+					newHead.setType(AtomType.INV);
+					
+					ScMappingAtom bodyAtom = getHead().deepCopy();
+					bodyAtom.setType(AtomType.INV);
+					List<ScMappingAtom> newBody = new ArrayList<ScMappingAtom> ();
+					newBody.add(bodyAtom);
+
+					/*
+				boolean allFound = true;
+
+				for(int i = 0; i < newHead.getValues().size() && allFound; i++){
+					ScMappingAtomValue v = newHead.getValues().get(i);
+					if (v instanceof ScMappingAtomValVariable){	
+						ScMappingAtomValVariable var1 = (ScMappingAtomValVariable)v;
+						boolean varFound = false;
+						for(ScMappingAtomValue vv : bodyAtom.getValues()){
+							if(vv instanceof ScMappingAtomValVariable){	
+								ScMappingAtomValVariable var2 = (ScMappingAtomValVariable)vv;
+								if(var1.getName().equals(var2.getName())){
+									varFound = true;
+									break;
+								}
+							}
+						}
+						allFound = allFound && varFound;
+					}
+				}
+
+				if(!allFound){
+					 */
+					ScMappingAtom safeBody = newHead.deepCopy();
+					safeBody.setType(AtomType.NEW);
+					newBody.add(safeBody);
+					//}
+					res.add(new Rule(newHead, newBody, onlyKeyAndNulls()));
+				}
+			}
+		}
+		return res;
+    
+    }
+    
+    public static List<Rule> invertMappingForReachabilityTest(ScMapping mapping, boolean invertEdbs, boolean invertOthers, List<ScRelationContext> edbs) {
+		List<Rule> res = new ArrayList<Rule> ();
+		
+		for(ScMappingAtom a : mapping.getBody()){
+			if((invertEdbs && invertOthers) ||
+					(edbs.contains(a.getRelationContext()) && invertEdbs) ||
+					(!edbs.contains(a.getRelationContext()) && invertOthers)){
+				ScMappingAtom newHead = new ScMappingAtom(a.deepCopy());
+				newHead.setType(AtomType.INV);
+
+				List<ScMappingAtom> newBody = new ArrayList<ScMappingAtom>();
+				for(ScMappingAtom ma : mapping.getMappingHead()){
+					ScMappingAtom bodyAtom = new ScMappingAtom(ma.deepCopy());
+					bodyAtom.setType(AtomType.INV);;
+					newBody.add(bodyAtom);
+				}
+
+				/*
+				boolean allFound = true;
+
+				for(int i = 0; i < newHead.getValues().size() && allFound; i++){
+					ScMappingAtomValue v = newHead.getValues().get(i);
+					if (v instanceof ScMappingAtomValVariable){	
+						ScMappingAtomValVariable var1 = (ScMappingAtomValVariable)v;
+						boolean varFound = false;
+						for(ScMappingAtomValue vv : bodyAtom.getValues()){
+							if(vv instanceof ScMappingAtomValVariable){	
+								ScMappingAtomValVariable var2 = (ScMappingAtomValVariable)vv;
+								if(var1.getName().equals(var2.getName())){
+									varFound = true;
+									break;
+								}
+							}
+						}
+						allFound = allFound && varFound;
+					}
+				}
+
+				if(!allFound){
+				 */
+				ScMappingAtom safeBody = newHead.deepCopy();
+				safeBody.setType(AtomType.NEW);
+				newBody.add(safeBody);
+				//}
+				res.add(new Rule(newHead, newBody, true));
+			}
+
+		}
+		return res;
+    
+    }
+
+
+}

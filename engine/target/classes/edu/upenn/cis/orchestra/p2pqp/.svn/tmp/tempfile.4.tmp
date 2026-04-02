@@ -1,0 +1,107 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import rice.p2p.commonapi.Id;
+import edu.upenn.cis.orchestra.datamodel.Subtuple;
+import edu.upenn.cis.orchestra.p2pqp.MetadataFactory.NewMetadata;
+import edu.upenn.cis.orchestra.p2pqp.QpTuple.WhichChild;
+
+public class HashJoinFixedPoint<M> extends PipelinedHashJoin<M> {
+	
+	public HashJoinFixedPoint(Operator<M> dest, WhichChild outputDest, int queryId, Id nodeId, int operatorId,
+			RecordTuples rt, MetadataFactory<M> mdf, 
+			QpSchema baseSchema, String recursiveSchemaName, List<Integer> baseJoinIndices,
+			List<Integer> recursiveJoinIndices, List<Integer> baseOutputPos, List<Integer> recursiveOutputPos) {
+		super(baseSchema.getRelationName(), recursiveSchemaName,
+				baseJoinIndices, recursiveJoinIndices, baseOutputPos, recursiveOutputPos, false, 
+				baseSchema, dest, outputDest, queryId, nodeId, operatorId, rt, mdf);
+	}
+
+	@Override
+	protected synchronized void receiveTuples(Collection<QpTuple<M>> tuples) {
+		// Output left tuples before they join with anything
+		// if they haven't already been stored (and therefore output)
+		Set<QpTuple<M>> outputTuples = new HashSet<QpTuple<M>>();
+
+		
+		if (mdf == null) {
+			for (QpTuple<M> t : tuples) {
+				if (t.isLeft()) {
+					Subtuple st = new Subtuple(t, leftJoinIndices);
+					Set<QpTuple<Null>> already = (Set<QpTuple<Null>>) leftTuples.get(st);
+					if (already == null || (! already.contains(t))) {
+						if (! outputTuples.contains(t)) {
+							outputTuples.add(new QpTuple<M>(t, getNextId()));						
+						}
+					}
+				}
+			}
+			if (! outputTuples.isEmpty()) {
+				super.sendTuples(outputTuples);
+			}
+			super.receiveTuples(tuples);
+		} else {
+			for (QpTuple<M> t : tuples) {
+				if (t.isLeft()) {
+					
+					HashMap<QpTuple<Null>,M> storeMetadata = new HashMap<QpTuple<Null>,M>();
+					storeMetadata = leftMetadata;
+					
+					M oldMetadata = null;
+					M newMetadata = null;
+					boolean hasOldMetadata = false;
+					boolean hasNewMetadata = false;
+					
+					QpTuple<Null> storeCopy = null;
+					if (storeMetadata != null) {
+						hasNewMetadata = true;
+						storeCopy = new QpTuple<Null>(t,null);
+						storeCopy.setReadOnly();
+						if (storeMetadata.containsKey(storeCopy)) {
+							hasOldMetadata = true;
+							oldMetadata = storeMetadata.get(storeCopy);
+							newMetadata = mdf.combineMetadata(oldMetadata, mdf.derive(this, t.getMetadata()));
+						} else {
+							newMetadata = mdf.derive(this, t.getMetadata());
+						}
+					}
+					
+					if (mdf instanceof UpdateProvenanceMetadataFactory) {
+						UpdateProvenanceMetadataFactory umdf = (UpdateProvenanceMetadataFactory) mdf;
+						if (umdf.notInsert((UpdateProvenance)newMetadata)) {
+							continue;
+						}
+					}
+					
+					M metadata = null;
+					if (hasOldMetadata) {
+						NewMetadata<M> newM = mdf.differenceMetadata(t, oldMetadata, newMetadata);
+						if (! newM.update) {
+							continue;
+						}
+						metadata = newM.newMetadata;
+					} else if (hasNewMetadata) {
+						metadata = newMetadata;
+						}
+					outputTuples.add(new QpTuple<M>(t, t.getEpoch(), getNextId(), metadata));
+				};
+			}
+			if (! outputTuples.isEmpty()) {
+				super.sendTuples(outputTuples);
+			}
+			super.receiveTuples(tuples);
+		}
+	}
+	@Override
+	protected void sendTuples(Collection<QpTuple<M>> tuples) {
+		for (QpTuple<?> t : tuples) {
+			t.setDest(WhichChild.LEFT);
+		}
+		receiveTuples(tuples);
+	}
+}

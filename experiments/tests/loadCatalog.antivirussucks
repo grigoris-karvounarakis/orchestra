@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+sqlldr $DBUSR/$DBPWD@$DBINST CONTROL=catalog.ctl LOG=log/catalog.log

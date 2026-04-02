@@ -1,0 +1,7 @@
+# set unionMappingRels=false
+
+# create-noscript
+# migrate
+import-noscript /cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/biotestbeds/simple/relationsData/outFiles
+translate PCBI
+copy

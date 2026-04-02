@@ -1,0 +1,266 @@
+// workload.py 16:35:19 11/07/06 EST
+// {'neighbors': 3, 'peers': 6, 'updateload': 1, 'skew': 1, 'seed': 0, 'datasize': 5, 'schemas': 6}
+PEERS
+PEER P grw561-3.cis.upenn.edu-7777 "local peer"
+    SCHEMAS
+        SCHEMA S
+            RELATIONS
+                RELATION P0_S0_R0 MATERIALIZED
+                    DBINFO , , P0_S0_R0
+                    FIELDS KID INTEGER 9, FT CLOB 3000, RN VARCHAR VARCHAR(350) 350, OC VARCHAR VARCHAR(350) 350, RP CLOB 5000
+                    PRIMARY KEY KID (KID)
+                RELATION P0_S0_R1 MATERIALIZED
+                    DBINFO , , P0_S0_R1
+                    FIELDS KID INTEGER 9, DE VARCHAR VARCHAR(350) 350, OH CLOB 3000, RT CLOB 4000, RC CLOB 5000
+                    PRIMARY KEY KID (KID)
+                RELATION P0_S0_R2 MATERIALIZED
+                    DBINFO , , P0_S0_R2
+                    FIELDS KID INTEGER 9, OX VARCHAR VARCHAR(340) 340, ID VARCHAR VARCHAR(350) 350, DT VARCHAR VARCHAR(30) 30, OG VARCHAR VARCHAR(20) 20
+                    PRIMARY KEY KID (KID)
+                RELATION P0_S0_R3 MATERIALIZED
+                    DBINFO , , P0_S0_R3
+                    FIELDS KID INTEGER 10, CC CLOB 2000, OS VARCHAR VARCHAR(50) 50, DR CLOB 3000
+                    PRIMARY KEY KID (KID)
+                RELATION P0_S0_R4 MATERIALIZED
+                    DBINFO , , P0_S0_R4
+                    FIELDS KID INTEGER 8, RX CLOB 1000, AC VARCHAR VARCHAR2(30) 30, RA CLOB 1000
+                    PRIMARY KEY KID (KID)
+                RELATION P0_S0_R5 MATERIALIZED
+                    DBINFO , , P0_S0_R5
+                    FIELDS KID INTEGER 9, SQ VARCHAR VARCHAR(20) 20, SD CLOB 3000, GN CLOB 2000
+                    PRIMARY KEY KID (KID)
+                RELATION P0_S0_R6 MATERIALIZED
+                    DBINFO , , P0_S0_R6
+                    FIELDS KID INTEGER 9, RG VARCHAR VARCHAR(30) 30, RL CLOB 2500, RP CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P1_S1_R0 MATERIALIZED
+                    DBINFO , , P1_S1_R0
+                    FIELDS KID INTEGER 9, OX VARCHAR VARCHAR(30) 30, CC CLOB 2500, OS VARCHAR VARCHAR(30) 30, RL CLOB 2500, SQ VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P1_S1_R1 MATERIALIZED
+                    DBINFO , , P1_S1_R1
+                    FIELDS KID INTEGER 9, DE VARCHAR VARCHAR(30) 30, RP CLOB 2500, DR CLOB 2500, OH CLOB 2500, AC VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P1_S1_R2 MATERIALIZED
+                    DBINFO , , P1_S1_R2
+                    FIELDS KID INTEGER 9, RX CLOB 2500, SD CLOB 2500, ID VARCHAR VARCHAR(30) 30, OG VARCHAR VARCHAR(30) 30, RC CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P1_S1_R3 MATERIALIZED
+                    DBINFO , , P1_S1_R3
+                    FIELDS KID INTEGER 9, FT CLOB 2500, RG VARCHAR VARCHAR(30) 30, KW VARCHAR VARCHAR(30) 30, RT CLOB 2500, DT VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P1_S1_R4 MATERIALIZED
+                    DBINFO , , P1_S1_R4
+                    FIELDS KID INTEGER 9, GN CLOB 2500, RA CLOB 2500, OC VARCHAR VARCHAR(30) 30, SQ VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P2_S2_R0 MATERIALIZED
+                    DBINFO , , P2_S2_R0
+                    FIELDS KID INTEGER 9, AC VARCHAR VARCHAR(30) 30, GN CLOB 2500, FT CLOB 2500, DT VARCHAR VARCHAR(30) 30, OH CLOB 2500, SQ VARCHAR VARCHAR(30) 30, DR CLOB 2500, RT CLOB 2500, RL CLOB 2500, RN VARCHAR VARCHAR(30) 30, SD CLOB 2500, CC CLOB 2500, RG VARCHAR VARCHAR(30) 30, OX VARCHAR VARCHAR(30) 30, RA CLOB 2500, OC VARCHAR VARCHAR(30) 30, ID VARCHAR VARCHAR(30) 30, KW VARCHAR VARCHAR(30) 30, RX CLOB 2500, DE VARCHAR VARCHAR(30) 30, RC CLOB 2500, OG VARCHAR VARCHAR(30) 30, OS VARCHAR VARCHAR(30) 30, RP CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R0 MATERIALIZED
+                    DBINFO , , P3_S3_R0
+                    FIELDS KID INTEGER 9, FT CLOB 2500, SQ VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R1 MATERIALIZED
+                    DBINFO , , P3_S3_R1
+                    FIELDS KID INTEGER 9, RX CLOB 2500, OH CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R2 MATERIALIZED
+                    DBINFO , , P3_S3_R2
+                    FIELDS KID INTEGER 9, OX VARCHAR VARCHAR(30) 30, OS VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R3 MATERIALIZED
+                    DBINFO , , P3_S3_R3
+                    FIELDS KID INTEGER 9, KW VARCHAR VARCHAR(30) 30, DE VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R4 MATERIALIZED
+                    DBINFO , , P3_S3_R4
+                    FIELDS KID INTEGER 9, DT VARCHAR VARCHAR(30) 30, RL CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R5 MATERIALIZED
+                    DBINFO , , P3_S3_R5
+                    FIELDS KID INTEGER 9, AC VARCHAR VARCHAR(30) 30, ID VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R6 MATERIALIZED
+                    DBINFO , , P3_S3_R6
+                    FIELDS KID INTEGER 9, RT CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R7 MATERIALIZED
+                    DBINFO , , P3_S3_R7
+                    FIELDS KID INTEGER 9, RC CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R8 MATERIALIZED
+                    DBINFO , , P3_S3_R8
+                    FIELDS KID INTEGER 9, OC VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R9 MATERIALIZED
+                    DBINFO , , P3_S3_R9
+                    FIELDS KID INTEGER 9, RN VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R10 MATERIALIZED
+                    DBINFO , , P3_S3_R10
+                    FIELDS KID INTEGER 9, DR CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R11 MATERIALIZED
+                    DBINFO , , P3_S3_R11
+                    FIELDS KID INTEGER 9, RA CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R12 MATERIALIZED
+                    DBINFO , , P3_S3_R12
+                    FIELDS KID INTEGER 9, RP CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R13 MATERIALIZED
+                    DBINFO , , P3_S3_R13
+                    FIELDS KID INTEGER 9, RG VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R14 MATERIALIZED
+                    DBINFO , , P3_S3_R14
+                    FIELDS KID INTEGER 9, CC CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R15 MATERIALIZED
+                    DBINFO , , P3_S3_R15
+                    FIELDS KID INTEGER 9, OG VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R16 MATERIALIZED
+                    DBINFO , , P3_S3_R16
+                    FIELDS KID INTEGER 9, SD CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P3_S3_R17 MATERIALIZED
+                    DBINFO , , P3_S3_R17
+                    FIELDS KID INTEGER 9, SQ VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P4_S4_R0 MATERIALIZED
+                    DBINFO , , P4_S4_R0
+                    FIELDS KID INTEGER 9, GN CLOB 2500, OX VARCHAR VARCHAR(30) 30, RG VARCHAR VARCHAR(30) 30, RA CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P4_S4_R1 MATERIALIZED
+                    DBINFO , , P4_S4_R1
+                    FIELDS KID INTEGER 9, DT VARCHAR VARCHAR(30) 30, RP CLOB 2500, SQ VARCHAR VARCHAR(30) 30, FT CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P4_S4_R2 MATERIALIZED
+                    DBINFO , , P4_S4_R2
+                    FIELDS KID INTEGER 9, RX CLOB 2500, KW VARCHAR VARCHAR(30) 30, ID VARCHAR VARCHAR(30) 30, RC CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P4_S4_R3 MATERIALIZED
+                    DBINFO , , P4_S4_R3
+                    FIELDS KID INTEGER 9, OG VARCHAR VARCHAR(30) 30, RN VARCHAR VARCHAR(30) 30, DR CLOB 2500, OS VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P4_S4_R4 MATERIALIZED
+                    DBINFO , , P4_S4_R4
+                    FIELDS KID INTEGER 9, SD CLOB 3000, RT CLOB 3000, OH CLOB 3000, AC VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P4_S4_R5 MATERIALIZED
+                    DBINFO , , P4_S4_R5
+                    FIELDS KID INTEGER 9, RL CLOB 3000, CC CLOB 3000, DE VARCHAR VARCHAR(30) 30, OC VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R0 MATERIALIZED
+                    DBINFO , , P5_S5_R0
+                    FIELDS KID INTEGER 9, RG VARCHAR VARCHAR(30) 30, RA CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R1 MATERIALIZED
+                    DBINFO , , P5_S5_R1
+                    FIELDS KID INTEGER 9, GN CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R2 MATERIALIZED
+                    DBINFO , , P5_S5_R2
+                    FIELDS KID INTEGER 9, RX CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R3 MATERIALIZED
+                    DBINFO , , P5_S5_R3
+                    FIELDS KID INTEGER 9, RP CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R4 MATERIALIZED
+                    DBINFO , , P5_S5_R4
+                    FIELDS KID INTEGER 9, SD CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R5 MATERIALIZED
+                    DBINFO , , P5_S5_R5
+                    FIELDS KID INTEGER 9, OX VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R6 MATERIALIZED
+                    DBINFO , , P5_S5_R6
+                    FIELDS KID INTEGER 9, RL CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R7 MATERIALIZED
+                    DBINFO , , P5_S5_R7
+                    FIELDS KID INTEGER 9, RC CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R8 MATERIALIZED
+                    DBINFO , , P5_S5_R8
+                    FIELDS KID INTEGER 9, DT VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R9 MATERIALIZED
+                    DBINFO , , P5_S5_R9
+                    FIELDS KID INTEGER 9, ID VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R10 MATERIALIZED
+                    DBINFO , , P5_S5_R10
+                    FIELDS KID INTEGER 9, RT CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R11 MATERIALIZED
+                    DBINFO , , P5_S5_R11
+                    FIELDS KID INTEGER 9, SQ VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R12 MATERIALIZED
+                    DBINFO , , P5_S5_R12
+                    FIELDS KID INTEGER 9, AC VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R13 MATERIALIZED
+                    DBINFO , , P5_S5_R13
+                    FIELDS KID INTEGER 9, RN VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R14 MATERIALIZED
+                    DBINFO , , P5_S5_R14
+                    FIELDS KID INTEGER 9, OH CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R15 MATERIALIZED
+                    DBINFO , , P5_S5_R15
+                    FIELDS KID INTEGER 9, DE VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R16 MATERIALIZED
+                    DBINFO , , P5_S5_R16
+                    FIELDS KID INTEGER 9, DR CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R17 MATERIALIZED
+                    DBINFO , , P5_S5_R17
+                    FIELDS KID INTEGER 9, OG VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R18 MATERIALIZED
+                    DBINFO , , P5_S5_R18
+                    FIELDS KID INTEGER 9, OC VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R19 MATERIALIZED
+                    DBINFO , , P5_S5_R19
+                    FIELDS KID INTEGER 9, FT CLOB 7000
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R20 MATERIALIZED
+                    DBINFO , , P5_S5_R20
+                    FIELDS KID INTEGER 9, KW VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R21 MATERIALIZED
+                    DBINFO , , P5_S5_R21
+                    FIELDS KID INTEGER 9, OS VARCHAR VARCHAR(35) 35
+                    PRIMARY KEY KID (KID)
+                RELATION P5_S5_R22 MATERIALIZED
+                    DBINFO , , P5_S5_R22
+                    FIELDS KID INTEGER 9, RA CLOB 7000
+                    PRIMARY KEY KID (KID)
+        MAPPINGS
+                M0 MATERIALIZED: P.S.P0_S0_R0(KID, FT, RN, OC, 'C'), P.S.P0_S0_R1(KID, 'C', OH, RT, 'C'), P.S.P0_S0_R2(KID, 'C', ID, 'C', 'C'), P.S.P0_S0_R3(KID, CC, OS, 'C'), P.S.P0_S0_R5(KID, 'C', 'C', GN), P.S.P0_S0_R6(KID, RG, RL, 'C') :- P.S.P1_S1_R0(KID, 'C', CC, OS, RL, 'C'), P.S.P1_S1_R1(KID, 'C', 'C', 'C', OH, 'C'), P.S.P1_S1_R2(KID, 'C', 'C', ID, 'C', 'C'), P.S.P1_S1_R3(KID, FT, RG, KW, RT, 'C'), P.S.P1_S1_R4(KID, GN, 'C', OC, 'C')
+                M1 MATERIALIZED: P.S.P0_S0_R0(KID, 'C', 'C', OC, 'C'), P.S.P0_S0_R1(KID, DE, OH, RT, 'C'), P.S.P0_S0_R2(KID, OX, 'C', DT, OG), P.S.P0_S0_R3(KID, CC, 'C', DR), P.S.P0_S0_R4(KID, RX, 'C', RA), P.S.P0_S0_R5(KID, SQ, 'C', GN), P.S.P0_S0_R6(KID, RG, 'C', 'C') :- P.S.P2_S2_R0(KID, 'C', GN, 'C', DT, OH, SQ, DR, RT, 'C', 'C', 'C', CC, RG, OX, RA, OC, 'C', 'C', RX, DE, 'C', OG, 'C', 'C')
+                M2 MATERIALIZED: P.S.P0_S0_R0(KID, FT, 'C', OC, RP), P.S.P0_S0_R1(KID, 'C', 'C', RT, RC), P.S.P0_S0_R2(KID, 'C', ID, DT, 'C'), P.S.P0_S0_R3(KID, CC, OS, 'C'), P.S.P0_S0_R4(KID, RX, 'C', 'C'), P.S.P0_S0_R5(KID, 'C', 'C', GN), P.S.P0_S0_R6(KID, RG, 'C', RP) :- P.S.P4_S4_R0(KID, GN, 'C', RG, 'C'), P.S.P4_S4_R1(KID, DT, RP, 'C', FT), P.S.P4_S4_R2(KID, RX, 'C', ID, RC), P.S.P4_S4_R3(KID, 'C', 'C', 'C', OS), P.S.P4_S4_R4(KID, 'C', RT, 'C', 'C'), P.S.P4_S4_R5(KID, 'C', CC, 'C', OC)
+                M3 MATERIALIZED: P.S.P1_S1_R0(KID, 'C', 'C', OS, 'C', SQ), P.S.P1_S1_R1(KID, 'C', RP, DR, OH, AC), P.S.P1_S1_R2(KID, 'C', 'C', 'C', OG, RC), P.S.P1_S1_R3(KID, FT, 'C', 'C', 'C', DT), P.S.P1_S1_R4(KID, GN, RA, OC, SQ) :- P.S.P5_S5_R0(KID, 'C', RA), P.S.P5_S5_R1(KID, GN), P.S.P5_S5_R3(KID, RP), P.S.P5_S5_R7(KID, RC), P.S.P5_S5_R8(KID, DT), P.S.P5_S5_R11(KID, SQ), P.S.P5_S5_R12(KID, AC), P.S.P5_S5_R14(KID, OH), P.S.P5_S5_R16(KID, DR), P.S.P5_S5_R17(KID, OG), P.S.P5_S5_R18(KID, OC), P.S.P5_S5_R19(KID, FT), P.S.P5_S5_R21(KID, OS), P.S.P5_S5_R22(KID, RA)
+                M4 MATERIALIZED: P.S.P1_S1_R0(KID, OX, 'C', OS, RL, 'C'), P.S.P1_S1_R1(KID, 'C', 'C', DR, 'C', 'C'), P.S.P1_S1_R2(KID, 'C', SD, 'C', OG, 'C'), P.S.P1_S1_R3(KID, FT, 'C', 'C', RT, DT), P.S.P1_S1_R4(KID, 'C', 'C', OC, 'C') :- P.S.P3_S3_R0(KID, FT, 'C'), P.S.P3_S3_R2(KID, OX, OS), P.S.P3_S3_R4(KID, DT, RL), P.S.P3_S3_R6(KID, RT), P.S.P3_S3_R8(KID, OC), P.S.P3_S3_R10(KID, DR), P.S.P3_S3_R15(KID, OG), P.S.P3_S3_R16(KID, SD)
+                M5 MATERIALIZED: P.S.P1_S1_R0(KID, OX, CC, 'C', RL, SQ), P.S.P1_S1_R1(KID, DE, 'C', DR, OH, AC), P.S.P1_S1_R2(KID, RX, 'C', ID, OG, RC), P.S.P1_S1_R3(KID, 'C', RG, 'C', RT, 'C'), P.S.P1_S1_R4(KID, 'C', 'C', OC, SQ) :- P.S.P4_S4_R0(KID, 'C', OX, RG, 'C'), P.S.P4_S4_R1(KID, 'C', 'C', SQ, 'C'), P.S.P4_S4_R2(KID, RX, 'C', ID, RC), P.S.P4_S4_R3(KID, OG, RN, DR, 'C'), P.S.P4_S4_R4(KID, 'C', RT, OH, AC), P.S.P4_S4_R5(KID, RL, CC, DE, OC)
+                M6 MATERIALIZED: P.S.P2_S2_R0(KID, AC, GN, FT, DT, OH, SQ, DR, 'C', 'C', RN, SD, 'C', 'C', 'C', RA, OC, ID, 'C', 'C', 'C', 'C', 'C', OS, 'C') :- P.S.P1_S1_R0(KID, 'C', 'C', OS, 'C', SQ), P.S.P1_S1_R1(KID, 'C', 'C', DR, OH, AC), P.S.P1_S1_R2(KID, 'C', SD, ID, 'C', 'C'), P.S.P1_S1_R3(KID, FT, 'C', 'C', 'C', DT), P.S.P1_S1_R4(KID, GN, RA, OC, SQ)
+                M7 MATERIALIZED: P.S.P2_S2_R0(KID, AC, 'C', FT, DT, OH, SQ, DR, RT, RL, RN, SD, CC, 'C', 'C', RA, 'C', ID, KW, 'C', 'C', 'C', OG, 'C', 'C') :- P.S.P5_S5_R0(KID, 'C', RA), P.S.P5_S5_R4(KID, SD), P.S.P5_S5_R6(KID, RL), P.S.P5_S5_R8(KID, DT), P.S.P5_S5_R9(KID, ID), P.S.P5_S5_R10(KID, RT), P.S.P5_S5_R11(KID, SQ), P.S.P5_S5_R12(KID, AC), P.S.P5_S5_R13(KID, RN), P.S.P5_S5_R14(KID, OH), P.S.P5_S5_R16(KID, DR), P.S.P5_S5_R17(KID, OG), P.S.P5_S5_R19(KID, FT), P.S.P5_S5_R20(KID, KW), P.S.P5_S5_R22(KID, RA)
+                M8 MATERIALIZED: P.S.P2_S2_R0(KID, 'C', 'C', 'C', DT, OH, 'C', 'C', RT, RL, RN, SD, 'C', 'C', 'C', RA, 'C', ID, 'C', RX, 'C', 'C', OG, 'C', RP) :- P.S.P3_S3_R1(KID, RX, OH), P.S.P3_S3_R4(KID, DT, RL), P.S.P3_S3_R5(KID, 'C', ID), P.S.P3_S3_R6(KID, RT), P.S.P3_S3_R9(KID, RN), P.S.P3_S3_R11(KID, RA), P.S.P3_S3_R12(KID, RP), P.S.P3_S3_R15(KID, OG), P.S.P3_S3_R16(KID, SD)
+                M9 MATERIALIZED: P.S.P3_S3_R1(KID, RX, 'C'), P.S.P3_S3_R2(KID, OX, 'C'), P.S.P3_S3_R3(KID, 'C', DE), P.S.P3_S3_R4(KID, DT, 'C'), P.S.P3_S3_R6(KID, RT), P.S.P3_S3_R10(KID, DR), P.S.P3_S3_R11(KID, RA), P.S.P3_S3_R13(KID, RG) :- P.S.P0_S0_R1(KID, DE, 'C', RT, 'C'), P.S.P0_S0_R2(KID, OX, 'C', DT, 'C'), P.S.P0_S0_R3(KID, 'C', 'C', DR), P.S.P0_S0_R4(KID, RX, 'C', RA), P.S.P0_S0_R6(KID, RG, 'C', 'C')
+                M10 MATERIALIZED: P.S.P3_S3_R0(KID, FT, 'C'), P.S.P3_S3_R2(KID, 'C', OS), P.S.P3_S3_R3(KID, KW, 'C'), P.S.P3_S3_R4(KID, DT, RL), P.S.P3_S3_R5(KID, 'C', ID), P.S.P3_S3_R8(KID, OC), P.S.P3_S3_R9(KID, RN), P.S.P3_S3_R11(KID, RA), P.S.P3_S3_R13(KID, RG), P.S.P3_S3_R15(KID, OG), P.S.P3_S3_R16(KID, SD) :- P.S.P5_S5_R0(KID, RG, RA), P.S.P5_S5_R1(KID, GN), P.S.P5_S5_R4(KID, SD), P.S.P5_S5_R6(KID, RL), P.S.P5_S5_R8(KID, DT), P.S.P5_S5_R9(KID, ID), P.S.P5_S5_R13(KID, RN), P.S.P5_S5_R17(KID, OG), P.S.P5_S5_R18(KID, OC), P.S.P5_S5_R19(KID, FT), P.S.P5_S5_R20(KID, KW), P.S.P5_S5_R21(KID, OS), P.S.P5_S5_R22(KID, RA)
+                M11 MATERIALIZED: P.S.P3_S3_R0(KID, FT, SQ), P.S.P3_S3_R1(KID, RX, 'C'), P.S.P3_S3_R3(KID, KW, 'C'), P.S.P3_S3_R4(KID, 'C', RL), P.S.P3_S3_R5(KID, AC, ID), P.S.P3_S3_R6(KID, RT), P.S.P3_S3_R7(KID, RC), P.S.P3_S3_R9(KID, RN), P.S.P3_S3_R11(KID, RA), P.S.P3_S3_R15(KID, OG), P.S.P3_S3_R16(KID, SD), P.S.P3_S3_R17(KID, SQ) :- P.S.P2_S2_R0(KID, AC, 'C', FT, 'C', 'C', SQ, 'C', RT, RL, RN, SD, 'C', 'C', 'C', RA, 'C', ID, KW, RX, 'C', RC, OG, 'C', 'C')
+                M12 MATERIALIZED: P.S.P4_S4_R0(KID, GN, OX, 'C', 'C'), P.S.P4_S4_R1(KID, 'C', RP, SQ, FT), P.S.P4_S4_R2(KID, 'C', KW, 'C', 'C'), P.S.P4_S4_R4(KID, SD, 'C', OH, 'C'), P.S.P4_S4_R5(KID, 'C', 'C', DE, 'C') :- P.S.P3_S3_R0(KID, FT, SQ), P.S.P3_S3_R1(KID, 'C', OH), P.S.P3_S3_R2(KID, OX, 'C'), P.S.P3_S3_R3(KID, KW, DE), P.S.P3_S3_R12(KID, RP), P.S.P3_S3_R16(KID, SD), P.S.P3_S3_R17(KID, SQ)
+                M13 MATERIALIZED: P.S.P4_S4_R0(KID, 'C', OX, 'C', 'C'), P.S.P4_S4_R2(KID, 'C', KW, 'C', RC), P.S.P4_S4_R3(KID, OG, RN, DR, 'C'), P.S.P4_S4_R4(KID, SD, RT, OH, AC), P.S.P4_S4_R5(KID, RL, 'C', 'C', 'C') :- P.S.P5_S5_R4(KID, SD), P.S.P5_S5_R5(KID, OX), P.S.P5_S5_R6(KID, RL), P.S.P5_S5_R7(KID, RC), P.S.P5_S5_R10(KID, RT), P.S.P5_S5_R12(KID, AC), P.S.P5_S5_R13(KID, RN), P.S.P5_S5_R14(KID, OH), P.S.P5_S5_R16(KID, DR), P.S.P5_S5_R17(KID, OG), P.S.P5_S5_R20(KID, KW)
+                M14 MATERIALIZED: P.S.P4_S4_R0(KID, 'C', 'C', RG, 'C'), P.S.P4_S4_R1(KID, DT, RP, SQ, 'C'), P.S.P4_S4_R2(KID, RX, 'C', 'C', 'C'), P.S.P4_S4_R3(KID, OG, 'C', DR, OS), P.S.P4_S4_R4(KID, SD, RT, OH, AC), P.S.P4_S4_R5(KID, RL, CC, 'C', OC) :- P.S.P2_S2_R0(KID, AC, 'C', 'C', DT, OH, SQ, DR, RT, RL, 'C', SD, CC, RG, 'C', 'C', OC, 'C', 'C', RX, 'C', 'C', OG, OS, RP)
+                M15 MATERIALIZED: P.S.P5_S5_R3(KID, RP), P.S.P5_S5_R4(KID, SD), P.S.P5_S5_R5(KID, OX), P.S.P5_S5_R7(KID, RC), P.S.P5_S5_R10(KID, RT), P.S.P5_S5_R11(KID, SQ), P.S.P5_S5_R13(KID, RN), P.S.P5_S5_R15(KID, DE), P.S.P5_S5_R16(KID, DR), P.S.P5_S5_R17(KID, OG), P.S.P5_S5_R20(KID, KW), P.S.P5_S5_R21(KID, OS) :- P.S.P1_S1_R0(KID, OX, CC, OS, 'C', SQ), P.S.P1_S1_R1(KID, DE, RP, DR, 'C', 'C'), P.S.P1_S1_R2(KID, 'C', SD, 'C', OG, RC), P.S.P1_S1_R3(KID, 'C', 'C', KW, RT, 'C'), P.S.P1_S1_R4(KID, 'C', 'C', 'C', SQ)
+                M16 MATERIALIZED: P.S.P5_S5_R0(KID, 'C', RA), P.S.P5_S5_R1(KID, GN), P.S.P5_S5_R2(KID, RX), P.S.P5_S5_R3(KID, RP), P.S.P5_S5_R6(KID, RL), P.S.P5_S5_R7(KID, RC), P.S.P5_S5_R8(KID, DT), P.S.P5_S5_R11(KID, SQ), P.S.P5_S5_R12(KID, AC), P.S.P5_S5_R14(KID, OH), P.S.P5_S5_R15(KID, DE), P.S.P5_S5_R17(KID, OG), P.S.P5_S5_R18(KID, OC), P.S.P5_S5_R19(KID, FT), P.S.P5_S5_R21(KID, OS), P.S.P5_S5_R22(KID, RA) :- P.S.P0_S0_R0(KID, FT, 'C', OC, RP), P.S.P0_S0_R1(KID, DE, OH, 'C', RC), P.S.P0_S0_R2(KID, 'C', 'C', DT, OG), P.S.P0_S0_R3(KID, CC, OS, 'C'), P.S.P0_S0_R4(KID, RX, AC, RA), P.S.P0_S0_R5(KID, SQ, 'C', GN), P.S.P0_S0_R6(KID, 'C', RL, RP)
+                M17 MATERIALIZED: P.S.P5_S5_R0(KID, 'C', RA), P.S.P5_S5_R2(KID, RX), P.S.P5_S5_R3(KID, RP), P.S.P5_S5_R4(KID, SD), P.S.P5_S5_R5(KID, OX), P.S.P5_S5_R7(KID, RC), P.S.P5_S5_R8(KID, DT), P.S.P5_S5_R10(KID, RT), P.S.P5_S5_R12(KID, AC), P.S.P5_S5_R13(KID, RN), P.S.P5_S5_R14(KID, OH), P.S.P5_S5_R15(KID, DE), P.S.P5_S5_R17(KID, OG), P.S.P5_S5_R22(KID, RA) :- P.S.P4_S4_R0(KID, 'C', OX, 'C', RA), P.S.P4_S4_R1(KID, DT, RP, 'C', 'C'), P.S.P4_S4_R2(KID, RX, 'C', 'C', RC), P.S.P4_S4_R3(KID, OG, RN, 'C', 'C'), P.S.P4_S4_R4(KID, SD, RT, OH, AC), P.S.P4_S4_R5(KID, 'C', CC, DE, 'C')

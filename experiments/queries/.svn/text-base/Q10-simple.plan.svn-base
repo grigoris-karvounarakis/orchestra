@@ -1,0 +1,330 @@
+<QueryPlanWithSchemas metadataClass="edu.upenn.cis.orchestra.p2pqp.Null">
+	<queryPlan>
+		<spool centralized="true" operatorId="13">
+			<input>
+				<aggregate centralized="true" operatorId="12" outputSchema="Q10">
+					<input>
+						<function centralized="true" operatorId="11" outputSchema="Q10_AGGINPUT">
+							<input>
+								<pipelinedJoin centralized="true" operatorId="10" outputSchema="Q10_NCOL" numBuckets="2000">
+									<leftInput>
+										<pipelinedJoin centralized="true" operatorId="7" outputSchema="Q10_NCO" numBuckets="500">
+											<leftInput>
+												<pipelinedJoin centralized="true" operatorId="4" outputSchema="Q10_NC" numBuckets="200">
+													<leftInput>
+														<scan scanType="LocalScan" centralized="true" operatorId="1" outputSchema="NATION"/>
+													</leftInput>
+													<rightInput>
+														<ship distributed="true" operatorId="3" outputSchema="Q10_C">
+															<input>
+																<scan scanType="DistributedScan" distributed="true" operatorId="2" outputSchema="CUSTOMER"/>
+															</input>
+															<mapping>
+																<entry inputPos="0" outputPos="0"/>
+																<entry inputPos="1" outputPos="1"/>
+																<entry inputPos="2" outputPos="2"/>
+																<entry inputPos="3" outputPos="3"/>
+																<entry inputPos="4" outputPos="4"/>
+																<entry inputPos="5" outputPos="5"/>
+																<entry inputPos="6" outputPos="6"/>
+																<entry inputPos="7" outputPos="7"/>
+															</mapping>
+														</ship>
+													</rightInput>
+													<leftJoinIndices>
+														<col pos="0"/>
+													</leftJoinIndices>
+													<rightJoinIndices>
+														<col pos="3"/>
+													</rightJoinIndices>
+													<leftOutputPos>
+														<col/>
+														<col pos="4"/>
+														<col/>
+														<col/>
+													</leftOutputPos>
+													<rightOutputPos>
+														<col pos="0"/>
+														<col pos="1"/>
+														<col pos="5"/>
+														<col/>
+														<col pos="3"/>
+														<col pos="2"/>
+														<col/>
+														<col pos="6"/>
+													</rightOutputPos>
+												</pipelinedJoin>
+											</leftInput>
+											<rightInput>
+												<applyFilters centralized="true" operatorId="14" outputSchema="Q10_O">
+													<input>
+														<ship distributed="true" operatorId="6" outputSchema="Q10_O">
+															<input>
+																<scan scanType="DistributedScan" distributed="true" operatorId="5" outputSchema="ORDERS"/>
+															</input>
+															<mapping>
+																<entry inputPos="0" outputPos="0"/>
+																<entry inputPos="1" outputPos="1"/>
+																<entry inputPos="2" outputPos="2"/>
+																<entry inputPos="3" outputPos="3"/>
+																<entry inputPos="4" outputPos="4"/>
+																<entry inputPos="5" outputPos="5"/>
+																<entry inputPos="6" outputPos="6"/>
+																<entry inputPos="7" outputPos="7"/>
+																<entry inputPos="8" outputPos="8"/>
+															</mapping>
+														</ship>
+													</input>
+													<filter type="predicate" predType="compare" lField="O_ORDERDATE" op="GE" rLiteral="1993-06-01"/>
+													<filter type="predicate" predType="compare" lField="O_ORDERDATE" op="LT" rLiteral="1993-09-01"/>
+												</applyFilters>
+											</rightInput>
+											<leftJoinIndices>
+												<col pos="0"/>
+											</leftJoinIndices>
+											<rightJoinIndices>
+												<col pos="1"/>
+											</rightJoinIndices>
+											<leftOutputPos>
+												<col pos="0"/>
+												<col pos="1"/>
+												<col pos="2"/>
+												<col pos="3"/>
+												<col pos="4"/>
+												<col pos="5"/>
+												<col pos="6"/>
+											</leftOutputPos>
+											<rightOutputPos>
+												<col pos="7"/>
+												<col/>
+												<col/>
+												<col/>
+												<col/>
+												<col/>
+												<col/>
+												<col/>
+												<col/>
+												<col/>
+											</rightOutputPos>
+										</pipelinedJoin>
+									</leftInput>
+									<rightInput>
+										<applyFilters centralized="true" operatorId="15" outputSchema="Q10_L">
+											<input>
+												<ship distributed="true" operatorId="9" outputSchema="Q10_L">
+													<input>
+														<scan scanType="DistributedScan" distributed="true" operatorId="8" outputSchema="LINEITEM"/>
+													</input>
+													<mapping>
+														<entry inputPos="0" outputPos="0"/>
+														<entry inputPos="1" outputPos="1"/>
+														<entry inputPos="2" outputPos="2"/>
+														<entry inputPos="3" outputPos="3"/>
+														<entry inputPos="4" outputPos="4"/>
+														<entry inputPos="5" outputPos="5"/>
+														<entry inputPos="6" outputPos="6"/>
+														<entry inputPos="7" outputPos="7"/>
+														<entry inputPos="8" outputPos="8"/>
+														<entry inputPos="9" outputPos="9"/>
+														<entry inputPos="10" outputPos="10"/>
+														<entry inputPos="11" outputPos="11"/>
+														<entry inputPos="12" outputPos="12"/>
+														<entry inputPos="13" outputPos="13"/>
+														<entry inputPos="14" outputPos="14"/>
+														<entry inputPos="15" outputPos="15"/>
+													</mapping>
+												</ship>
+											</input>
+											<filter type="predicate" predType="equality" field1="L_RETURNFLAG" literal="R"/>
+										</applyFilters>
+									</rightInput>
+									<leftJoinIndices>
+										<col pos="7"/>
+									</leftJoinIndices>
+									<rightJoinIndices>
+										<col pos="0"/>
+									</rightJoinIndices>
+									<leftOutputPos>
+										<col pos="0"/>
+										<col pos="1"/>
+										<col pos="2"/>
+										<col pos="3"/>
+										<col pos="4"/>
+										<col pos="5"/>
+										<col pos="6"/>
+									</leftOutputPos>
+									<rightOutputPos>
+										<col/>
+										<col/>
+										<col/>
+										<col/>
+										<col/>
+										<col pos="7"/>
+										<col pos="8"/>
+										<col/>
+										<col/>
+										<col/>
+										<col/>
+										<col/>
+										<col/>
+										<col/>
+										<col/>
+										<col/>
+									</rightOutputPos>
+								</pipelinedJoin>
+							</input>
+							<output>
+								<columnInput column="0"/>
+								<columnInput column="1"/>
+								<columnInput column="2"/>
+								<columnInput column="3"/>
+								<columnInput column="4"/>
+								<columnInput column="5"/>
+								<columnInput column="6"/>
+								<evalFunc>
+									<function>
+										<product allowDoubles="true" allowLongs="false" constantValue="1.0">
+											<input power="1"/>
+											<input power="1"/>
+										</product>
+									</function>
+									<inputs>
+										<columnInput column="7"/>
+										<evalFunc>
+											<function>
+												<sum allowDoubles="true" allowLongs="false" constantValue="1.0">
+													<input multiplicity="-1"/>
+												</sum>
+											</function>
+											<inputs>
+												<columnInput column="8"/>
+											</inputs>
+										</evalFunc>
+									</inputs>
+								</evalFunc>
+							</output>
+						</function>
+					</input>
+					<grouping>
+						<column pos="0"/>
+						<column pos="1"/>
+						<column pos="2"/>
+						<column pos="3"/>
+						<column pos="4"/>
+						<column pos="5"/>
+						<column pos="6"/>
+					</grouping>
+					<output>
+						<aggField pos="0"/>
+						<aggField pos="1"/>
+						<aggField func="SUM" pos="7"/>
+						<aggField pos="2"/>
+						<aggField pos="4"/>
+						<aggField pos="5"/>
+						<aggField pos="3"/>
+						<aggField pos="6"/>
+					</output>
+				</aggregate>
+			</input>
+		</spool>
+	</queryPlan>
+	<QpSchema centralized="true" name="Q10" relId="1000004">
+		<field description="column" name="C0" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="C1" nullable="false" labeledNullable="false" type="varchar(25)"/>
+		<field description="column" name="C2" nullable="false" labeledNullable="false" type="double"/>
+		<field description="column" name="C3" nullable="false" labeledNullable="false" type="double"/>
+		<field description="column" name="C4" nullable="false" labeledNullable="false" type="char(25)"/>
+		<field description="column" name="C5" nullable="false" labeledNullable="false" type="varchar(40)"/>
+		<field description="column" name="C6" nullable="false" labeledNullable="false" type="char(15)"/>
+		<field description="column" name="C7" nullable="false" labeledNullable="false" type="varchar(117)"/>
+		<primaryKey name="pk">
+			<fieldName name="C0"/>
+			<fieldName name="C1"/>
+			<fieldName name="C2"/>
+			<fieldName name="C3"/>
+			<fieldName name="C4"/>
+			<fieldName name="C5"/>
+			<fieldName name="C6"/>
+			<fieldName name="C7"/>
+		</primaryKey>
+	</QpSchema>
+	<QpSchema name="Q10_L" relId="-1" centralized="true">
+		<field description="column" name="L_ORDERKEY" nullable="false" labeledNullable="false" type="integer" />
+		<field description="column" name="L_PARTKEY" nullable="false" labeledNullable="false" type="integer" />
+		<field description="column" name="L_SUPPKEY" nullable="false" labeledNullable="false" type="integer" />
+		<field description="column" name="L_LINENUMBER" nullable="false" labeledNullable="false" type="integer" />
+		<field description="column" name="L_QUANTITY" nullable="false" labeledNullable="false" type="double" />
+		<field description="column" name="L_EXTENDEDPRICE" nullable="false" labeledNullable="false" type="double" />
+		<field description="column" name="L_DISCOUNT" nullable="false" labeledNullable="false" type="double" />
+		<field description="column" name="L_TAX" nullable="false" labeledNullable="false" type="double" />
+		<field description="column" name="L_RETURNFLAG" nullable="false" labeledNullable="false" type="char(1)" />
+		<field description="column" name="L_LINESTATUS" nullable="false" labeledNullable="false" type="char(1)" />
+		<field description="column" name="L_SHIPDATE" nullable="false" labeledNullable="false" type="timestamp" />
+		<field description="column" name="L_COMMIDATE" nullable="false" labeledNullable="false" type="timestamp" />
+		<field description="column" name="L_RECEIPTDATE" nullable="false" labeledNullable="false" type="timestamp" />
+		<field description="column" name="L_SHIPINSTRUCT" nullable="false" labeledNullable="false" type="char(25)" />
+		<field description="column" name="L_SHIPMODE" nullable="false" labeledNullable="false" type="char(10)" />
+		<field description="column" name="L_COMMENT" nullable="false" labeledNullable="false" type="varchar(44)" />
+	</QpSchema>
+	<QpSchema name="Q10_O" relId="-2" centralized="true">
+		<field description="column" name="O_ORDERKEY" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="O_CUSTKEY" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="O_ORDERSTATUS" nullable="false" labeledNullable="false" type="char(1)"/>
+		<field description="column" name="O_TOTALPRICE" nullable="false" labeledNullable="false" type="double"/>
+		<field description="column" name="O_ORDERDATE" nullable="false" labeledNullable="false" type="timestamp"/>
+		<field description="column" name="O_ORDERPRIORITY" nullable="false" labeledNullable="false" type="char(15)"/>
+		<field description="column" name="O_CLERK" nullable="false" labeledNullable="false" type="char(15)"/>
+		<field description="column" name="O_SHIPPRIORITY" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="O_COMMENT" nullable="false" labeledNullable="false" type="varchar(79)"/>
+	</QpSchema>
+	<QpSchema name="Q10_C" relId="-3" centralized="true">
+		<field description="column" name="C_CUSTKEY" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="C_NAME" nullable="false" labeledNullable="false" type="varchar(25)"/>
+		<field description="column" name="C_ADDRESS" nullable="false" labeledNullable="false" type="varchar(40)"/>
+		<field description="column" name="C_NATIONKEY" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="C_PHONE" nullable="false" labeledNullable="false" type="char(15)"/>
+		<field description="column" name="C_ACCTBAL" nullable="false" labeledNullable="false" type="double"/>
+		<field description="column" name="C_MKTSEGMENT" nullable="false" labeledNullable="false" type="char(10)"/>
+		<field description="column" name="C_COMMENT" nullable="false" labeledNullable="false" type="varchar(117)"/>
+	</QpSchema>
+	<QpSchema name="Q10_NC" relId="-6" centralized="true">
+		<field description="column" name="C_CUSTKEY" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="C_NAME" nullable="false" labeledNullable="false" type="varchar(25)"/>
+		<field description="column" name="C_ACCTBAL" nullable="false" labeledNullable="false" type="double"/>
+		<field description="column" name="C_PHONE" nullable="false" labeledNullable="false" type="char(15)"/>
+		<field description="column" name="N_NAME" nullable="false" labeledNullable="false" type="char(25)"/>
+		<field description="column" name="C_ADDRESS" nullable="false" labeledNullable="false" type="varchar(40)"/>
+		<field description="column" name="C_COMMENT" nullable="false" labeledNullable="false" type="varchar(117)"/>
+	</QpSchema>
+	<QpSchema name="Q10_NCO" relId="-6" centralized="true">
+		<field description="column" name="C_CUSTKEY" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="C_NAME" nullable="false" labeledNullable="false" type="varchar(25)"/>
+		<field description="column" name="C_ACCTBAL" nullable="false" labeledNullable="false" type="double"/>
+		<field description="column" name="C_PHONE" nullable="false" labeledNullable="false" type="char(15)"/>
+		<field description="column" name="N_NAME" nullable="false" labeledNullable="false" type="char(25)"/>
+		<field description="column" name="C_ADDRESS" nullable="false" labeledNullable="false" type="varchar(40)"/>
+		<field description="column" name="C_COMMENT" nullable="false" labeledNullable="false" type="varchar(117)"/>
+		<field description="column" name="O_ORDERKEY" nullable="false" labeledNullable="false" type="integer"/>
+	</QpSchema>
+	<QpSchema name="Q10_NCOL" relId="-6" centralized="true">
+		<field description="column" name="C_CUSTKEY" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="C_NAME" nullable="false" labeledNullable="false" type="varchar(25)"/>
+		<field description="column" name="C_ACCTBAL" nullable="false" labeledNullable="false" type="double"/>
+		<field description="column" name="C_PHONE" nullable="false" labeledNullable="false" type="char(15)"/>
+		<field description="column" name="N_NAME" nullable="false" labeledNullable="false" type="char(25)"/>
+		<field description="column" name="C_ADDRESS" nullable="false" labeledNullable="false" type="varchar(40)"/>
+		<field description="column" name="C_COMMENT" nullable="false" labeledNullable="false" type="varchar(117)"/>
+		<field description="column" name="L_EXTENDEDPRICE" nullable="false" labeledNullable="false" type="double" />
+		<field description="column" name="L_DISCOUNT" nullable="false" labeledNullable="false" type="double" />
+	</QpSchema>
+	<QpSchema name="Q10_AGGINPUT" relId="-6" centralized="true">
+		<field description="column" name="C_CUSTKEY" nullable="false" labeledNullable="false" type="integer"/>
+		<field description="column" name="C_NAME" nullable="false" labeledNullable="false" type="varchar(25)"/>
+		<field description="column" name="C_ACCTBAL" nullable="false" labeledNullable="false" type="double"/>
+		<field description="column" name="C_PHONE" nullable="false" labeledNullable="false" type="char(15)"/>
+		<field description="column" name="N_NAME" nullable="false" labeledNullable="false" type="char(25)"/>
+		<field description="column" name="C_ADDRESS" nullable="false" labeledNullable="false" type="varchar(40)"/>
+		<field description="column" name="C_COMMENT" nullable="false" labeledNullable="false" type="varchar(117)"/>
+		<field description="column" name="REVENUE" nullable="false" labeledNullable="false" type="double" />
+	</QpSchema>
+</QueryPlanWithSchemas>

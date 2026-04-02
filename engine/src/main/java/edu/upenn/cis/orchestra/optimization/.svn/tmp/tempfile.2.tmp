@@ -1,0 +1,881 @@
+package edu.upenn.cis.orchestra.optimization;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import edu.upenn.cis.orchestra.datamodel.AbstractRelation.BadColumnName;
+import edu.upenn.cis.orchestra.optimization.Optimizer.ExpIdAndMorphism;
+import edu.upenn.cis.orchestra.p2pqp.QpSchema;
+import edu.upenn.cis.orchestra.p2pqp.FunctionEvaluator.ColumnInput;
+import edu.upenn.cis.orchestra.p2pqp.FunctionEvaluator.ColumnOrFunction;
+import edu.upenn.cis.orchestra.p2pqp.FunctionEvaluator.EvalFunc;
+import edu.upenn.cis.orchestra.p2pqp.plan.DistributedScanNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.FilterNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.PipelinedJoinNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.ProbeJoinNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.QueryPlan;
+import edu.upenn.cis.orchestra.p2pqp.plan.RehashNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.ShipNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.AggregateNode.OutputColumn;
+import edu.upenn.cis.orchestra.predicate.AndPred;
+import edu.upenn.cis.orchestra.predicate.ComparePredicate;
+import edu.upenn.cis.orchestra.predicate.PredicateLitMismatch;
+import edu.upenn.cis.orchestra.predicate.PredicateMismatch;
+import edu.upenn.cis.orchestra.util.Bijection;
+
+public class P2PQPQueryPlanGenerator extends IntegerCostQueryPlanGenerator<Location,QpSchema,QueryPlan> {
+	final static int PER_OPERATOR_COST = 500;
+
+	public final int numNodes;
+	private final double logNumNodes;
+
+	public P2PQPQueryPlanGenerator(int numNodes) {
+		this(numNodes, 2);
+	}
+
+	public P2PQPQueryPlanGenerator(int numNodes, int rehashLogBase) {
+		this.numNodes = numNodes;
+
+		logNumNodes = Math.log(numNodes) / Math.log(rehashLogBase);
+	}
+
+	
+	public Collection<LocalCost<Integer, Location, QpSchema, QueryPlan>> getLocalCost(
+			AndNode an, final Location l, int expId,
+			Optimizer<? extends Location,QueryPlan,Integer,? extends QpSchema> o,
+			PhysicalPropertiesFactory<Location> propFactory) {
+
+		List<LocalCost<Integer,Location,QpSchema,QueryPlan>> retval = new ArrayList<LocalCost<Integer,Location,QpSchema,QueryPlan>>();
+		final Expression e = o.getExpressionForId(expId);
+
+		final RelationTypes<? extends Location,? extends QpSchema> rt = o.rt;
+
+		final int shipCost = getShipCost(l, expId, o);
+
+		if (an instanceof SelectionNode) {
+			SelectionNode sn = (SelectionNode) an;
+			final Set<Predicate> predicates = sn.predicates;
+			final int inputExpId = sn.input.expId;
+			final Expression subExp = o.getExpressionForId(inputExpId);
+
+			Set<Location> locs = propFactory.enumerateAllProperties(subExp, rt);
+
+			final Morphism inverse = sn.input.morphism.createInverse();
+
+
+			for (final Location loc : locs) {
+				LocalCost<Integer,Location,QpSchema,QueryPlan> lc = new LocalCost<Integer,Location,QpSchema,QueryPlan>(PER_OPERATOR_COST, Collections.singletonList(inputExpId),
+						Collections.singletonList(loc)) {
+
+					
+					CreatedQP<QpSchema,QueryPlan,Integer> createQP(
+							OperatorIdSource ois,
+							SchemaFactory<? extends QpSchema> schemaFactory,
+							List<CreatedQP<QpSchema,QueryPlan,Integer>> inputs) {
+
+						if (inputs.size() != 1) {
+							throw new IllegalArgumentException("Should be given 1 table entry");
+						}
+
+
+						QpSchema schema = inputs.get(0).schema;
+						Bijection<Variable,Integer> varPos = inputs.get(0).varMapping;
+						QueryPlan inputQP = inputs.get(0).qp;
+
+						Bijection<Variable,Integer> outputVarPos;
+						if (inverse == null) {
+							outputVarPos = varPos; 
+						} else {
+							outputVarPos = new Bijection<Variable,Integer>();
+							try {
+								for (Map.Entry<Variable,Integer> me : varPos.getFirstMap().entrySet()) {
+									Variable vv = me.getKey().applyMorphism(inverse, rt);
+									outputVarPos.setMapping(vv == null ? me.getKey() : vv, me.getValue());
+								}
+							} catch (VariableNotInMapping vnim) {
+								throw new RuntimeException(vnim);
+							}
+							outputVarPos.setFinished();
+						}
+
+						List<ComparePredicate> preds = new ArrayList<ComparePredicate>(predicates.size());
+						for (Predicate p : predicates) {
+							ComparePredicate cp = null;
+							try {
+								if (p.var1 instanceof LiteralVariable) {
+									LiteralVariable lv = (LiteralVariable) p.var1;
+									cp = ComparePredicate.createColLit(schema, p.var2.getPosForVariable(varPos), p.op.getReverseComparePredicateOp(), lv.lit);
+								} else if (p.var2 instanceof LiteralVariable) {
+									LiteralVariable lv = (LiteralVariable) p.var2;
+									cp = ComparePredicate.createColLit(schema, p.var1.getPosForVariable(varPos), p.op.getComparePredicateOp(), lv.lit);
+								} else {
+									cp = ComparePredicate.createTwoCols(schema, p.var1.getPosForVariable(varPos), p.op.getComparePredicateOp(), p.var2.getPosForVariable(varPos));
+								}
+							} catch (PredicateMismatch pm) {
+								throw new RuntimeException(pm);
+							} catch (PredicateLitMismatch plm) {
+								throw new RuntimeException(plm);
+							}
+							preds.add(cp);
+						}
+
+						QueryPlan outputQP = new FilterNode(schema, preds, loc.getPlanLocation(), ois.getOperatorId(), inputQP);
+
+						Set<Variable> neededVariables = subExp.getExposedVariables();
+						if (! neededVariables.equals(e.getExposedVariables())) {
+							// Need to project away undesired columns
+
+							QpSchema newSchema = schemaFactory.createNewSchema();
+							Bijection<Variable,Integer>  newVarPos = fillInSchema(neededVariables, loc, newSchema);
+
+							List<ColumnOrFunction> newCols = new ArrayList<ColumnOrFunction>();
+
+							final int numCols = newSchema.getNumCols();
+
+							for (int i = 0; i < numCols; ++i) {
+								Variable v = newVarPos.probeSecond(i);
+								newCols.add(new ColumnInput(outputVarPos.probeFirst(v)));
+							}
+
+							outputQP = new edu.upenn.cis.orchestra.p2pqp.plan.FunctionNode(schema, newSchema, newCols, loc.getPlanLocation(), ois.getOperatorId(), outputQP);
+							schema = newSchema;
+							outputVarPos = newVarPos;
+						}
+
+						return new CreatedQP<QpSchema,QueryPlan,Integer>(outputQP, schema, inputs.get(0).cost + this.localCost, outputVarPos);
+					}
+
+				};
+
+				Location mappedLoc = loc.applyMorphism(inverse, rt);
+
+				if (mappedLoc.equals(l)) {
+					// Compute locally
+					retval.add(lc);
+				} else {
+					// Compute remotely and ship/rehash
+					retval.add(new ShipLocalCost(shipCost, mappedLoc, l, lc));
+				}
+			}
+		} else if (an instanceof FunctionNode) {
+			FunctionNode fn = (FunctionNode) an;
+			final Set<Function> functions = fn.functions;
+			final int inputExpId = fn.input.expId;
+			final Morphism m = fn.input.morphism;
+			final Morphism inverse = m.createInverse();
+
+			Expression inputExp = o.getExpressionForId(inputExpId);
+
+			for (final Location loc : propFactory.enumerateAllProperties(inputExp, rt)) {
+				Location morphedLoc = loc.applyMorphism(inverse, rt);
+
+				LocalCost<Integer,Location,QpSchema,QueryPlan> lc =
+					new LocalCost<Integer,Location,QpSchema,QueryPlan>(PER_OPERATOR_COST, Collections.singletonList(inputExpId), Collections.singletonList(loc)) {
+
+					
+					CreatedQP<QpSchema,QueryPlan,Integer> createQP(
+							OperatorIdSource ois,
+							SchemaFactory<? extends QpSchema> schemaFactory,
+							List<CreatedQP<QpSchema,QueryPlan,Integer>> inputs) {
+						if (inputs.size() != 1) {
+							throw new IllegalArgumentException("Must be given exactly one input query plan");
+						}
+
+						CreatedQP<QpSchema,QueryPlan,Integer> input = inputs.get(0);
+
+						Set<Variable> vars = e.getExposedVariables();
+						final int numVars = vars.size();
+
+						QpSchema newSchema = schemaFactory.createNewSchema();
+						Bijection<Variable,Integer> varPos = fillInSchema(vars, loc, newSchema);
+
+						List<ColumnOrFunction> output = new ArrayList<ColumnOrFunction>(numVars);
+						Map<Integer,Variable> getVarForPos = varPos.getSecondMap();
+
+						for (int i = 0; i < numVars; ++i) {
+							Variable v = getVarForPos.get(i);
+							if (functions.contains(v)) {
+								Function f = (Function) v;
+								Function inInput;
+								inInput = f.applyMorphism(m, rt);
+								if (inInput == null) {
+									inInput = f;
+								}
+								output.add(createEvalFunc(f, input.varMapping, schemaFactory));
+							} else {
+								Variable inInput;
+								inInput = v.applyMorphism(m, rt);
+								if (inInput == null) {
+									inInput = v;
+								}
+								output.add(new ColumnInput(inInput.getPosForVariable(input.varMapping)));
+							}
+						}
+
+						return new CreatedQP<QpSchema,QueryPlan,Integer>(new edu.upenn.cis.orchestra.p2pqp.plan.FunctionNode(input.schema,
+								newSchema, output, loc.getPlanLocation(), ois.getOperatorId(), input.qp),
+								newSchema, input.cost + this.localCost, varPos);
+					}
+
+					private EvalFunc createEvalFunc(Function f, Bijection<Variable,Integer> varPos, SchemaFactory<? extends QpSchema> schemaFactory) {
+						List<ColumnOrFunction> inputs = new ArrayList<ColumnOrFunction>();
+						edu.upenn.cis.orchestra.p2pqp.Function qpFunc = f.getP2PQPFunction(schemaFactory);
+						Iterator<Variable> it = f.getInputVariables();
+						while (it.hasNext()) {
+							Variable v = it.next();
+							Type t = v.getType();
+							if (t.valueKnown()) {
+								continue;
+							} else {
+								Integer posInInput = v.getPosForVariable(varPos);
+								if (posInInput == null) {
+									if (v instanceof Function) {
+										inputs.add(createEvalFunc((Function) v, varPos, schemaFactory));
+									} else {
+										throw new IllegalArgumentException("Input variable " + v + " not found");
+									}
+								} else {
+									inputs.add(new ColumnInput(posInInput));
+								}
+							}
+						}
+
+						return new EvalFunc(qpFunc, inputs);
+					}
+				};
+
+				if (morphedLoc.equals(l)) {
+					// Compute locally
+					retval.add(lc);
+				} else {
+					// Compute remotely and ship/rehash
+					retval.add(new ShipLocalCost(shipCost, morphedLoc, l, lc));
+				}
+			}
+		} else if (an instanceof AggregateNode) {
+			AggregateNode agg = (AggregateNode) an;
+			int inputExp = agg.input.expId;
+			final Morphism m = agg.input.morphism;
+			final Set<Aggregate> aggs = agg.aggregates;
+			final Set<Variable> groupingVars = agg.groupingVariables;
+
+			final Set<Variable> inputGroupingVars = new HashSet<Variable>(groupingVars.size());
+			
+			for (Variable v : groupingVars) {
+				Variable vv = v.applyMorphism(m, rt);
+				if (vv == null) {
+					vv = v;
+				}
+				inputGroupingVars.add(vv);
+			}
+			
+			List<Set<Variable>> possibleLocs = Optimizer.createAllSubsets(inputGroupingVars, true);
+
+			final Morphism inverse = m.createInverse();
+
+
+			for (Set<Variable> hashVars : possibleLocs) {
+				final Location loc = hashVars.isEmpty() ? new Location() : new Location(hashVars);
+				Location mappedLoc = loc.applyMorphism(inverse, rt);
+
+				LocalCost<Integer,Location,QpSchema,QueryPlan> lc = 
+					new LocalCost<Integer,Location,QpSchema,QueryPlan>(PER_OPERATOR_COST, Collections.singletonList(inputExp), Collections.singletonList(loc)) {
+
+					
+					CreatedQP<QpSchema,QueryPlan,Integer> createQP(OperatorIdSource ois,
+							SchemaFactory<? extends QpSchema> schemaFactory,
+							List<CreatedQP<QpSchema,QueryPlan,Integer>> inputs) {
+
+						if (inputs.size() != 1) {
+							throw new IllegalArgumentException("Must supply exactly one created query plan");
+						}
+
+						CreatedQP<QpSchema,QueryPlan,Integer> input = inputs.get(0);
+
+						Set<Variable> vars = e.getExposedVariables();
+						QpSchema newSchema = schemaFactory.createNewSchema();
+						Bijection<Variable,Integer> varPos = fillInSchema(vars, loc, newSchema);
+						final int numCols = vars.size();
+
+						List<OutputColumn> output = new ArrayList<OutputColumn>(numCols);
+
+						for (int i = 0; i < numCols; ++i) {
+							Variable v = varPos.probeSecond(i);
+							Aggregate a = null;
+							Variable inputVar;
+							if (aggs.contains(v)) {
+								a = (Aggregate) v;
+								inputVar = a.inputVariable;
+							} else {
+								inputVar = v;
+							}
+							Variable inputMapped;
+							try {
+								inputMapped = inputVar.applyMorphism(m, rt);
+							} catch (VariableNotInMapping vnim) {
+								throw new RuntimeException(vnim);
+							}
+							if (inputMapped == null) {
+								inputMapped = inputVar;
+							}
+							int inputPos = inputVar.getPosForVariable(input.varMapping);
+							if (a == null) {
+								output.add(new OutputColumn(inputPos));
+							} else {
+								output.add(new OutputColumn(inputPos,a.aggFunc));
+							}
+						}
+
+						List<Integer> groupingCols = new ArrayList<Integer>(groupingVars.size());
+						try {
+							for (Variable v : groupingVars) {
+								Variable mapped = v.applyMorphism(m, rt);
+								if (mapped == null) {
+									mapped = v;
+								}
+								int pos = mapped.getPosForVariable(input.varMapping);
+								groupingCols.add(pos);
+							}
+						} catch (VariableNotInMapping vnim) {
+							throw new RuntimeException(vnim);
+						}
+
+						QueryPlan qp = new edu.upenn.cis.orchestra.p2pqp.plan.AggregateNode(input.schema, newSchema,
+								groupingCols, output, loc.getPlanLocation(), ois.getOperatorId(),
+								input.qp);
+						return new CreatedQP<QpSchema,QueryPlan,Integer>(qp, newSchema, input.cost + this.localCost, varPos);
+					}
+				};
+
+				if (mappedLoc.equals(l)) {
+					// Compute locally
+					retval.add(lc);
+				} else {
+					// Compute remotely and ship/rehash
+					retval.add(new ShipLocalCost(shipCost, mappedLoc, l, lc));
+				}
+
+			}
+		} else if (an instanceof JoinNode) {
+			JoinNode jn = (JoinNode) an;
+
+			final ExpIdAndMorphism lhs, rhs;
+			final Morphism lhsMorphism, rhsMorphism;
+			final List<Variable> lhsJoinVars, rhsJoinVars;
+
+			// If there is a scan, make sure it is the right side
+			if (o.getExpressionForId(jn.lhs.expId).isScan()) {
+				lhs = jn.rhs;
+				rhs = jn.lhs;
+				lhsMorphism = jn.rhsMap;
+				rhsMorphism = jn.lhsMap;
+				lhsJoinVars = jn.rhsJoinVars;
+				rhsJoinVars = jn.lhsJoinVars;
+			} else {
+				lhs = jn.lhs;
+				rhs = jn.rhs;
+				lhsMorphism = jn.lhsMap;
+				rhsMorphism = jn.rhsMap;
+				lhsJoinVars = jn.lhsJoinVars;
+				rhsJoinVars = jn.rhsJoinVars;
+			}
+
+			// Abstract out the computation of the join parameters
+			// since it is the same for regular joins and probe joins
+			abstract class JoinCost extends LocalCost<Integer,Location,QpSchema,QueryPlan> {
+				List<Integer> lhsJoinPos, rhsJoinPos, lhsOutputPos, rhsOutputPos;
+				QpSchema newSchema;
+				Bijection<Variable,Integer> varPos;
+				final Location loc;
+
+				JoinCost(int cost, List<Integer> inputExps, List<Location> inputLocs, Location loc) {
+					super(cost, inputExps, inputLocs);
+					this.loc = loc;
+				}
+
+				void createJoinData(SchemaFactory<? extends QpSchema> schemaFactory,
+						QpSchema leftSchema, Bijection<Variable,Integer> leftMap,
+						QpSchema rightSchema, Bijection<Variable,Integer> rightMap) {
+					Set<Variable> vars = e.getExposedVariables();
+					newSchema = schemaFactory.createNewSchema();
+					varPos = fillInSchema(vars, loc, newSchema);
+
+					Morphism lhsComposedMorph, rhsComposedMorph;
+					try {
+						lhsComposedMorph = Morphism.compose(lhsMorphism, lhs.morphism);
+						rhsComposedMorph = Morphism.compose(rhsMorphism, rhs.morphism);
+					} catch (VariableNotInMapping vnim) {
+						throw new RuntimeException(vnim);
+					}
+
+
+					final int numJoinVars = lhsJoinVars.size();
+					final int leftSize = leftSchema.getNumCols();
+					final int rightSize = rightSchema.getNumCols();
+					lhsJoinPos = new ArrayList<Integer>(numJoinVars);
+					rhsJoinPos = new ArrayList<Integer>(numJoinVars);
+					lhsOutputPos = new ArrayList<Integer>(leftSize);
+					rhsOutputPos = new ArrayList<Integer>(rightSize);
+
+					try {
+						for (int i = 0; i < numJoinVars; ++i) {
+							Variable lhsMapped = lhsJoinVars.get(i).applyMorphism(lhsComposedMorph, rt);
+							if (lhsMapped == null) {
+								lhsMapped = lhsJoinVars.get(i);
+							}
+							int lhsPos = lhsMapped.getPosForVariable(leftMap);
+
+							Variable rhsMapped = rhsJoinVars.get(i).applyMorphism(rhsComposedMorph, rt);
+							if (rhsMapped == null) {
+								rhsMapped = rhsJoinVars.get(i);
+							}
+							int rhsPos = rhsMapped.getPosForVariable(rightMap);
+
+							lhsJoinPos.add(lhsPos);
+							rhsJoinPos.add(rhsPos);
+						}
+					} catch (VariableNotInMapping vnim) {
+						throw new RuntimeException(vnim);
+					}
+
+					Morphism lhsInverse = lhsComposedMorph.createInverse();
+					for (int i = 0; i < leftSize; ++i) {
+						Variable v = leftMap.probeSecond(i);
+						Variable vv;
+						try {
+							vv = v.applyMorphism(lhsInverse, rt); 
+						} catch (VariableNotInMapping vnim) {
+							lhsOutputPos.add(null);
+							continue;
+						}
+						if (vv == null) {
+							vv = v;
+						}
+						int outputPos = vv.getPosForVariable(varPos);
+						lhsOutputPos.add(outputPos);
+					}
+
+					Morphism rhsInverse = rhsComposedMorph.createInverse();
+					for (int i = 0; i < rightSize; ++i) {
+						Variable v = rightMap.probeSecond(i);
+						Variable vv;
+						try {
+							vv = v.applyMorphism(rhsInverse, rt); 
+						} catch (VariableNotInMapping vnim) {
+							rhsOutputPos.add(null);
+							continue;
+						}
+						if (vv == null) {
+							vv = v;
+						}
+						int outputPos = vv.getPosForVariable(varPos);
+						rhsOutputPos.add(outputPos);
+					}
+
+				}
+			}
+
+			Expression rhsExp = o.getExpressionForId(rhs.expId);
+
+			if (rhsExp.isScan()) {
+				String temp = null;
+				for (String rel : rhsExp.relAtoms.keySet()) {
+					temp = rel;
+				}
+				final String relation = temp;
+				final Set<Predicate> rhsPreds = rhsExp.predicates;
+
+				Set<Location> locs = propFactory.enumerateAllProperties(o.getExpressionForId(lhs.expId), rt);
+				Morphism inverse = Morphism.compose(lhsMorphism, lhs.morphism).createInverse(); 
+
+				for (final Location inputLoc : locs) {
+					final Location computeLoc = inputLoc.applyMorphism(inverse, rt);
+
+					class ProbeJoinCost extends JoinCost {
+						private final boolean useBloomFilter, useBroadcastScan;
+						ProbeJoinCost(int cost, boolean useBloomFilter, boolean useBroadcastScan) {
+							super(cost, Collections.singletonList(lhs.expId), Collections.singletonList(inputLoc), computeLoc);
+							this.useBloomFilter = useBloomFilter;
+							this.useBroadcastScan = useBroadcastScan;
+						}
+
+						
+						CreatedQP<QpSchema,QueryPlan,Integer> createQP(
+								OperatorIdSource ois,
+								SchemaFactory<? extends QpSchema> schemaFactory,
+								List<CreatedQP<QpSchema,QueryPlan,Integer>> inputs) {
+							if (inputs.size() != 1) {
+								throw new IllegalArgumentException("Must supply exactly one created query plan");
+							}
+
+							CreatedQP<QpSchema,QueryPlan,Integer> input = inputs.get(0);
+							QpSchema rightSchema = rt.getBaseRelationSchema(relation);
+							Bijection<Variable,Integer> rightMap = rt.getBaseRelationVarMapping(relation);
+
+							SplitPredicate sp;
+							try {
+								sp = convertPredicatesForScan(rhsPreds, rightSchema, rightMap);
+							} catch (PredicateMismatch e) {
+								throw new RuntimeException(e);
+							} catch (PredicateLitMismatch e) {
+								throw new RuntimeException(e);
+							}
+
+							createJoinData(schemaFactory, input.schema, input.varMapping,
+									rightSchema, rightMap);
+
+							QueryPlan qp = new ProbeJoinNode(input.schema, newSchema,
+									rightSchema, lhsJoinPos, rhsJoinPos, lhsOutputPos,
+									rhsOutputPos, sp.keyPred, sp.remainingPred,
+									useBloomFilter, useBroadcastScan,
+									loc.getPlanLocation(), ois.getOperatorId(), input.qp);
+
+							return new CreatedQP<QpSchema,QueryPlan,Integer>(qp, newSchema, localCost + input.cost, varPos);
+						}
+					}
+
+					// TODO: figure out what costs to put here
+
+					List<ProbeJoinCost> costs = new ArrayList<ProbeJoinCost>(4);
+					costs.add(new ProbeJoinCost(PER_OPERATOR_COST, true, true));
+					costs.add(new ProbeJoinCost(PER_OPERATOR_COST, true, false));
+					costs.add(new ProbeJoinCost(PER_OPERATOR_COST, false, true));
+					costs.add(new ProbeJoinCost(PER_OPERATOR_COST, false, false));
+
+					if (computeLoc.equals(l)) {
+						retval.addAll(costs);
+					} else {
+						for (ProbeJoinCost pjc : costs) {
+							retval.add(new ShipLocalCost(shipCost, computeLoc, l, pjc));
+						}
+					}
+				}
+			}
+
+			final int numJoinVars = lhsJoinVars.size();
+			Set<Integer> joinPos = new HashSet<Integer>(numJoinVars);
+			for (int i = 0; i < numJoinVars; ++i) {
+				joinPos.add(i);
+			}
+
+			List<Set<Integer>> joinVarSubsets = Optimizer.createAllSubsets(joinPos, true);
+
+			Morphism lhsInverse = Morphism.compose(lhsMorphism, lhs.morphism).createInverse();
+
+			List<Integer> inputExps = new ArrayList<Integer>(2);
+			inputExps.add(lhs.expId);
+			inputExps.add(rhs.expId);
+
+			for (Set<Integer> joinVars : joinVarSubsets) {
+				HashSet<Variable> leftPos = new HashSet<Variable>(joinVars.size());
+				HashSet<Variable> rightPos = new HashSet<Variable>(joinVars.size());
+				HashSet<Variable> outputPos = new HashSet<Variable>(joinVars.size());
+				for (int pos : joinVars) {
+					Variable v = lhsJoinVars.get(pos);
+					leftPos.add(v);
+					rightPos.add(rhsJoinVars.get(pos));
+					Variable vv = v.applyMorphism(lhsInverse, rt);
+					if (vv == null) {
+						vv = v;
+					}
+					outputPos.add(vv);
+				}
+
+				Location leftLoc = new Location(leftPos);
+				Location rightLoc = new Location(rightPos);
+				Location outputLoc = new Location(outputPos);
+				List<Location> inputLocs = new ArrayList<Location>(2);
+				inputLocs.add(leftLoc);
+				inputLocs.add(rightLoc);
+
+				JoinCost jc = new JoinCost(PER_OPERATOR_COST, inputExps, inputLocs, outputLoc) {
+
+					
+					CreatedQP<QpSchema,QueryPlan,Integer> createQP(
+							OperatorIdSource ois,
+							SchemaFactory<? extends QpSchema> schemaFactory,
+							List<CreatedQP<QpSchema,QueryPlan,Integer>> inputs) {
+
+						if (inputs.size() != 2) {
+							throw new IllegalArgumentException("Need exactly two created query plans");
+						}
+
+						CreatedQP<QpSchema,QueryPlan,Integer> left = inputs.get(0), right = inputs.get(1);
+
+						createJoinData(schemaFactory, left.schema, left.varMapping,
+								right.schema, right.varMapping);
+
+						QueryPlan qp = new PipelinedJoinNode(newSchema,
+								lhsJoinPos, rhsJoinPos, lhsOutputPos, rhsOutputPos,
+								loc.getPlanLocation(), left.qp, right.qp, ois.getOperatorId());
+
+						return new CreatedQP<QpSchema,QueryPlan,Integer>(qp, newSchema, left.cost + right.cost + localCost, varPos);
+					}
+				};
+
+				if (outputLoc.equals(l)) {
+					retval.add(jc);
+				} else {
+					retval.add(new ShipLocalCost(shipCost, outputLoc, l, jc));
+				}
+			}
+
+		} else {
+			throw new RuntimeException("Don't know how to process node " + an);
+		}
+
+
+		return retval;
+	}
+
+	
+	public Collection<? extends LocalCost<Integer, Location, QpSchema, QueryPlan>> getScanCost(
+			int expId, final Location l, Optimizer<? extends Location,QueryPlan,Integer,? extends QpSchema> o) {
+
+		final Expression e = o.getExpressionForId(expId);
+		if (! e.isScan()) {
+			return Collections.emptyList();
+		}
+
+		String temp = null;
+		for (String rel : e.relAtoms.keySet()) {
+			temp = rel;
+		}
+		final String relation = temp;
+		final Location scanLoc = o.rt.getRelationProps(relation);
+		List<Location> noLocs = Collections.emptyList();
+		List<Integer> noInputs = Collections.emptyList();
+		final RelationTypes<? extends Location,? extends QpSchema> rt = o.rt;
+
+
+		LocalCost<Integer,Location,QpSchema,QueryPlan> scan = new LocalCost<Integer,Location,QpSchema,QueryPlan>(PER_OPERATOR_COST,
+				noInputs, noLocs) {
+
+			
+			CreatedQP<QpSchema,QueryPlan,Integer> createQP(OperatorIdSource ois,
+					SchemaFactory<? extends QpSchema> schemaFactory,
+					List<CreatedQP<QpSchema,QueryPlan,Integer>> inputs) {
+
+				final Bijection<Variable,Integer> baseMapping = rt.getBaseRelationVarMapping(relation);
+				final QpSchema baseSchema = rt.getBaseRelationSchema(relation);
+
+				SplitPredicate sp;
+				try {
+					sp = convertPredicatesForScan(e.predicates, baseSchema, baseMapping);
+				} catch (PredicateMismatch e) {
+					throw new RuntimeException(e);
+				} catch (PredicateLitMismatch e) {
+					throw new RuntimeException(e);
+				}
+
+				QueryPlan qp = new DistributedScanNode(baseSchema, sp.keyPred, sp.remainingPred, rt.getRelationProps(relation).getPlanLocation(), ois.getOperatorId());
+
+				QpSchema outputSchema;
+				Bijection<Variable,Integer> outputMapping;
+
+				Set<Variable> output = e.getExposedVariables();
+				if (output.equals(rt.getAtomVariablesForRelation(relation))) {
+					outputSchema = baseSchema;
+					outputMapping = baseMapping;
+				} else {
+					outputSchema = schemaFactory.createNewSchema();
+					outputMapping = fillInSchema(output, scanLoc, outputSchema);
+
+					final int numCols = outputSchema.getNumCols();
+					List<ColumnOrFunction> outputCols = new ArrayList<ColumnOrFunction>(numCols);
+					for (int i = 0; i < numCols; ++i) {
+						outputCols.add(new ColumnInput(baseMapping.probeFirst(outputMapping.probeSecond(i))));
+					}
+					qp = new edu.upenn.cis.orchestra.p2pqp.plan.FunctionNode(baseSchema, outputSchema, outputCols, scanLoc.getPlanLocation(),
+							ois.getOperatorId(), qp);
+				}
+
+				return new CreatedQP<QpSchema,QueryPlan,Integer>(qp, outputSchema, localCost, outputMapping);
+			}
+
+		};
+		if (scanLoc.equals(l)) {
+			return Collections.singleton(scan);
+		} else {
+			int shipCost = getShipCost(l, expId, o);
+
+			Set<? extends LocalCost<Integer,Location,QpSchema,QueryPlan>> retval = 
+				Collections.singleton(new ShipLocalCost(shipCost, scanLoc, l, scan));
+
+			return retval;
+		}
+	}
+
+	private int getShipCost(Location l, int expId, Optimizer<? extends Location,?,?,?> o) {
+		int tupleSize = 0;
+		Expression e = o.getExpressionForId(expId);
+		for (Variable v : e.getExposedVariables()) {
+			tupleSize += v.getType().getExpectedSize();
+		}
+		int msgSize = tupleSize * o.getExpectedCardinality(expId);
+
+		if (l.isCentralized()) {
+			return msgSize;
+		} else {
+			return (int) Math.ceil(msgSize * logNumNodes);
+		}
+	}
+
+	private static void copyInto(QpSchema oldSchema, QpSchema newSchema) {
+		final int numCols = oldSchema.getNumCols();
+		for (int i = 0; i < numCols; ++i) {
+			try {
+				newSchema.addCol(oldSchema.getColName(i), oldSchema.getColType(i));
+			} catch (BadColumnName e) {
+				throw new RuntimeException("Shouldn't happen", e);
+			}
+		}
+	}
+
+	private static Bijection<Variable,Integer> fillInSchema(Set<Variable> vars, Location l, QpSchema empty) {
+		int count = 0;
+		Bijection<Variable,Integer> mapping = new Bijection<Variable,Integer>();
+		try {
+			for (Variable v : vars) {
+				empty.addCol("C" + count, v.getType().getExecutionType());
+				mapping.setMapping(v, count);
+				count++;
+			}
+		} catch (BadColumnName e) {
+			throw new RuntimeException(e);
+		}
+
+		if (l.isCentralized()) {
+			empty.setCentralized();
+		} else if (l.isNamedLocation()) {
+			empty.setNamedLocation(l.getLocationName());
+		} else {
+			int cols[] = new int[l.getHashVars().size()];
+			count = 0;
+			for (Variable v : l.getHashVars()) {
+				cols[count++] = mapping.probeFirst(v);
+			}
+			empty.setHashCols(cols);
+		}
+		empty.markFinished();
+
+		return mapping;
+	}
+
+	private static class ShipLocalCost extends LocalCost<Integer,Location,QpSchema,QueryPlan> {
+		private final Location destLoc;
+		private final Location currLoc;
+		private final LocalCost<Integer,Location,QpSchema,QueryPlan> input;
+
+		public ShipLocalCost(int localCost, Location currLoc, Location destLoc,
+				LocalCost<Integer,Location,QpSchema,QueryPlan> input) {
+			super(localCost, input.inputs);
+			this.currLoc = currLoc;
+			this.destLoc = destLoc;
+			this.input = input;
+		}
+
+		
+		CreatedQP<QpSchema,QueryPlan,Integer> createQP(OperatorIdSource ois,
+				SchemaFactory<? extends QpSchema> schemaFactory,
+				List<CreatedQP<QpSchema,QueryPlan,Integer>> inputs) {
+			if (inputs.size() != 1) {
+				throw new IllegalArgumentException("Should be given exactly 1 table entry");
+			}
+
+			QpSchema schema = inputs.get(0).schema;
+			Bijection<Variable,Integer> mapping = inputs.get(0).varMapping;
+
+			final QpSchema newSchema = schemaFactory.createNewSchema();
+			copyInto(schema,newSchema);
+
+			int[] hashCols = new int[destLoc.getHashVars().size()];
+			int pos = 0;
+			for (Variable v : destLoc.getHashVars()) {
+				hashCols[pos++] = mapping.probeFirst(v);
+			}
+
+			newSchema.setHashCols(hashCols);
+			newSchema.markFinished();
+
+			CreatedQP<QpSchema,QueryPlan,Integer> inputQp = input.createQP(ois, schemaFactory, inputs);
+
+			QueryPlan outputQp;
+			if (destLoc.isCentralized()) {
+				outputQp = new ShipNode(inputQp.schema, schema, ois.getOperatorId(), inputQp.qp);
+			} else {
+				outputQp = new RehashNode(inputQp.qp, inputQp.schema, schema,
+						currLoc.getPlanLocation(), ois.getOperatorId());
+			}
+			return new CreatedQP<QpSchema,QueryPlan,Integer>(outputQp, inputQp.schema, localCost + inputQp.cost, inputQp.varMapping);
+		}
+	}
+
+	private SplitPredicate convertPredicatesForScan(Collection<Predicate> preds,
+			QpSchema schema, Bijection<Variable,Integer> mapping) throws PredicateMismatch, PredicateLitMismatch {
+		edu.upenn.cis.orchestra.predicate.Predicate keyPred = null, allPred = null;
+
+		for (Predicate p : preds) {
+			boolean isKey = true;
+			edu.upenn.cis.orchestra.predicate.Predicate newPred;
+			if (p.var1 instanceof AtomVariable) {
+				if (! schema.getColType(mapping.probeFirst(p.var1)).doesBelongToKey()) {
+					isKey = false;
+				}
+				if (p.var2 instanceof AtomVariable) {
+					if (! schema.getColType(mapping.probeFirst(p.var2)).doesBelongToKey()) {
+						isKey = false;
+					}
+					newPred = ComparePredicate.createTwoCols(schema, mapping.probeFirst(p.var1), p.op.getComparePredicateOp(), mapping.probeFirst(p.var2));
+				} else if (p.var2 instanceof LiteralVariable) {
+					LiteralVariable lv2 = (LiteralVariable) p.var2;
+					newPred = ComparePredicate.createColLit(schema, mapping.probeFirst(p.var1), p.op.getComparePredicateOp(), lv2.lit);
+				} else {
+					throw new RuntimeException("Should not find predicate " + p + " in a scan");
+				}
+			} else if (p.var1 instanceof LiteralVariable) {
+				LiteralVariable lv1 = (LiteralVariable) p.var1;
+				if (p.var2 instanceof AtomVariable) {
+					if (! schema.getColType(mapping.probeFirst(p.var2)).doesBelongToKey()) {
+						isKey = false;
+					}
+					newPred = ComparePredicate.createColLit(schema, mapping.probeFirst(p.var2), p.op.getReverseComparePredicateOp(), lv1.lit);
+				} else {
+					throw new RuntimeException("Should not find predicate " + p + " in a scan");
+				}
+			} else {
+				throw new RuntimeException("Should not find predicate " + p + " in a scan");
+			}
+			if (isKey) {
+				if (keyPred == null) {
+					keyPred = newPred;
+				} else {
+					keyPred = new AndPred(newPred,keyPred);
+				}
+			} else {
+				if (allPred == null) {
+					allPred = newPred;
+				} else {
+					allPred = new AndPred(newPred,allPred);
+				}
+			}
+		}
+		return new SplitPredicate(keyPred, allPred);
+	}
+
+	private static class SplitPredicate {
+		final edu.upenn.cis.orchestra.predicate.Predicate keyPred, remainingPred;
+
+		SplitPredicate(edu.upenn.cis.orchestra.predicate.Predicate keyPred,
+				edu.upenn.cis.orchestra.predicate.Predicate remainingPred) {
+			this.keyPred = keyPred;
+			this.remainingPred = remainingPred;
+		}
+	}
+}

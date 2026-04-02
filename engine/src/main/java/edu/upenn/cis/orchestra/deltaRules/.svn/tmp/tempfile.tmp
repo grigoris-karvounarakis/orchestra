@@ -1,0 +1,397 @@
+package edu.upenn.cis.orchestra.deltaRules;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import edu.upenn.cis.orchestra.datalog.DatalogEngine;
+import edu.upenn.cis.orchestra.datalog.DatalogSequence;
+import edu.upenn.cis.orchestra.datalog.NonRecursiveDatalogProgram;
+import edu.upenn.cis.orchestra.datalog.RecursiveDatalogProgram;
+import edu.upenn.cis.orchestra.engine.sql.SqlDb;
+import edu.upenn.cis.orchestra.engine.sql.SqlEngine;
+import edu.upenn.cis.orchestra.mappings.Rule;
+import edu.upenn.cis.orchestra.repository.model.OrchestraSystem;
+import edu.upenn.cis.orchestra.repository.model.ScMappingAtom;
+import edu.upenn.cis.orchestra.repository.model.ScMappingAtom.AtomType;
+import edu.upenn.cis.orchestra.Config;
+
+/**
+ * Rule generator for insertion delta rules
+ * 
+ * @author zives, gkarvoun
+ *
+ */
+public class InsertionDeltaRuleGen extends DeltaRuleGen {
+	public InsertionDeltaRuleGen (OrchestraSystem sys)//DeltaRules dr)
+	{
+		super(sys);//dr);
+	}
+
+	public InsertionDeltaRuleGen (OrchestraSystem sys/*DeltaRules dr*/, boolean DRed, boolean useProvenance)
+	{
+		super(sys, DRed, useProvenance);
+	}
+
+	@Override
+	protected List<DatalogSequence> computeRules(boolean DRed, boolean useProvenance) {
+		List<DatalogSequence> ret = new ArrayList<DatalogSequence>();
+		
+		if (Config.getOuterUnion()){
+			ret.add(preOUInsertion(!DRed));
+			ret.add(createOUInsertionProgramSequence(!DRed));
+			ret.add(postOUInsertion(!DRed));
+		}else{
+			ret.add(preInsertion(!DRed));
+			ret.add(createInsertionProgramSequence(!DRed));
+			ret.add(postInsertion(!DRed));
+		}
+		return ret;
+	}
+	
+	@Override
+	public long execute(DatalogEngine de) {
+//		dbCn.commit();
+//		_provenancePrep.activateNotLoggedInitDB2(dbCn, system);
+				
+//			dbCn.commit();
+		//_provenancePrep.collectStatistics(dbCn, system);
+		
+		
+		// Map to each field it's database datatype. This is necessary 
+		// because DB2 needs to cast null values!!!
+		try {	
+			Calendar before;
+			Calendar after;
+			long time;
+			long retTime;
+			
+			//if(!"yes".equals(System.getProperty("skipins"))){
+			System.out.println("=====================================================");
+			System.out.println("INSERTIONS");
+			System.out.println("=====================================================");
+			
+			if(de._sql instanceof SqlDb)
+				((SqlDb)de._sql).activateRuleBasedOptimizer();
+			
+			List<DatalogSequence> insProg = getCode();
+
+			before = Calendar.getInstance();
+			de.evaluatePrograms(insProg.get(0));
+			after = Calendar.getInstance();
+			time = after.getTimeInMillis() - before.getTimeInMillis();
+			System.out.println("INSERTION PREP TIME: " + time + "msec");		
+			
+			commitAndReset(de);
+			
+			before = Calendar.getInstance();
+			de.evaluatePrograms(insProg.get(1));
+			after = Calendar.getInstance();
+			time = after.getTimeInMillis() - before.getTimeInMillis();
+			System.out.println("INCREMENTAL INSERTION ALG TIME (INCL COMMIT): " + time + "msec");
+	        System.out.println("TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: " + de.logTime() + "msec");
+			System.out.println("EXP: NET INSERTION TIME: " + (time - de.logTime()) + "msec");
+
+
+			SqlEngine.insTimes.add(new Long(time - de.logTime()));
+			retTime = time - de.logTime();
+			
+			commitAndReset(de);
+			
+			before = Calendar.getInstance();
+			de.evaluatePrograms(insProg.get(2));
+			after = Calendar.getInstance();
+			time = after.getTimeInMillis() - before.getTimeInMillis();
+			System.out.println("POST INSERTION TIME: " + time + "msec");
+	
+			commitAndReset(de);
+			
+
+			return retTime;
+			
+		} catch (Exception ex)
+		{
+			ex.printStackTrace();
+			return -1;
+		}
+	}
+
+	protected DatalogSequence preOUInsertion(boolean useProvenance) {
+		DatalogSequence ret;
+		ret = new DatalogSequence(false, true);
+        List<Rule> init = new ArrayList<Rule>();
+        
+        init.addAll(copyRelationList(getEdbs(), AtomType.NEW, AtomType.NONE));
+//        init.addAll(copyRelationList(getEdbs(), AtomType.NEW, AtomType.INS));
+        init.addAll(copyRelationList(getIdbs(), AtomType.NEW, AtomType.NONE));
+        init.addAll(copyRelationList(getOuterUnionMappingRels(), AtomType.NEW, AtomType.NONE));
+       
+        ret.add(new NonRecursiveDatalogProgram(init));
+		
+		return ret;
+	}
+	
+	protected DatalogSequence postOUInsertion(boolean useProvenance) {
+		DatalogSequence ret;
+		ret = new DatalogSequence(false, true);
+		List<Rule> post = new ArrayList<Rule>();
+        
+        post.addAll(copyRelationList(getOuterUnionMappingRels(), AtomType.NEW, AtomType.INS));
+        ret.add(new NonRecursiveDatalogProgram(post));
+
+//		I don't think this should be different for DRed        
+//        ret.add(_dr.applyDeltasToBase(DRed));
+        
+        ret.add(applyDeltasToBase(false, getOuterUnionMappingRels(), getEdbs(), getIdbs()));
+        ret.add(cleanupRelations(AtomType.INS, getOuterUnionMappingRels(), getEdbs(), getIdbs()));
+        
+		return ret;
+	}
+	
+    protected DatalogSequence createOUInsertionProgramSequence(boolean useProvenance) {
+		List<Rule> mainloop = new ArrayList<Rule>();
+        DatalogSequence ret = new DatalogSequence(false, true);
+        
+        
+        if (!useProvenance)
+        	return createInsertionProgramSequence(!useProvenance);
+
+        ret.add(new NonRecursiveDatalogProgram(copyRelationList(getEdbs(), AtomType.NEW, AtomType.INS)));
+        
+        // Map in data from pure-EDB relations, i.e. those not in the head
+        // of any rule
+		//ret.add(_dr.provenanceEdbDeltaApplicationRules(true));
+        
+        //if (_dr == null)
+        //	System.err.println("No delta rules");
+        
+        if (getMappingRules() == null)
+        	System.err.println("No OU rules");
+
+        for (Rule r : getMappingRules()) {
+	        mainloop.addAll(insertionRules(r, true));
+        }
+
+        for (Rule r : getMappingProjectionRules()) {
+	        mainloop.addAll(insertionRules(r, false));
+        }
+        
+//        for (Rule r : _dr.getOuterUnionPopulationRules()) {
+//	        mainloop.addAll(insertionRules(r));
+//        }
+        
+        mainloop.addAll(idbDeltaApplicationRules(true, false));
+        
+        ret.add(new RecursiveDatalogProgram(mainloop));
+		
+        return ret;
+	}	
+	
+	/**
+	 * Creates the datalog program sequence (including copies/deletions) to
+	 * apply a set of insertions.
+	 * 
+	 */
+/*
+    protected DatalogSequence OldcreateInsertionProgramSequence(boolean DRed) {
+		//NonRecursiveDatalogProgram ret;
+		//List<DatalogProgram> l = new ArrayList<DatalogProgram>();
+		List<Rule> looplist = new ArrayList<Rule>();
+        DatalogSequence ret = new DatalogSequence(false, true);
+
+    	ret.add(new NonRecursiveDatalogProgram(copyRelationList(getEdbs(), AtomType.OLD, AtomType.NONE)));
+    	ret.add(new NonRecursiveDatalogProgram(copyRelationList(getIdbs(), AtomType.OLD, AtomType.NONE)));
+    	ret.add(new NonRecursiveDatalogProgram(copyRelationList(getMappingRelations(), AtomType.OLD, AtomType.NONE)));
+        
+        // Map in data from pure-EDB relations, i.e. those not in the head
+        // of any rule
+		ret.add(edbDeltaApplicationRules(true));
+    	
+		//looplist.add(oldNewCleanupAndCopy(true));
+		
+		int len = getBaseRules().size();
+        for (int i = 0; i < len ; i++) {
+	        //ScRelationContext cur = _rules.get(i).getHead().getRelationContext();
+	        //ScRelationContext nxt = i+1 < len ? _rules.get(i+1).getHead().getRelationContext() : null;
+	    
+	        looplist.addAll(insertionRules(getMappingRules().get(i)));
+	        looplist.addAll(insertionRules(getMappingsProjection().get(i)));
+	        
+	        //vr.addAll(insertionRules(getMappingRules().get(i)));
+	        //vr.addAll(insertionRules(getMappingsProjection().get(i)));
+	        
+	        //vr.add(deltaApplicationRule(getMappingsProjection()[i], true));
+        }
+        for (int i = 0; i < len ; i++) {
+	        looplist.addAll(idbDeltaApplicationRules(true, false));
+        }
+        ret.add(new RecursiveDatalogProgram(looplist));
+        ret.add(_dr.applyDeltasToBase(DRed));
+        ret.add(_dr.cleanupRelations(AtomType.INS));
+        ret.add(_dr.cleanupRelations(AtomType.NEW));
+        ret.add(_dr.cleanupRelations(AtomType.OLD));
+        
+        return ret;
+	}	
+*/
+    
+	protected DatalogSequence preInsertion(boolean useProvenance) {
+		DatalogSequence ret;
+		ret = new DatalogSequence(false, true);
+        List<Rule> init = new ArrayList<Rule>();
+        
+        init.addAll(copyRelationList(getEdbs(), AtomType.NEW, AtomType.NONE));
+//        init.addAll(copyRelationList(getEdbs(), AtomType.NEW, AtomType.INS));
+        init.addAll(copyRelationList(getIdbs(), AtomType.NEW, AtomType.NONE));
+        init.addAll(copyRelationList(getMappingRelations(), AtomType.NEW, AtomType.NONE));
+       
+        ret.add(new NonRecursiveDatalogProgram(init));
+		return ret;
+	}
+	
+	protected DatalogSequence postInsertion(boolean useProvenance) {
+		DatalogSequence ret;
+		ret = new DatalogSequence(false, true);
+        List<Rule> post = new ArrayList<Rule>();
+        
+        post.addAll(copyRelationList(getMappingRelations(), AtomType.NEW, AtomType.INS));
+        ret.add(new NonRecursiveDatalogProgram(post));
+
+//		I don't think this should be different for DRed        
+//        ret.add(_dr.applyDeltasToBase(DRed));
+        ret.add(applyDeltasToBase(false, getMappingRelations(), getEdbs(), getIdbs()));
+        ret.add(cleanupRelations(AtomType.INS, getMappingRelations(), getEdbs(), getIdbs()));
+		return ret;
+	}
+    
+	/**
+	 * Creates the datalog program sequence (including copies/deletions) to
+	 * apply a set of insertions.
+	 * 
+	 */
+    protected DatalogSequence createInsertionProgramSequence(boolean useProvenance) {
+        DatalogSequence ret = new DatalogSequence(false, true);
+
+        ret.add(new NonRecursiveDatalogProgram(copyRelationList(getEdbs(), AtomType.NEW, AtomType.INS)));
+//        ret.add(edbDeltaApplicationRules(true));
+        
+        
+//      Map in data from pure-EDB relations, i.e. those not in the head
+//      of any rule
+//		ret.add(edbDeltaApplicationRules(true));
+
+    	List<Rule> mainloop = new ArrayList<Rule>();
+
+    	for(int i = 0; i < getMappingRules().size(); i++) {
+//    		mainloop.addAll(insertionRules(getMappingRules().get(i), true));
+    		mainloop.addAll(insertionRules(getMappingRules().get(i), false));
+    	}
+    	for(int i = 0; i < getMappingProjectionRules().size(); i++) {
+//    		mainloop.addAll(insertionRules(getMappingProjectionRules().get(i), true));
+    		mainloop.addAll(insertionRules(getMappingProjectionRules().get(i), false));
+    	}
+    	
+        mainloop.addAll(idbDeltaApplicationRules(true, false));
+        
+        ret.add(new RecursiveDatalogProgram(mainloop));
+
+        return ret;
+	}	
+	
+	//Note: some atoms are shared between different rules. If these atoms need to be modified 
+	// independently in another process, we should deep copy all atoms.
+	
+	/**
+	 * Generate all insertion delta rules for a given rule 
+	 * @param r Rule for which to generate the delta rules
+	 * @return Delta rules
+	 */
+	private static List<Rule> insertionRules (Rule r, boolean replaceValsWithNullVals)
+    //private static List<DatalogProgram> insertionRules (Rule r)
+	{
+		AtomType type = AtomType.INS;
+		
+		ScMappingAtom head = new ScMappingAtom (r.getHead(), type);
+		
+		List<ScMappingAtom> body = new ArrayList<ScMappingAtom> ();
+		for (ScMappingAtom atom : r.getBody())
+			body.add (new ScMappingAtom (atom, AtomType.NONE));
+		
+		List<Rule> deltas = new ArrayList<Rule> ();
+		//List<DatalogProgram> deltas = new ArrayList<DatalogProgram> ();
+		int size = body.size();
+		if(body.get(size - 1).isNeg()){
+			size = size - 1;
+		}
+		
+		int lastInd = -1;
+		for (int i = 0 ; i < size ; i++)
+		{
+			while(body.get(i).isSkolem() && i < size){
+				i++;
+			}
+			
+			if (lastInd >= 0){
+				body.set(lastInd, new ScMappingAtom(body.get(i-1), AtomType.NEW));
+			}
+			body.set (i, new ScMappingAtom(body.get(i), type));
+			lastInd = i;
+			
+			Rule deltaRule = new Rule(head, body);
+//			if(replaceValsWithNullVals)
+				deltaRule.setReplaceValsWithNullValues();
+			deltas.add(deltaRule);
+			//deltas.add(new SingleRuleDatalogProgram(new Rule(head, body)));
+		}
+		return deltas;
+	}
+	
+	
+    /**
+     * Takes the NEW table and uses it to update the OLD and original (NONE) tables.
+     * These operations aren't counted in execution timing.
+     * 
+     * @param DRed
+     * @return
+     */
+/*
+	protected DatalogSequence OldapplyInsertsToBase(boolean DRed) {
+    	List<Rule> rules;
+		List<DatalogProgram> ret = new ArrayList<DatalogProgram>();
+    	
+    	ret.add(new NonRecursiveDatalogProgram(dropRelationList(getEdbs(),AtomType.NONE)));
+    	rules = copyRelationList(getEdbs(), AtomType.NONE, AtomType.NEW);
+    	rules.addAll(copyRelationList(getEdbs(), AtomType.OLD, AtomType.NONE));
+    	ret.add(new NonRecursiveDatalogProgram(rules));
+    	
+    	ret.add(new NonRecursiveDatalogProgram(dropRelationList(getEdbs(),AtomType.NEW)));
+    	rules = copyRelationList(getIdbs(), AtomType.NONE, AtomType.INS);
+    	rules.addAll(copyRelationList(getIdbs(), AtomType.OLD, AtomType.NONE));
+    	ret.add(new NonRecursiveDatalogProgram(rules));
+    	ret.add(new NonRecursiveDatalogProgram(dropRelationList(getIdbs(),AtomType.NEW)));
+    	
+    	if(DRed){
+        	rules = copyRelationList(getMappingRelations(), AtomType.NONE, AtomType.INS);
+        	rules.addAll(copyRelationList(getMappingRelations(), AtomType.OLD, AtomType.NONE));
+        	ret.add(new NonRecursiveDatalogProgram(rules));
+
+        	ret.add(new NonRecursiveDatalogProgram(dropRelationList(getMappingRelations(),AtomType.NEW)));	
+    	}else{
+        	rules = copyRelationList(getMappingRelations(), AtomType.NONE, AtomType.INS);
+    		//ret.addAll(relCopy(getMappingRelations(), AtomType.OLD, AtomType.NONE));
+    		//ret.addAll(relCleanup(getMappingRelations(),AtomType.NEW));
+    		rules.addAll(copyRelationList(getMappingRelations(), AtomType.NEW, AtomType.NONE));
+
+    		ret.add(new NonRecursiveDatalogProgram(rules));
+    	}
+    	for (DatalogProgram p: ret)
+    		p.omitFromCount();
+    	
+//		DatalogProgram p = new NonRecursiveDatalogProgram(ret,false);
+//    	return p;
+    	return new DatalogSequence(false, ret, false);
+//    	return new DatalogSequence(false, ret);
+	}
+*/
+
+}

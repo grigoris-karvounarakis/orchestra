@@ -1,0 +1,136 @@
+<QueryPlanWithSchemas metadataClass="edu.upenn.cis.orchestra.p2pqp.Null">
+	<queryPlan>
+		<spool centralized="true" operatorId="1">
+			<input>
+				<function centralized="true" operatorId="3" outputSchema="DB2">
+					<input>
+						<pipelinedJoin centralized="true" operatorId="4" outputSchema="DB2_BEFORE_MERGE">
+							<leftInput>
+								<ship distributed="true" operatorId="21" outputSchema="SHIP_SPECIES_TO_OWNER">
+									<input>
+										<distributedScan distributed="true" operatorId="5" outputSchema="SPECIES"/>
+									</input>
+									<mapping>
+										<entry inputPos="0" outputPos="0"/>
+										<entry inputPos="1" outputPos="1"/>
+										<entry inputPos="2" outputPos="2"/>
+									</mapping>
+								</ship>
+							</leftInput>
+							<rightInput>
+								<pipelinedJoin centralized="true" operatorId="7" outputSchema="SHIP_DB2_TO_SID">
+									<leftInput>
+										<ship distributed="true" operatorId="20" outputSchema="SHIP_DB1toDB2">
+											<input>
+												<distributedScan distributed="true" operatorId="8" outputSchema="DB1toDB2"/>
+											</input>
+											<mapping>
+												<entry inputPos="0" outputPos="0"/>
+												<entry inputPos="1" outputPos="1"/>
+											</mapping>
+										</ship>
+									</leftInput>
+									<rightInput>
+										<ship distributed="true" operatorId="9" outputSchema="SHIP_DB1_TO_OWNER">
+											<input>
+												<distributedScan distributed="true" operatorId="10" outputSchema="DB1"/>
+											</input>
+											<mapping>
+												<entry inputPos="0" outputPos="0"/>
+												<entry inputPos="1" outputPos="1"/>
+												<entry inputPos="2" outputPos="2"/>
+											</mapping>
+										</ship>
+									</rightInput>
+									<leftJoinIndices>
+										<col pos="0"/>
+									</leftJoinIndices>
+									<rightJoinIndices>
+										<col pos="0"/>
+									</rightJoinIndices>
+									<leftOutputPos>
+										<col/>
+										<col pos="0"/>
+									</leftOutputPos>
+									<rightOutputPos>
+										<col/>
+										<col pos="1"/>
+										<col pos="2"/>
+									</rightOutputPos>
+								</pipelinedJoin>
+							</rightInput>
+							<leftJoinIndices>
+								<col pos="0"/>
+							</leftJoinIndices>
+							<rightJoinIndices>
+								<col pos="1"/>
+							</rightJoinIndices>
+							<leftOutputPos>
+								<col/>
+								<col pos="1"/>
+								<col pos="2"/>
+							</leftOutputPos>
+							<rightOutputPos>
+								<col pos="0"/>
+								<col/>
+								<col pos="3"/>
+							</rightOutputPos>
+						</pipelinedJoin>
+					</input>
+					<output>
+						<columnInput column="0"/>
+						<evalFunc>
+							<function>
+								<concatenate allowVaryingInputs="true">
+									<literal value=""/>
+									<input length="20"/>
+									<literal value=" "/>
+									<input length="20"/>
+									<literal value=""/>
+								</concatenate>
+							</function>
+							<inputs>
+								<columnInput column="1"/>
+								<columnInput column="2"/>
+							</inputs>
+						</evalFunc>
+						<columnInput column="3"/>
+					</output>
+				</function>
+			</input>
+		</spool>
+	</queryPlan>
+	<QpSchema name="SHIP_DB1_TO_OWNER" relId="-1" centralized="true">
+		<field description="column" name="pName" nullable="false" type="char(8)"/>
+		<field description="column" name="speciesId" nullable="false" type="integer"/>
+		<field description="column" name="desc" nullable="false" type="varchar(75)"/>
+		<primaryKey name="pk">
+			<fieldName name="pName"/>
+		</primaryKey>
+	</QpSchema>
+	<QpSchema name="SHIP_DB2_TO_SID" relId="-2" centralized="true">
+		<field description="column" name="pId" nullable="false" type="integer"/>
+		<field description="column" name="speciesId" nullable="false" type="integer"/>
+		<field description="column" name="desc" nullable="false" type="varchar(75)"/>
+	</QpSchema>
+	<QpSchema name="DB2_BEFORE_MERGE" relId="-3" centralized="true">
+		<field description="column" name="pId" nullable="false" type="integer"/>
+		<field description="column" name="genus" nullable="false" type="varchar(20)"/>
+		<field description="column" name="species" nullable="false" type="varchar(20)"/>
+		<field description="column" name="desc" nullable="false" type="varchar(75)"/>
+	</QpSchema>
+	<QpSchema name="DB2" relId="-4" centralized="true">
+		<field description="column" name="pId" nullable="false" type="integer"/>
+		<field description="column" name="genusSpecies" nullable="false" type="varchar(41)"/>
+		<field description="column" name="desc" nullable="false" type="varchar(75)"/>
+	</QpSchema>
+	<QpSchema name="SHIP_DB1toDB2" relId="-5" centralized="true">
+		<field description="column" name="pName" nullable="false" type="char(8)"/>
+		<field description="column" name="pId" nullable="false" type="integer"/>
+	</QpSchema>
+	<QpSchema name="SHIP_SPECIES_TO_OWNER" relId="-6" centralized="true">
+		<field description="column" name="speciesId" nullable="false" type="integer"/>
+		<field description="column" name="genus" nullable="false" type="varchar(20)"/>
+		<field description="column" name="species" nullable="false" type="varchar(20)"/>
+	</QpSchema>
+</QueryPlanWithSchemas>

@@ -1,0 +1,200 @@
+0|-!- SUBC|MKFLVLLF|Eukaryot|3: Infer|SIGNAL  |Complete|104 kDa |104K_THE
+1|-!- SUBC|MKFLILLF|Eukaryot|2: Evide|SIGNAL  |Complete|104 kDa |104K_THE
+2|-!- SUBC|MASVKSSS|Eukaryot|2: Evide|SIGNAL  |Secreted|Protein |108_SOLL
+3|-!- FUNC|MEKKSIAG|Eukaryot|3: Infer|SIGNAL  |Germinat|10 kDa p|10KD_VIG
+4|--------|FNSNMLRG|Eukaryot|2: Evide|CHAIN   |Malaria;|110 kDa |110KD_PL
+5|-!- FUNC|MVAFKFLL|Eukaryot|2: Evide|SIGNAL  |Seed sto|11S glob|11S2_SES
+6|-!- FUNC|MASKATLL|Eukaryot|3: Infer|SIGNAL  |Seed sto|11S glob|11S3_HEL
+7|-!- FUNC|MARSSLFT|Eukaryot|1: Evide|SIGNAL  |3D-struc|11S glob|11SB_CUC
+8|-!- FUNC|MSTILEKI|Eukaryot|1: Evide|CHAIN   |Complete|GTP-bind|128UP_DR
+9|-!- FUNC|MIFDGKVA|Bacteria|1: Evide|CHAIN   |Bile aci|12-alpha|12AH_CLO
+10|-!- INDU|MVLLDKLW|Eukaryot|2: Evide|CHAIN   |Auxin si|Auxin-re|12KD_FRA
+11|--------|MFHVLTLT|Bacteria|1: Evide|CHAIN   |Direct p|12 kDa p|12KD_MYC
+12|-!- FUNC|MARVSSLL|Eukaryot|2: Evide|SIGNAL  |Alternat|12S seed|12S1_ARA
+13|-!- FUNC|MGRVSSII|Eukaryot|1: Evide|SIGNAL  |Complete|12S seed|12S2_ARA
+14|-!- FUNC|MAENNNLK|Bacteria|1: Evide|INIT_MET|3D-struc|Methylma|12S_PROF
+15|-!- SUBC|MIFTAXDR|Eukaryot|1: Evide|CHAIN   |Direct p|13.2 kDa|13KDA_SC
+16|-!- SUBC|AGEPANNE|Eukaryot|1: Evide|CHAIN   |Direct p|13 kDa p|13KDA_TR
+17|-!- FUNC|MSTKLILS|Eukaryot|2: Evide|SIGNAL  |Seed sto|13S glob|13S1_FAG
+18|-!- FUNC|MSTKLILS|Eukaryot|2: Evide|SIGNAL  |Seed sto|13S glob|13S2_FAG
+19|-!- FUNC|MSTKLILS|Eukaryot|1: Evide|SIGNAL  |Allergen|13S glob|13S3_FAG
+20|-!- FUNC|GIDENVCT|Eukaryot|1: Evide|CHAIN   |Direct p|13S glob|13SB_FAG
+21|-!- FUNC|MNFLWKGR|Eukaryot|2: Evide|CHAIN   |Complete|RPII140-|140U_DRO
+22|-!- FUNC|MENEREKQ|Eukaryot|2: Evide|CHAIN   |Alternat|14-3-3-l|14310_AR
+23|-!- SUBU|MAALIPEN|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14310_SO
+24|-!- FUNC|MENERAKQ|Eukaryot|2: Evide|CHAIN   |Complete|14-3-3-l|14311_AR
+25|-!- FUNC|MSSSGSDK|Eukaryot|2: Evide|CHAIN   |Complete|14-3-3-l|14312_AR
+26|-!- FUNC|MATPGASS|Eukaryot|1: Evide|CHAIN   |Complete|14-3-3-l|14331_AR
+27|-!- SUBU|MSDTVEEL|Eukaryot|1: Evide|CHAIN   |Complete|14-3-3-l|14331_CA
+28|-!- SIMI|MSRLAECT|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14331_EC
+29|-!- SIMI|MSRLAECT|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14331_EC
+30|-!- SIMI|MASREDCV|Eukaryot|3: Infer|CHAIN   |null|14-3-3 p|14331_EN
+31|-!- FUNC|MASAELSR|Eukaryot|3: Infer|CHAIN   |null|14-3-3-l|14331_MA
+32|-!- FUNC|MAAAAGGG|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|14331_OR
+33|-!- SIMI|MTTSWVLQ|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14331_SC
+34|-!- SUBU|MALPENLT|Eukaryot|3: Infer|CHAIN   |null|14-3-3 p|14331_SO
+35|-!- TISS|MADSREEN|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|14331_SO
+36|-!- FUNC|MASGREEF|Eukaryot|2: Evide|CHAIN   |Complete|14-3-3-l|14332_AR
+37|-!- FUNC|MSDGKEEL|Eukaryot|1: Evide|CHAIN   |Complete|14-3-3-l|14332_CA
+38|-!- SIMI|MAAITSWI|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14332_EC
+39|-!- SIMI|MAAITSWI|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14332_EC
+40|-!- SIMI|MTSREDLV|Eukaryot|3: Infer|CHAIN   |null|14-3-3 p|14332_EN
+41|-!- FUNC|MASAELSR|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|14332_MA
+42|-!- FUNC|MSAQAELS|Eukaryot|1: Evide|CHAIN   |Cytoplas|14-3-3-l|14332_OR
+43|-!- SIMI|SNNELTNE|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14332_SC
+44|-!- SUBU|MAREENVY|Eukaryot|3: Infer|CHAIN   |null|14-3-3 p|14332_SO
+45|-!- SIMI|MASPREEN|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|14332_SO
+46|-!- FUNC|MSTREENV|Eukaryot|2: Evide|CHAIN   |Alternat|14-3-3-l|14333_AR
+47|-!- SIMI|SEDCVFLS|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14333_EN
+48|-!- FUNC|MSREENVY|Eukaryot|1: Evide|CHAIN   |Cytoplas|14-3-3-l|14333_OR
+49|-!- SUBU|MAVVAPTA|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14333_SO
+50|-!- FUNC|MAAPPASS|Eukaryot|1: Evide|CHAIN   |Complete|14-3-3-l|14334_AR
+51|-!- FUNC|MSPAEPTR|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|14334_OR
+52|-!- SUBU|MADSSREE|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14334_SO
+53|-!- FUNC|MSSDSSRE|Eukaryot|2: Evide|CHAIN   |Complete|14-3-3-l|14335_AR
+54|-!- FUNC|MSQPAELS|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3-l|14335_OR
+55|-!- SUBU|MASPREEN|Eukaryot|3: Infer|CHAIN   |null|14-3-3 p|14335_SO
+56|-!- SIMI|MASPREEN|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|14335_SO
+57|-!- FUNC|MAATLGRD|Eukaryot|1: Evide|CHAIN   |Alternat|14-3-3-l|14336_AR
+58|-!- FUNC|MSPAEASR|Eukaryot|1: Evide|CHAIN   |Cytoplas|14-3-3-l|14336_OR
+59|-!- SUBU|MASPREEN|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14336_SO
+60|-!- FUNC|MSSSREEN|Eukaryot|2: Evide|CHAIN   |Complete|14-3-3-l|14337_AR
+61|-!- FUNC|MAPSDDLV|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|14337_OR
+62|-!- SUBU|MEKEREKQ|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14337_SO
+63|-!- FUNC|MATTLSRD|Eukaryot|2: Evide|CHAIN   |Alternat|14-3-3-l|14338_AR
+64|-!- FUNC|MKEREKVV|Eukaryot|3: Infer|CHAIN   |null|Putative|14338_OR
+65|-!- SUBU|MASSKERE|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14338_SO
+66|-!- FUNC|MGSGKERD|Eukaryot|2: Evide|CHAIN   |Alternat|14-3-3-l|14339_AR
+67|-!- SUBU|MASSKERE|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|14339_SO
+68|-!- INDU|MSTAEATR|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433A_HO
+69|-!- SIMI|MSDSSREE|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433A_SO
+70|-!- SIMI|MASPREEN|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433A_TO
+71|-!- SIMI|MATAPTPR|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433A_VI
+72|-!- FUNC|MTMDKSEL|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433B_BO
+73|-!- FUNC|MDKSELVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433B_CH
+74|-!- INDU|MAQPAELS|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433B_HO
+75|-!- FUNC|MTMDKSEL|Eukaryot|1: Evide|INIT_MET|3D-struc|14-3-3 p|1433B_HU
+76|-!- FUNC|MTMDKSEL|Eukaryot|2: Evide|INIT_MET|Acetylat|14-3-3 p|1433B_MA
+77|-!- FUNC|MTMDKSEL|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433B_MO
+78|-!- FUNC|MTMDKSEL|Eukaryot|3: Infer|INIT_MET|Acetylat|14-3-3 p|1433B_PO
+79|-!- FUNC|MTMDKSEL|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433B_RA
+80|-!- FUNC|MTMDKSEL|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433B_SH
+81|-!- SIMI|AEGLNREQ|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433B_SO
+82|-!- SIMI|MAREENVY|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433B_TO
+83|-!- SIMI|MASTKDRE|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433B_VI
+84|-!- FUNC|MDKSELVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433B_XE
+85|-!- SIMI|MASTKERE|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433C_SO
+86|-!- SIMI|MAVAPTAR|Eukaryot|1: Evide|CHAIN   |3D-struc|14-3-3-l|1433C_TO
+87|-!- SIMI|MTASKDRE|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433D_SO
+88|-!- SIMI|MAVPENLT|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433D_TO
+89|-!- FUNC|MDDREDLV|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433E_BO
+90|-!- FUNC|MDDREDLV|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433E_CH
+91|-!- FUNC|MTERENNV|Eukaryot|1: Evide|CHAIN   |Alternat|14-3-3 p|1433E_DR
+92|-!- FUNC|MDDREDLV|Eukaryot|1: Evide|CHAIN   |3D-struc|14-3-3 p|1433E_HU
+93|-!- FUNC|MDDREDLV|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433E_MO
+94|-!- FUNC|MDDREDLV|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433E_RA
+95|-!- FUNC|MDDREDLV|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433E_SH
+96|-!- SIMI|MAESTREE|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433E_TO
+97|-!- FUNC|MGDREQLL|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433F_BO
+98|-!- FUNC|MGDREQLL|Eukaryot|1: Evide|INIT_MET|3D-struc|14-3-3 p|1433F_HU
+99|-!- FUNC|MGDREQLL|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433F_MO
+100|-!- FUNC|MGDREQLL|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433F_RA
+101|-!- SIMI|MSSSRDEF|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433F_TO
+102|-!- FUNC|MVDREQLV|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433G_BO
+103|-!- FUNC|MVDREQLV|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|1433G_CH
+104|-!- FUNC|MVDREQLV|Eukaryot|1: Evide|INIT_MET|3D-struc|14-3-3 p|1433G_HU
+105|-!- FUNC|MVDREQLV|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433G_MO
+106|-!- FUNC|MVDREQLV|Eukaryot|2: Evide|INIT_MET|Acetylat|14-3-3 p|1433G_PO
+107|-!- FUNC|MVDREQLV|Eukaryot|1: Evide|INIT_MET|Acetylat|14-3-3 p|1433G_RA
+108|-!- FUNC|AAAMKNVT|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433G_SH
+109|-!- FUNC|MERASLIQ|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|1433S_BO
+110|-!- FUNC|MERASLIQ|Eukaryot|1: Evide|CHAIN   |3D-struc|14-3-3 p|1433S_HU
+111|-!- FUNC|MERASLIQ|Eukaryot|1: Evide|CHAIN   |Cytoplas|14-3-3 p|1433S_MO
+112|-!- FUNC|MERASLIQ|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|1433S_SH
+113|-!- FUNC|MEKTELIQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433T_BO
+114|-!- FUNC|MDKTELIQ|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|1433T_CH
+115|-!- FUNC|MEKTELIQ|Eukaryot|1: Evide|CHAIN   |3D-struc|14-3-3 p|1433T_HU
+116|-!- FUNC|MEKTELIQ|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433T_MO
+117|-!- FUNC|MEKTELIQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433T_PO
+118|-!- FUNC|MEKTELIQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433T_RA
+119|-!- FUNC|MEKTELIQ|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433T_RA
+120|-!- FUNC|MEKTELIQ|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|1433T_XE
+121|-!- SIMI|ILNSPDRA|Eukaryot|3: Infer|CHAIN   |null|14-3-3-l|1433X_MA
+122|-!- FUNC|MSTVDKEE|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|1433Z_AE
+123|-!- FUNC|MSVDKEEL|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|1433Z_BO
+124|-!- FUNC|MDKNELVQ|Eukaryot|1: Evide|CHAIN   |3D-struc|14-3-3 p|1433Z_BO
+125|-!- FUNC|MDKNELVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433Z_CH
+126|-!- FUNC|MSTVDKEE|Eukaryot|1: Evide|CHAIN   |Alternat|14-3-3 p|1433Z_DR
+127|-!- FUNC|MDKNELVQ|Eukaryot|1: Evide|CHAIN   |3D-struc|14-3-3 p|1433Z_HU
+128|-!- FUNC|MDKNELVQ|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433Z_MO
+129|-!- FUNC|MDKNELVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433Z_PO
+130|-!- FUNC|MDKNELVQ|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433Z_RA
+131|-!- FUNC|MDKNELVQ|Eukaryot|1: Evide|CHAIN   |Acetylat|14-3-3 p|1433Z_SH
+132|-!- FUNC|MDKNELVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433Z_XE
+133|-!- FUNC|MDKNELVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|1433Z_XE
+134|-!- SIMI|MPASREDS|Eukaryot|1: Evide|CHAIN   |null|14-3-3 p|1433_CAN
+135|-!- SIMI|MAVDREEC|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_CHL
+136|-!- SIMI|MTREENVY|Eukaryot|1: Evide|CHAIN   |Complete|14-3-3-l|1433_DIC
+137|-!- SIMI|MIEDIKTL|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|1433_EIM
+138|-!- SIMI|MASRDDLV|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_FUC
+139|-!- SIMI|MAAASSPR|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_HEL
+140|-!- SIMI|MSPAEPSR|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_LIL
+141|-!- FUNC|MSSESSRE|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_MES
+142|-!- SIMI|MAEEIKNL|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|1433_NEO
+143|-!- SIMI|MATAPSPR|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_OEN
+144|-!- SIMI|MAAAHTPR|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_PEA
+145|-!- FUNC|LAEQAERY|Eukaryot|1: Evide|CHAIN   |Direct p|14-3-3-l|1433_POP
+146|-!- SIMI|RNLLSVAY|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_SPI
+147|-!- TISS|MDKEREKQ|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_TOB
+148|-!- DEVE|MGHEDAVY|Eukaryot|2: Evide|CHAIN   |null|14-3-3 p|1433_TRI
+149|-!- FUNC|AKLSEQAE|Eukaryot|2: Evide|CHAIN   |null|14-3-3-l|1433_XEN
+150|-!- FUNC|MDKSDLVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|143B1_DA
+151|-!- FUNC|MDKNDLVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|143B1_ON
+152|-!- FUNC|MDKSDLVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|143B2_DA
+153|-!- FUNC|MDKNDLVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|143B2_ON
+154|-!- FUNC|MDKSELVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|143BA_XE
+155|-!- FUNC|MDKSELVQ|Eukaryot|2: Evide|CHAIN   |Acetylat|14-3-3 p|143BB_XE
+156|-!- FUNC|MVDREQLV|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|143G1_DA
+157|-!- FUNC|MVDREQLV|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|143G1_ON
+158|-!- FUNC|MVDREQLV|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|143G2_ON
+159|-!- FUNC|MVDREQLV|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|143GA_XE
+160|-!- FUNC|MVDREQLV|Eukaryot|2: Evide|CHAIN   |Cytoplas|14-3-3 p|143GB_XE
+161|-!- FUNC|MGSKNSAS|Eukaryot|2: Evide|SIGNAL  |Membrane|14 kDa p|14KD_DAU
+162|-!- SUBC|MATTLPVQ|Bacteria|3: Infer|INIT_MET|Cell wal|14 kDa a|14KD_MYC
+163|-!- SUBC|MATTLPVQ|Bacteria|1: Evide|INIT_MET|Cell wal|14 kDa a|14KD_MYC
+164|-!- FUNC|MFSFIDDI|Bacteria|1: Evide|CHAIN   |Direct p|14 kDa p|14KD_RHO
+165|-!- MISC|GAHLVPTK|Viruses;|4: Predi|CHAIN   |null|Putative|170K_TRV
+166|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Lipoprot|17 kDa s|17KD_RIC
+167|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Lipoprot|17 kDa s|17KD_RIC
+168|-!- SUBC|MKIISKII|Bacteria|3: Infer|SIGNAL  |Lipoprot|17 kDa s|17KD_RIC
+169|-!- SUBC|MKIISKII|Bacteria|3: Infer|SIGNAL  |Complete|17 kDa s|17KD_RIC
+170|-!- SUBC|GSQFGKGK|Bacteria|3: Infer|CHAIN   |Lipoprot|17 kDa s|17KD_RIC
+171|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Complete|17 kDa s|17KD_RIC
+172|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Complete|17 kDa s|17KD_RIC
+173|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Lipoprot|17 kDa s|17KD_RIC
+174|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Lipoprot|17 kDa s|17KD_RIC
+175|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Lipoprot|17 kDa s|17KD_RIC
+176|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Complete|17 kDa s|17KD_RIC
+177|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Lipoprot|17 kDa s|17KD_RIC
+178|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Lipoprot|17 kDa s|17KD_RIC
+179|-!- SUBC|MKLLSKIM|Bacteria|3: Infer|SIGNAL  |Lipoprot|17 kDa s|17KD_RIC
+180|-!- SUBC|MKLLSKVM|Bacteria|3: Infer|SIGNAL  |Complete|17 kDa s|17KD_RIC
+181|-!- FUNC|MSNLKQKD|Eukaryot|2: Evide|CHAIN   |Complete|Histone-|18C_DROM
+182|-!- FUNC|MLMRSDPF|Bacteria|3: Infer|CHAIN   |null|18 kDa a|18K1_MYC
+183|-!- FUNC|MLMRSDPF|Bacteria|3: Infer|CHAIN   |null|18 kDa a|18K1_MYC
+184|-!- FUNC|MVLMRTDP|Bacteria|3: Infer|CHAIN   |null|18 kDa a|18K2_MYC
+185|-!- FUNC|MLVRSDPF|Bacteria|3: Infer|CHAIN   |null|18 kDa a|18K2_MYC
+186|-!- FUNC|MLMRTDPF|Bacteria|3: Infer|CHAIN   |Complete|18 kDa a|18KD_MYC
+187|-!- SIMI|MANGNFKL|Viruses;|4: Predi|CHAIN   |Nucleoti|Putative|194K_TRV
+188|-!- FUNC|MAVMAPRT|Eukaryot|2: Evide|SIGNAL  |Glycopro|Class I |1A01_GOR
+189|-!- FUNC|MAVMAPRT|Eukaryot|1: Evide|SIGNAL  |3D-struc|HLA clas|1A01_HUM
+190|-!- FUNC|MAVMPPRT|Eukaryot|2: Evide|SIGNAL  |Glycopro|CHLA cla|1A01_PAN
+191|-!- FUNC|MAIMAPRT|Eukaryot|2: Evide|SIGNAL  |Glycopro|Class I |1A01_PON
+192|-!- FUNC|MTVMAPRT|Eukaryot|2: Evide|SIGNAL  |Glycopro|Class I |1A01_SAG
+193|-!- FUNC|MAVMAPRT|Eukaryot|2: Evide|SIGNAL  |Glycopro|Class I |1A02_GOR
+194|-!- FUNC|MAVMAPRT|Eukaryot|1: Evide|SIGNAL  |3D-struc|HLA clas|1A02_HUM
+195|-!- FUNC|MQVTAPRT|Eukaryot|2: Evide|SIGNAL  |Glycopro|CHLA cla|1A02_PAN
+196|-!- FUNC|MAVMAPRT|Eukaryot|2: Evide|SIGNAL  |Glycopro|Class I |1A03_GOR
+197|-!- FUNC|MAVMAPRT|Eukaryot|1: Evide|SIGNAL  |Glycopro|HLA clas|1A03_HUM
+198|-!- FUNC|MAVMPPRT|Eukaryot|2: Evide|SIGNAL  |Glycopro|CHLA cla|1A03_PAN
+199|-!- FUNC|MAVVAPRT|Eukaryot|2: Evide|SIGNAL  |Glycopro|Class I |1A04_GOR

@@ -1,0 +1,72 @@
+// Converted from Greg's tests sent 09/27/2006
+
+PEERS
+// I need to fix something in the grammar to allow ":", will do it in a few days unless needed before
+PEER P1 grw561-3.cis.upenn.edu-7777 "Loc peer"
+	SCHEMAS
+		SCHEMA SC1 
+			RELATIONS
+//				RELATION A MATERIALIZED <<1000>>
+					// First info is the catalog to use in the RDBMS
+					// Second info is the schema to use in the RDBMS
+					// Third info is the physical table name
+//					DBINFO , DB2ADMIN, A
+//					FIELDS x CHAR, y CHAR
+//					PRIMARY KEY pk_relA (y)
+				// Even if E was not in the keep list in your example, I declared it as MATERIALIZED 
+				// since I guess you don't want it to be removed during composition
+				RELATION E MATERIALIZED <<1000>>
+					DBINFO , DB2ADMIN, E
+					FIELDS X CHAR 1, Y CHAR 1	
+//					PRIMARY KEY pk_relB (y)
+				// Even if T was not in the keep list in your example, I declared it as MATERIALIZED 
+				// since I guess you don't want it to be removed during composition
+				RELATION T MATERIALIZED <<1000>>
+					DBINFO , DB2ADMIN, T
+					FIELDS X CHAR 1, Y CHAR 1	
+//					PRIMARY KEY pk_relT (y)
+
+//PEER P2 grw561-3.cis.upenn.edu-7777 "Loc peer..."
+//	SCHEMAS
+//		SCHEMA SC1 
+//			RELATIONS
+//				RELATION B MATERIALIZED <<3000>>
+//					DBINFO , , A
+//					FIELDS l CHAR 1, r CHAR 1
+//					PRIMARY KEY pk_relB (l, r)
+
+//PEER P3 grw561-3.cis.upenn.edu-7777 "Loc peer..."
+//	SCHEMAS
+//		SCHEMA SC1 
+//			RELATIONS
+//				RELATION C MATERIALIZED <<10000>>
+//					DBINFO , , A
+//					FIELDS a CHAR 1, b CHAR 1
+//					PRIMARY KEY pk_relC (a)
+
+
+//PEER P4 grw561-3.cis.upenn.edu-7777 "Loc peer..."
+//	SCHEMAS
+//		SCHEMA SC1 
+//			RELATIONS
+//				RELATION D MATERIALIZED <<500>>
+//					DBINFO , , A
+//					FIELDS x INTEGER
+//					PRIMARY KEY pk_relD (x)
+
+
+		MAPPINGS
+////MC1 MATERIALIZED: P3.SC1.C(x,w) :- P2.SC1.B(x,z), P2.SC1.B(z,y), P1.SC1.A(y,w), P1.SC1.A(w,'C')
+////MC2 MATERIALIZED: P3.SC1.C(x,y) :- P1.SC1.A(x,y)
+////MC3 MATERIALIZED: P2.SC1.B(x,y), P2.SC1.B(y,z) :- P1.SC1.A(x,z)
+////MC4 MATERIALIZED: P3.SC1.C(x,u), P3.SC1.C(x,v) :- P1.SC1.A(x,y)
+////MC5 MATERIALIZED: P4.SC1.D(z) :- P3.SC1.C(x,y)
+// TC EXAMPLE
+M1 MATERIALIZED: P1.SC1.T(x,y) :- P1.SC1.E(x,y)
+M2 MATERIALIZED: P1.SC1.T(x,z) :- P1.SC1.E(x,y), P1.SC1.T(y,z)
+//
+////M3 MATERIALIZED: P1.SC1.T(x,z) :- P1.SC1.T(x,y), P1.SC1.E(y,z)
+////M4 MATERIALIZED: P1.SC1.A(y,x) :- P1.SC1.T(x,x), P1.SC1.T(x,z), P1.SC1.T(z,y)
+// INVERSION EXAMPLE
+//M5 MATERIALIZED: P1.SC1.T(x,y) :- P1.SC1.E(x,y)
+//M6 MATERIALIZED: P1.SC1.T(z,w) :- P1.SC1.T(w,z)

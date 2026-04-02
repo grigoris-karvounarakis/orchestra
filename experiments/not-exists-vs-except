@@ -1,0 +1,131 @@
+insert into PLASMO.M1_INS  
+(select distinct 1 STRATUM, 
+R0.SRC_ID C0, R1.GO_AC C1, 'Interpro' C2, R3.SKOLEM1 CH3, R2.NAME C3, R4.SKOLEM2 CH5, R0.DBACC C4, R2.ID C5, 
+CASE WHEN R0.SRC_ID IS NOT NULL THEN 1 ELSE -1 END C0_LN, CASE WHEN R1.GO_AC IS NOT NULL THEN 1 ELSE -1 END C1_LN, 1 C2_LN, CASE WHEN R3.SKOLEM1 IS NOT NULL THEN 1 ELSE -1 END CH3_LN, CASE WHEN R2.NAME IS NOT NULL THEN 1 ELSE -1 END C3_LN, CASE WHEN R4.SKOLEM2 IS NOT NULL THEN 1 ELSE -1 END CH5_LN, CASE WHEN R0.DBACC IS NOT NULL THEN 1 ELSE -1 END C4_LN, CASE WHEN R2.ID IS NOT NULL THEN 1 ELSE -1 END C5_LN 
+from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_NEW R2, PLASMO.GOTERM_SUMMARY_NEW R3, PLASMO.GOTERM_INS R4 
+where ((((((((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and 
+((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and 
+((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and 
+((R3.SRC_ID = R0.SRC_ID) and (R3.SRC_ID_LN = R0.SRC_ID_LN))) and 
+((R3.GO_ID = R1.GO_AC) and (R3.GO_ID_LN = R1.GO_AC_LN))) and 
+((R3.SOURCE = 'Interpro') and (R3.SOURCE_LN = 1))) and 
+((R4.GO_ID = R1.GO_AC) and (R4.GO_ID_LN = R1.GO_AC_LN))) and 
+((R4.GO_NAME = R2.NAME) and (R4.GO_NAME_LN = R2.NAME_LN))) and 
+(not (exists 
+(select 1 
+from PLASMO.M1_INS R5 
+where (((((((
+((R5.C0 = R0.SRC_ID) and (R5.C0_LN = R0.SRC_ID_LN)) and 
+((R5.C1 = R1.GO_AC) and (R5.C1_LN = R1.GO_AC_LN))) and 
+((R5.C2 = 'Interpro') and (R5.C2_LN = 1))) and 
+((R5.CH3 = R3.SKOLEM1) and (R5.CH3_LN = R3.SKOLEM1_LN))) and 
+((R5.C3 = R2.NAME) and (R5.C3_LN = R2.NAME_LN))) and 
+((R5.CH5 = R4.SKOLEM2) and (R5.CH5_LN = R4.SKOLEM2_LN))) and 
+((R5.C4 = R0.DBACC) and (R5.C4_LN = R0.DBACC_LN))) and 
+((R5.C5 = R2.ID) and (R5.C5_LN = R2.ID_LN))))))))
+=============
+
+
+insert into PLASMO.M1_INS  
+(select distinct 1 STRATUM, 
+R0.SRC_ID C0, R1.GO_AC C1, 'Interpro' C2, R3.SKOLEM1 CH3, R2.NAME C3, R4.SKOLEM2 CH5, R0.DBACC C4, R2.ID C5, 
+CASE WHEN R0.SRC_ID IS NOT NULL THEN 1 ELSE -1 END C0_LN, CASE WHEN R1.GO_AC IS NOT NULL THEN 1 ELSE -1 END C1_LN, 1 C2_LN, CASE WHEN R3.SKOLEM1 IS NOT NULL THEN 1 ELSE -1 END CH3_LN, CASE WHEN R2.NAME IS NOT NULL THEN 1 ELSE -1 END C3_LN, CASE WHEN R4.SKOLEM2 IS NOT NULL THEN 1 ELSE -1 END CH5_LN, CASE WHEN R0.DBACC IS NOT NULL THEN 1 ELSE -1 END C4_LN, CASE WHEN R2.ID IS NOT NULL THEN 1 ELSE -1 END C5_LN 
+from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_NEW R2, PLASMO.GOTERM_SUMMARY_NEW R3, PLASMO.GOTERM_INS R4 
+where ((((((((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and 
+((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and 
+((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and 
+((R3.SRC_ID = R0.SRC_ID) and (R3.SRC_ID_LN = R0.SRC_ID_LN))) and 
+((R3.GO_ID = R1.GO_AC) and (R3.GO_ID_LN = R1.GO_AC_LN))) and 
+((R3.SOURCE = 'Interpro') and (R3.SOURCE_LN = 1))) and 
+((R4.GO_ID = R1.GO_AC) and (R4.GO_ID_LN = R1.GO_AC_LN))) and 
+((R4.GO_NAME = R2.NAME) and (R4.GO_NAME_LN = R2.NAME_LN))))
+except (select * from PLASMO.M1_INS))
+
+==================================================
+insert into PLASMO.M1_INS  
+(select distinct 1 STRATUM, 
+R0.SRC_ID C0, R1.GO_AC C1, 'Interpro' C2, R3.SKOLEM1 CH3, R2.NAME C3, R4.SKOLEM2 CH5, R0.DBACC C4, R2.ID C5, 
+CASE WHEN R0.SRC_ID IS NOT NULL THEN 1 ELSE -1 END C0_LN, CASE WHEN R1.GO_AC IS NOT NULL THEN 1 ELSE -1 END C1_LN, 1 C2_LN, CASE WHEN R3.SKOLEM1 IS NOT NULL THEN 1 ELSE -1 END CH3_LN, CASE WHEN R2.NAME IS NOT NULL THEN 1 ELSE -1 END C3_LN, CASE WHEN R4.SKOLEM2 IS NOT NULL THEN 1 ELSE -1 END CH5_LN, CASE WHEN R0.DBACC IS NOT NULL THEN 1 ELSE -1 END C4_LN, CASE WHEN R2.ID IS NOT NULL THEN 1 ELSE -1 END C5_LN 
+from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_NEW R2, PLASMO.GOTERM_SUMMARY_NEW R3, PLASMO.GOTERM_INS R4 
+where ((((((((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and ((R3.SRC_ID = R0.SRC_ID) and (R3.SRC_ID_LN = R0.SRC_ID_LN))) and ((R3.GO_ID = R1.GO_AC) and (R3.GO_ID_LN = R1.GO_AC_LN))) and ((R3.SOURCE = 'Interpro') and (R3.SOURCE_LN = 1))) and ((R4.GO_ID = R1.GO_AC) and (R4.GO_ID_LN = R1.GO_AC_LN))) and ((R4.GO_NAME = R2.NAME) and (R4.GO_NAME_LN = R2.NAME_LN))) and 
+(not (exists 
+(select 1 
+from PLASMO.M1_INS R5 
+where (((((((R5.C0 = R0.SRC_ID) and (R5.C0_LN = R0.SRC_ID_LN)) and 
+((R5.C1 = R1.GO_AC) and (R5.C1_LN = R1.GO_AC_LN))) and 
+((R5.C2 = 'Interpro') and (R5.C2_LN = 1))) and 
+((R5.C3 = R2.NAME) and (R5.C3_LN = R2.NAME_LN))) and 
+((R5.C4 = R0.DBACC) and (R5.C4_LN = R0.DBACC_LN))) and 
+((R5.C5 = R2.ID) and (R5.C5_LN = R2.ID_LN))))))))
+
+==================================================
+
+
+(select distinct 1 STRATUM, 
+R0.SRC_ID C0, R1.GO_AC C1, 'Interpro' C2, R3.SKOLEM1 CH3, R2.NAME C3, R4.SKOLEM2 CH5, R0.DBACC C4, R2.ID C5, 
+1 C0_LN, 1 C1_LN, 1 C2_LN, 1 CH3_LN, 1 C3_LN, 1 CH5_LN, 1 C4_LN, 1 C5_LN
+from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_NEW R2, PLASMO.GOTERM_SUMMARY_NEW R3, PLASMO.GOTERM_INS R4
+where ((((((((((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and (R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and ((R3.SRC_ID = R0.SRC_ID) and (R3.SRC_ID_LN = R0.SRC_ID_LN))) and ((R3.GO_ID = R1.GO_AC) and (R3.GO_ID_LN = R1.GO_AC_LN))) and ((R3.SOURCE = 'Interpro') and (R3.SOURCE_LN = 1))) and ((R4.GO_ID = R1.GO_AC) and (R4.GO_ID_LN = R1.GO_AC_LN))) and ((R4.GO_NAME = R2.NAME) and (R4.GO_NAME_LN = R2.NAME_LN)))))
+
+
+==================================================
+==================================================
+==================================================
+==================================================
+==================================================
+==================================================
+
+
+select distinct 1 STRATUM, R0.SRC_ID C0, R1.GO_AC C1, 'Interpro' C2, R3.SKOLEM1 CH3, R2.NAME C3, R4.SKOLEM2 CH5, R0.DBACC C4, R2.ID C5, 
+CASE WHEN R0.SRC_ID IS NOT NULL THEN 1 ELSE -1 END C0_LN, CASE WHEN R1.GO_AC IS NOT NULL THEN 1 ELSE -1 END C1_LN, 1 C2_LN, 
+CASE WHEN R3.SKOLEM1 IS NOT NULL THEN 1 ELSE -1 END CH3_LN, CASE WHEN R2.NAME IS NOT NULL THEN 1 ELSE -1 END C3_LN, 
+CASE WHEN R4.SKOLEM2 IS NOT NULL THEN 1 ELSE -1 END CH5_LN, CASE WHEN R0.DBACC IS NOT NULL THEN 1 ELSE -1 END C4_LN, 
+CASE WHEN R2.ID IS NOT NULL THEN 1 ELSE -1 END C5_LN 
+from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_NEW R2, PLASMO.GOTERM_SUMMARY_NEW R3, PLASMO.GOTERM_INS R4 
+where 
+((((((((
+((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and 
+(R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and 
+((R3.SRC_ID = R0.SRC_ID) and (R3.SRC_ID_LN = R0.SRC_ID_LN))) and 
+((R3.GO_ID = R1.GO_AC) and (R3.GO_ID_LN = R1.GO_AC_LN))) and 
+((R3.SOURCE = 'Interpro') and (R3.SOURCE_LN = 1))) and 
+((R4.GO_ID = R1.GO_AC) and (R4.GO_ID_LN = R1.GO_AC_LN))) and 
+((R4.GO_NAME = R2.NAME) and (R4.GO_NAME_LN = R2.NAME_LN))))
+except
+(select * from PLASMO.M0_INS R5)
+
+
+------------------------------------------------------------------
+
+
+select distinct 1 STRATUM, R0.SRC_ID C0, R1.GO_AC C1, 'Interpro' C2, R3.SKOLEM1 CH3, R2.NAME C3, R4.SKOLEM2 CH5, R0.DBACC C4, R2.ID C5, 
+CASE WHEN R0.SRC_ID IS NOT NULL THEN 1 ELSE -1 END C0_LN, CASE WHEN R1.GO_AC IS NOT NULL THEN 1 ELSE -1 END C1_LN, 1 C2_LN, 
+CASE WHEN R3.SKOLEM1 IS NOT NULL THEN 1 ELSE -1 END CH3_LN, CASE WHEN R2.NAME IS NOT NULL THEN 1 ELSE -1 END C3_LN, 
+CASE WHEN R4.SKOLEM2 IS NOT NULL THEN 1 ELSE -1 END CH5_LN, CASE WHEN R0.DBACC IS NOT NULL THEN 1 ELSE -1 END C4_LN, 
+CASE WHEN R2.ID IS NOT NULL THEN 1 ELSE -1 END C5_LN 
+from PLASMO.DOMAIN_REF_NEW R0, INTERPRO.INTERPRO2GO_NEW R1, GO.TERM_NEW R2, PLASMO.GOTERM_SUMMARY_NEW R3, PLASMO.GOTERM_INS R4 
+where 
+((((((((
+((R0.DB = 'Interpro') and (R0.DB_LN = 1)) and ((R1.ENTRY_AC = R0.DBACC) and 
+(R1.ENTRY_AC_LN = R0.DBACC_LN))) and ((R2.ACC = R1.GO_AC) and (R2.ACC_LN = R1.GO_AC_LN))) and 
+((R3.SRC_ID = R0.SRC_ID) and (R3.SRC_ID_LN = R0.SRC_ID_LN))) and 
+((R3.GO_ID = R1.GO_AC) and (R3.GO_ID_LN = R1.GO_AC_LN))) and 
+((R3.SOURCE = 'Interpro') and (R3.SOURCE_LN = 1))) and 
+((R4.GO_ID = R1.GO_AC) and (R4.GO_ID_LN = R1.GO_AC_LN))) and 
+((R4.GO_NAME = R2.NAME) and (R4.GO_NAME_LN = R2.NAME_LN))) and 
+(not (exists 
+(select 1 
+from PLASMO.M0_INS R5 
+where (((((((
+((R5.C0 = R0.SRC_ID) and (R5.C0_LN = R0.SRC_ID_LN)) and 
+((R5.C1 = R1.GO_AC) and (R5.C1_LN = R1.GO_AC_LN))) and 
+((R5.C2 = 'Interpro') and (R5.C2_LN = 1))) and 
+((R5.CH3 = R3.SKOLEM1) and (R5.CH3_LN = R3.SKOLEM1_LN))) and 
+((R5.C3 = R2.NAME) and (R5.C3_LN = R2.NAME_LN))) and 
+((R5.CH5 = R4.SKOLEM2) and (R5.CH5_LN = R4.SKOLEM2_LN))) and 
+((R5.C4 = R0.DBACC) and (R5.C4_LN = R0.DBACC_LN))) and 
+((R5.C5 = R2.ID) and (R5.C5_LN = R2.ID_LN)))))))
+
+
+
+

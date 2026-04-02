@@ -1,0 +1,100 @@
+0|Eukaryot|3: Infer|18-APR-2|null|Theileri|Science |NUCLEOTI|_Genome |null|Complete|STRAIN=A|SIGNAL  |PubMed=1|-!- SUBC|1
+1|Eukaryot|2: Evide|01-APR-1|null|Theileri|Mol. Bio|NUCLEOTI|_Charact|null|Complete|STRAIN=M|SIGNAL  |MEDLINE=|-!- SUBC|1
+2|Eukaryot|2: Evide|15-JUL-1|null|Solanum |Plant Ph|NUCLEOTI|_Nucleot|null|Secreted|STRAIN=c|SIGNAL  |MEDLINE=|-!- SUBC|1
+3|Eukaryot|3: Infer|01-NOV-1|null|Vigna un|Plant Mo|NUCLEOTI|_Stored |null|Germinat|TISSUE=C|SIGNAL  |MEDLINE=|-!- FUNC|1
+4|Eukaryot|2: Evide|01-JAN-1|null|Plasmodi|Mol. Bio|NUCLEOTI|_Cloning|null|Malaria;|null|CHAIN   |MEDLINE=|--------|1
+5|Eukaryot|2: Evide|06-DEC-2|null|Sesamum |J. Agric|NUCLEOTI|_Molecul|null|Seed sto|STRAIN=c|SIGNAL  |MEDLINE=|-!- FUNC|1
+6|Eukaryot|3: Infer|01-NOV-1|null|Helianth|Gene 74:|NUCLEOTI|_Organiz|null|Seed sto|null|SIGNAL  |MEDLINE=|-!- FUNC|1
+7|Eukaryot|1: Evide|01-JAN-1|null|Cucurbit|Eur. J. |NUCLEOTI|_Nucleot|null|3D-struc|STRAIN=c|SIGNAL  |MEDLINE=|-!- FUNC|1
+8|Eukaryot|1: Evide|01-OCT-1|null|Drosophi|Mol. Gen|NUCLEOTI|_The gen|null|Complete|STRAIN=O|CHAIN   |MEDLINE=|-!- FUNC|1
+9|Bacteria|1: Evide|01-AUG-1|null|Clostrid|Eur. J. |PROTEIN |_12 alph|null|Bile aci|null|CHAIN   |MEDLINE=|-!- FUNC|1
+10|Eukaryot|2: Evide|01-OCT-1|null|Fragaria|Plant Mo|NUCLEOTI|_Molecul|null|Auxin si|STRAIN=c|CHAIN   |MEDLINE=|-!- INDU|1
+11|Bacteria|1: Evide|01-NOV-1|null|Mycobact|Submitte|PROTEIN |null|null|Direct p|null|CHAIN   |null|--------|1
+12|Eukaryot|2: Evide|01-APR-1|null|Arabidop|Plant Mo|NUCLEOTI|_Molecul|null|Alternat|STRAIN=c|SIGNAL  |MEDLINE=|-!- FUNC|1
+13|Eukaryot|1: Evide|01-APR-1|null|Arabidop|Plant Mo|NUCLEOTI|_Molecul|null|Complete|STRAIN=c|SIGNAL  |MEDLINE=|-!- FUNC|1
+14|Bacteria|1: Evide|01-FEB-2|null|Propioni|J. Bacte|NUCLEOTI|_Primary|null|3D-struc|STRAIN=S|INIT_MET|MEDLINE=|-!- FUNC|1
+15|Eukaryot|1: Evide|29-MAR-2|null|Scyliorh|Biochem.|PROTEIN |_N-termi|null|Direct p|TISSUE=R|CHAIN   |MEDLINE=|-!- SUBC|1
+16|Eukaryot|1: Evide|29-MAR-2|null|Triakis |Biochem.|PROTEIN |_N-termi|null|Direct p|TISSUE=R|CHAIN   |MEDLINE=|-!- SUBC|1
+17|Eukaryot|2: Evide|11-APR-2|null|Fagopyru|J. Agric|NUCLEOTI|_Express|null|Seed sto|STRAIN=c|SIGNAL  |MEDLINE=|-!- FUNC|1
+18|Eukaryot|2: Evide|11-APR-2|null|Fagopyru|J. Agric|NUCLEOTI|_Express|null|Seed sto|STRAIN=c|SIGNAL  |MEDLINE=|-!- FUNC|1
+19|Eukaryot|1: Evide|11-APR-2|null|Fagopyru|Fagopyru|NUCLEOTI|_A molec|null|Allergen|STRAIN=c|SIGNAL  |MEDLINE=|-!- FUNC|1
+20|Eukaryot|1: Evide|11-APR-2|null|Fagopyru|Phytoche|PROTEIN |_Amino a|null|Direct p|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+21|Eukaryot|2: Evide|28-MAR-2|null|Drosophi|Gene 100|NUCLEOTI|_Analysi|null|Complete|TISSUE=E|CHAIN   |MEDLINE=|-!- FUNC|1
+22|Eukaryot|2: Evide|01-FEB-1|null|Arabidop|Plant Ph|NUCLEOTI|_The Ara|null|Alternat|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+23|Eukaryot|2: Evide|15-JUL-1|null|Solanum |Submitte|NUCLEOTI|_Fusicoc|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+24|Eukaryot|2: Evide|05-DEC-2|null|Arabidop|Submitte|NUCLEOTI|_Novel 1|null|Alternat|TISSUE=L|CHAIN   |MEDLINE=|-!- FUNC|1
+25|Eukaryot|2: Evide|05-DEC-2|null|Arabidop|Submitte|NUCLEOTI|_Novel 1|null|Complete|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+26|Eukaryot|1: Evide|01-NOV-1|null|Arabidop|Plant Ph|NUCLEOTI|_Five cD|null|Complete|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+27|Eukaryot|1: Evide|01-NOV-1|The C. e|Caenorha|Gene 147|NUCLEOTI|_Isolati|null|Complete|STRAIN=B|CHAIN   |MEDLINE=|-!- SUBU|1
+28|Eukaryot|2: Evide|25-MAR-2|null|Echinoco|Parasito|NUCLEOTI|_Compara|null|null|STRAIN=C|CHAIN   |MEDLINE=|-!- SIMI|1
+29|Eukaryot|2: Evide|25-MAR-2|null|Echinoco|Mol. Bio|NUCLEOTI|_Stage-s|null|null|null|CHAIN   |MEDLINE=|-!- SIMI|1
+30|Eukaryot|3: Infer|01-NOV-1|null|Entamoeb|Submitte|NUCLEOTI|null|null|null|STRAIN=H|CHAIN   |null|-!- SIMI|1
+31|Eukaryot|3: Infer|01-FEB-1|null|Zea mays|Plant Ph|NUCLEOTI|_Two gen|null|null|null|CHAIN   |MEDLINE=|-!- FUNC|1
+32|Eukaryot|2: Evide|11-JUL-2|The inte|Oryza sa|Plant Mo|NUCLEOTI|_Identif|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+33|Eukaryot|2: Evide|15-JUL-1|null|Schistos|Mol. Bio|NUCLEOTI|_Stage-s|null|null|STRAIN=P|CHAIN   |MEDLINE=|-!- SIMI|1
+34|Eukaryot|3: Infer|15-JUL-1|null|Solanum |Plant Ph|NUCLEOTI|_Fusicoc|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+35|Eukaryot|2: Evide|01-NOV-1|null|Solanum |Submitte|NUCLEOTI|null|null|null|STRAIN=c|CHAIN   |null|-!- TISS|1
+36|Eukaryot|2: Evide|01-JUL-1|null|Arabidop|Proc. Na|NUCLEOTI|_Brain p|null|Complete|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+37|Eukaryot|1: Evide|01-NOV-1|The C. e|Caenorha|Science |NUCLEOTI|_Genome |null|Complete|STRAIN=B|CHAIN   |MEDLINE=|-!- FUNC|1
+38|Eukaryot|2: Evide|25-MAR-2|null|Echinoco|Parasito|NUCLEOTI|_14-3-3 |null|null|null|CHAIN   |PubMed=1|-!- SIMI|1
+39|Eukaryot|2: Evide|25-MAR-2|null|Echinoco|Submitte|NUCLEOTI|_The 14-|null|null|null|CHAIN   |null|-!- SIMI|1
+40|Eukaryot|3: Infer|01-NOV-1|null|Entamoeb|Submitte|NUCLEOTI|null|null|null|STRAIN=H|CHAIN   |null|-!- SIMI|1
+41|Eukaryot|2: Evide|01-JUL-1|null|Zea mays|Plant Ph|NUCLEOTI|_Two gen|null|null|null|CHAIN   |MEDLINE=|-!- FUNC|1
+42|Eukaryot|1: Evide|11-JUL-2|null|Oryza sa|Plant Ce|NUCLEOTI|_14-3-3 |null|Cytoplas|STRAIN=c|CHAIN   |PubMed=9|-!- FUNC|1
+43|Eukaryot|2: Evide|15-JUL-1|null|Schistos|Submitte|NUCLEOTI|null|null|null|STRAIN=N|CHAIN   |null|-!- SIMI|1
+44|Eukaryot|3: Infer|15-JUL-1|null|Solanum |Plant Ph|NUCLEOTI|_Fusicoc|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+45|Eukaryot|2: Evide|01-NOV-1|null|Solanum |Submitte|NUCLEOTI|null|null|null|STRAIN=c|CHAIN   |null|-!- SIMI|1
+46|Eukaryot|2: Evide|01-NOV-1|null|Arabidop|Plant Ph|NUCLEOTI|_Five cD|null|Alternat|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+47|Eukaryot|2: Evide|01-NOV-1|null|Entamoeb|Submitte|NUCLEOTI|null|null|null|STRAIN=H|CHAIN   |null|-!- SIMI|1
+48|Eukaryot|1: Evide|11-JUL-2|The inte|Oryza sa|Plant Ce|NUCLEOTI|_14-3-3 |null|Cytoplas|STRAIN=c|CHAIN   |PubMed=9|-!- FUNC|1
+49|Eukaryot|2: Evide|15-JUL-1|null|Solanum |Plant Ph|NUCLEOTI|_Fusicoc|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+50|Eukaryot|1: Evide|01-NOV-1|null|Arabidop|Plant Ph|NUCLEOTI|_Five cD|null|Complete|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+51|Eukaryot|2: Evide|11-JUL-2|The rice|Oryza sa|Plant Ce|NUCLEOTI|_14-3-3 |null|null|STRAIN=c|CHAIN   |PubMed=9|-!- FUNC|1
+52|Eukaryot|2: Evide|01-NOV-1|null|Solanum |Biochim.|NUCLEOTI|_Two cDN|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+53|Eukaryot|2: Evide|01-NOV-1|null|Arabidop|Plant Ph|NUCLEOTI|_Five cD|null|Complete|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+54|Eukaryot|2: Evide|11-JUL-2|The inte|Oryza sa|Submitte|NUCLEOTI|_Oryza s|null|Cytoplas|TISSUE=M|CHAIN   |PubMed=1|-!- FUNC|1
+55|Eukaryot|3: Infer|15-JUL-1|null|Solanum |Plant Ph|NUCLEOTI|_Fusicoc|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+56|Eukaryot|2: Evide|15-JUL-1|null|Solanum |Submitte|NUCLEOTI|null|null|null|STRAIN=c|CHAIN   |null|-!- SIMI|1
+57|Eukaryot|1: Evide|01-FEB-1|null|Arabidop|Plant Mo|NUCLEOTI|_Two rel|null|Alternat|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+58|Eukaryot|1: Evide|01-JUN-1|The rice|Oryza sa|FEBS Let|NUCLEOTI|_Molecul|null|Cytoplas|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+59|Eukaryot|2: Evide|15-JUL-1|null|Solanum |Plant Ph|NUCLEOTI|_Fusicoc|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+60|Eukaryot|2: Evide|15-JUL-1|null|Arabidop|Plant Ph|NUCLEOTI|_The Ara|null|Complete|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+61|Eukaryot|2: Evide|11-JUL-2|The rice|Oryza sa|Nature 4|NUCLEOTI|_The gen|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+62|Eukaryot|2: Evide|15-JUL-1|null|Solanum |Plant Ce|NUCLEOTI|_Tomato |null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+63|Eukaryot|2: Evide|01-FEB-1|null|Arabidop|Plant Ph|NUCLEOTI|_The Ara|null|Alternat|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+64|Eukaryot|3: Infer|11-JUL-2|The rice|Oryza sa|BMC Biol|NUCLEOTI|_The seq|null|null|STRAIN=c|CHAIN   |PubMed=1|-!- FUNC|1
+65|Eukaryot|2: Evide|15-JUL-1|null|Solanum |Submitte|NUCLEOTI|_Fusicoc|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+66|Eukaryot|2: Evide|15-JUL-1|null|Arabidop|Plant Ph|NUCLEOTI|_The Ara|null|Alternat|STRAIN=c|CHAIN   |MEDLINE=|-!- FUNC|1
+67|Eukaryot|2: Evide|15-JUL-1|null|Solanum |Submitte|NUCLEOTI|_Fusicoc|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- SUBU|1
+68|Eukaryot|2: Evide|01-DEC-1|null|Hordeum |Plant J.|NUCLEOTI|_A patho|null|null|STRAIN=c|CHAIN   |MEDLINE=|-!- INDU|1
+69|Eukaryot|2: Evide|15-JUL-1|null|Glycine |Submitte|NUCLEOTI|null|null|null|STRAIN=c|CHAIN   |null|-!- SIMI|1
+70|Eukaryot|2: Evide|15-JUL-1|null|Nicotian|Submitte|NUCLEOTI|null|null|null|STRAIN=c|CHAIN   |null|-!- SIMI|1
+71|Eukaryot|2: Evide|01-NOV-1|null|Vicia fa|Submitte|NUCLEOTI|null|null|null|TISSUE=C|CHAIN   |null|-!- SIMI|1
+72|Eukaryot|1: Evide|25-OCT-2|NIH - Ma|Bos taur|Submitte|NUCLEOTI|_Distinc|null|Acetylat|STRAIN=H|INIT_MET|MEDLINE=|-!- FUNC|1
+73|Eukaryot|2: Evide|22-NOV-2|null|Gallus g|Genome B|NUCLEOTI|_Full-le|null|Acetylat|STRAIN=C|CHAIN   |PubMed=1|-!- FUNC|1
+74|Eukaryot|2: Evide|01-NOV-1|null|Hordeum |Submitte|NUCLEOTI|_A cDNA |null|null|STRAIN=c|CHAIN   |null|-!- INDU|1
+75|Eukaryot|1: Evide|01-JUL-1|The MGC |Homo sap|J. Mol. |NUCLEOTI|_Molecul|null|3D-struc|TISSUE=K|INIT_MET|MEDLINE=|-!- FUNC|1
+76|Eukaryot|2: Evide|22-NOV-2|Internat|Macaca f|Submitte|NUCLEOTI|_DNA seq|null|Acetylat|TISSUE=B|INIT_MET|null|-!- FUNC|1
+77|Eukaryot|1: Evide|26-SEP-2|null|Mus musc|Submitte|NUCLEOTI|_The tra|null|Acetylat|STRAIN=C|INIT_MET|PubMed=1|-!- FUNC|1
+78|Eukaryot|3: Infer|29-MAY-2|NISC com|Pongo ab|Genome R|NUCLEOTI|_Compara|null|Acetylat|null|INIT_MET|PubMed=1|-!- FUNC|1
+79|Eukaryot|1: Evide|01-FEB-1|The MGC |Rattus n|Brain Re|NUCLEOTI|_Molecul|null|Acetylat|STRAIN=W|INIT_MET|MEDLINE=|-!- FUNC|1
+80|Eukaryot|1: Evide|25-OCT-2|null|Ovis ari|Eur. J. |PROTEIN |_Multipl|null|Acetylat|TISSUE=B|INIT_MET|MEDLINE=|-!- FUNC|1
+81|Eukaryot|2: Evide|15-JUL-1|null|Glycine |Submitte|NUCLEOTI|null|null|null|STRAIN=c|CHAIN   |null|-!- SIMI|1
+82|Eukaryot|2: Evide|15-DEC-1|null|Nicotian|Planta 2|NUCLEOTI|_Five ne|null|null|null|CHAIN   |MEDLINE=|-!- SIMI|1
+83|Eukaryot|2: Evide|01-NOV-1|null|Vicia fa|Submitte|NUCLEOTI|null|null|null|TISSUE=C|CHAIN   |null|-!- SIMI|1
+84|Eukaryot|2: Evide|22-NOV-2|Sanger X|Xenopus |Submitte|NUCLEOTI|null|null|Acetylat|TISSUE=T|CHAIN   |null|-!- FUNC|1
+85|Eukaryot|2: Evide|15-JUL-1|null|Glycine |Submitte|NUCLEOTI|null|null|null|STRAIN=c|CHAIN   |null|-!- SIMI|1
+86|Eukaryot|1: Evide|15-JUL-1|null|Nicotian|Submitte|NUCLEOTI|_Five ne|null|3D-struc|STRAIN=c|CHAIN   |MEDLINE=|-!- SIMI|1
+87|Eukaryot|2: Evide|15-JUL-1|null|Glycine |Submitte|NUCLEOTI|null|null|null|STRAIN=c|CHAIN   |null|-!- SIMI|1
+88|Eukaryot|2: Evide|15-DEC-1|null|Nicotian|Planta 2|NUCLEOTI|_Five ne|null|null|null|CHAIN   |MEDLINE=|-!- SIMI|1
+89|Eukaryot|2: Evide|05-JUL-2|NIH - Ma|Bos taur|Submitte|NUCLEOTI|_Express|null|Acetylat|STRAIN=H|CHAIN   |PubMed=7|-!- FUNC|1
+90|Eukaryot|1: Evide|21-FEB-2|null|Gallus g|Genome B|NUCLEOTI|_Full-le|null|Acetylat|STRAIN=C|CHAIN   |PubMed=1|-!- FUNC|1
+91|Eukaryot|1: Evide|15-JUL-1|null|Drosophi|Genes De|NUCLEOTI|_14-3-3 |null|Alternat|STRAIN=B|CHAIN   |MEDLINE=|-!- FUNC|1
+92|Eukaryot|1: Evide|05-JUL-2|The MGC |Homo sap|Proc. Na|NUCLEOTI|_14-3-3 |null|3D-struc|TISSUE=L|CHAIN   |MEDLINE=|-!- FUNC|1
+93|Eukaryot|1: Evide|05-JUL-2|The MGC |Mus musc|Dev. Bio|NUCLEOTI|_The mou|null|Acetylat|STRAIN=S|CHAIN   |MEDLINE=|-!- FUNC|1
+94|Eukaryot|1: Evide|05-JUL-2|The MGC |Rattus n|DNA Cell|NUCLEOTI|_Cloning|null|Acetylat|TISSUE=P|CHAIN   |MEDLINE=|-!- FUNC|1
+95|Eukaryot|1: Evide|05-JUL-2|null|Ovis ari|DNA Cell|NUCLEOTI|_Cloning|null|Acetylat|TISSUE=P|CHAIN   |MEDLINE=|-!- FUNC|1
+96|Eukaryot|2: Evide|15-DEC-1|null|Nicotian|Planta 2|NUCLEOTI|_Five ne|null|null|null|CHAIN   |MEDLINE=|-!- SIMI|1
+97|Eukaryot|1: Evide|23-NOV-2|NIH - Ma|Bos taur|Proc. Na|NUCLEOTI|_Molecul|null|Acetylat|TISSUE=C|INIT_MET|MEDLINE=|-!- FUNC|1
+98|Eukaryot|1: Evide|01-OCT-1|The MGC |Homo sap|Biochim.|NUCLEOTI|_The hum|null|3D-struc|TISSUE=B|INIT_MET|MEDLINE=|-!- FUNC|1
+99|Eukaryot|1: Evide|23-NOV-2|The MGC |Mus musc|Mol. Gen|NUCLEOTI|_The Cdk|null|Acetylat|TISSUE=B|INIT_MET|MEDLINE=|-!- FUNC|1

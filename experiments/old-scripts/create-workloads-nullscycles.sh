@@ -1,0 +1,11 @@
+#./create-workloads.sh $1 1 1 0.9 $2
+#./create-workloads.sh $1 1 1 0.7 $2
+#./create-workloads.sh $1 1 1 0.5 $2
+#./create-workloads.sh $1 1 1 0.3 $2
+./create-workloads-cycles.sh $1 1 0 0.9 $2
+./create-workloads-cycles.sh $1 1 1 0.9 $2
+#./create-workloads-cycles.sh $1 1 2 0.9 $2
+#./create-workloads-cycles.sh $1 1 3 0.9 $2
+#./create-workloads-cycles.sh $1 2 1 0.9 $2
+#./create-workloads-cycles.sh $1 2 2 0.9 $2
+#./create-workloads-cycles.sh $1 2 3 0.9 $2

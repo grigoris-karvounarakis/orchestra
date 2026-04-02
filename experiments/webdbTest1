@@ -1,0 +1,16 @@
+# create-noscript
+# migrate
+
+set debug=false
+set experiments=false
+#set prepare=true
+set workdir=/cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen
+set schema=2p1n-0c1v
+conn
+
+# Import original data
+set experiments=false
+set workdir=/cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen/2p1n-0c1v/insertions
+import-bulk /cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen/2p1n-0c1v/insertions/2p1n-0c1v-2000i0d
+translate P0
+

@@ -1,0 +1,530 @@
+/**
+ * JavaCC file
+ */
+ 
+options {
+  JDK_VERSION = "1.5";
+  IGNORE_CASE=true;
+  STATIC = false;  
+}
+
+
+PARSER_BEGIN(FlatRepository)
+package edu.upenn.cis.orchestra.repository.dao.flatfile.grammar;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import edu.upenn.cis.orchestra.datamodel.OrchestraSystem;
+//import edu.upenn.cis.orchestra.datamodel.Peer;
+//import edu.upenn.cis.orchestra.datamodel.Schema;
+import edu.upenn.cis.orchestra.datamodel.OrchestraTypesTranslator;
+import edu.upenn.cis.orchestra.repository.model.beans.OrchestraSystemBean;
+import edu.upenn.cis.orchestra.repository.model.beans.PeerBean;import edu.upenn.cis.orchestra.repository.model.beans.SchemaBean;import edu.upenn.cis.orchestra.repository.model.beans.ScRelationBean;import edu.upenn.cis.orchestra.repository.model.beans.ScFieldBean;import edu.upenn.cis.orchestra.repository.model.beans.ScConstraintBean;import edu.upenn.cis.orchestra.repository.model.beans.ScForeignKeyBean;import edu.upenn.cis.orchestra.repository.model.beans.ScMappingAtomBean;import edu.upenn.cis.orchestra.repository.model.beans.ScMappingAtomValueBean;import edu.upenn.cis.orchestra.repository.model.beans.ScMappingBean;import edu.upenn.cis.orchestra.repository.model.beans.ScMappingAtomValSkolemBean;
+import edu.upenn.cis.orchestra.datamodel.exceptions.DuplicatePeerIdException;
+import edu.upenn.cis.orchestra.datamodel.exceptions.InvalidBeanException;
+
+public class FlatRepository {
+	public static class StupidJavaDoesntHaveOutParameters {
+		public int index;
+	}
+
+}
+PARSER_END(FlatRepository)
+
+SKIP :
+{
+ 	" "
+|	"\r"
+|	"\t"
+|	"\n"
+|	"\r\n"
+|   <"//" (~["\n"])* "\n">
+}
+TOKEN : /* SECTIONS */
+{
+	< PEERS: "PEERS" >
+	| < PEER: "PEER" >
+	| < SCHEMAS: "SCHEMAS" >
+	| < SCHEMA: "SCHEMA" >
+	| < RELATIONS : "RELATIONS" >
+	| < MAPPINGS : "MAPPINGS" >	
+}
+TOKEN : /* Constant tokens */
+{
+	< RELATION : "RELATION" >
+	| < DBINFO : "DBINFO" >
+	| < FIELDS : "FIELDS" >
+	| < PRIMARYKEY : "PRIMARY KEY" >
+	| < NONUNIQUEINDEX : "NON UNIQUE INDEX" >
+	| < UNIQUEINDEX : "UNIQUE INDEX" >
+	| < FOREIGNKEY : "FOREIGN KEY" >
+	| < REFERENCES : "REFERENCES" >
+	| < DASH : "-" >
+	| < UNDERSCORE : "_" >
+}
+TOKEN : /* variables tokens */
+{
+	< MATERIALIZED: ("MATERIALIZED"|"VIRTUAL") >
+    | < ISNULL: ("NULL"|"NOT NULL") >
+    | < CONSTANT: (<DIGIT>)+ >
+	| < ID: (<LETTER>|<DIGIT>) ( <LETTER>|<DIGIT> | "_" (<LETTER>|<DIGIT>))* >
+    | < DBTYPE: <ID> ( "(" <CONSTANT> ("," <CONSTANT>)? ")" )? >
+    | < RELATIONREFID: <ID> "." <ID> "." <ID> >
+    | < HOSTNAME: <LETTER> (<LETTER>|<DIGIT>|"_"|"."|"-")* >
+    | < COUNTER: "<<" ("-")? (<DIGIT>)+ ">>" >
+    | < DESCRIPTION: ("\"" (~["\""])* "\"") >    
+}
+TOKEN : /* Basic tokens */ 
+{
+ 	< COLON: ":" >
+|   < #DIGIT: ["0" - "9"] >
+|   < #LETTER: [ "a"-"z", "A"-"Z" ] >
+|   < SINGLEQUOTE: "'" >
+}
+
+OrchestraSystem orchestraSystem() :
+{
+	List<PeerBean> peers;
+	List<ScRelationBean> relations;
+	OrchestraSystemBean systemB = new OrchestraSystemBean ();
+	OrchestraSystem res=null;
+}
+{
+	<PEERS> peers=peersList()
+			{
+				systemB.setPeers (peers);
+			}
+	<EOF>
+	{ 
+		try
+		{
+			res = new OrchestraSystem(systemB);
+		} catch (DuplicatePeerIdException ex)
+		{
+			throw new ParseException (ex.getMessage());
+		}		
+		  catch (InvalidBeanException ex)
+		{
+			// Should not happen since the grammar checks the mandatory fields
+			throw new ParseException (ex.getMessage());
+		}
+		return res;	
+	} 
+}
+
+List<PeerBean> peersList () :
+{
+	List<PeerBean> peers = new ArrayList<PeerBean> ();
+	Token tokId, tokDescription, tokHostname, tokPort;
+	PeerBean peer;
+	String fullHostName;
+	List<SchemaBean> schemas;
+	List<ScMappingBean> mappings;
+}
+{	
+	(
+		{peer =  new PeerBean(); }
+		<PEER>		
+		tokId=tokId() { peer.setId (tokId.image); }
+		tokHostname=<HOSTNAME> { fullHostName = tokHostname.image; }
+		(
+			<COLON>
+			tokPort=<CONSTANT> { fullHostName = fullHostName + ":" + tokPort.image; }
+		)?	
+		{ peer.setAddress (fullHostName); }
+		tokDescription=<DESCRIPTION> { 
+		  								if (tokDescription.image.length()<=2)
+		  									peer.setDescription (peer.getAddress());
+		  								else
+		  									peer.setDescription (tokDescription.image.substring(1,tokDescription.image.length()-1).replace("\\n", "\n")); 
+		  							}
+		<SCHEMAS> schemas=schemasList ()  
+									{
+										peer.setSchemas (schemas);
+									}
+		(
+			<MAPPINGS>  mappings = mappingsList () { peer.setMappings(mappings); }
+		)?
+		{
+		  peers.add (peer);
+		}
+	)+	
+	{ return peers; }
+}
+ 
+List<SchemaBean> schemasList () :
+{
+	Token tokId, tokDescription;
+	SchemaBean schema;
+	List<SchemaBean> schemas = new ArrayList<SchemaBean> ();
+	List<ScRelationBean> relations;
+}
+{	
+	(
+		{schema = new SchemaBean ();}		
+		<SCHEMA>
+		tokId=<ID> { 
+						schema.setSchemaId (tokId.image);
+						schema.setDescription (tokId.image); 
+					}
+		(
+			tokDescription=<DESCRIPTION> { schema.setDescription (tokDescription.image.substring(1,tokDescription.image.length()-1).replace("\\n","\n")); }
+		)?
+		<RELATIONS> relations=relationsList ()
+					{
+						schema.setRelations (relations);	
+					}
+		{
+			schemas.add (schema);
+		}
+	)+
+	{return schemas; }
+}
+
+
+List<ScRelationBean> relationsList () :
+{
+	Token tokRelId, tokDescription, tokMaterialized, tokStatNbRows;
+	Token tokDbCatal, tokDbSchema, tokDbRelName;
+	List<ScFieldBean> fields;
+	List<ScRelationBean> relations = new ArrayList<ScRelationBean> ();
+	ScRelationBean relBean;
+	List<ScConstraintBean> constraints;
+	List<ScForeignKeyBean> foreignKeys;
+}
+{
+	(
+		{relBean =  new ScRelationBean (); }
+		<RELATION> 
+			tokRelId=tokId() { 
+							relBean.setName (tokRelId.image); 
+							relBean.setDescription (tokRelId.image);
+						  }
+			(
+				tokDescription=<DESCRIPTION> {relBean.setDescription(tokDescription.image.substring(1,tokDescription.image.length()-1)); }
+			)?
+			tokMaterialized=<MATERIALIZED>
+						{
+							relBean.setMaterialized (tokMaterialized.image.equals ("MATERIALIZED"));
+						}
+			(
+			 	tokStatNbRows=<COUNTER>
+			 			{
+			 				relBean.setStatNbRows (Integer.valueOf(tokStatNbRows.image.substring(2,tokStatNbRows.image.length()-2)).intValue());	
+			 			}
+			)?
+			<DBINFO>
+				(
+					tokDbCatal=tokId()  {  relBean.setDbCatalog (tokDbCatal.image); }
+				)? 
+				","
+				(
+					tokDbSchema=tokId() {  relBean.setDbSchema (tokDbSchema.image); }
+				)? 
+				"," 
+				tokDbRelName=tokId()  { relBean.setDbRelName (tokDbRelName.image); }
+			<FIELDS>
+				fields=fieldsList () { relBean.setFields (fields); }
+			constraints=constraintsList () { relBean.setDirectConstraints (constraints); }
+			foreignKeys = foreignKeysList () { relBean.setForeignKeys (foreignKeys); }
+		{ relations.add (relBean); }
+	)+
+	{
+		return relations;
+	}			
+}
+
+
+List<ScFieldBean> fieldsList () :
+{
+	 List<ScFieldBean> fields = new ArrayList<ScFieldBean> ();
+	 ScFieldBean field;
+}
+{ 
+	(field = field() { fields.add (field); })
+	("," field = field() { fields.add (field); })*	
+	{
+		return fields;	
+	}
+}
+
+ScFieldBean field () :
+{
+	 ScFieldBean field;
+	 Token tokId, tokType, tokNull, tokDbType, tokDbSize;
+}
+{	
+		{ field = new ScFieldBean ();
+		  field.setNullable (true);	
+		}
+		tokId=tokId() { field.setName(tokId.image); }
+		tokType=tokId() { field.setType (OrchestraTypesTranslator.typeFromString(tokType.image)); }
+		(
+			tokDbType=tokDbType() { field.setDbType (tokDbType.image); }
+		)?
+		{
+			if (field.getDbType() == null)
+				field.setDbType (tokType.image);
+		}
+		tokDbSize=<CONSTANT> { field.setDbSize (Integer.valueOf(tokDbSize.image)); }
+		{ field.setNullable (true); }
+		(
+			tokNull=<ISNULL> 
+							{
+								field.setNullable (tokNull.image.equals("NULL"));
+							}
+		)?
+		{
+			return field;
+		}
+}				
+
+List<ScConstraintBean> constraintsList () :
+{
+	List<ScConstraintBean> constraints = new ArrayList<ScConstraintBean> ();
+	ScConstraintBean cst;
+}
+{
+	(
+		<PRIMARYKEY> 
+			cst = constraint ("P")	{	constraints.add (cst);	}
+	)?
+	(
+		<UNIQUEINDEX> 
+			cst = constraint ("U")	{	constraints.add (cst);	}
+	)*	
+	(
+		<NONUNIQUEINDEX> 
+			cst = constraint ("I")	{	constraints.add (cst);	}
+	)*		
+	{
+		return constraints; 
+	}
+}
+
+
+ScConstraintBean constraint (String type) :
+{
+	List<String> fieldsRef;
+	ScConstraintBean cst;
+	Token tokCstName, tokNbUniqVals;	
+}
+{
+	tokCstName=tokId() 
+		{
+			cst = new ScConstraintBean (); 
+			cst.setType (type);
+			cst.setName (tokCstName.image);	
+		}		
+	fieldsRef=fieldsRefList () 
+		{
+			cst.setFields (fieldsRef);
+		}
+	(
+	 	tokNbUniqVals=<COUNTER>
+	 			{
+	 				cst.setStatsNbUniqueVals (Integer.valueOf(tokNbUniqVals.image.substring(2,tokNbUniqVals.image.length()-2)).intValue());	
+	 			}
+	)?						
+	{
+		return cst;	
+	}
+}
+
+List<ScForeignKeyBean> foreignKeysList () :
+{
+	List<ScForeignKeyBean> foreignKeys = new ArrayList<ScForeignKeyBean> ();
+	ScForeignKeyBean foreignKey;
+	Token tokId;
+	List<String> fieldsRef;
+}
+{
+	(
+		{ foreignKey = new ScForeignKeyBean (); }
+		<FOREIGNKEY>
+			tokId=tokId() { foreignKey.setName (tokId.image); }
+			fieldsRef = fieldsRefList () { foreignKey.setFields (fieldsRef); }			
+			<REFERENCES>
+			tokId=tokId() { foreignKey.setRefRelation (tokId.image);  }
+			fieldsRef = fieldsRefList () { foreignKey.setRefFields (fieldsRef); }			
+		{ foreignKeys.add (foreignKey); }
+	)*
+	{ return foreignKeys; }	
+}
+
+List<String> fieldsRefList () :
+{
+	List<String> fieldsRefs = new ArrayList<String> ();
+	Token tokId;
+}
+{
+	"("
+		(tokId=tokId() {fieldsRefs.add (tokId.image); } )
+		("," tokId=tokId() {fieldsRefs.add (tokId.image); } )*
+	")"
+	{
+		return fieldsRefs;
+	}
+}
+
+
+List<ScMappingBean> mappingsList () :
+{
+	List<ScMappingBean> mappings = new ArrayList<ScMappingBean> ();	
+	List<ScMappingAtomBean> head;
+	List<ScMappingAtomBean> body;
+	ScMappingBean mapping;
+	Token tokId, tokMaterialized;
+	StupidJavaDoesntHaveOutParameters indNextVar = new StupidJavaDoesntHaveOutParameters();
+}
+{
+
+	(
+		{ 
+			mapping = new ScMappingBean (); 
+			indNextVar.index = 0;		
+		}
+		tokId = tokId() { mapping.setId (tokId.image); }
+		tokMaterialized=<MATERIALIZED>
+					{
+						mapping.setMaterialized (tokMaterialized.image.equals ("MATERIALIZED"));
+					}
+		":"
+		head=mappingAtomsList(indNextVar)  { mapping.setHead (head); }
+		":-" 
+		body=mappingAtomsList(indNextVar)  { mapping.setBody (body); }
+		{ mappings.add (mapping); }
+	)+
+	{
+		return mappings;	
+	}	
+}
+
+List<ScMappingAtomBean> mappingAtomsList (StupidJavaDoesntHaveOutParameters indNextVar) :
+{
+	List<ScMappingAtomBean> atoms = new ArrayList<ScMappingAtomBean> ();
+	ScMappingAtomBean atom;
+	int ind=0;
+}
+{
+	atom=mappingAtom (ind++, indNextVar)			{ atoms.add (atom); }
+	("," atom=mappingAtom (ind++, indNextVar) 		{ atoms.add (atom); } )*
+	
+	{ return atoms; }	
+}
+
+ScMappingAtomBean mappingAtom (int pos, StupidJavaDoesntHaveOutParameters indNextVar) :
+{
+	ScMappingAtomBean atom = new ScMappingAtomBean ();
+	List<ScMappingAtomValueBean> values;
+	Token tokId;
+}
+{
+	{ atom.setAtomPosition(pos); }
+	tokId=<RELATIONREFID>  
+				{
+					int ptPos1 = tokId.image.indexOf(".");
+					atom.setPeerId (tokId.image.substring(0, ptPos1)); 
+					int ptPos2 = tokId.image.indexOf(".", ptPos1+1);
+					atom.setSchemaId (tokId.image.substring(ptPos1+1, ptPos2));
+					atom.setRelationId (tokId.image.substring(ptPos2+1));
+				}
+	"("
+		values=mappingAtomValuesList(indNextVar)   { atom.setValues (values); }
+	")"
+	
+	{return atom; }	
+}
+
+List<ScMappingAtomValueBean> mappingAtomValuesList (StupidJavaDoesntHaveOutParameters indNextVar) :
+{
+	List<ScMappingAtomValueBean> atomValues = new ArrayList<ScMappingAtomValueBean> ();
+	ScMappingAtomValueBean atomValue;
+}
+{
+	(atomValue=mappingAtomValue(indNextVar)) 		{ atomValues.add (atomValue); }
+	("," atomValue=mappingAtomValue(indNextVar)   { atomValues.add (atomValue); } )*
+	{ return atomValues; }
+}
+
+ScMappingAtomValueBean mappingAtomValue (StupidJavaDoesntHaveOutParameters indNextVar) :
+{
+	ScMappingAtomValueBean atomvalue= new ScMappingAtomValueBean ();;	
+	Token atomTok;
+}
+{
+	(
+		LOOKAHEAD(2)
+		
+		atomvalue = mappingAtomSkolemValue (indNextVar)
+		| atomTok=tokId()  
+					{ 
+							atomvalue.setId(atomTok.image);
+							atomvalue.setType ("V");
+					}
+		| <SINGLEQUOTE> atomTok=tokId() <SINGLEQUOTE>
+					{ 
+							atomvalue.setId(atomTok.image);
+							atomvalue.setType ("C");
+					}
+		| <DASH>	{
+							atomvalue.setId(null);
+							atomvalue.setType ("C");
+					}
+		| <UNDERSCORE>
+					{
+							atomvalue.setId("a:v" + indNextVar.index++);	
+							atomvalue.setType("V");
+					}
+			   
+	) 
+	{
+		return atomvalue;
+	}
+}
+
+
+ScMappingAtomValSkolemBean mappingAtomSkolemValue (StupidJavaDoesntHaveOutParameters indNextVar) :
+{
+	ScMappingAtomValSkolemBean skolem = new ScMappingAtomValSkolemBean ();
+	Token tokenSkolid;
+	List<ScMappingAtomValueBean> params;
+}
+{
+	tokenSkolid=tokId()    { skolem.setId (tokenSkolid.image); }
+	"("
+		params=mappingAtomValuesList(indNextVar)   { skolem.setParameters (params); }
+	")"		
+	{
+		return skolem;
+	}
+}
+
+Token tokId () :
+{
+	Token t;
+}
+{
+	(
+		t = <CONSTANT>
+		|
+		t = <ID>
+	)
+	{return t;}
+}
+
+Token tokDbType() :
+{
+    Token t;
+}
+{
+	(
+	    t = <DBTYPE>
+		|
+		t = <ID>
+	)
+	{return t;}
+}
+		
+		

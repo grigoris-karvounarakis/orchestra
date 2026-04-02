@@ -1,0 +1,149 @@
+#-----------------------------------------------------------
+:TEST
+mashing needed
+#-----------------------------------------------------------
+
+:FLAGS
+SEMIEXHAUSTIVE | MASHING
+
+:SCHEMA
+R(2), V(2)
+
+:DATA
+R chain 0 20000
+
+:VIEWS
+V(x,y) :- R(x,z), R(z,u), R(u,v), R(v,w), R(w,y)
+V(x,y) :- R(x,z), R(z,y)
+
+:QUERY
+Q(x,y) :- R(x,z), R(z,u), R(u,v), R(v,w), R(w,y)
+
+:EXPECTED
+Q(x,y) :- V(x,y)
+~Q(x,y) :- R(x,z), R(z,y)
+
+:ENDTEST
+
+#-----------------------------------------------------------
+:TEST
+cancelling
+#-----------------------------------------------------------
+
+:FLAGS
+SEMIEXHAUSTIVE | MASHING
+
+:SCHEMA
+R(2), V(2)
+
+:DATA
+R chain 0 10000
+
+:VIEWS
+V(x,y) :- R(x,z), R(z,y)
+
+:QUERY
+Q(x,y) :- R(x,y)
+Q(u,v) :- R(u,w), R(w,v)
+~Q(x,y) :- V(x,y) 
+
+:EXPECTED
+Q(x,y) :- R(x,y)
+
+:ENDTEST
+
+#-----------------------------------------------------------
+:TEST
+DCQs
+#-----------------------------------------------------------
+
+:FLAGS
+SEMIEXHAUSTIVE
+
+:SCHEMA 
+S(2), T(2), U(2), V(2)
+
+:DATA
+S chain 0 10000
+T chain 10000 20000
+U chain 9500 10500
+
+:VIEWS
+V(x,y) :- S(x,y)
+V(x,y) :- T(x,y)
+~V(x,y) :- U(x,y)
+
+:QUERY
+Q(x,y) :- S(x,y)
+Q(x,y) :- T(x,y)
+Q(x,y) :- T(x,y)
+~Q(x,y) :- U(x,y)
+
+:EXPECTED
+Q(x,y) :- T(x,y)
+Q(x,y) :- V(x,y)
+
+:ENDTEST
+
+
+#-----------------------------------------------------------
+:TEST
+CQs
+#-----------------------------------------------------------
+
+:FLAGS
+SEMIEXHAUSTIVE
+
+:SCHEMA 
+S(2), T(2), V1(2), V2(2), V3(2)
+
+:DATA
+S chain 0 10000
+T chain 10000 20000
+
+:VIEWS
+V1(x,y) :- S(x,y)
+V2(x,y) :- V1(x,z), V1(z,y)
+V3(x,y) :- V1(x,z1), V2(z1,y)
+
+:QUERY
+R(u,v) :- S(u,a), S(a,b), S(b,c), S(c,d), S(d,e), T(e,v)
+
+:EXPECTED
+R(u,v) :- T(e,v), V2(u,b), V3(b,e)
+
+:ENDTEST
+
+#-----------------------------------------------------------
+:TEST
+UCQs
+#-----------------------------------------------------------
+
+:FLAGS
+SEMIEXHAUSTIVE
+
+:SCHEMA 
+S(2), T(2), V1(2), V2(2), V3(2)
+
+:DATA
+S chain 0 10000
+T chain 10000 20000
+
+:VIEWS
+V1(x,y) :- S(x,y)
+V1(x,z) :- T(x,y), T(y,z)
+V2(x,y) :- V1(x,z1), V1(z1,y)
+V3(x,y) :- T(x,u), T(u,v), T(v,w), T(w,y)
+
+:QUERY
+Q(x,y) :- S(x,u), S(u,z), S(z,y)
+Q(x,y) :- S(x,u), T(u,v), T(v,z), S(z,y)
+Q(x,y) :- T(x,w), T(w,u), S(u,z), S(z,y)
+Q(x,y) :- T(x,w), T(w,u), T(u,v), T(v,z), S(z,y)
+
+:EXPECTED
+Q(x,y) :- V2(x,z), S(z,y)
+
+:ENDTEST
+
+

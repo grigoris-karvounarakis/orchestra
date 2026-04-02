@@ -1,0 +1,42 @@
+// Test comment
+PEERS
+PEER P1 lvn303-3.cis.upenn.edu "Mon PC"
+	// Now schemas are separated from relations, to be able to have a description, know if they are materialized...
+	SCHEMAS
+		SCHEMA SCHEMA1 "First schema for Peer 1"
+			RELATIONS
+				RELATION relation1 "A description, a catalog, no schema" MATERIALIZED
+					DBINFO , schema1, dbrel1 
+					FIELDS field1 INTEGER 10, field2 BLOB 2000 NOT NULL, field3 CLOB 4000 NULL					
+					PRIMARY KEY pk_rel1 (field1)
+				RELATION relation2 "A description, not catalog, no schema" MATERIALIZED
+					DBINFO , , dbrel2
+					FIELDS field1 INTEGER 10, field2 BLOB 3000 NOT NULL, field3 CLOB 4000 NULL	
+					UNIQUE INDEX relation1_idx_1 (field1)				
+					FOREIGN KEY rel2_fk_rel1 (field2) REFERENCES relation1 (field1)
+		SCHEMA SCHEMA2 "Second schema for Peer 1"
+			RELATIONS
+				RELATION relation3 VIRTUAL 
+					DBINFO , , dbrel3
+					FIELDS field1 INTEGER 10, field2 CHAR 1 NOT NULL	
+	
+
+
+PEER P2 lvn303-2.cis.upenn.edu "Emul linux"
+	SCHEMAS
+		SCHEMA SCHEMA1 "First schema for Peer P2"
+			RELATIONS
+				RELATION relation4 "Description rel4" MATERIALIZED
+					DBINFO catal4, , dbrel4
+					FIELDS field1 INTEGER 10, field2 CHAR 1 NOT NULL, field3 CLOB	3000
+					PRIMARY KEY rel4_pk (field1, field2)
+					UNIQUE INDEX relation4_idx_2 (field2)	
+				RELATION relation5 "Description rel5" MATERIALIZED
+					DBINFO catal5, , dbrel5
+					FIELDS field1 INTEGER 10, field2 CHAR 1 NOT NULL	
+					PRIMARY KEY rel5_pk (field1, field2)
+					UNIQUE INDEX relation5_idx_2 (field2)	
+		MAPPINGS
+
+M1 MATERIALIZED: P2.SCHEMA1.relation4 ( x,'CONSTANT',f1(x,y)), P2.SCHEMA1.relation5 ('CONST56', z) :- P1.SCHEMA2.relation3(x,y), P1.SCHEMA1.relation1(y,'CONST89', w)
+M2 MATERIALIZED: P1.SCHEMA2.relation3(x,y) :- P1.SCHEMA1.relation1(y,'CONST89', w)

@@ -1,0 +1,136 @@
+package edu.upenn.cis.orchestra.repository.dao.ibatis;
+ 
+import java.util.ArrayList;
+import java.util.List;
+
+import junit.framework.TestCase;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import edu.upenn.cis.orchestra.datamodel.OrchestraSystem;
+import edu.upenn.cis.orchestra.datamodel.Peer;
+import edu.upenn.cis.orchestra.datamodel.Relation;
+import edu.upenn.cis.orchestra.datamodel.RelationField;
+import edu.upenn.cis.orchestra.datamodel.ForeignKey;
+import edu.upenn.cis.orchestra.datamodel.Mapping;
+import edu.upenn.cis.orchestra.datamodel.Atom;
+import edu.upenn.cis.orchestra.datamodel.AtomArgument;
+import edu.upenn.cis.orchestra.datamodel.AtomConst;
+import edu.upenn.cis.orchestra.datamodel.AtomSkolem;
+import edu.upenn.cis.orchestra.datamodel.AtomVariable;
+import edu.upenn.cis.orchestra.datamodel.RelationIndexNonUnique;
+import edu.upenn.cis.orchestra.datamodel.PrimaryKey;
+import edu.upenn.cis.orchestra.datamodel.RelationIndexUnique;
+import edu.upenn.cis.orchestra.datamodel.Schema;
+import edu.upenn.cis.orchestra.repository.dao.RepositorySchemaDAO;
+import edu.upenn.cis.orchestra.repository.model.beans.SchemaBean;
+
+public class TestIbatisDAO extends TestCase 
+{
+	 
+	public void testToConvertInActualTest ()
+	{
+		try
+		{
+			ApplicationContext ctx = new ClassPathXmlApplicationContext ("edu/upenn/cis/orchestra/repository/dao/SpringConfig.xml");
+			
+			RepositorySchemaDAO dao = (RepositorySchemaDAO) ctx.getBean("ibatisReposSchemDAO");
+
+			dao.removePeer("peer1");
+			dao.removePeer("peer2");
+
+			
+			Peer peer = new Peer ("peer1", "127.0.0.1", "Peer 1"); 
+			Schema sc2 = new Schema ("2", "schema2");
+			peer.addSchema(sc2);
+			List<RelationField> fields = new ArrayList<RelationField> ();
+			fields.add (new RelationField ("myField1", "myField1", true, "VARCHAR(5)"));
+			fields.add (new RelationField ("myField2", "myField2", true, "INTEGER"));
+			fields.add (new RelationField ("myField3", "myField3", true, "INTEGER"));
+			fields.add (new RelationField ("myField4", "myField4", true, "INTEGER"));
+			Relation rel1 = new Relation("myCat1", "mySchem1", "myName1", "name1", "my test table", true, true, fields);			
+			PrimaryKey pk = new PrimaryKey ("myPk", rel1, new String[]{"myField1","myField2"});
+			sc2.addRelation(rel1);
+			rel1.setPrimaryKey(pk);
+			RelationIndexUnique unIdx = new RelationIndexUnique ("uniq", rel1, new String[]{"myField3"});
+			rel1.addUniqueIndex(unIdx);
+			RelationIndexNonUnique nonUIdx = new RelationIndexNonUnique ("nonUn",  rel1, new String[]{"myField4"});
+			rel1.addNonUniqueIndex(nonUIdx);
+			
+			fields = new ArrayList<RelationField> ();
+			List<String> fieldsFk = new ArrayList<String> ();
+			fields.add (new RelationField ("myField1.1", "myField1.1", false, "VARCHAR(2)"));
+			fieldsFk.add (fields.get(0).getName());
+			fields.add (new RelationField ("myField1.2", "myField1.2", false, "VARCHAR(2)"));
+			Relation rel2 = new Relation("myCat1", "mySchem1", "myName2", "name2", "my test table2", true, true, fields);
+			List<String> fieldsRef = new ArrayList<String> ();
+			fieldsRef.add(rel1.getField(1).getName());
+			ForeignKey fk = new ForeignKey ("fk_t2_t1", rel2, fieldsFk, rel1, fieldsRef);
+			rel2.addForeignKey(fk);
+			sc2.addRelation(rel2);
+			
+			dao.addPeer(peer);
+			
+			Peer peer2 = new Peer ("peer2", "127.1.1.1", "Peer2");
+			Schema p2sc2 = sc2.deepCopy();
+			peer2.addSchema(p2sc2);
+			List<Atom> head = new ArrayList<Atom> ();
+			List<Atom> body= new ArrayList<Atom> ();
+
+			List<AtomArgument> valsBody = new ArrayList<AtomArgument> ();
+			valsBody.add (new AtomVariable("x"));
+			valsBody.add (new AtomVariable("y"));
+			body.add(new Atom (peer, sc2, rel2, valsBody));
+
+			
+			List<AtomArgument> valsHead = new ArrayList<AtomArgument> ();
+			valsHead.add (new AtomVariable("x"));
+			valsHead.add (new AtomConst("CONSTANT"));
+			List<AtomArgument> valsParams = new ArrayList<AtomArgument> ();
+			valsParams.add (new AtomVariable("x"));
+			valsParams.add (new AtomVariable("y"));			
+			valsHead.add (new AtomSkolem("f1", valsParams));
+			head.add(new Atom (peer2, p2sc2, p2sc2.getRelations().iterator().next(), valsHead));
+
+
+			Mapping mapping = new Mapping ("mapping1", "mapping1", true, 1, head, body);
+			peer2.addMapping(mapping);
+			dao.addPeer(peer2);
+			
+			List<Schema> schemas = dao.getAllSchemasDoNotLoadRelations(peer);
+			for (Schema sc : schemas)
+				System.out.println (sc.toString());
+
+			Schema schema = dao.getSchemaDetail(peer, "2");
+			System.out.println (schema.toString());
+
+			SchemaBean schemaB = dao.getSchemaDetailBean(peer.getId(), "2");
+			System.out.println (schemaB.toString());
+			
+			Peer p = dao.getPeerDetailNoMapping("peer1");
+			System.out.println (p.toString());
+			
+			OrchestraSystem system = dao.loadPeerAndDependencies("peer2");
+			System.out.println (system.toString());
+			
+			system = dao.loadAllPeers();
+			System.out.println ("++++FULL peers");
+			System.out.println (system.toString());
+			
+			dao.removeMapping(peer2.getId(), "mapping1");
+			
+			dao.removeSchema(peer.getId(), sc2.getSchemaId());
+			
+			dao.removePeer(peer.getId());
+			
+			system = dao.loadAllPeers();
+			System.out.println (system.toString());
+			
+			
+			System.out.println (dao.getPeerDetailBean("error"));
+			
+		} catch (Exception e)
+		{e.printStackTrace();}
+	}
+}

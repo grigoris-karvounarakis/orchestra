@@ -1,0 +1,88 @@
+Model
+
+* General information
+
+  The Repository model sub-project contains the classes used to describe Orchestra peers/schemas. These classes are meant to be used both in the central repository (to maintain a memory cache...), but also 
+on the client side.
+
+* Beans
+
+  All these classes can be exported/imported into basic bean classes which expose all the properties. These beans are usefull to communicate with the DAO layer (ORM tools for examples), for webservices 
+messages...
+
+
+Repository DAO
+
+* General information
+
+  This subproject contains all the DAO API used for the centralized repository
+
+* DAO implementations
+
+  <<IBATIS DAO>>
+  This DAO implementation uses a RDBMS to store the data (first test were done with MySQL, will be 
+installed on DB2 as soon as we'll have the new database server).
+
+  IBATIS is used to reduce the overhead of JDBC development, all the IBATIS resources files (containing 
+objects/relations mappings and queries) are stored in the resources directory tree.
+
+   This implementation will be used by the actual centralized repository for Orchestra.
+   
+  <<Flat file DAO>>
+  This implementation has been developed to: 
+  
+    * Make it easier to test (without an actual database...)
+
+    * Make it easier to store human-readable Peers definition
+
+  TODO: Document the file format
+
+Repository utils
+
+* General information
+
+  This subproject has been created to include a set of utilities that can make it easier to 
+create schemas, mappings...
+
+* Utilities
+
+** Schema Loaders
+
+  The SchemaLoader class must be inhereted by any utility that can load a schema from a database or 
+any other source. 
+
+  <<JDBC Loader>>
+
+  The SchemaLoaderJDBC class can be used to create a Schema object from a database connection. This 
+  loader will accept filters to select the relations to load on:
+
+      * Catalogs names
+
+      * Schemas names
+
+      * Relations names
+
+  Ir will load the relations, their constraints... Foreign keys will only be loaded if they reference a 
+  relation that is also loaded in the schema.
+
+
+DBGroup projects
+
+  The full list of DBGroup projects managed under Maven can be found on {{{https://dbgrpbuild.cis.upenn.edu/infrastructure/projects/index.htm}this page}}
+
+Some "documentation"
+
+* Datatypes
+
+  In this API datatypes are described using the JDBC standard as described in java.sql.Types. Thus the 
+type are stored as an int attribute.
+
+   * To get a type name (from its int value), use the method OrchestraTypesTranslator.typeToString(int). 
+
+   * To get a type int value from its name, use the method OrchestraTypesTranslator.typeFromString(String). 
+   
+* Lists/deep copies
+  
+  The choice has been made to return the actual inner lists when a method such as getFields is called 
+(instead of returning a deep copy to avoid exterior/uncontrolled changes of these lists). This is only 
+to improve perfomance and can be changed anytime.

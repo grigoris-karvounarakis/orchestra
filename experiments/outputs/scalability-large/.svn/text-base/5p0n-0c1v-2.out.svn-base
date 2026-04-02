@@ -1,0 +1,2778 @@
+PARAMETERS:
+tukwilaport=7777
+nullscycles=false
+dbname=VLDBTEST
+db2server=jdbc:db2:VLDBTEST
+fulldebug=false
+indexall=true
+batch=false
+insert=true
+setsemantics=true
+db2host=dbserv.cis.upenn.edu
+workdir=/dev/orchestra/experiments/tests
+stratified=true
+jdbc-driver=COM.ibm.db2.jdbc.app.DB2Driver
+tukwilahost=localhost
+scalability2=true
+db2pwd=GREG#00
+scalability1=false
+debug=false
+db2dbname=DEFEAT
+tablesize=0
+tukwilafiles=orchestra.bdb
+incremental=true
+union=false
+outerunion=false
+schema=5p0n-0c1v
+db2user=gkarvoun
+delete=true
+scalability=false
+autocommit=false
+reset=true
+cygwinhome=C:/cygwin
+sqlschema=GKARVOUN
+dred=false
+migrate=true
+workload=2p1n-100i10d
+apply=true
+prepare=true
+TOTAL RULE MANIPULATION TIME: 15msec
++++ Migration +++
+EXP: MIGRATE TIME: 1359 msec
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-500i500d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-500i500d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 9906msec
+500 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+500 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+500 tuples imported into GKARVOUN.P4_S4_R1_L_DEL
+500 tuples imported into GKARVOUN.P4_S4_R1_L_INS
+500 tuples imported into GKARVOUN.P2_S2_R1_L_DEL
+500 tuples imported into GKARVOUN.P2_S2_R1_L_INS
+500 tuples imported into GKARVOUN.P2_S2_R0_L_DEL
+500 tuples imported into GKARVOUN.P2_S2_R0_L_INS
+500 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+500 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+500 tuples imported into GKARVOUN.P2_S2_R2_L_DEL
+500 tuples imported into GKARVOUN.P2_S2_R2_L_INS
+500 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+500 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+500 tuples imported into GKARVOUN.P4_S4_R0_L_DEL
+500 tuples imported into GKARVOUN.P4_S4_R0_L_INS
+500 tuples imported into GKARVOUN.P3_S3_R2_L_DEL
+500 tuples imported into GKARVOUN.P3_S3_R2_L_INS
+500 tuples imported into GKARVOUN.P3_S3_R1_L_DEL
+500 tuples imported into GKARVOUN.P3_S3_R1_L_INS
+500 tuples imported into GKARVOUN.P4_S4_R2_L_DEL
+500 tuples imported into GKARVOUN.P4_S4_R2_L_INS
+500 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+500 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+500 tuples imported into GKARVOUN.P3_S3_R0_L_DEL
+500 tuples imported into GKARVOUN.P3_S3_R0_L_INS
+500 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+500 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+500 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+500 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 171141msec
+TOTAL TUPLE COUNT: 610000
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 7500
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 0
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 10282msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET DELETION TIME: 10282msec
+TOTAL TUPLE COUNT: 34500
+POST DELETION TIME: 333266msec
+TOTAL TUPLE COUNT: 1843500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 605500
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 417000
+TOTAL TUPLE COUNT: 0
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 126829msec
+TOTAL TUPLE COUNT: 605500
+LAST ITERATION (1) COUNT: 22500
+
+LAST ITERATION (2) COUNT: 11000
+
+LAST ITERATION (3) COUNT: 0
+
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 25844msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 25844msec
+TOTAL TUPLE COUNT: 41000
+POST INSERTION TIME: 414078msec
+TOTAL TUPLE COUNT: 1911500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 633000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 435000
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-500i500d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-500i500d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 6797msec
+500 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+500 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+500 tuples imported into GKARVOUN.P4_S4_R1_L_DEL
+500 tuples imported into GKARVOUN.P4_S4_R1_L_INS
+500 tuples imported into GKARVOUN.P2_S2_R1_L_DEL
+500 tuples imported into GKARVOUN.P2_S2_R1_L_INS
+500 tuples imported into GKARVOUN.P2_S2_R0_L_DEL
+500 tuples imported into GKARVOUN.P2_S2_R0_L_INS
+500 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+500 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+500 tuples imported into GKARVOUN.P2_S2_R2_L_DEL
+500 tuples imported into GKARVOUN.P2_S2_R2_L_INS
+500 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+500 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+500 tuples imported into GKARVOUN.P4_S4_R0_L_DEL
+500 tuples imported into GKARVOUN.P4_S4_R0_L_INS
+500 tuples imported into GKARVOUN.P3_S3_R2_L_DEL
+500 tuples imported into GKARVOUN.P3_S3_R2_L_INS
+500 tuples imported into GKARVOUN.P3_S3_R1_L_DEL
+500 tuples imported into GKARVOUN.P3_S3_R1_L_INS
+500 tuples imported into GKARVOUN.P4_S4_R2_L_DEL
+500 tuples imported into GKARVOUN.P4_S4_R2_L_INS
+500 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+500 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+500 tuples imported into GKARVOUN.P3_S3_R0_L_DEL
+500 tuples imported into GKARVOUN.P3_S3_R0_L_INS
+500 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+500 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+500 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+500 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 163218msec
+TOTAL TUPLE COUNT: 633000
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 7500
+LAST ITERATION (1) COUNT: 3000
+
+LAST ITERATION (2) COUNT: 3000
+
+LAST ITERATION (3) COUNT: 0
+
+LAST ITERATION (1) COUNT: 3000
+
+LAST ITERATION (2) COUNT: 0
+
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 3000
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 21016msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET DELETION TIME: 21016msec
+TOTAL TUPLE COUNT: 92500
+POST DELETION TIME: 364110msec
+TOTAL TUPLE COUNT: 1871500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 605500
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 417000
+TOTAL TUPLE COUNT: 0
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 172093msec
+TOTAL TUPLE COUNT: 605500
+LAST ITERATION (1) COUNT: 22500
+
+LAST ITERATION (2) COUNT: 11000
+
+LAST ITERATION (3) COUNT: 0
+
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 28281msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 28281msec
+TOTAL TUPLE COUNT: 41000
+POST INSERTION TIME: 411828msec
+TOTAL TUPLE COUNT: 1911500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 633000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 435000
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-500i500d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-500i500d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 500
+Number of rows skipped      = 0
+Number of rows inserted     = 500
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 500
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 5266msec
+500 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+500 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+500 tuples imported into GKARVOUN.P4_S4_R1_L_DEL
+500 tuples imported into GKARVOUN.P4_S4_R1_L_INS
+500 tuples imported into GKARVOUN.P2_S2_R1_L_DEL
+500 tuples imported into GKARVOUN.P2_S2_R1_L_INS
+500 tuples imported into GKARVOUN.P2_S2_R0_L_DEL
+500 tuples imported into GKARVOUN.P2_S2_R0_L_INS
+500 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+500 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+500 tuples imported into GKARVOUN.P2_S2_R2_L_DEL
+500 tuples imported into GKARVOUN.P2_S2_R2_L_INS
+500 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+500 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+500 tuples imported into GKARVOUN.P4_S4_R0_L_DEL
+500 tuples imported into GKARVOUN.P4_S4_R0_L_INS
+500 tuples imported into GKARVOUN.P3_S3_R2_L_DEL
+500 tuples imported into GKARVOUN.P3_S3_R2_L_INS
+500 tuples imported into GKARVOUN.P3_S3_R1_L_DEL
+500 tuples imported into GKARVOUN.P3_S3_R1_L_INS
+500 tuples imported into GKARVOUN.P4_S4_R2_L_DEL
+500 tuples imported into GKARVOUN.P4_S4_R2_L_INS
+500 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+500 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+500 tuples imported into GKARVOUN.P3_S3_R0_L_DEL
+500 tuples imported into GKARVOUN.P3_S3_R0_L_INS
+500 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+500 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+500 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+500 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 175579msec
+TOTAL TUPLE COUNT: 633000
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 7500
+LAST ITERATION (1) COUNT: 3000
+
+LAST ITERATION (2) COUNT: 3000
+
+LAST ITERATION (3) COUNT: 0
+
+LAST ITERATION (1) COUNT: 3000
+
+LAST ITERATION (2) COUNT: 0
+
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 3000
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 18765msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET DELETION TIME: 18765msec
+TOTAL TUPLE COUNT: 92500
+POST DELETION TIME: 363922msec
+TOTAL TUPLE COUNT: 1871500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 605500
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 417000
+TOTAL TUPLE COUNT: 0
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 164484msec
+TOTAL TUPLE COUNT: 605500
+LAST ITERATION (1) COUNT: 22500
+
+LAST ITERATION (2) COUNT: 11000
+
+LAST ITERATION (3) COUNT: 0
+
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 27625msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 27625msec
+TOTAL TUPLE COUNT: 41000
+POST INSERTION TIME: 406078msec
+TOTAL TUPLE COUNT: 1911500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 633000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 435000
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+ALL NUMBERS (msec): 25844, 28281, 27625
+EXP: AVG INS TIME: 27625msec
+ALL NUMBERS (msec): 10282, 21016, 18765
+EXP: AVG DEL TIME: 18765msec
+================
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-1000i1000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-1000i1000d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 8390msec
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+1000 tuples imported into GKARVOUN.P4_S4_R1_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R1_L_INS
+1000 tuples imported into GKARVOUN.P2_S2_R1_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R1_L_INS
+1000 tuples imported into GKARVOUN.P2_S2_R0_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R0_L_INS
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+1000 tuples imported into GKARVOUN.P2_S2_R2_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R2_L_INS
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+1000 tuples imported into GKARVOUN.P4_S4_R0_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R0_L_INS
+1000 tuples imported into GKARVOUN.P3_S3_R2_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R2_L_INS
+1000 tuples imported into GKARVOUN.P3_S3_R1_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R1_L_INS
+1000 tuples imported into GKARVOUN.P4_S4_R2_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R2_L_INS
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+1000 tuples imported into GKARVOUN.P3_S3_R0_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R0_L_INS
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 204891msec
+TOTAL TUPLE COUNT: 633000
+LAST ITERATION (1) COUNT: 500
+
+LAST ITERATION (2) COUNT: 1500
+
+LAST ITERATION (3) COUNT: 1500
+
+LAST ITERATION (4) COUNT: 0
+
+LAST ITERATION (1) COUNT: 1500
+
+LAST ITERATION (2) COUNT: 3000
+
+LAST ITERATION (3) COUNT: 0
+
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 13500
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 0
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 14797msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET DELETION TIME: 14797msec
+TOTAL TUPLE COUNT: 82000
+POST DELETION TIME: 353844msec
+TOTAL TUPLE COUNT: 1927500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 625500
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 430500
+TOTAL TUPLE COUNT: 0
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 143844msec
+TOTAL TUPLE COUNT: 625500
+LAST ITERATION (1) COUNT: 43500
+
+LAST ITERATION (2) COUNT: 20500
+
+LAST ITERATION (3) COUNT: 0
+
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 26906msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 26906msec
+TOTAL TUPLE COUNT: 79000
+POST INSERTION TIME: 482938msec
+TOTAL TUPLE COUNT: 2060500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 677500
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 463500
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-1000i1000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-1000i1000d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 6328msec
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+1000 tuples imported into GKARVOUN.P4_S4_R1_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R1_L_INS
+1000 tuples imported into GKARVOUN.P2_S2_R1_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R1_L_INS
+1000 tuples imported into GKARVOUN.P2_S2_R0_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R0_L_INS
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+1000 tuples imported into GKARVOUN.P2_S2_R2_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R2_L_INS
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+1000 tuples imported into GKARVOUN.P4_S4_R0_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R0_L_INS
+1000 tuples imported into GKARVOUN.P3_S3_R2_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R2_L_INS
+1000 tuples imported into GKARVOUN.P3_S3_R1_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R1_L_INS
+1000 tuples imported into GKARVOUN.P4_S4_R2_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R2_L_INS
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+1000 tuples imported into GKARVOUN.P3_S3_R0_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R0_L_INS
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 178907msec
+TOTAL TUPLE COUNT: 677500
+LAST ITERATION (1) COUNT: 500
+
+LAST ITERATION (2) COUNT: 1500
+
+LAST ITERATION (3) COUNT: 1500
+
+LAST ITERATION (4) COUNT: 0
+
+LAST ITERATION (1) COUNT: 1500
+
+LAST ITERATION (2) COUNT: 3000
+
+LAST ITERATION (3) COUNT: 0
+
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 13500
+LAST ITERATION (1) COUNT: 8000
+
+LAST ITERATION (2) COUNT: 9000
+
+LAST ITERATION (3) COUNT: 1500
+
+LAST ITERATION (4) COUNT: 0
+
+LAST ITERATION (1) COUNT: 9000
+
+LAST ITERATION (2) COUNT: 0
+
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 4500
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 53156msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 28672msec
+EXP: NET DELETION TIME: 24484msec
+TOTAL TUPLE COUNT: 214000
+POST DELETION TIME: 363343msec
+TOTAL TUPLE COUNT: 1980500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 625500
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 430500
+TOTAL TUPLE COUNT: 0
+=====================================================
+INSERTIONS
+=====================================================
+INSERTION PREP TIME: 139688msec
+TOTAL TUPLE COUNT: 625500
+LAST ITERATION (1) COUNT: 43500
+
+LAST ITERATION (2) COUNT: 20500
+
+LAST ITERATION (3) COUNT: 0
+
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 43109msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0msec
+EXP: NET INSERTION TIME: 43109msec
+TOTAL TUPLE COUNT: 79000
+POST INSERTION TIME: 491859msec
+TOTAL TUPLE COUNT: 2060500
+# OF BASE AND MAPPING TABLES: 64
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 677500
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 463500
+TOTAL TUPLE COUNT: 0
+TOTAL TUPLE COUNT: 0
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-1000i1000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+d:\dev\orchestra\experiments\tests
+db2cmd /c /w /i db2 -tf 5p0n-0c1v-1000i1000d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT 9.1.0
+ SQL authorization ID   = GKARVOUN
+ Local database alias   = VLDBTEST
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 6531msec
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R2_L_INS
+1000 tuples imported into GKARVOUN.P4_S4_R1_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R1_L_INS
+1000 tuples imported into GKARVOUN.P2_S2_R1_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R1_L_INS
+1000 tuples imported into GKARVOUN.P2_S2_R0_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R0_L_INS
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R2_L_INS
+1000 tuples imported into GKARVOUN.P2_S2_R2_L_DEL
+1000 tuples imported into GKARVOUN.P2_S2_R2_L_INS
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R0_L_INS
+1000 tuples imported into GKARVOUN.P4_S4_R0_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R0_L_INS
+1000 tuples imported into GKARVOUN.P3_S3_R2_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R2_L_INS
+1000 tuples imported into GKARVOUN.P3_S3_R1_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R1_L_INS
+1000 tuples imported into GKARVOUN.P4_S4_R2_L_DEL
+1000 tuples imported into GKARVOUN.P4_S4_R2_L_INS
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R0_L_INS
+1000 tuples imported into GKARVOUN.P3_S3_R0_L_DEL
+1000 tuples imported into GKARVOUN.P3_S3_R0_L_INS
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_DEL
+1000 tuples imported into GKARVOUN.P0_S0_R1_L_INS
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_DEL
+1000 tuples imported into GKARVOUN.P1_S1_R1_L_INS
+
+=====================================================
+DELETIONS
+=====================================================
+DELETION PREP TIME: 199843msec
+TOTAL TUPLE COUNT: 677500
+LAST ITERATION (1) COUNT: 500
+
+LAST ITERATION (2) COUNT: 1500
+
+LAST ITERATION (3) COUNT: 1500
+
+LAST ITERATION (4) COUNT: 0
+
+LAST ITERATION (1) COUNT: 1500
+
+LAST ITERATION (2) COUNT: 3000
+
+LAST ITERATION (3) COUNT: 0
+
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 13500
+LAST ITERATION (1) COUNT: 8000
+
+LAST ITERATION (2) COUNT: 9000
+
+LAST ITERATION (3) COUNT: 1500
+
+LAST ITERATION (4) COUNT: 0
+
+LAST ITERATION (1) COUNT: 9000
+
+LAST ITERATION (2) COUNT: 0
+
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 4500
+LAST ITERATION (1) COUNT: 0
+
+LAST ITERATION (1) COUNT: 0
+
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 93985msec
+TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 41719msec
+EXP: NET DELETION TIME: 52266msec
+TOTAL TUPLE COUNT: 214000

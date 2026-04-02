@@ -1,0 +1,5248 @@
+#PEERS:  2
+===========
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/orchestraScripts/tods/scalabilityString/10000/test-2p
+> 
+>             set apply=true
+SET: KEY=apply, VALUE=true
+EXP: =========================================
+EXP:apply=true
+EXP: =========================================
+>             set batch=false
+SET: KEY=batch, VALUE=false
+EXP: =========================================
+EXP:batch=false
+EXP: =========================================
+>             set incremental=true
+SET: KEY=incremental, VALUE=true
+EXP: =========================================
+EXP:incremental=true
+EXP: =========================================
+>             set debug=false
+EXP: =========================================
+EXP:debug=false
+EXP: =========================================
+>             set wideprov=true
+EXP: =========================================
+EXP:wideprov=true
+EXP: =========================================
+>             set autocommit=false
+EXP: =========================================
+EXP:autocommit=false
+EXP: =========================================
+>             set prepare=true
+EXP: =========================================
+EXP:prepare=true
+EXP: =========================================
+> #            set prepare=false
+>             set union=false
+EXP: =========================================
+EXP:union=false
+EXP: =========================================
+>             set indexall=true
+EXP: =========================================
+EXP:indexall=true
+EXP: =========================================
+>             set rejectionTables=true
+EXP: =========================================
+EXP:rejectionTables=true
+EXP: =========================================
+>             set stratified=true
+EXP: =========================================
+EXP:stratified=true
+EXP: =========================================
+>   
+>             set workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/
+EXP: =========================================
+EXP:workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/
+EXP: =========================================
+>             set schema=2p
+EXP: =========================================
+EXP:schema=2p
+EXP: =========================================
+>             set skipFakeMappings=true
+EXP: =========================================
+EXP:skipFakeMappings=true
+EXP: =========================================
+>             set queryCutoff=5000000
+EXP: =========================================
+EXP:queryCutoff=5000000
+EXP: =========================================
+>             set transactionCutoff=500000000
+EXP: =========================================
+EXP:transactionCutoff=500000000
+EXP: =========================================
+> #            set queryCutoff=500
+> #            set transactionCutoff=50000
+>             set runStatistics=true
+EXP: =========================================
+EXP:runStatistics=true
+EXP: =========================================
+>   
+>             startUSS
+*******deserializing catalog********
+Unable to find schema map 2p
+Successfully verified schema 2p
+>             create-noscript
++++ Initialization +++
+EXP: INIT TIME: 608 msec
+>             migrate
+* Adding non-temp table orchestra.P0_S0_R0_NEW
+* Adding non-temp table orchestra.P0_S0_R0_INS
+* Adding non-temp table orchestra.P0_S0_R0_DEL
+* Adding non-temp table orchestra.P0_S0_R0_RCH
+* Adding non-temp table orchestra.P0_S0_R0_INV
+* Adding non-temp table orchestra.P0_S0_R0_L_NEW
+* Adding non-temp table orchestra.P0_S0_R0_L_INS
+* Adding non-temp table orchestra.P0_S0_R0_L_DEL
+* Adding non-temp table orchestra.P0_S0_R0_L_INV
+* Adding non-temp table orchestra.P0_S0_R1_NEW
+* Adding non-temp table orchestra.P0_S0_R1_INS
+* Adding non-temp table orchestra.P0_S0_R1_DEL
+* Adding non-temp table orchestra.P0_S0_R1_RCH
+* Adding non-temp table orchestra.P0_S0_R1_INV
+* Adding non-temp table orchestra.P0_S0_R1_L_NEW
+* Adding non-temp table orchestra.P0_S0_R1_L_INS
+* Adding non-temp table orchestra.P0_S0_R1_L_DEL
+* Adding non-temp table orchestra.P0_S0_R1_L_INV
+* Adding non-temp table orchestra.P0_S0_R0_R_NEW
+* Adding non-temp table orchestra.P0_S0_R0_R_INS
+* Adding non-temp table orchestra.P0_S0_R0_R_DEL
+* Adding non-temp table orchestra.P0_S0_R0_R_INV
+* Adding non-temp table orchestra.P0_S0_R0_L_R_NEW
+* Adding non-temp table orchestra.P0_S0_R0_L_R_INS
+* Adding non-temp table orchestra.P0_S0_R0_L_R_DEL
+* Adding non-temp table orchestra.P0_S0_R0_L_R_INV
+* Adding non-temp table orchestra.P0_S0_R1_R_NEW
+* Adding non-temp table orchestra.P0_S0_R1_R_INS
+* Adding non-temp table orchestra.P0_S0_R1_R_DEL
+* Adding non-temp table orchestra.P0_S0_R1_R_INV
+* Adding non-temp table orchestra.P0_S0_R1_L_R_NEW
+* Adding non-temp table orchestra.P0_S0_R1_L_R_INS
+* Adding non-temp table orchestra.P0_S0_R1_L_R_DEL
+* Adding non-temp table orchestra.P0_S0_R1_L_R_INV
+* Adding non-temp table orchestra.P1_S1_R0_NEW
+* Adding non-temp table orchestra.P1_S1_R0_INS
+* Adding non-temp table orchestra.P1_S1_R0_DEL
+* Adding non-temp table orchestra.P1_S1_R0_RCH
+* Adding non-temp table orchestra.P1_S1_R0_INV
+* Adding non-temp table orchestra.P1_S1_R0_L_NEW
+* Adding non-temp table orchestra.P1_S1_R0_L_INS
+* Adding non-temp table orchestra.P1_S1_R0_L_DEL
+* Adding non-temp table orchestra.P1_S1_R0_L_INV
+* Adding non-temp table orchestra.P1_S1_R1_NEW
+* Adding non-temp table orchestra.P1_S1_R1_INS
+* Adding non-temp table orchestra.P1_S1_R1_DEL
+* Adding non-temp table orchestra.P1_S1_R1_RCH
+* Adding non-temp table orchestra.P1_S1_R1_INV
+* Adding non-temp table orchestra.P1_S1_R1_L_NEW
+* Adding non-temp table orchestra.P1_S1_R1_L_INS
+* Adding non-temp table orchestra.P1_S1_R1_L_DEL
+* Adding non-temp table orchestra.P1_S1_R1_L_INV
+* Adding non-temp table orchestra.P1_S1_R0_R_NEW
+* Adding non-temp table orchestra.P1_S1_R0_R_INS
+* Adding non-temp table orchestra.P1_S1_R0_R_DEL
+* Adding non-temp table orchestra.P1_S1_R0_R_INV
+* Adding non-temp table orchestra.P1_S1_R0_L_R_NEW
+* Adding non-temp table orchestra.P1_S1_R0_L_R_INS
+* Adding non-temp table orchestra.P1_S1_R0_L_R_DEL
+* Adding non-temp table orchestra.P1_S1_R0_L_R_INV
+* Adding non-temp table orchestra.P1_S1_R1_R_NEW
+* Adding non-temp table orchestra.P1_S1_R1_R_INS
+* Adding non-temp table orchestra.P1_S1_R1_R_DEL
+* Adding non-temp table orchestra.P1_S1_R1_R_INV
+* Adding non-temp table orchestra.P1_S1_R1_L_R_NEW
+* Adding non-temp table orchestra.P1_S1_R1_L_R_INS
+* Adding non-temp table orchestra.P1_S1_R1_L_R_DEL
+* Adding non-temp table orchestra.P1_S1_R1_L_R_INV
++++ Migration +++
+EXP: MIGRATE ORIG RELATIONS TIME: 4462 msec
+EXP: MIGRATE PROVENANCE RELATIONS TIME: 234 msec
+EXP: TOTAL MIGRATE TIME: 4867 msec
+>   
+>             set workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial
+EXP: =========================================
+EXP:workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial
+EXP: =========================================
+>         
+>             # Compute initial
+>             set delete=false
+EXP: =========================================
+EXP:delete=false
+EXP: =========================================
+>             set insert=true
+EXP: =========================================
+EXP:insert=true
+EXP: =========================================
+>             set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>             set applybaseIns=false
+EXP: =========================================
+EXP:applybaseIns=false
+EXP: =========================================
+>             generateDeltaRules
+> 
+>          import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 10389 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+10000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+10000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+10000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+10000 tuples imported into orchestra.P0_S0_R0_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 93 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 40000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 60000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 10125 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 5352 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 48 msec
+EXP: NET INSERTION TIME: 4773 msec
+TOTAL TUPLE COUNT: 180000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 28
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 9828 msec
+TOTAL TUPLE COUNT: 220000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>         
+> 
+>          import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 5476 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+10000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+10000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+10000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+10000 tuples imported into orchestra.P0_S0_R0_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 1077 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 40000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 60000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 15927 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 6239 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 123 msec
+EXP: NET INSERTION TIME: 9688 msec
+TOTAL TUPLE COUNT: 180000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 28
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 8299 msec
+TOTAL TUPLE COUNT: 220000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>         
+> 
+>          import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 5584 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+10000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+10000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+10000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+10000 tuples imported into orchestra.P0_S0_R0_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 639 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 40000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 60000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 15819 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 6099 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 157 msec
+EXP: NET INSERTION TIME: 9720 msec
+TOTAL TUPLE COUNT: 180000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 28
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 6162 msec
+TOTAL TUPLE COUNT: 220000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>         
+> 
+>          import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 5444 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+10000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+10000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+10000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+10000 tuples imported into orchestra.P0_S0_R0_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 94 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 40000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 60000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 13588 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 5647 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 175 msec
+EXP: NET INSERTION TIME: 7941 msec
+TOTAL TUPLE COUNT: 180000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 28
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 6724 msec
+TOTAL TUPLE COUNT: 220000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>         
+> 
+>            set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>            set applybaseIns=true
+EXP: =========================================
+EXP:applybaseIns=true
+EXP: =========================================
+>            generateDeltaRules
+>        
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/initial/2p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 5444 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+10000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+10000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+10000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+10000 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 109 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 40000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 60000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 13058 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 4946 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 109 msec
+EXP: NET INSERTION TIME: 8112 msec
+TOTAL TUPLE COUNT: 180000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 28
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 19734 msec
+TOTAL TUPLE COUNT: 330000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 36
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>          
+>              set runStatistics=true
+EXP: =========================================
+EXP:runStatistics=true
+EXP: =========================================
+>   
+>              # Incremental deletions
+>              set delete=true
+EXP: =========================================
+EXP:delete=true
+EXP: =========================================
+>              set insert=false
+EXP: =========================================
+EXP:insert=false
+EXP: =========================================
+>              set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>              set applybaseIns=false
+EXP: =========================================
+EXP:applybaseIns=false
+EXP: =========================================
+>              generateDeltaRules
+>          
+>              set workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions
+EXP: =========================================
+EXP:workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions
+EXP: =========================================
+>          
+>         
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2652 msec
+100 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+100 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 9220 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1404 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 981 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 63 msec
+EXP: NET DELETION TIME: 423 msec
+TOTAL TUPLE COUNT: 800
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 3869 msec
+TOTAL TUPLE COUNT: 110400
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2496 msec
+100 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+100 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6724 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 63 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1326 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 998 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 0 msec
+EXP: NET DELETION TIME: 328 msec
+TOTAL TUPLE COUNT: 800
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 3697 msec
+TOTAL TUPLE COUNT: 110400
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2496 msec
+100 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+100 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6677 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 94 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 62 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1326 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 967 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 16 msec
+EXP: NET DELETION TIME: 359 msec
+TOTAL TUPLE COUNT: 800
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 3666 msec
+TOTAL TUPLE COUNT: 110400
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2480 msec
+100 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+100 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6396 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 63 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1357 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1000 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 32 msec
+EXP: NET DELETION TIME: 357 msec
+TOTAL TUPLE COUNT: 800
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 4118 msec
+TOTAL TUPLE COUNT: 110400
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-100i100d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2481 msec
+100 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+100 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+100 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6537 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1294 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 949 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 62 msec
+EXP: NET DELETION TIME: 345 msec
+TOTAL TUPLE COUNT: 800
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 3885 msec
+TOTAL TUPLE COUNT: 110400
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2917 msec
+1000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+1000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6646 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1513 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1094 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 62 msec
+EXP: NET DELETION TIME: 419 msec
+TOTAL TUPLE COUNT: 8000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 3994 msec
+TOTAL TUPLE COUNT: 114000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2777 msec
+1000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+1000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6942 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 63 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1607 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1124 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 15 msec
+EXP: NET DELETION TIME: 483 msec
+TOTAL TUPLE COUNT: 8000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 3900 msec
+TOTAL TUPLE COUNT: 114000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2793 msec
+1000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+1000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 7035 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1544 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1062 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 30 msec
+EXP: NET DELETION TIME: 482 msec
+TOTAL TUPLE COUNT: 8000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 4103 msec
+TOTAL TUPLE COUNT: 114000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2792 msec
+1000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+1000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6708 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 63 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1482 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1045 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 16 msec
+EXP: NET DELETION TIME: 437 msec
+TOTAL TUPLE COUNT: 8000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 3900 msec
+TOTAL TUPLE COUNT: 114000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-1000i1000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2777 msec
+1000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+1000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+1000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6568 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 63 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 1513 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1061 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 47 msec
+EXP: NET DELETION TIME: 452 msec
+TOTAL TUPLE COUNT: 8000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 3837 msec
+TOTAL TUPLE COUNT: 114000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 6677 msec
+5000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+5000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6458 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 62 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 2402 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1482 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 47 msec
+EXP: NET DELETION TIME: 920 msec
+TOTAL TUPLE COUNT: 40000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 4337 msec
+TOTAL TUPLE COUNT: 130000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 4088 msec
+5000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+5000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 7628 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 62 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 62 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 2558 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1451 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 48 msec
+EXP: NET DELETION TIME: 1107 msec
+TOTAL TUPLE COUNT: 40000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 4196 msec
+TOTAL TUPLE COUNT: 130000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 4087 msec
+5000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+5000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6942 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 62 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 2387 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1390 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 46 msec
+EXP: NET DELETION TIME: 997 msec
+TOTAL TUPLE COUNT: 40000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 4368 msec
+TOTAL TUPLE COUNT: 130000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 4072 msec
+5000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+5000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6505 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 63 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 2590 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1529 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 32 msec
+EXP: NET DELETION TIME: 1061 msec
+TOTAL TUPLE COUNT: 40000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 4275 msec
+TOTAL TUPLE COUNT: 130000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.delete
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-deletions/2p-5000i5000d.insert
+Process executed successfully
+Process output:
+
+Process error:
+
+EXP: IMPORT DATA TIME: 4056 msec
+5000 tuples imported into orchestra.P1_S1_R0_L_DEL
+0 tuples imported into orchestra.P1_S1_R0_L_INS
+5000 tuples imported into orchestra.P1_S1_R1_L_DEL
+0 tuples imported into orchestra.P1_S1_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R1_L_DEL
+0 tuples imported into orchestra.P0_S0_R1_L_INS
+5000 tuples imported into orchestra.P0_S0_R0_L_DEL
+0 tuples imported into orchestra.P0_S0_R0_L_INS
+>            translate P0
+EXP: --------------------------------------
+
+=====================================================
+DELETIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+DELETION PREP TIME: 6505 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 78 msec
+Refresh statistics between datalog programs
+LAST ITERATION (1) COUNT: 0
+
+(SUB)PROGRAM EXECUTION TIME: 62 msec
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 0
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+INCREMENTAL DELETION ALG TIME  (INCL COMMIT): 2387 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 1466 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 15 msec
+EXP: NET DELETION TIME: 921 msec
+TOTAL TUPLE COUNT: 40000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 29
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST DELETION TIME: 4275 msec
+TOTAL TUPLE COUNT: 130000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>            # Incremental insertions
+>            set delete=false
+EXP: =========================================
+EXP:delete=false
+EXP: =========================================
+>            set insert=true
+EXP: =========================================
+EXP:insert=true
+EXP: =========================================
+>            set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>            set applybaseIns=false
+EXP: =========================================
+EXP:applybaseIns=false
+EXP: =========================================
+>            generateDeltaRules
+>   
+>            set workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions
+EXP: =========================================
+EXP:workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions
+EXP: =========================================
+> 
+>       
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2839 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+100 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+100 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+100 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+100 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 6614 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 200
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 400
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 3401 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2327 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 30 msec
+EXP: NET INSERTION TIME: 1074 msec
+TOTAL TUPLE COUNT: 1200
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 5132 msec
+TOTAL TUPLE COUNT: 111600
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2590 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+100 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+100 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+100 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+100 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 6427 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 200
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 400
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 3276 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2229 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 64 msec
+EXP: NET INSERTION TIME: 1047 msec
+TOTAL TUPLE COUNT: 1200
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 5117 msec
+TOTAL TUPLE COUNT: 111600
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2590 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+100 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+100 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+100 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+100 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 6427 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 200
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 400
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 3183 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2153 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 45 msec
+EXP: NET INSERTION TIME: 1030 msec
+TOTAL TUPLE COUNT: 1200
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 5351 msec
+TOTAL TUPLE COUNT: 111600
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2621 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+100 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+100 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+100 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+100 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 6224 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 200
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 400
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 3338 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2296 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 61 msec
+EXP: NET INSERTION TIME: 1042 msec
+TOTAL TUPLE COUNT: 1200
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 5070 msec
+TOTAL TUPLE COUNT: 111600
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-100i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 100
+Number of rows skipped      = 0
+Number of rows inserted     = 100
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 100
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2590 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+100 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+100 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+100 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+100 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 6412 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 200
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 400
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 3323 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2281 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 63 msec
+EXP: NET INSERTION TIME: 1042 msec
+TOTAL TUPLE COUNT: 1200
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 4977 msec
+TOTAL TUPLE COUNT: 111600
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 3104 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+1000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+1000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+1000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+1000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 6724 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 2000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 4000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 4415 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2762 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 77 msec
+EXP: NET INSERTION TIME: 1653 msec
+TOTAL TUPLE COUNT: 12000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 5600 msec
+TOTAL TUPLE COUNT: 126000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2948 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+1000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+1000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+1000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+1000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 7254 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 2000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 4000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 4134 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2588 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 62 msec
+EXP: NET INSERTION TIME: 1546 msec
+TOTAL TUPLE COUNT: 12000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 5835 msec
+TOTAL TUPLE COUNT: 126000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2917 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+1000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+1000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+1000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+1000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 7223 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 2000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 4000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 4181 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2605 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 63 msec
+EXP: NET INSERTION TIME: 1576 msec
+TOTAL TUPLE COUNT: 12000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 6037 msec
+TOTAL TUPLE COUNT: 126000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2917 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+1000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+1000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+1000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+1000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 6365 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 2000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 4000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 4040 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2529 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 111 msec
+EXP: NET INSERTION TIME: 1511 msec
+TOTAL TUPLE COUNT: 12000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 5741 msec
+TOTAL TUPLE COUNT: 126000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-1000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2886 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+1000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+1000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+1000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+1000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 6927 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 2000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 4000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 3932 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 2436 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 15 msec
+EXP: NET INSERTION TIME: 1496 msec
+TOTAL TUPLE COUNT: 12000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 5444 msec
+TOTAL TUPLE COUNT: 126000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 6755 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+5000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+5000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+5000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+5000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 6974 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 10000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 20000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 9142 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 5147 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 78 msec
+EXP: NET INSERTION TIME: 3995 msec
+TOTAL TUPLE COUNT: 60000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 9126 msec
+TOTAL TUPLE COUNT: 190000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 4571 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+5000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+5000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+5000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+5000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 8534 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 10000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 20000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 9704 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 5274 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 46 msec
+EXP: NET INSERTION TIME: 4430 msec
+TOTAL TUPLE COUNT: 60000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 8798 msec
+TOTAL TUPLE COUNT: 190000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 4321 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+5000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+5000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+5000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+5000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 8518 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 10000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 20000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 9626 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 5396 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 77 msec
+EXP: NET INSERTION TIME: 4230 msec
+TOTAL TUPLE COUNT: 60000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 8876 msec
+TOTAL TUPLE COUNT: 190000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 4166 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+5000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+5000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+5000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+5000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 8018 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 10000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 20000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 8814 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 4678 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 46 msec
+EXP: NET INSERTION TIME: 4136 msec
+TOTAL TUPLE COUNT: 60000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 8143 msec
+TOTAL TUPLE COUNT: 190000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>              import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d 
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/scalabilityString/10000/2p/incr-insertions/2p-5000i0d.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 5000
+Number of rows skipped      = 0
+Number of rows inserted     = 5000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 5000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 4337 msec
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+5000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+5000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+5000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+5000 tuples imported into orchestra.P0_S0_R0_L_INS
+>              translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+Refresh statistics between datalog programs
+INSERTION PREP TIME: 7831 msec
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 9
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 10000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 20000
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 8767 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 4724 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 64 msec
+EXP: NET INSERTION TIME: 4043 msec
+TOTAL TUPLE COUNT: 60000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 32
+Refresh statistics between datalog programs
+Refresh statistics between datalog programs
+POST INSERTION TIME: 9080 msec
+TOTAL TUPLE COUNT: 190000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 18
+# OF BASE AND MAPPING TABLES: 17
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 110000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 100000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>           
+> 
+>             clear
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 110000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 89
+> #           stopUSS
+>             drop
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 89
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 89
+>             quit

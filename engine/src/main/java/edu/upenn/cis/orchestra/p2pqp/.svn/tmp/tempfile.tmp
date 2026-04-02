@@ -1,0 +1,72 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+import java.util.Arrays;
+
+import edu.upenn.cis.orchestra.datamodel.ByteBufferReader;
+import edu.upenn.cis.orchestra.datamodel.ByteBufferWriter;
+
+public class KeyandEpoch {
+	private final int epoch;
+	private final byte[] key;
+	
+	public KeyandEpoch (QpTuple<UpdateProvenance> tuple) {
+		this.epoch = tuple.getEpoch();
+		this.key = tuple.getKeyBytes();
+	}
+
+	public KeyandEpoch (byte[] key, int epoch) {
+		this.epoch = epoch;
+		this.key = key; 
+	}
+	public int getEpoch() {
+		return this.epoch;
+	}
+	
+	public byte[] getKey() {
+		return this.key;
+	}
+	
+	/**
+	 * Serialize ourselves
+	 * 
+	 * @return
+	 */
+	public byte[] getBytes() {
+		ByteBufferWriter bbw = new ByteBufferWriter();
+		
+		bbw.addToBuffer(key);
+		bbw.addToBuffer(epoch);
+		
+		return bbw.getByteArray();
+	}
+
+	/**
+	 * Deserialize a new KeyandEpoch from the buffer
+	 * 
+	 * @param buf
+	 * @return
+	 */
+	public static KeyandEpoch fromBytes(byte[] buf) {
+		ByteBufferReader bbr = new ByteBufferReader(buf);
+		
+		return fromBytes(bbr);
+	}
+	
+	public static KeyandEpoch fromBytes(ByteBufferReader bbr) {
+		byte[] key = bbr.readByteArray();
+		int epoch = bbr.readInt();
+		
+		return new KeyandEpoch(key, epoch);
+	}
+	
+	public int hashCode() { 
+		return Arrays.hashCode(this.key); 
+	}
+	
+	public boolean equals(Object o) {
+		if ((o == null) || (o.getClass()) != this.getClass()) return false;
+		KeyandEpoch t = (KeyandEpoch) o;
+		if (t.getEpoch() != this.epoch) return false;
+		return (Arrays.equals(t.getKey(), this.getKey()));
+	}
+}

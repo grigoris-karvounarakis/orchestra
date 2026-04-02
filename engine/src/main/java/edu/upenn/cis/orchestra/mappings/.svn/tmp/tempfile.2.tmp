@@ -1,0 +1,567 @@
+package edu.upenn.cis.orchestra.mappings;
+
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.xml.ws.Holder;
+
+import edu.upenn.cis.orchestra.Debug;
+import edu.upenn.cis.orchestra.datamodel.OrchestraSystem;
+import edu.upenn.cis.orchestra.datamodel.RelationContext;
+import edu.upenn.cis.orchestra.datamodel.ScMapping;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtom;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtomArgument;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtomSkolem;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtomVariable;
+import edu.upenn.cis.orchestra.datamodel.UntypedAtom;
+import edu.upenn.cis.orchestra.datamodel.ScMappingAtom.AtomType;
+import edu.upenn.cis.orchestra.exchange.RuleCodeGen;
+import edu.upenn.cis.orchestra.exchange.RuleCodeGen.UPDATE_TYPE;
+import edu.upenn.cis.orchestra.exchange.sql.RuleSqlGen;
+import edu.upenn.cis.orchestra.mappings.exceptions.CompositionException;
+import edu.upenn.cis.orchestra.mappings.exceptions.RelationNotFoundException;
+import edu.upenn.cis.orchestra.util.PositionedString;
+
+public class Rule extends ScMapping
+{
+	List<RuleEqualityAtom> _eqAtoms=new ArrayList<RuleEqualityAtom> ();
+	
+	/** Maps a variables with a selection from the first relation in the
+	 *  body associated with this variable... cf. buildVarMap
+	 */
+	Map<String,String> _varmap;
+
+	private boolean _clearNcopy = false;
+//	private boolean _headEmpty = false;
+	private boolean _deleteFromHead = false; 
+	private boolean _onlyKeyAndNulls = false;
+	private boolean _replaceValsWithNullValues = false;
+	private boolean _edb = false;
+	private boolean _distinct = false;
+	
+	RuleCodeGen _code;
+	List<Integer> _preparedParams = new ArrayList<Integer>();
+	
+	public Rule (ScMappingAtom head, ScMappingAtom b)
+	{
+		super(head.deepCopy(), b.deepCopy());
+		_code = new RuleSqlGen(this);
+	}
+	
+	public Rule (ScMappingAtom head, List<ScMappingAtom> body)
+	{
+		_code = new RuleSqlGen(this);
+		_head.add(head.deepCopy());
+		for (ScMappingAtom atom : body)
+			_body.add(new ScMappingAtom(atom).deepCopy());
+	}
+
+	public Rule (ScMappingAtom head, List<ScMappingAtom> body, boolean onlyKeyAndNulls)
+	{
+		this (head, body);
+		_code = new RuleSqlGen(this);
+		_onlyKeyAndNulls = onlyKeyAndNulls;
+		//_onlyKeyAndNulls = false;
+	}
+	
+	/**
+	 * Get the rule's head 
+	 * @return Rule's head
+	 */
+	public ScMappingAtom getHead ()
+	{
+		return _head.get(0);
+	}
+
+	public void addPreparedParam(int i) {
+		_preparedParams.add(i);
+	}
+	
+	public List<Integer> preparedParams() {
+		return _preparedParams;
+	}
+	
+	public void setReplaceValsWithNullValues(){
+		_replaceValsWithNullValues = true;
+	}
+	
+	public boolean replaceValsWithNullValues(){
+		return _replaceValsWithNullValues;
+	}
+	
+	public void setEdb(){
+		_edb = true;
+	}
+	
+	public boolean edb(){
+		return _edb;
+	}
+	
+	public void setDistinct(){
+		_distinct = true;
+	}
+	
+	public boolean distinct(){
+		return _distinct;
+	}
+	
+	public void setOnlyKeyAndNulls(){
+		_onlyKeyAndNulls = true;
+	}
+	
+	public boolean onlyKeyAndNulls(){
+		return _onlyKeyAndNulls;
+	}
+	
+	public boolean deleteFromHead(){
+		return _deleteFromHead;
+	}
+	
+	public void setDeleteFromHead(){
+		_deleteFromHead = true;
+	}
+	
+//	public boolean headEmpty(){
+//		return _headEmpty;
+//	}
+//	
+//	public void setHeadEmpty(){
+//		_headEmpty = true;
+//	}
+	
+	public boolean clearNcopy(){
+		return _clearNcopy;
+	}
+	
+	public void setClearNcopy(){
+		_clearNcopy = true;
+	}
+	
+	public Rule composeWith (int atomIndex, Rule rule)
+				throws CompositionException
+	{
+		assert(getBody().get(atomIndex).getRelation() == rule.getHead().getRelation()) : 
+							"Impossible to compose with different relations in the atoms!";
+		// Freshen the mapping to compose with; to avoid variables confusions between the two mappings
+		rule = rule.fresh(true);
+		
+		// Prepare the new body: atom at atomIndex replaced by freshen rule body
+		List<ScMappingAtom> newBody = new ArrayList<ScMappingAtom> ();
+		newBody.addAll(getBody());
+		ScMappingAtom removedAtom = newBody.get(atomIndex);
+		newBody.remove(atomIndex);
+		int indAtom=0;
+		for (ScMappingAtom atom : rule.getBody())
+			newBody.add(atomIndex + indAtom++, atom);
+
+		// Create the new Rule
+		Rule res = new Rule (getHead(), newBody, onlyKeyAndNulls());
+		
+		// Copy the existing equalities atoms
+		for (RuleEqualityAtom atom : getEqAtoms())
+			res.addEqAtom(atom);
+		
+		// Add the equalities atoms to define equalities between the initial mapping variables
+		// and the new composed mapping variables
+		for (int i = 0 ; i < removedAtom.getValues().size() ; i++)
+			res.addEqAtom(new RuleEqualityAtom(removedAtom.getValues().get(i), rule.getHead().getValues().get(i)));
+		
+		return res;
+	}
+	
+	public void eliminateEqualities ()
+	{
+		for (int i = 0 ; i < getEqAtoms().size() ; i++)
+		{
+			// Get into val1 an atomValue that should be 
+			// substituted with val2
+			RuleEqualityAtom eqAtom = getEqAtoms().get(i);
+			ScMappingAtomArgument val1 = eqAtom.getVal1();
+			ScMappingAtomArgument val2 = eqAtom.getVal2();
+			assert (val1.couldBeSubstitutedWith(val2)
+						|| val2.couldBeSubstitutedWith(val1));
+			
+			// An equality between two skolems is actually an equality between the 
+			// skolems parameters one to one (f(x,y)=f(u,v) iff x=u and y=v)
+			if (val1 instanceof ScMappingAtomSkolem && val2 instanceof ScMappingAtomSkolem)
+			{
+				Iterator<ScMappingAtomArgument> itParam1 = ((ScMappingAtomSkolem) val1).getParams().iterator();
+				Iterator<ScMappingAtomArgument> itParam2 = ((ScMappingAtomSkolem) val2).getParams().iterator();
+				while (itParam1.hasNext())
+					try
+					{
+						addEqAtom(new RuleEqualityAtom(itParam1.next(), itParam2.next()));
+					} catch (CompositionException ex)
+					{
+						assert(false) : "Composition exception should not happen while removing equalities, compatibilities already checked when creating equalities!";
+					}
+			}
+			else
+			{
+				if (!val1.couldBeSubstitutedWith(val2))
+				{
+					val1 = val2;
+					val2 = eqAtom.getVal1();
+				}
+				
+				// Run the substitution for all the atoms
+				getHead().substitute(val1, val2);
+				for (ScMappingAtom atom : getBody())
+					atom.substitute(val1, val2);
+			}
+		}
+		_eqAtoms.clear();
+	}
+	
+	
+	/**
+	 * Return a new mapping with all variables renamed to a new, unique name
+	 * @param asNewObject If true then a new freshen rule will be returned, if false this rule will be
+	 * 					freshen and then returned 
+	 * @return
+	 */
+	public Rule fresh (boolean asNewObject)
+	{
+		Map<String,String> newNames = new HashMap<String, String> ();
+		return fresh (newNames, asNewObject);
+	}
+	
+	
+	/**
+	 * Return a new mapping with all variables renamed to a new, unique name or to the name mapped 
+	 * in varsNameMap if it exists in the map
+	 * @param varsNameMap Map old variable name to new variable name. Note: will be completed with new names 
+	 * 					  affected to variables which were not in the initial map
+	 * @param asNewObject If true then a new freshen rule will be returned, if false this rule will be
+	 * 					freshen and then returned 
+	 * @return
+	 */
+	public Rule fresh (Map<String,String> varsNameMap, boolean asNewObject)
+	{
+
+		ScMappingAtom newHead = getHead().fresh(varsNameMap, asNewObject);
+		List<ScMappingAtom> newBody = new ArrayList<ScMappingAtom> ();
+		for (ScMappingAtom atom : getBody())
+			newBody.add (atom.fresh(varsNameMap, asNewObject));
+		
+		List<RuleEqualityAtom> newEqAtoms = new ArrayList<RuleEqualityAtom> ();
+		for (RuleEqualityAtom eq : getEqAtoms())
+			newEqAtoms.add(eq.fresh (varsNameMap, asNewObject));
+		
+		if (asNewObject)
+		{
+			Rule res =  new Rule (newHead, newBody, onlyKeyAndNulls());		
+			for (RuleEqualityAtom eq : newEqAtoms)
+				res.addEqAtom(eq);		
+			return res;
+		}
+		else
+		{
+			_head.remove(0);
+			_head.add(newHead);
+			_body = newBody;
+			_eqAtoms = newEqAtoms;
+			return this;
+		}
+	}
+	
+	
+	/**
+	 * Get the rule's body.<BR>
+	 * Note: this is not a deep copy (even the list)
+	 * @return Rule's body
+	 */
+	public List<ScMappingAtom> getBody ()
+	{
+		return _body;
+	}
+	
+	public void addEqAtom (RuleEqualityAtom atom)
+	{
+		_eqAtoms.add (atom);
+	}
+	
+	/**
+	 * Get the rule's equalities atoms (define equality between two variables).<BR>
+	 * Note: this is not a deep copy
+	 * @return
+	 */
+	public List<RuleEqualityAtom> getEqAtoms ()
+	{
+		return _eqAtoms;
+	}
+	
+	@Override
+	public String toString ()
+	{
+		StringBuffer buffer = new StringBuffer ();
+		buffer.append(getHead().toString());
+		buffer.append (" :- ");
+		
+		boolean firstAtom = true;
+		for (ScMappingAtom atom : getBody())
+		{
+			buffer.append((firstAtom?"":", ") + atom.toString());
+			firstAtom = false;
+		}
+		buffer.append("  ");
+		firstAtom = true;
+		for (RuleEqualityAtom eq : getEqAtoms())
+		{
+			buffer.append ((firstAtom?"":", ") + eq.toString());
+			firstAtom = false;
+		}
+		
+		return buffer.toString();
+	}
+
+	public void printString ()
+	{
+		Debug.print(getHead().toString());
+		Debug.print(" :- ");
+		
+		boolean firstAtom = true;
+		for (ScMappingAtom atom : getBody())
+		{
+			Debug.print((firstAtom?"":", ") + atom.toString());
+			firstAtom = false;
+		}
+		Debug.print("  ");
+		firstAtom = true;
+		for (RuleEqualityAtom eq : getEqAtoms())
+		{
+			Debug.print ((firstAtom?"":", ") + eq.toString());
+			firstAtom = false;
+		}
+		Debug.print("\n");
+	}
+
+	
+	/***
+	 * Olivier: Added to integrate Greg's devt for SIGMOD 2007. Original method name was allVars.
+	 * @return
+	 */
+    public List<ScMappingAtomVariable> getAllBodyVariables(){
+    	List<ScMappingAtomVariable> allVars = new ArrayList<ScMappingAtomVariable>();
+    	Set<String> allVarNames = new HashSet<String> ();
+    	
+    	for (ScMappingAtom atom : getBody())
+        	for(ScMappingAtomArgument val : atom.getValues())
+        	{
+// ignore constants ... and there shouldn't be any skolems in the body anyway
+        		if (val instanceof ScMappingAtomVariable && !allVarNames.contains(val.toString())) { 
+    				allVars.add((ScMappingAtomVariable) val.deepCopy());
+    				allVarNames.add (val.toString());
+        		}
+        		else
+        			if (val instanceof ScMappingAtomSkolem)
+        				assert false : "THERE SHOULD'NT BE ANY SKOLEM IN THE BODY FOR THIS FIRST IMPLEMENTATION";
+        	}
+    	
+        return allVars;
+    }	
+        
+    public List<String> toUpdate(int curIterCnt) {
+    	UPDATE_TYPE u = (clearNcopy() ? UPDATE_TYPE.CLEAR_AND_COPY : 
+    		(deleteFromHead() ? UPDATE_TYPE.DELETE_FROM_HEAD : 
+    			UPDATE_TYPE.OTHER));
+    	List<String> ret = _code.getCode(u, curIterCnt);
+    	return ret;
+    }
+    
+    public List<String> toUpdate(List<String> last, int curIterCnt, List<List<Integer>> preparedParams) {
+    	UPDATE_TYPE u = (clearNcopy() ? UPDATE_TYPE.CLEAR_AND_COPY : 
+    		(deleteFromHead() ? UPDATE_TYPE.DELETE_FROM_HEAD :
+    			UPDATE_TYPE.OTHER));
+    	List<String> ret =  _code.getCode(last, u, curIterCnt);
+    	
+//    	preparedParams.addAll(_preparedParams);
+    	
+//    	Hack - clearNcopy rules -> 3 sql queries. All other rules -> exactly 1 query
+    	preparedParams.add(_preparedParams);
+    	if(clearNcopy()){
+    		preparedParams.add(_preparedParams);
+    		preparedParams.add(_preparedParams);
+    		if(false /*Config.isDB2()*/){ // another two for "volatile card" + not logged initially
+    			preparedParams.add(_preparedParams);
+    			preparedParams.add(_preparedParams);
+    		}
+    	}
+    	_preparedParams = null;
+    	return ret;
+    }
+    
+    public Rule deepCopy(){
+    	List<ScMappingAtom> newbody = new ArrayList<ScMappingAtom> ();
+    	for(ScMappingAtom a : getBody())
+    		newbody.add(a.deepCopy());
+    	Rule res = new Rule(getHead().deepCopy(), newbody, onlyKeyAndNulls());
+    	res._clearNcopy = clearNcopy();
+    	res._deleteFromHead = deleteFromHead();
+//    	res._headEmpty = headEmpty();
+    	res._onlyKeyAndNulls = onlyKeyAndNulls();
+    	return res;
+    }
+    
+    public void substituteVars(Map<String,ScMappingAtomArgument> varmap){
+    	getHead().substituteVars(varmap);
+    	for(ScMappingAtom a : getBody()){
+    		a.substituteVars(varmap);
+    	}
+    }
+    
+    /*
+     *  Greg: May overlap/provide the same functionality with composeWith ...
+     */
+    public List<Rule> substituteAtom(int pos, List<Rule> defs){
+    	List<Rule> res = new ArrayList<Rule>();
+    	Rule common = this.deepCopy();
+    	
+    	// Check if this leaves gap!
+    	ScMappingAtom a = common.getBody().remove(pos);
+    	
+    	for(Rule def : defs){
+//    		Map<String, ScMappingAtomValue> varmap = a.varHomomorphism(def.getHead());
+    		Map<String, ScMappingAtomArgument> varmap = def.getHead().varHomomorphism(a);
+    		
+    		if(varmap != null){
+    			Rule newRule = common.deepCopy();
+    			Rule newDef = def.deepCopy();
+    			newDef.renameExistentialVars();
+    			newDef.substituteVars(varmap);
+    			newRule.getBody().addAll(newDef.getBody());
+    			res.add(newRule);
+    		}
+    	}
+    	return res;
+    }
+    
+    public void renameExistentialVars(){
+    	for(ScMappingAtom a : getBody()){
+    		a.renameExistentialVars(this);
+    	}
+    }
+    
+    public List<Rule> invertForReachabilityTest(boolean invertEdbs, boolean invertOthers, List<RelationContext> edbs) {
+		List<Rule> res = new ArrayList<Rule> ();
+		
+		for(ScMappingAtom a : getBody()){
+			if(!a.isNeg() && !a.isSkolem()){
+				if((invertEdbs && invertOthers) ||
+						(edbs.contains(a.getRelationContext()) && invertEdbs) ||
+						(!edbs.contains(a.getRelationContext()) && invertOthers)){
+					ScMappingAtom newHead = a.deepCopy();
+					newHead.setType(AtomType.INV);
+					
+					ScMappingAtom bodyAtom = getHead().deepCopy();
+					bodyAtom.setType(AtomType.INV);
+					List<ScMappingAtom> newBody = new ArrayList<ScMappingAtom> ();
+					newBody.add(bodyAtom);
+
+					/*
+				boolean allFound = true;
+
+				for(int i = 0; i < newHead.getValues().size() && allFound; i++){
+					ScMappingAtomValue v = newHead.getValues().get(i);
+					if (v instanceof ScMappingAtomValVariable){	
+						ScMappingAtomValVariable var1 = (ScMappingAtomValVariable)v;
+						boolean varFound = false;
+						for(ScMappingAtomValue vv : bodyAtom.getValues()){
+							if(vv instanceof ScMappingAtomValVariable){	
+								ScMappingAtomValVariable var2 = (ScMappingAtomValVariable)vv;
+								if(var1.getName().equals(var2.getName())){
+									varFound = true;
+									break;
+								}
+							}
+						}
+						allFound = allFound && varFound;
+					}
+				}
+
+				if(!allFound){
+					 */
+					ScMappingAtom safeBody = newHead.deepCopy();
+					safeBody.setType(AtomType.NEW);
+					newBody.add(safeBody);
+					
+					//}
+					Rule newRule = new Rule(newHead, newBody, onlyKeyAndNulls());
+					
+					for(ScMappingAtomArgument v : newRule.getAllBodyVariables()){
+						if(v instanceof ScMappingAtomVariable){
+							ScMappingAtomVariable var = (ScMappingAtomVariable)v;
+							if(var.isSkolem()){
+								newRule.getBody().add(var.skolemDef());
+							}
+						}
+					}
+					
+
+					
+					res.add(newRule);
+				}
+			}else{
+//				int foo = 1;
+			}
+		}
+		return res;
+    
+    }
+
+	protected static void complain(PositionedString str, String expected) throws ParseException {
+		throw new ParseException("Expected " + expected + " in string \'" + str.getString() 
+				+ "\' at position " + str.getPosition(), str.getPosition());
+	}
+	
+    static public Rule parse(OrchestraSystem catalog, String rule) throws ParseException, RelationNotFoundException {
+    	Holder<Integer> counter = new Holder<Integer>(0);
+    	PositionedString str = new PositionedString(rule);
+    	str.skipWhitespace();
+    	UntypedAtom h = UntypedAtom.parse(str, counter);
+    	str.skipWhitespace();
+    	if (!str.skipString(":-")) {
+    		complain(str, "':-'");
+    	}
+    	str.skipWhitespace();
+    	ArrayList<ScMappingAtom> body = new ArrayList<ScMappingAtom>();
+<<<<<<< .mine
+    	Pattern pat = Pattern.compile("[^(]+\\(([^']|('([^'\\\\]|\\\\.)*')*)*\\)");	// TODO: support skolems
+    	Matcher mat = pat.matcher(bod);
+    	while (mat.find()) {
+    		UntypedAtom b = UntypedAtom.parse(mat.group(), counter);
+=======
+    	boolean first = true;
+		str.skipWhitespace();
+    	while (str.inRange()) {
+    		if (first) {
+    			first = false;
+    		} else {
+    			if (!str.skipString(",")) {
+    				complain(str, "','");
+    			}
+    			str.skipWhitespace();
+    		}
+    		UntypedAtom b = UntypedAtom.parse(str, counter);
+>>>>>>> .r4828
+    		ScMappingAtom n = b.getTyped(catalog);
+    		body.add(n);
+			str.skipWhitespace();
+    	}
+    	ScMappingAtom th;
+    	try {
+    		th = h.getTyped(catalog);
+    	} catch (ParseException e) {
+    		th = h.getTyped(body);
+    	} catch (RelationNotFoundException e) {
+    		th = h.getTyped(body);
+    	}
+    	return new Rule(th, body);
+    }
+}

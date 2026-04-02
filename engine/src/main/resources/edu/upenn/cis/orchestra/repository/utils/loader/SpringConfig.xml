@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="mysqlConn"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://dbgrpbuild.cis.upenn.edu/orchestraRepos" />
+		<property name="username" value="orchestra" />
+		<property name="password" value="orchestra" />
+	</bean>
+		<bean id="ppodPenn"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://localhost/ppod_penn" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
+	</bean>
+	<bean id="db2Conn"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		destroy-method="close">
+		<property name="driverClassName"
+			value="com.ibm.db2.jcc.DB2Driver" />
+		<!--		<property name="url"-->
+		<!--			value="jdbc:db2://clust-dbserv.dbgroup.cis.upenn.edu:50000/BIOTBZ" />-->
+		<property name="url" value="jdbc:db2://localhost:50000/BIOTBS" />
+		<property name="username" value="db2admin" />
+		<property name="password" value="4sa7ya" />
+	</bean>
+</beans>

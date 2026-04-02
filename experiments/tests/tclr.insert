@@ -1,0 +1,6 @@
+CONNECT TO SIGMOD USER GKARVOUN USING GREG#00;
+insert into E_L_INS(x, y) values (1, 2);
+insert into E_L_INS(x, y) values (2, 3);
+insert into E_L_INS(x, y) values (3, 1);
+COMMIT WORK;
+DISCONNECT ALL;

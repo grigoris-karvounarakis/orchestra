@@ -1,0 +1,26 @@
+#PEERS:  10
+EXP:schema=10p
+>        set applybaseDel=false
+EXP:applybaseDel=false
+>        set applybaseIns=true
+EXP:applybaseIns=true
+22449 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=false
+EXP:applybaseIns=false
+39983 
+32963 
+32979 
+33260 
+32745 
+32386 
+31825 
+35678 
+35428 
+36162 
+30326 
+33135 
+31450 
+31247 
+30686 

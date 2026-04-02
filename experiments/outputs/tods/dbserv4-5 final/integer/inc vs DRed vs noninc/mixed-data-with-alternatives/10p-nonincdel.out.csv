@@ -1,0 +1,157 @@
+#PEERS:  10
+EXP:schema=10p
+>         set applybaseDel=false
+EXP:applybaseDel=false
+>         set applybaseIns=false
+EXP:applybaseIns=false
+NET: Cleanup prepared statements
+>           subtractLInsDel
+31404 
+>           subtractLInsDel
+32745 
+>           subtractLInsDel
+32417 
+>           subtractLInsDel
+32449 
+>           subtractLInsDel
+32683 
+>           subtractLInsDel
+29921 
+>           subtractLInsDel
+31684 
+>           subtractLInsDel
+35522 
+>           subtractLInsDel
+34445 
+>           subtractLInsDel
+35538 
+>           subtractLInsDel
+30810 
+>           subtractLInsDel
+30811 
+>           subtractLInsDel
+31372 
+>           subtractLInsDel
+31528 
+>           subtractLInsDel
+31980 
+>           subtractLInsDel
+28205 
+>           subtractLInsDel
+25475 
+>           subtractLInsDel
+25117 
+>           subtractLInsDel
+25148 
+>           subtractLInsDel
+25069 
+>           subtractLInsDel
+22730 
+>           subtractLInsDel
+22808 
+>           subtractLInsDel
+22792 
+>           subtractLInsDel
+22777 
+>           subtractLInsDel
+22792 
+>           subtractLInsDel
+20452 
+>           subtractLInsDel
+20452 
+>           subtractLInsDel
+20405 
+>           subtractLInsDel
+20467 
+>           subtractLInsDel
+20420 
+>           subtractLInsDel
+18128 
+>           subtractLInsDel
+18143 
+>           subtractLInsDel
+18143 
+>           subtractLInsDel
+18564 
+>           subtractLInsDel
+18174 
+>           subtractLInsDel
+15850 
+>           subtractLInsDel
+15850 
+>           subtractLInsDel
+17675 
+>           subtractLInsDel
+16333 
+>           subtractLInsDel
+15834 
+>           subtractLInsDel
+13588 
+>           subtractLInsDel
+13588 
+>           subtractLInsDel
+13572 
+>           subtractLInsDel
+13604 
+>           subtractLInsDel
+13603 
+>           subtractLInsDel
+11185 
+>           subtractLInsDel
+11232 
+>           subtractLInsDel
+11201 
+>           subtractLInsDel
+11170 
+>           subtractLInsDel
+11201 
+41886 
+41497 
+36676 
+36037 
+36036 
+35849 
+34976 
+34929 
+34991 
+34633 
+34663 
+34601 
+34679 
+35397 
+34695 
+34664 
+34695 
+42386 
+41465 
+40358 
+38517 
+35100 
+35069 
+35116 
+34710 
+34695 
+34617 
+34617 
+37487 
+34929 
+35023 
+34975 
+34570 
+34617 
+34586 
+39328 
+40638 
+40296 
+40388 
+34866 
+34679 
+34663 
+34632 
+34679 
+34570 
+34554 
+35116 
+34991 
+34991 
+34929 

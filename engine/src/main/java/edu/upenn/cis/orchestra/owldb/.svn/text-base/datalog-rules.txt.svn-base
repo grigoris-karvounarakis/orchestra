@@ -1,0 +1,521 @@
+0: rest(C,'owl:minCardinality',R,M):-rest(C,'owl:cardinality',R,M)
+
+0: rest(C,'owl:maxCardinality',R,M):-rest(C,'owl:cardinality',R,M)
+
+0: stm(C,'rdfs:subClassOf',D):-rest(C,'owl:hasValue',R,I),
+	rest(D,'owl:hasValue',R,I)
+
+0: stm(C,'rdfs:subClassOf',D):-rest(C,'owl:hasValue',R1,I),
+	rest(D,'owl:hasValue',R2,I),
+	stm(R1,'rdfs:subPropertyOf',R2)
+
+0: stm(C,'rdfs:subClassOf',D):-rest(C,'owl:allValuesFrom',R1,A),
+	rest(D,'owl:allValuesFrom',R2,B),
+	stm(A,'rdfs:subClassOf',B),
+	stm(R1,'rdfs:subPropertyOf',R2)
+
+0: stm(C,'rdfs:subClassOf',D):-rest(C,'owl:hasValue',R1,I),
+	rest(D,'owl:allValuesFrom',R2,B),
+	stm(I,'rdf:type',B),
+	stm(R1,'rdfs:subPropertyOf',R2)
+
+0: stm(C,'rdfs:subClassOf',E) :- stm(C,'rdfs:subClassOf',D),
+	stm(D,'rdfs:subClassOf',E)
+
+0: stm(C,'rdfs:subClassOf',D) :- stm(C,'owl:equivalentClass',D)
+
+0: stm(D,'rdfs:subClassOf',C) :- stm(C,'owl:equivalentClass',D)
+
+0: stm(C,'owl:equivalentClass',D):-stm(D,'rdfs:subClassOf',C),
+	stm(C,'rdfs:subClassOf',D) 
+
+0: stm(C,'rdfs:subClassOf',D) :- stm(P,'rdfs:domain',D),
+	rest(C,'owl:hasValue',P,I)
+
+0: stm(P1,'rdfs:domain',D) :- stm(P2,'rdfs:domain',D),
+	stm(P1,'rdfs:subPropertyOf',P2)
+
+0: stm(I2,p,I3) :- stm(P,'rdf:type','owl:TransitiveProperty'),
+	stm(I1,P,I2),
+	stm(I2,P,I3)
+
+#0: stm(P1,'rdfs:range',D) :- stm(P2,'rdfs:range',D),
+#	stm(P1,'rdfs:subPropertyOf',P2)
+
+0: stm(C,'rdfs:subClassOf',D) :- rest(C,'owl:hasValue',P1,I),
+	rest(D,'owl:allValuesFrom',P2,C1),
+	stm(P1,'rdfs:subPropertyOf',P2),
+	stm(C1,'owl:oneOf',B1),
+	list(B1,I)
+
+0: stm(C,'rdfs:subClassOf',D) :- rest(C,'owl:hasValue',P,I1),
+	rest(D,'owl:hasValue',P,I2),
+	stm(P,'rdf:type','owl:TransitiveProperty'),
+	stm(I1,P,I2)
+
+1: stm(C,'rdfs:subClassOf',C) :- stm(C,'rdf:type','owl:Class')
+
+67: stm(C,'rdfs:subClassOf',D) :- stm(C,'owl:intersectionOf',B),
+	list(B,D)
+
+68: stm(C,'rdfs:subClassOf',D) :- stm(D,'owl:unionOf',B),
+	list(B,C)
+
+69a: owldb.OWLDB.hasSubclassIn(C1,B2):-list(B2,C2),
+	stm(A,'owl:intersectionOf',B2),
+	stm(C2,'rdfs:subClassOf',C1)
+
+69b: owldb.OWLDB.hasClassWithNoSubclassIn(B1,B2):-list(B1,C1),
+	stm(A,'owl:intersectionOf',B1),
+	list(B2,D),
+	neq(B1,B2),
+	NOT_owldb.OWLDB.hasSubclassIn(C1,B2)
+
+69c: stm(A,'rdfs:subClassOf',B):-stm(A,'owl:intersectionOf',B1),
+	stm(B,'owl:intersectionOf',B2),
+	list(B1,C1),
+	list(B2,C2),
+	stm(C1,'rdfs:subClassOf',C2),
+	NOT_owldb.OWLDB.hasClassWithNoSubclassIn(B2,B1)
+
+0: owldb.OWLDB.hasNoMemberIn(C,D):-stm(C,'owl:oneOf',B1),
+	stm(D,'owl:oneOf',B2),
+	list(B1,I),
+	NOT_list(B2,I)
+
+0: stm(C,'rdfs:subClassOf',D):-stm(C,'owl:oneOf',B1),
+	stm(D,'owl:oneOf',B2),
+	NOT_owldb.OWLDB.hasNoMemberIn(C,D)
+
+2: stm(C,'rdfs:subClassOf',D) :- stm(C,'owl:intersectionOf',B1),
+	stm(D,'owl:unionOf',B2),
+	list(B1,C1),
+	list(B2,C1)
+
+3: stm(C,'rdfs:subClassOf',D) :- stm(C1,'rdfs:subClassOf',D),
+	stm(C,'owl:intersectionOf', B1),
+	list(B1,C1)
+
+4: stm(C,'rdfs:subClassOf',D) :- stm(C,'rdfs:subClassOf',C2),
+	stm(D,'owl:unionOf', B1),
+	list(B1,C2)
+
+#5a: *NOT_owldb.OWLDB.hasNoSuperclassIn(C,B) :- 
+
+5a: owldb.OWLDB.hasNoSuperclassIn(C,B) :- list(B,D),
+	stm(C,'rdfs:subClassOf',C2),
+	stm(A,'owl:intersectionOf',B),
+	NOT_owldb.OWLDB.STATEMENTS(C,'rdfs:subClassOf',D)
+
+5a: stm(C, 'rdfs:subClassOf',D) :- stm(C,'rdfs:subClassOf',C1),
+	stm(D,'owl:intersectionOf',B),
+	list(B,C1),
+	NOT_owldb.OWLDB.hasNoSuperclassIn(C,B)
+
+5b: stm(C,'rdfs:subClassOf', D) :- stm(C,'rdfs:subClassOf',C3),
+	stm(C3,'owl:intersectionOf', B1),
+	list(B1,D)
+
+#6a: stm(C,'rdfs:subClassOf',D) :- stm(C2,'rdfs:subClassOf',D),
+#	stm(C3,'rdfs:subClassOf',D),
+#	stm(C,'owl:unionOf',B1),
+#	list(B1,C2),
+#	list(B1,C3)
+
+6b: stm(C,'rdfs:subClassOf',D) :- stm(C4,'rdfs:subClassOf',D),
+	stm(C4,'owl:unionOf',B1),
+	list(B1,C)
+
+#7: stm(C,'rdfs:subClassOf',D) :- stm(C1,'rdfs:subClassOf',C2),
+#	stm(C4,'owl:intersectionOf',B1),
+#	list(B1,C2),
+#	list(B1,C3),
+#	stm(C4,'rdfs:subClassOf',D),
+#	stm(C,'owl:intersectionOf',B2),
+#	list(B2,C1),
+#	list(B2,C3)
+
+8a: stm(C, 'rdf:type', 'owl:Class') :- stm(I, 'rdf:type', C)
+
+8b: stm('owl:Nothing', 'rdfs:subClassOf', C) :- stm(C, 'rdf:type', 'owl:Class')
+
+9: stm(C, 'rdfs:subClassOf', 'owl:Thing') :- stm(C, 'rdf:type', 'owl:Class')
+
+10a: stm('owl:Thing', 'rdfs:subClassOf', C1) :-
+	stm('owl:Thing', 'rdfs:subClassOf', C),
+	rest(C1, 'owl:allValuesFrom', R, C)
+
+10b: stm('owl:Thing', 'rdfs:subClassOf', C) :-
+	stm('owl:Thing', 'rdfs:subClassOf', C1),
+	rest(C1, 'owl:allValuesFrom', R, C)
+
+11a: stm(C1, 'rdfs:subClassOf', 'owl:Nothing') :-
+	stm(C, 'rdfs:subClassOf', 'owl:Nothing'),
+	rest(C1, 'owl:someValuesFrom', R, C)
+
+11b: stm(C, 'rdfs:subClassOf', 'owl:Nothing') :-
+	stm(C1, 'rdfs:subClassOf', 'owl:Nothing'),
+	rest(C1, 'owl:someValuesFrom',R,  C)
+
+12: stm(C, 'rdfs:subClassOf', D) :-
+	rest(C, 'owl:allValuesFrom',R1,  C1),
+	rest(D, 'owl:allValuesFrom',R2,  C2),
+	stm(C1, 'rdfs:subClassOf', C2),
+	stm(R2, 'rdfs:subPropertyOf', R1)
+
+13: stm(C, 'rdfs:subClassOf', D) :-
+	rest(C, 'owl:someValuesFrom',R1,  C1),
+	rest(D, 'owl:someValuesFrom',R2,  C2),
+	stm(C1, 'rdfs:subClassOf', C2),
+	stm(R1, 'rdfs:subPropertyOf', R2)
+
+14: stm(C, 'rdfs:subClassOf', 'owl:Nothing') :-
+	stm(C, 'owl:intersectionOf', B1),
+	list(B1, C3),
+	list(B1, C4),
+	rest(C3, 'owl:allValuesFrom', R2, C2),
+	rest(C4, 'owl:someValuesFrom',R1,  C1),
+	stm(C5, 'rdfs:subClassOf', 'owl:Nothing'),
+	stm(C5, 'owl:intersectionOf', B1),
+	list(B1, C2),
+	list(B1, C1),
+	stm(R1, 'rdfs:subPropertyOf', R2)
+
+15: stm('owl:Thing', 'rdfs:subClassOf', D) :-
+	stm(D, 'owl:unionOf', B1),
+	list(B1, C3),
+	list(B1, C4),
+	rest(C3, 'owl:someValuesFrom', R2, C2),
+	rest(C4, 'owl:allValuesFrom', R1, C1),
+	stm('owl:Thing', 'rdfs:subClassOf', C5),
+	stm(C5, 'owl:unionOf', B1),
+	list(B1, C2),
+	list(B1, C1),
+	stm(R1, 'rdfs:subPropertyOf', R2)
+
+16: stm(C, 'rdfs:subClassOf', D) :-
+	rest(D, 'owl:allValuesFrom', R3, C3),
+	stm(C, 'owl:intersectionOf', B1),
+	list(B1, C4),
+	list(B1, C5),
+	rest(C4, 'owl:allValuesFrom', R1, C1),
+	rest(C5, 'owl:allValuesFrom', R2, C2),
+	stm(C6, 'rdfs:subClassOf', C3),
+	stm(C6, 'owl:intersectionOf', B2),
+	list(B2, C1),
+	list(B2, C2),
+	stm(R3, 'rdfs:subPropertyOf', R1),
+	stm(R3, 'rdfs:subPropertyOf', R2)
+
+17: stm(C, 'rdfs:subClassOf', D) :-
+	rest(C,'owl:someValuesFrom',R3,C3),
+	stm(D, 'owl:unionOf', B1),
+	list(B1, C4),
+	list(B1, C5),
+	rest(C4, 'owl:someValuesFrom',R1,  C1),
+	rest(C5, 'owl:someValuesFrom', R2, C2),
+	stm(C3, 'rdfs:subClassOf', C6),
+	stm(C6, 'owl:unionOf', B2),
+	list(B2, C1),
+	list(B2, C2),
+	stm(R3, 'rdfs:subPropertyOf', R1),
+	stm(R3, 'rdfs:subPropertyOf', R2)
+
+18: stm(C, 'rdfs:subClassOf', D) :-
+	rest(D, 'owl:someValuesFrom', R3, C3),
+	stm(C, 'owl:intersectionOf', B1),
+	list(B1, C4),
+	list(B1, C5),
+	rest(C4, 'owl:allValuesFrom', R1, C1),
+	rest(C5, 'owl:someValuesFrom', R2, C2),
+	stm(C6, 'rdfs:subClassOf', C3),
+	stm(C6, 'owl:intersectionOf', B2),
+	list(B2, C1),
+	list(B2, C2),
+	stm(R2, 'rdfs:subPropertyOf', R1),
+	stm(R2, 'rdfs:subPropertyOf', R3)
+
+19: stm(C, 'rdfs:subClassOf', D) :-
+	rest(C,'owl:allValuesFrom',R3,C3),
+	stm(D, 'owl:unionOf', B1),
+	list(B1, C4),
+	list(B1, C5),
+	rest(C4, 'owl:someValuesFrom', R1, C1),
+	rest(C5, 'owl:allValuesFrom', R2, C2),
+	stm(C3, 'rdfs:subClassOf', C6),
+	stm(C6, 'owl:unionOf', B2),
+	list(B2, C1),
+	list(B2, C2),
+	stm(R2, 'rdfs:subPropertyOf', R1),
+	stm(R2, 'rdfs:subPropertyOf', R3)
+
+20: stm(C1, 'rdfs:subClassOf', 'owl:Nothing') :-
+	stm(C1, 'owl:intersectionOf', B1),
+	list(B1, C),
+	list(B1, C2),
+	stm(C2, 'owl:complementOf', C)
+
+21: stm('owl:Thing', 'rdfs:subClassOf', C1) :-
+	stm(C1, 'owl:unionOf', B1),
+	list(B1, C),
+	list(B1, C2),
+	stm(C2, 'owl:complementOf', C)
+
+22a: stm(C, 'rdfs:subClassOf', D) :-
+	stm(D, 'owl:intersectionOf', B1),
+	list(B1, C3),
+	list(B1, C4),
+	stm(C4, 'owl:complementOf', C2),
+	stm(C5, 'rdfs:subClassOf', C3),
+	stm(C5, 'owl:intersectionOf', B2),
+	list(B2, C1),
+	list(B2, C2)
+
+22b: stm(C, 'rdfs:subClassOf', D) :-
+	stm(C3, 'owl:intersectionOf', B1),
+	list(B1, D),
+	list(B1, C4),
+	stm(C4, 'owl:complementOf', C2),
+	stm(C1, 'rdfs:subClassOf', C3),
+	stm(C, 'owl:intersectionOf', B2),
+	list(B2, C1),
+	list(B2, C2)
+
+23a: stm(C, 'rdfs:subClassOf', D) :-
+	stm(C, 'owl:intersectionOf', B1),
+	list(B1, C1),
+	list(B1, C4),
+	stm(C4, 'owl:complementOf', C2),
+	stm(C1, 'rdfs:subClassOf', C5),
+	stm(C5, 'owl:unionOf', B2),
+	list(B2, C2),
+	list(B2, D)
+
+23b: stm(C, 'rdfs:subClassOf', D) :-
+	stm(C5, 'owl:intersectionOf', B1),
+	list(B1, C),
+	list(B1, C4),
+	stm(C4, 'owl:complementOf', C2),
+	stm(C5, 'rdfs:subClassOf', C3),
+	stm(D, 'owl:unionOf', B2),
+	list(B2, C2),
+	list(B2, C3)
+
+24a: stm(C, 'rdfs:subClassOf', D) :-
+	stm(D, 'owl:complementOf', D1),
+	stm(D1, 'owl:complementOf', C)
+
+24b: stm(D, 'rdfs:subClassOf', C) :-
+	stm(D, 'owl:complementOf', D1),
+	stm(D1, 'owl:complementOf', C)
+
+25a: stm(C, 'rdfs:subClassOf', D) :-
+	stm(C, 'owl:complementOf', C3),
+	stm(C3, 'owl:intersectionOf', B1),
+	list(B1, C1),
+	list(B1, C2),
+	stm(D, 'owl:unionOf', B2),
+	list(B2, C4),
+	list(B2, C5),
+	stm(C4, 'owl:complementOf', C1),
+	stm(C5, 'owl:complementOf', C2)
+
+25b: stm(D, 'rdfs:subClassOf', C) :-
+	stm(C, 'owl:complementOf', C3),
+	stm(C3, 'owl:intersectionOf', B1),
+	list(B1, C1),
+	list(B1, C2),
+	stm(D, 'owl:unionOf', B2),
+	list(B2, C4),
+	list(B2, C5),
+	stm(C4, 'owl:complementOf', C1),
+	stm(C5, 'owl:complementOf', C2)
+
+26a: stm(C, 'rdfs:subClassOf', D) :-
+	stm(C, 'owl:complementOf', C3),
+	stm(C3, 'owl:unionOf', B1),
+	list(B1, C1),
+	list(B1, C2),
+	stm(D, 'owl:intersectionOf', B2),
+	list(B2, C4),
+	list(B2, C5),
+	stm(C4, 'owl:complementOf', C1),
+	stm(C5, 'owl:complementOf', C2)
+
+26b: stm(D, 'rdfs:subClassOf', C) :-
+	stm(C, 'owl:complementOf', C3),
+	stm(C3, 'owl:unionOf', B1),
+	list(B1, C1),
+	list(B1, C2),
+	stm(D, 'owl:intersectionOf', B2),
+	list(B2, C4),
+	list(B2, C5),
+	stm(C4, 'owl:complementOf', C1),
+	stm(C5, 'owl:complementOf', C2)
+
+27a: stm(C, 'rdfs:subClassOf', D) :-
+	stm(C, 'owl:complementOf', C1),
+	rest(C1, 'owl:someValuesFrom', R, C),
+	rest(D, 'owl:allValuesFrom', R, C2),
+	stm(C2, 'owl:complementOf', C)
+
+27b: stm(D, 'rdfs:subClassOf', C) :-
+	stm(C, 'owl:complementOf', C1),
+	rest(C1, 'owl:someValuesFrom', R, C),
+	rest(D, 'owl:allValuesFrom', R, C2),
+	stm(C2, 'owl:complementOf', C)
+
+28a: stm(C, 'rdfs:subClassOf', D) :-
+	stm(C, 'owl:complementOf', C1),
+	rest(C1, 'owl:allValuesFrom', R, C),
+	rest(D, 'owl:someValuesFrom', R, C2),
+	stm(C2, 'owl:complementOf', C)
+
+28b: stm(D, 'rdfs:subClassOf', C) :-
+	stm(C, 'owl:complementOf', C1),
+	rest(C1, 'owl:allValuesFrom', R, C),
+	rest(D, 'owl:someValuesFrom', R, C2),
+	stm(C2, 'owl:complementOf', C)
+
+
+29: stm('owl:Thing', 'rdfs:subClassOf', C1) :-
+	rest(C1, 'owl:maxCardinality',R,  N),
+	stm(C, 'rdfs:subClassOf', 'owl:Nothing')
+
+30: stm(C1, 'rdfs:subClassOf', 'owl:Nothing') :-
+	rest(C1, 'owl:minCardinality', R, N),
+	stm(C, 'rdfs:subClassOf', 'owl:Nothing')
+
+31: stm(C1, 'owl:equivalentClass', C2) :-
+	rest(C1, 'owl:minCardinality',R,  1),
+	rest(C2, 'owl:someValuesFrom', R, 'owl:Thing')
+
+32: stm(C1, 'owl:equivalentClass', C2) :-
+	rest(C1, 'owl:minCardinality',R,  1),
+	stm(C2, 'owl:complementOf', C3),
+	rest(C3, 'owl:allValuesFrom',R,  'owl:Nothing')
+
+33: stm(C1, 'owl:equivalentClass', C2) :-
+	rest(C1, 'owl:maxCardinality', R, 0),
+	rest(C2, 'owl:allValuesFrom', R, 'owl:Nothing')
+
+34: stm(C1, 'owl:equivalentClass', C2) :-
+	rest(C1, 'owl:maxCardinality', R, 0),
+	stm(C2, 'owl:complementOf', C3),
+	rest(C3, 'owl:someValuesFrom', R, 'owl:Thing')
+
+35: stm(C1, 'owl:equivalentClass', C2) :-
+	rest(C2, 'owl:maxCardinality', R, M),
+	stm(C1, 'owl:complementOf', C3),
+	rest(C3, 'owl:minCardinality', R, N),
+	sub(M,N,1)
+
+36: stm(C1, 'owl:equivalentClass', C2) :-
+	rest(C2, 'owl:minCardinality', R, M),
+	stm(C1, 'owl:complementOf', C3),
+	rest(C3, 'owl:maxCardinality',R,  N),
+	add(M,N,1)
+
+37: stm(C1, 'rdfs:subClassOf', C2) :-
+	rest(C1, 'owl:minCardinality', R1, M),
+	rest(C2, 'owl:minCardinality', R2, N),
+	stm(R1, 'rdfs:subPropertyOf', R2),
+	leq(N,M)
+
+38: stm(C1, 'rdfs:subClassOf', 'owl:Nothing') :-
+	stm(C1, 'owl:intersectionOf', B1),
+	list(B1, C2),
+	list(B1, C3),
+	rest(C2, 'owl:minCardinality', R1, M),
+	rest(C3, 'owl:maxCardinality', R2, N),
+	stm(R1, 'rdfs:subPropertyOf', R2),
+	less(N,M)
+
+39: stm('owl:Thing', 'rdfs:subClassOf', C1) :-
+	stm(C1, 'owl:unionOf', B1),
+	list(B1, C2),
+	list(B1, C3),
+	rest(C2, 'owl:minCardinality', R1, M),
+	rest(C3, 'owl:maxCardinality', R2, N),
+	stm(R1, 'rdfs:subPropertyOf', R2),
+	less(M,N)
+
+40: stm(C1, 'rdfs:subClassOf', C2) :-
+	rest(C1, 'owl:maxCardinality', R1, M),
+	rest(C2, 'owl:maxCardinality', R2, N),
+	stm(R1, 'rdfs:subPropertyOf', R2),
+	leq(M,N)
+
+41: stm(C1, 'rdfs:subClassOf', 'owl:Nothing') :-
+	stm(C1, 'owl:intersectionOf', B1),
+	list(B1, C2),
+	list(B1, C3),
+	rest(C2, 'owl:minCardinality', R1, M),
+	rest(C3, 'owl:allValuesFrom', R2, 'owl:Nothing'),
+	stm(R1, 'rdfs:subPropertyOf', R2)
+
+42: stm(C1, 'rdfs:subClassOf', 'owl:Nothing') :-
+	stm(C1, 'owl:intersectionOf', B1),
+	list(B1, C2),
+	list(B1, C3),
+	list(B1, C4),
+	rest(C2, 'owl:minCardinality', R1, M),
+	rest(C3, 'owl:maxCardinality', R2, N),
+	rest(C4, 'owl:allValuesFrom', R3, C),
+	stm(R1, 'rdfs:subPropertyOf', R2),
+	stm(R1, 'rdfs:subPropertyOf', R3),
+	less(N,M)
+
+43: stm(C1, 'rdfs:subClassOf', C2) :-
+	rest(C2, 'owl:minCardinality', R2, M),
+	stm(C1, 'owl:intersectionOf', B1),
+	list(B1, C3),
+	list(B1, C4),
+	rest(C3, 'owl:minCardinality', R1, N),
+	rest(C4, 'owl:allValuesFrom', R3, C),
+	stm(R1, 'rdfs:subPropertyOf', R2),
+	stm(R1, 'rdfs:subPropertyOf', R3),
+	leq(M,N)
+
+44: stm(C1, 'rdfs:subClassOf', C2) :-
+	rest(C2, 'owl:maxCardinality', R2, M),
+	stm(C1, 'owl:intersectionOf', B1),
+	list(B1, C3),
+	list(B1, C4),
+	rest(C3, 'owl:maxCardinality', R1, N),
+	rest(C4, 'owl:allValuesFrom', R3, C),
+	stm(R1, 'rdfs:subPropertyOf', R2),
+	stm(R1, 'rdfs:subPropertyOf', R3),
+	leq(N,M)
+
+47: stm(C1, 'rdfs:subClassOf', C2) :-
+	rest(C2, 'owl:maxCardinality', R, M),
+	stm(C1, 'owl:intersectionOf', B1),
+	list(B1, C3),
+	list(B1, C4),
+	rest(C3, 'owl:maxCardinality', R1, N),
+	rest(C4, 'owl:maxCardinality', R2, O),
+	stm(R, 'rdfs:subPropertyOf', R1),
+	stm(R, 'rdfs:subPropertyOf', R2),
+	add(M,N,O)
+
+51: stm(P,'rdfs:subPropertyOf',P) :- stm(S,P,O)
+
+52: stm(P1,'rdfs:subPropertyOf',P4) :- stm(P4,'owl:inverseOf',P2),
+	stm(P1,'owl:inverseOf',P3),
+	stm(P3,'rdfs:subPropertyOf',P2)
+
+53: stm(P1,'owl:equivalentProperty',P2) :- stm(P1,'owl:inverseOf',P),
+	stm(P,'owl:inverseOf',P2)
+
+0: stm(C,'rdfs:subPropertyOf',E) :- stm(C,'rdfs:subPropertyOf',D),
+	stm(D,'rdfs:subPropertyOf',E)
+
+0: stm(C,'rdfs:subPropertyOf',D) :- stm(C,'owl:equivalentProperty',D)
+
+0: stm(D,'rdfs:subPropertyOf',C) :- stm(C,'owl:equivalentProperty',D)
+
+0: stm(C,'owl:equivalentProperty',D):-stm(D,'rdfs:subPropertyOf',C),
+	stm(C,'rdfs:subPropertyOf',D)
+
+0: stm(P2,'owl:inverseOf',P1) :- stm(P1,'owl:inverseOf',P2)

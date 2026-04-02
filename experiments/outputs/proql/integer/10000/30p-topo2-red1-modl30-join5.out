@@ -1,0 +1,1507 @@
+#PEERS:  30p-topo2-red1-modl30-join5
+===========
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/orchestraScripts/proql/integer/10000/test-30p-topo2-red1-modl30-join5
+> 
+>         set apply=true
+EXP: =========================================
+EXP:apply=true
+EXP: =========================================
+>         set batch=false
+EXP: =========================================
+EXP:batch=false
+EXP: =========================================
+>         set incremental=true
+EXP: =========================================
+EXP:incremental=true
+EXP: =========================================
+>         set debug=false
+EXP: =========================================
+EXP:debug=false
+EXP: =========================================
+>         set wideprov=true
+EXP: =========================================
+EXP:wideprov=true
+EXP: =========================================
+>         set autocommit=false
+EXP: =========================================
+EXP:autocommit=false
+EXP: =========================================
+>         set prepare=true
+EXP: =========================================
+EXP:prepare=true
+EXP: =========================================
+>         set union=false
+EXP: =========================================
+EXP:union=false
+EXP: =========================================
+>         set indexall=true
+EXP: =========================================
+EXP:indexall=true
+EXP: =========================================
+>       set rejectionTables=false
+EXP: =========================================
+EXP:rejectionTables=false
+EXP: =========================================
+>         set stratified=true
+EXP: =========================================
+EXP:stratified=true
+EXP: =========================================
+> 
+>         set workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/
+EXP: =========================================
+EXP:workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/
+EXP: =========================================
+>         set schema=30p-topo2-red1-modl30
+EXP: =========================================
+EXP:schema=30p-topo2-red1-modl30
+EXP: =========================================
+>         set skipFakeMappings=true
+EXP: =========================================
+EXP:skipFakeMappings=true
+EXP: =========================================
+>         set queryCutoff=5000000
+EXP: =========================================
+EXP:queryCutoff=5000000
+EXP: =========================================
+>         set transactionCutoff=500000000
+EXP: =========================================
+EXP:transactionCutoff=500000000
+EXP: =========================================
+> #            set queryCutoff=500
+> #            set transactionCutoff=50000
+>         set runStatistics=false
+EXP: =========================================
+EXP:runStatistics=false
+EXP: =========================================
+> 
+>         startUSS
+*******deserializing catalog********
+Unable to find schema map 30p-topo2-red1-modl30
+Successfully verified schema 30p-topo2-red1-modl30
+>         create-noscript
++++ Initialization +++
+EXP: INIT TIME: 655 msec
+> 	
+> join M28 M27 M26 M25 M24
+> join M23 M22 M21 M20 M19
+> join M18 M17 M16 M15 M14
+> join M13 M12 M11 M10 M9
+> join M8 M7 M6 M5 M4
+> join M3 M2 M1 M0
+> 
+>         migrate
+* Adding non-temp table orchestra.P0_S0_R0_NEW
+* Adding non-temp table orchestra.P0_S0_R0_INS
+* Adding non-temp table orchestra.P0_S0_R0_DEL
+* Adding non-temp table orchestra.P0_S0_R0_RCH
+* Adding non-temp table orchestra.P0_S0_R0_INV
+* Adding non-temp table orchestra.P0_S0_R1_NEW
+* Adding non-temp table orchestra.P0_S0_R1_INS
+* Adding non-temp table orchestra.P0_S0_R1_DEL
+* Adding non-temp table orchestra.P0_S0_R1_RCH
+* Adding non-temp table orchestra.P0_S0_R1_INV
+* Adding non-temp table orchestra.P1_S1_R0_NEW
+* Adding non-temp table orchestra.P1_S1_R0_INS
+* Adding non-temp table orchestra.P1_S1_R0_DEL
+* Adding non-temp table orchestra.P1_S1_R0_RCH
+* Adding non-temp table orchestra.P1_S1_R0_INV
+* Adding non-temp table orchestra.P1_S1_R1_NEW
+* Adding non-temp table orchestra.P1_S1_R1_INS
+* Adding non-temp table orchestra.P1_S1_R1_DEL
+* Adding non-temp table orchestra.P1_S1_R1_RCH
+* Adding non-temp table orchestra.P1_S1_R1_INV
+* Adding non-temp table orchestra.P10_S10_R0_NEW
+* Adding non-temp table orchestra.P10_S10_R0_INS
+* Adding non-temp table orchestra.P10_S10_R0_DEL
+* Adding non-temp table orchestra.P10_S10_R0_RCH
+* Adding non-temp table orchestra.P10_S10_R0_INV
+* Adding non-temp table orchestra.P10_S10_R1_NEW
+* Adding non-temp table orchestra.P10_S10_R1_INS
+* Adding non-temp table orchestra.P10_S10_R1_DEL
+* Adding non-temp table orchestra.P10_S10_R1_RCH
+* Adding non-temp table orchestra.P10_S10_R1_INV
+* Adding non-temp table orchestra.P11_S11_R0_NEW
+* Adding non-temp table orchestra.P11_S11_R0_INS
+* Adding non-temp table orchestra.P11_S11_R0_DEL
+* Adding non-temp table orchestra.P11_S11_R0_RCH
+* Adding non-temp table orchestra.P11_S11_R0_INV
+* Adding non-temp table orchestra.P11_S11_R1_NEW
+* Adding non-temp table orchestra.P11_S11_R1_INS
+* Adding non-temp table orchestra.P11_S11_R1_DEL
+* Adding non-temp table orchestra.P11_S11_R1_RCH
+* Adding non-temp table orchestra.P11_S11_R1_INV
+* Adding non-temp table orchestra.P12_S12_R0_NEW
+* Adding non-temp table orchestra.P12_S12_R0_INS
+* Adding non-temp table orchestra.P12_S12_R0_DEL
+* Adding non-temp table orchestra.P12_S12_R0_RCH
+* Adding non-temp table orchestra.P12_S12_R0_INV
+* Adding non-temp table orchestra.P12_S12_R1_NEW
+* Adding non-temp table orchestra.P12_S12_R1_INS
+* Adding non-temp table orchestra.P12_S12_R1_DEL
+* Adding non-temp table orchestra.P12_S12_R1_RCH
+* Adding non-temp table orchestra.P12_S12_R1_INV
+* Adding non-temp table orchestra.P13_S13_R0_NEW
+* Adding non-temp table orchestra.P13_S13_R0_INS
+* Adding non-temp table orchestra.P13_S13_R0_DEL
+* Adding non-temp table orchestra.P13_S13_R0_RCH
+* Adding non-temp table orchestra.P13_S13_R0_INV
+* Adding non-temp table orchestra.P13_S13_R1_NEW
+* Adding non-temp table orchestra.P13_S13_R1_INS
+* Adding non-temp table orchestra.P13_S13_R1_DEL
+* Adding non-temp table orchestra.P13_S13_R1_RCH
+* Adding non-temp table orchestra.P13_S13_R1_INV
+* Adding non-temp table orchestra.P14_S14_R0_NEW
+* Adding non-temp table orchestra.P14_S14_R0_INS
+* Adding non-temp table orchestra.P14_S14_R0_DEL
+* Adding non-temp table orchestra.P14_S14_R0_RCH
+* Adding non-temp table orchestra.P14_S14_R0_INV
+* Adding non-temp table orchestra.P14_S14_R1_NEW
+* Adding non-temp table orchestra.P14_S14_R1_INS
+* Adding non-temp table orchestra.P14_S14_R1_DEL
+* Adding non-temp table orchestra.P14_S14_R1_RCH
+* Adding non-temp table orchestra.P14_S14_R1_INV
+* Adding non-temp table orchestra.P15_S15_R0_NEW
+* Adding non-temp table orchestra.P15_S15_R0_INS
+* Adding non-temp table orchestra.P15_S15_R0_DEL
+* Adding non-temp table orchestra.P15_S15_R0_RCH
+* Adding non-temp table orchestra.P15_S15_R0_INV
+* Adding non-temp table orchestra.P15_S15_R1_NEW
+* Adding non-temp table orchestra.P15_S15_R1_INS
+* Adding non-temp table orchestra.P15_S15_R1_DEL
+* Adding non-temp table orchestra.P15_S15_R1_RCH
+* Adding non-temp table orchestra.P15_S15_R1_INV
+* Adding non-temp table orchestra.P16_S16_R0_NEW
+* Adding non-temp table orchestra.P16_S16_R0_INS
+* Adding non-temp table orchestra.P16_S16_R0_DEL
+* Adding non-temp table orchestra.P16_S16_R0_RCH
+* Adding non-temp table orchestra.P16_S16_R0_INV
+* Adding non-temp table orchestra.P16_S16_R1_NEW
+* Adding non-temp table orchestra.P16_S16_R1_INS
+* Adding non-temp table orchestra.P16_S16_R1_DEL
+* Adding non-temp table orchestra.P16_S16_R1_RCH
+* Adding non-temp table orchestra.P16_S16_R1_INV
+* Adding non-temp table orchestra.P17_S17_R0_NEW
+* Adding non-temp table orchestra.P17_S17_R0_INS
+* Adding non-temp table orchestra.P17_S17_R0_DEL
+* Adding non-temp table orchestra.P17_S17_R0_RCH
+* Adding non-temp table orchestra.P17_S17_R0_INV
+* Adding non-temp table orchestra.P17_S17_R1_NEW
+* Adding non-temp table orchestra.P17_S17_R1_INS
+* Adding non-temp table orchestra.P17_S17_R1_DEL
+* Adding non-temp table orchestra.P17_S17_R1_RCH
+* Adding non-temp table orchestra.P17_S17_R1_INV
+* Adding non-temp table orchestra.P18_S18_R0_NEW
+* Adding non-temp table orchestra.P18_S18_R0_INS
+* Adding non-temp table orchestra.P18_S18_R0_DEL
+* Adding non-temp table orchestra.P18_S18_R0_RCH
+* Adding non-temp table orchestra.P18_S18_R0_INV
+* Adding non-temp table orchestra.P18_S18_R1_NEW
+* Adding non-temp table orchestra.P18_S18_R1_INS
+* Adding non-temp table orchestra.P18_S18_R1_DEL
+* Adding non-temp table orchestra.P18_S18_R1_RCH
+* Adding non-temp table orchestra.P18_S18_R1_INV
+* Adding non-temp table orchestra.P19_S19_R0_NEW
+* Adding non-temp table orchestra.P19_S19_R0_INS
+* Adding non-temp table orchestra.P19_S19_R0_DEL
+* Adding non-temp table orchestra.P19_S19_R0_RCH
+* Adding non-temp table orchestra.P19_S19_R0_INV
+* Adding non-temp table orchestra.P19_S19_R1_NEW
+* Adding non-temp table orchestra.P19_S19_R1_INS
+* Adding non-temp table orchestra.P19_S19_R1_DEL
+* Adding non-temp table orchestra.P19_S19_R1_RCH
+* Adding non-temp table orchestra.P19_S19_R1_INV
+* Adding non-temp table orchestra.P2_S2_R0_NEW
+* Adding non-temp table orchestra.P2_S2_R0_INS
+* Adding non-temp table orchestra.P2_S2_R0_DEL
+* Adding non-temp table orchestra.P2_S2_R0_RCH
+* Adding non-temp table orchestra.P2_S2_R0_INV
+* Adding non-temp table orchestra.P2_S2_R1_NEW
+* Adding non-temp table orchestra.P2_S2_R1_INS
+* Adding non-temp table orchestra.P2_S2_R1_DEL
+* Adding non-temp table orchestra.P2_S2_R1_RCH
+* Adding non-temp table orchestra.P2_S2_R1_INV
+* Adding non-temp table orchestra.P20_S20_R0_NEW
+* Adding non-temp table orchestra.P20_S20_R0_INS
+* Adding non-temp table orchestra.P20_S20_R0_DEL
+* Adding non-temp table orchestra.P20_S20_R0_RCH
+* Adding non-temp table orchestra.P20_S20_R0_INV
+* Adding non-temp table orchestra.P20_S20_R1_NEW
+* Adding non-temp table orchestra.P20_S20_R1_INS
+* Adding non-temp table orchestra.P20_S20_R1_DEL
+* Adding non-temp table orchestra.P20_S20_R1_RCH
+* Adding non-temp table orchestra.P20_S20_R1_INV
+* Adding non-temp table orchestra.P21_S21_R0_NEW
+* Adding non-temp table orchestra.P21_S21_R0_INS
+* Adding non-temp table orchestra.P21_S21_R0_DEL
+* Adding non-temp table orchestra.P21_S21_R0_RCH
+* Adding non-temp table orchestra.P21_S21_R0_INV
+* Adding non-temp table orchestra.P21_S21_R1_NEW
+* Adding non-temp table orchestra.P21_S21_R1_INS
+* Adding non-temp table orchestra.P21_S21_R1_DEL
+* Adding non-temp table orchestra.P21_S21_R1_RCH
+* Adding non-temp table orchestra.P21_S21_R1_INV
+* Adding non-temp table orchestra.P22_S22_R0_NEW
+* Adding non-temp table orchestra.P22_S22_R0_INS
+* Adding non-temp table orchestra.P22_S22_R0_DEL
+* Adding non-temp table orchestra.P22_S22_R0_RCH
+* Adding non-temp table orchestra.P22_S22_R0_INV
+* Adding non-temp table orchestra.P22_S22_R1_NEW
+* Adding non-temp table orchestra.P22_S22_R1_INS
+* Adding non-temp table orchestra.P22_S22_R1_DEL
+* Adding non-temp table orchestra.P22_S22_R1_RCH
+* Adding non-temp table orchestra.P22_S22_R1_INV
+* Adding non-temp table orchestra.P23_S23_R0_NEW
+* Adding non-temp table orchestra.P23_S23_R0_INS
+* Adding non-temp table orchestra.P23_S23_R0_DEL
+* Adding non-temp table orchestra.P23_S23_R0_RCH
+* Adding non-temp table orchestra.P23_S23_R0_INV
+* Adding non-temp table orchestra.P23_S23_R1_NEW
+* Adding non-temp table orchestra.P23_S23_R1_INS
+* Adding non-temp table orchestra.P23_S23_R1_DEL
+* Adding non-temp table orchestra.P23_S23_R1_RCH
+* Adding non-temp table orchestra.P23_S23_R1_INV
+* Adding non-temp table orchestra.P24_S24_R0_NEW
+* Adding non-temp table orchestra.P24_S24_R0_INS
+* Adding non-temp table orchestra.P24_S24_R0_DEL
+* Adding non-temp table orchestra.P24_S24_R0_RCH
+* Adding non-temp table orchestra.P24_S24_R0_INV
+* Adding non-temp table orchestra.P24_S24_R1_NEW
+* Adding non-temp table orchestra.P24_S24_R1_INS
+* Adding non-temp table orchestra.P24_S24_R1_DEL
+* Adding non-temp table orchestra.P24_S24_R1_RCH
+* Adding non-temp table orchestra.P24_S24_R1_INV
+* Adding non-temp table orchestra.P25_S25_R0_NEW
+* Adding non-temp table orchestra.P25_S25_R0_INS
+* Adding non-temp table orchestra.P25_S25_R0_DEL
+* Adding non-temp table orchestra.P25_S25_R0_RCH
+* Adding non-temp table orchestra.P25_S25_R0_INV
+* Adding non-temp table orchestra.P25_S25_R1_NEW
+* Adding non-temp table orchestra.P25_S25_R1_INS
+* Adding non-temp table orchestra.P25_S25_R1_DEL
+* Adding non-temp table orchestra.P25_S25_R1_RCH
+* Adding non-temp table orchestra.P25_S25_R1_INV
+* Adding non-temp table orchestra.P26_S26_R0_NEW
+* Adding non-temp table orchestra.P26_S26_R0_INS
+* Adding non-temp table orchestra.P26_S26_R0_DEL
+* Adding non-temp table orchestra.P26_S26_R0_RCH
+* Adding non-temp table orchestra.P26_S26_R0_INV
+* Adding non-temp table orchestra.P26_S26_R1_NEW
+* Adding non-temp table orchestra.P26_S26_R1_INS
+* Adding non-temp table orchestra.P26_S26_R1_DEL
+* Adding non-temp table orchestra.P26_S26_R1_RCH
+* Adding non-temp table orchestra.P26_S26_R1_INV
+* Adding non-temp table orchestra.P27_S27_R0_NEW
+* Adding non-temp table orchestra.P27_S27_R0_INS
+* Adding non-temp table orchestra.P27_S27_R0_DEL
+* Adding non-temp table orchestra.P27_S27_R0_RCH
+* Adding non-temp table orchestra.P27_S27_R0_INV
+* Adding non-temp table orchestra.P27_S27_R1_NEW
+* Adding non-temp table orchestra.P27_S27_R1_INS
+* Adding non-temp table orchestra.P27_S27_R1_DEL
+* Adding non-temp table orchestra.P27_S27_R1_RCH
+* Adding non-temp table orchestra.P27_S27_R1_INV
+* Adding non-temp table orchestra.P28_S28_R0_NEW
+* Adding non-temp table orchestra.P28_S28_R0_INS
+* Adding non-temp table orchestra.P28_S28_R0_DEL
+* Adding non-temp table orchestra.P28_S28_R0_RCH
+* Adding non-temp table orchestra.P28_S28_R0_INV
+* Adding non-temp table orchestra.P28_S28_R1_NEW
+* Adding non-temp table orchestra.P28_S28_R1_INS
+* Adding non-temp table orchestra.P28_S28_R1_DEL
+* Adding non-temp table orchestra.P28_S28_R1_RCH
+* Adding non-temp table orchestra.P28_S28_R1_INV
+* Adding non-temp table orchestra.P29_S29_R0_NEW
+* Adding non-temp table orchestra.P29_S29_R0_INS
+* Adding non-temp table orchestra.P29_S29_R0_DEL
+* Adding non-temp table orchestra.P29_S29_R0_RCH
+* Adding non-temp table orchestra.P29_S29_R0_INV
+* Adding non-temp table orchestra.P29_S29_R1_NEW
+* Adding non-temp table orchestra.P29_S29_R1_INS
+* Adding non-temp table orchestra.P29_S29_R1_DEL
+* Adding non-temp table orchestra.P29_S29_R1_RCH
+* Adding non-temp table orchestra.P29_S29_R1_INV
+* Adding non-temp table orchestra.P29_S29_R0_L_NEW
+* Adding non-temp table orchestra.P29_S29_R0_L_INS
+* Adding non-temp table orchestra.P29_S29_R0_L_DEL
+* Adding non-temp table orchestra.P29_S29_R0_L_INV
+* Adding non-temp table orchestra.P29_S29_R1_L_NEW
+* Adding non-temp table orchestra.P29_S29_R1_L_INS
+* Adding non-temp table orchestra.P29_S29_R1_L_DEL
+* Adding non-temp table orchestra.P29_S29_R1_L_INV
+* Adding non-temp table orchestra.P3_S3_R0_NEW
+* Adding non-temp table orchestra.P3_S3_R0_INS
+* Adding non-temp table orchestra.P3_S3_R0_DEL
+* Adding non-temp table orchestra.P3_S3_R0_RCH
+* Adding non-temp table orchestra.P3_S3_R0_INV
+* Adding non-temp table orchestra.P3_S3_R1_NEW
+* Adding non-temp table orchestra.P3_S3_R1_INS
+* Adding non-temp table orchestra.P3_S3_R1_DEL
+* Adding non-temp table orchestra.P3_S3_R1_RCH
+* Adding non-temp table orchestra.P3_S3_R1_INV
+* Adding non-temp table orchestra.P4_S4_R0_NEW
+* Adding non-temp table orchestra.P4_S4_R0_INS
+* Adding non-temp table orchestra.P4_S4_R0_DEL
+* Adding non-temp table orchestra.P4_S4_R0_RCH
+* Adding non-temp table orchestra.P4_S4_R0_INV
+* Adding non-temp table orchestra.P4_S4_R1_NEW
+* Adding non-temp table orchestra.P4_S4_R1_INS
+* Adding non-temp table orchestra.P4_S4_R1_DEL
+* Adding non-temp table orchestra.P4_S4_R1_RCH
+* Adding non-temp table orchestra.P4_S4_R1_INV
+* Adding non-temp table orchestra.P5_S5_R0_NEW
+* Adding non-temp table orchestra.P5_S5_R0_INS
+* Adding non-temp table orchestra.P5_S5_R0_DEL
+* Adding non-temp table orchestra.P5_S5_R0_RCH
+* Adding non-temp table orchestra.P5_S5_R0_INV
+* Adding non-temp table orchestra.P5_S5_R1_NEW
+* Adding non-temp table orchestra.P5_S5_R1_INS
+* Adding non-temp table orchestra.P5_S5_R1_DEL
+* Adding non-temp table orchestra.P5_S5_R1_RCH
+* Adding non-temp table orchestra.P5_S5_R1_INV
+* Adding non-temp table orchestra.P6_S6_R0_NEW
+* Adding non-temp table orchestra.P6_S6_R0_INS
+* Adding non-temp table orchestra.P6_S6_R0_DEL
+* Adding non-temp table orchestra.P6_S6_R0_RCH
+* Adding non-temp table orchestra.P6_S6_R0_INV
+* Adding non-temp table orchestra.P6_S6_R1_NEW
+* Adding non-temp table orchestra.P6_S6_R1_INS
+* Adding non-temp table orchestra.P6_S6_R1_DEL
+* Adding non-temp table orchestra.P6_S6_R1_RCH
+* Adding non-temp table orchestra.P6_S6_R1_INV
+* Adding non-temp table orchestra.P7_S7_R0_NEW
+* Adding non-temp table orchestra.P7_S7_R0_INS
+* Adding non-temp table orchestra.P7_S7_R0_DEL
+* Adding non-temp table orchestra.P7_S7_R0_RCH
+* Adding non-temp table orchestra.P7_S7_R0_INV
+* Adding non-temp table orchestra.P7_S7_R1_NEW
+* Adding non-temp table orchestra.P7_S7_R1_INS
+* Adding non-temp table orchestra.P7_S7_R1_DEL
+* Adding non-temp table orchestra.P7_S7_R1_RCH
+* Adding non-temp table orchestra.P7_S7_R1_INV
+* Adding non-temp table orchestra.P8_S8_R0_NEW
+* Adding non-temp table orchestra.P8_S8_R0_INS
+* Adding non-temp table orchestra.P8_S8_R0_DEL
+* Adding non-temp table orchestra.P8_S8_R0_RCH
+* Adding non-temp table orchestra.P8_S8_R0_INV
+* Adding non-temp table orchestra.P8_S8_R1_NEW
+* Adding non-temp table orchestra.P8_S8_R1_INS
+* Adding non-temp table orchestra.P8_S8_R1_DEL
+* Adding non-temp table orchestra.P8_S8_R1_RCH
+* Adding non-temp table orchestra.P8_S8_R1_INV
+* Adding non-temp table orchestra.P9_S9_R0_NEW
+* Adding non-temp table orchestra.P9_S9_R0_INS
+* Adding non-temp table orchestra.P9_S9_R0_DEL
+* Adding non-temp table orchestra.P9_S9_R0_RCH
+* Adding non-temp table orchestra.P9_S9_R0_INV
+* Adding non-temp table orchestra.P9_S9_R1_NEW
+* Adding non-temp table orchestra.P9_S9_R1_INS
+* Adding non-temp table orchestra.P9_S9_R1_DEL
+* Adding non-temp table orchestra.P9_S9_R1_RCH
+* Adding non-temp table orchestra.P9_S9_R1_INV
++++ Migration +++
+EXP: MIGRATE ORIG RELATIONS TIME: 9594 msec
+EXP: MIGRATE PROVENANCE RELATIONS TIME: 5491 msec
+EXP: TOTAL MIGRATE TIME: 15850 msec
+> 
+>         set workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30
+EXP: =========================================
+EXP:workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30
+EXP: =========================================
+>   
+> 
+>          # Compute initial
+>          set delete=false
+EXP: =========================================
+EXP:delete=false
+EXP: =========================================
+>          set insert=true
+EXP: =========================================
+EXP:insert=true
+EXP: =========================================
+> 				 set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>          set applybaseIns=false
+EXP: =========================================
+EXP:applybaseIns=false
+EXP: =========================================
+>          generateDeltaRules
+NET: Cleanup prepared statements
+>          import-bulk D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30/30p-topo2-red1-modl30
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30/30p-topo2-red1-modl30.delete
+Process returned non-zero value:8
+Process output:
+DB21005E  An error occurred while accessing the file "".
+
+Process error:
+
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30/30p-topo2-red1-modl30.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 3542 msec
+0 tuples imported into orchestra.P29_S29_R1_L_DEL
+10000 tuples imported into orchestra.P29_S29_R1_L_INS
+0 tuples imported into orchestra.P29_S29_R0_L_DEL
+10000 tuples imported into orchestra.P29_S29_R0_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 97
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 188 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 97
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 20000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (6) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (7) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (8) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (9) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (10) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (11) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (12) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (13) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (14) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (15) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (16) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (17) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (18) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (19) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (20) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (21) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (22) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (23) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (24) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (25) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (26) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (27) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (28) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (29) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (30) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (31) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 48392 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 31 msec
+EXP: NET INSERTION TIME: 48392 msec
+TOTAL TUPLE COUNT: 1920000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 7264
+POST INSERTION TIME: 8611 msec
+TOTAL TUPLE COUNT: 1940000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 194
+# OF BASE AND MAPPING TABLES: 97
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>          import-bulk D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30/30p-topo2-red1-modl30
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30/30p-topo2-red1-modl30.delete
+Process returned non-zero value:8
+Process output:
+DB21005E  An error occurred while accessing the file "".
+
+Process error:
+
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30/30p-topo2-red1-modl30.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 3448 msec
+0 tuples imported into orchestra.P29_S29_R1_L_DEL
+10000 tuples imported into orchestra.P29_S29_R1_L_INS
+0 tuples imported into orchestra.P29_S29_R0_L_DEL
+10000 tuples imported into orchestra.P29_S29_R0_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 97
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 16 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 97
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 20000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (6) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (7) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (8) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (9) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (10) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (11) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (12) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (13) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (14) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (15) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (16) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (17) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (18) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (19) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (20) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (21) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (22) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (23) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (24) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (25) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (26) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (27) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (28) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (29) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (30) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (31) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 51574 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 0 msec
+EXP: NET INSERTION TIME: 51574 msec
+TOTAL TUPLE COUNT: 1920000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 7264
+POST INSERTION TIME: 8471 msec
+TOTAL TUPLE COUNT: 1940000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 194
+# OF BASE AND MAPPING TABLES: 97
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+> 
+>          set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>          set applybaseIns=true
+EXP: =========================================
+EXP:applybaseIns=true
+EXP: =========================================
+>          generateDeltaRules
+NET: Cleanup prepared statements
+>      
+>          import-bulk D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30/30p-topo2-red1-modl30
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30/30p-topo2-red1-modl30.delete
+Process returned non-zero value:8
+Process output:
+DB21005E  An error occurred while accessing the file "".
+
+Process error:
+
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/30p-topo2-red1-modl30/30p-topo2-red1-modl30.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 3417 msec
+0 tuples imported into orchestra.P29_S29_R1_L_DEL
+10000 tuples imported into orchestra.P29_S29_R1_L_INS
+0 tuples imported into orchestra.P29_S29_R0_L_DEL
+10000 tuples imported into orchestra.P29_S29_R0_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 97
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 47 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 97
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 20000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (6) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (7) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (8) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (9) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (10) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (11) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (12) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (13) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (14) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (15) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (16) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (17) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (18) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (19) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (20) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (21) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (22) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (23) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (24) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (25) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (26) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (27) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (28) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (29) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (30) RETURNED COUNT: 70000
+Recursive sequence - LAST ITERATION (31) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 50810 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 15 msec
+EXP: NET INSERTION TIME: 50810 msec
+TOTAL TUPLE COUNT: 1920000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 7264
+POST INSERTION TIME: 12013 msec
+TOTAL TUPLE COUNT: 2910000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 388
+# OF BASE AND MAPPING TABLES: 97
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 970000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 620000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+> 				 runStats
+>   
+> #proqlBFS [P0.S0.P0_S0_R0] *- []
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+}
+EXP: NET TO QUERY SET TIME: 359 msec
+EXP: EXPANSION TIME: 46 msec
+
+Unfolded program has 1 rules:
+PROV: 263
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 437 msec
+Rule has 8 body atoms
+Query size (bytes): 4044
+TIME WITHOUT AGGREGATE: 31981 msec
+PROQL EXP: NET EVAL TIME: 31996 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 31996 msec
+PROQL EXP: TOTAL PROQL TIME : 32433 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+}
+EXP: NET TO QUERY SET TIME: 343 msec
+EXP: EXPANSION TIME: 16 msec
+
+Unfolded program has 1 rules:
+PROV: 263
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 406 msec
+Rule has 8 body atoms
+Query size (bytes): 4044
+TIME WITHOUT AGGREGATE: 280 msec
+PROQL EXP: NET EVAL TIME: 280 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 280 msec
+PROQL EXP: TOTAL PROQL TIME : 686 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+}
+EXP: NET TO QUERY SET TIME: 344 msec
+EXP: EXPANSION TIME: 15 msec
+
+Unfolded program has 1 rules:
+PROV: 263
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 406 msec
+Rule has 8 body atoms
+Query size (bytes): 4044
+TIME WITHOUT AGGREGATE: 281 msec
+PROQL EXP: NET EVAL TIME: 281 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 281 msec
+PROQL EXP: TOTAL PROQL TIME : 687 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+}
+EXP: NET TO QUERY SET TIME: 344 msec
+EXP: EXPANSION TIME: 31 msec
+
+Unfolded program has 1 rules:
+PROV: 263
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 406 msec
+Rule has 8 body atoms
+Query size (bytes): 4044
+TIME WITHOUT AGGREGATE: 281 msec
+PROQL EXP: NET EVAL TIME: 281 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 281 msec
+PROQL EXP: TOTAL PROQL TIME : 687 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+}
+EXP: NET TO QUERY SET TIME: 343 msec
+EXP: EXPANSION TIME: 31 msec
+
+Unfolded program has 1 rules:
+PROV: 263
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 406 msec
+Rule has 8 body atoms
+Query size (bytes): 4044
+TIME WITHOUT AGGREGATE: 280 msec
+PROQL EXP: NET EVAL TIME: 280 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 280 msec
+PROQL EXP: TOTAL PROQL TIME : 686 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+}
+EXP: NET TO QUERY SET TIME: 343 msec
+EXP: EXPANSION TIME: 31 msec
+
+Unfolded program has 1 rules:
+PROV: 263
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 406 msec
+Rule has 8 body atoms
+Query size (bytes): 4044
+TIME WITHOUT AGGREGATE: 280 msec
+PROQL EXP: NET EVAL TIME: 280 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 280 msec
+PROQL EXP: TOTAL PROQL TIME : 686 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+}
+EXP: NET TO QUERY SET TIME: 343 msec
+EXP: EXPANSION TIME: 31 msec
+
+Unfolded program has 1 rules:
+PROV: 263
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 406 msec
+Rule has 8 body atoms
+Query size (bytes): 4044
+TIME WITHOUT AGGREGATE: 280 msec
+PROQL EXP: NET EVAL TIME: 280 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 280 msec
+PROQL EXP: TOTAL PROQL TIME : 686 msec
+> #proqlBFS [P15.S15.P15_S15_R0] *- []
+> proqlBFS [P15.S15.P15_S15_R0] *- []
+QUERY: ([P15.S15.P15_S15_R0 ] ** [])
+Schema graph: {([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 1 rules:
+PROV: 128
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 187 msec
+Rule has 8 body atoms
+Query size (bytes): 3942
+TIME WITHOUT AGGREGATE: 32012 msec
+PROQL EXP: NET EVAL TIME: 32043 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 32043 msec
+PROQL EXP: TOTAL PROQL TIME : 32230 msec
+> proqlBFS [P15.S15.P15_S15_R0] *- []
+QUERY: ([P15.S15.P15_S15_R0 ] ** [])
+Schema graph: {([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 1 rules:
+PROV: 128
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 203 msec
+Rule has 8 body atoms
+Query size (bytes): 3942
+TIME WITHOUT AGGREGATE: 265 msec
+PROQL EXP: NET EVAL TIME: 265 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 265 msec
+PROQL EXP: TOTAL PROQL TIME : 468 msec
+> proqlBFS [P15.S15.P15_S15_R0] *- []
+QUERY: ([P15.S15.P15_S15_R0 ] ** [])
+Schema graph: {([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 15 msec
+
+Unfolded program has 1 rules:
+PROV: 128
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 202 msec
+Rule has 8 body atoms
+Query size (bytes): 3942
+TIME WITHOUT AGGREGATE: 281 msec
+PROQL EXP: NET EVAL TIME: 281 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 281 msec
+PROQL EXP: TOTAL PROQL TIME : 483 msec
+> proqlBFS [P15.S15.P15_S15_R0] *- []
+QUERY: ([P15.S15.P15_S15_R0 ] ** [])
+Schema graph: {([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 1 rules:
+PROV: 128
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 203 msec
+Rule has 8 body atoms
+Query size (bytes): 3942
+TIME WITHOUT AGGREGATE: 265 msec
+PROQL EXP: NET EVAL TIME: 265 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 265 msec
+PROQL EXP: TOTAL PROQL TIME : 468 msec
+> proqlBFS [P15.S15.P15_S15_R0] *- []
+QUERY: ([P15.S15.P15_S15_R0 ] ** [])
+Schema graph: {([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 16 msec
+
+Unfolded program has 1 rules:
+PROV: 128
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 203 msec
+Rule has 8 body atoms
+Query size (bytes): 3942
+TIME WITHOUT AGGREGATE: 281 msec
+PROQL EXP: NET EVAL TIME: 281 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 281 msec
+PROQL EXP: TOTAL PROQL TIME : 484 msec
+> proqlBFS [P15.S15.P15_S15_R0] *- []
+QUERY: ([P15.S15.P15_S15_R0 ] ** [])
+Schema graph: {([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 1 rules:
+PROV: 128
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 202 msec
+Rule has 8 body atoms
+Query size (bytes): 3942
+TIME WITHOUT AGGREGATE: 281 msec
+PROQL EXP: NET EVAL TIME: 281 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 281 msec
+PROQL EXP: TOTAL PROQL TIME : 483 msec
+> proqlBFS [P15.S15.P15_S15_R0] *- []
+QUERY: ([P15.S15.P15_S15_R0 ] ** [])
+Schema graph: {([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P29.S29.P29_S29_R0] <BASEP29_S29_R0< [P29.S29.P29_S29_R0_L])
+([P25.S25.P25_S25_R0][P25.S25.P25_S25_R1] <M25< [P26.S26.P26_S26_R1][P26.S26.P26_S26_R0])
+([P28.S28.P28_S28_R0][P28.S28.P28_S28_R1] <M28< [P29.S29.P29_S29_R0][P29.S29.P29_S29_R1])
+([P8.S8.P8_S8_R0][P8.S8.P8_S8_R1] <M8< [P9.S9.P9_S9_R0][P9.S9.P9_S9_R1])
+([P27.S27.P27_S27_R1][P27.S27.P27_S27_R0] <M27< [P28.S28.P28_S28_R0][P28.S28.P28_S28_R1])
+([P29.S29.P29_S29_R1] <BASEP29_S29_R1< [P29.S29.P29_S29_R1_L])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P15.S15.P15_S15_R1][P15.S15.P15_S15_R0] <M15< [P16.S16.P16_S16_R0][P16.S16.P16_S16_R1])
+([P13.S13.P13_S13_R0][P13.S13.P13_S13_R1] <M13< [P14.S14.P14_S14_R0][P14.S14.P14_S14_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P4.S4.P4_S4_R0][P4.S4.P4_S4_R1] <M4< [P5.S5.P5_S5_R1][P5.S5.P5_S5_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R0][P8.S8.P8_S8_R1])
+([P16.S16.P16_S16_R0][P16.S16.P16_S16_R1] <M16< [P17.S17.P17_S17_R1][P17.S17.P17_S17_R0])
+([P20.S20.P20_S20_R1][P20.S20.P20_S20_R0] <M20< [P21.S21.P21_S21_R0][P21.S21.P21_S21_R1])
+([P19.S19.P19_S19_R0][P19.S19.P19_S19_R1] <M19< [P20.S20.P20_S20_R1][P20.S20.P20_S20_R0])
+([P14.S14.P14_S14_R0][P14.S14.P14_S14_R1] <M14< [P15.S15.P15_S15_R1][P15.S15.P15_S15_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R0][P13.S13.P13_S13_R1])
+([P21.S21.P21_S21_R0][P21.S21.P21_S21_R1] <M21< [P22.S22.P22_S22_R1][P22.S22.P22_S22_R0])
+([P26.S26.P26_S26_R1][P26.S26.P26_S26_R0] <M26< [P27.S27.P27_S27_R1][P27.S27.P27_S27_R0])
+([P17.S17.P17_S17_R1][P17.S17.P17_S17_R0] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P22.S22.P22_S22_R1][P22.S22.P22_S22_R0] <M22< [P23.S23.P23_S23_R1][P23.S23.P23_S23_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R0][P19.S19.P19_S19_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R0][P4.S4.P4_S4_R1])
+([P23.S23.P23_S23_R1][P23.S23.P23_S23_R0] <M23< [P24.S24.P24_S24_R1][P24.S24.P24_S24_R0])
+([P9.S9.P9_S9_R0][P9.S9.P9_S9_R1] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P6.S6.P6_S6_R0][P6.S6.P6_S6_R1] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P24.S24.P24_S24_R1][P24.S24.P24_S24_R0] <M24< [P25.S25.P25_S25_R0][P25.S25.P25_S25_R1])
+([P5.S5.P5_S5_R1][P5.S5.P5_S5_R0] <M5< [P6.S6.P6_S6_R0][P6.S6.P6_S6_R1])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 1 rules:
+PROV: 128
+
+Unfolded program with ASRs (1):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 203 msec
+Rule has 8 body atoms
+Query size (bytes): 3942
+TIME WITHOUT AGGREGATE: 265 msec
+PROQL EXP: NET EVAL TIME: 265 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 265 msec
+PROQL EXP: TOTAL PROQL TIME : 468 msec
+> 
+> #          clear
+> #           stopUSS
+>           drop
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 970000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 545
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 545
+>           quit

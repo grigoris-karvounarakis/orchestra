@@ -1,0 +1,4 @@
+// 12:21:06 05/16/07 EDT
+// {'cutoff': 1024, 'help': False, 'skip': 0, 'grigoris': False, 'fanout': 2, 'todd': False, 'schemas': 3, 'xmlformat': False, 'filename': 'foo', 'maxcycles': None, 'deletions': 1, 'relsize': 4, 'coverage': 0.75, 'mincycles': None, 'password': 'todd9807', 'integers': False, 'peers': 3, 'insertions': 1, 'tukwila': False, 'username': 'TJGREEN', 'seed': 0, 'olivier': False, 'oracle': False, 'inout': True, 'dbalias': 'DEFEAT'}
+Simple cycle count: 3
+Simple cycles: [[0, 2, 0], [0, 2, 1, 0], [1, 2, 1]]

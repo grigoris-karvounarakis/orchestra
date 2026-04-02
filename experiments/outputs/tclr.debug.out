@@ -1,0 +1,1152 @@
+PARAMETERS:
+insert=true
+autocommit=false
+prepare=true
+union=false
+outerunion=false
+workdir=/cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests
+db2pwd=GREG#00
+db2server=jdbc:db2:SIGMOD
+tablesize=0
+batch=false
+debug=true
+schema=tclr
+workload=tclr-1000i100d
+apply=true
+incremental=true
+delete=true
+indexall=true
+db2user=gkarvoun
+reset=true
++++ Basic System Schema +++
+GKARVOUN.E	GKARVOUN.T	GKARVOUN.E_L	GKARVOUN.T_L	GKARVOUN.E_R	GKARVOUN.T_R	
++++ Mappings +++
+M2 MATERIALIZED: P.S.T(x_,z_) :- P.S.E(x_,y_),P.S.T(y_,z_)
+M1 MATERIALIZED: P.S.T(x_,y_) :- P.S.E(x_,y_)
++++ Inverted/Composed Mappings with Provenance Relations +++
+Mappings: 2
+TOTAL RULE MANIPULATION TIME: 16msec
+P.S.T(x__,z__) :- P.S.M0(x__,y__,z__), not(P.S.T_R(x__,z__))  
+P.S.T(x__,y__) :- P.S.M1(x__,y__), not(P.S.T_R(x__,y__))  
+P.S.E(X1_,X2_) :- P.S.M2(X1_,X2_), not(P.S.E_R(X1_,X2_))  
+P.S.T(X3_,X4_) :- P.S.M3(X3_,X4_), not(P.S.T_R(X3_,X4_))  
++++ Migration +++
+ALTER TABLE GKARVOUN.E ADD x_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.E ADD x_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "X_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.E ADD y_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.E ADD y_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "Y_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.T ADD x_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.T ADD x_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "X_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.T ADD y_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.T ADD y_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "Y_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.E_L ADD x_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.E_L ADD x_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "X_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.E_L ADD y_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.E_L ADD y_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "Y_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.T_L ADD x_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.T_L ADD x_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "X_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.T_L ADD y_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.T_L ADD y_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "Y_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.E_R ADD x_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.E_R ADD x_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "X_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.E_R ADD y_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.E_R ADD y_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "Y_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.T_R ADD x_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.T_R ADD x_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "X_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.T_R ADD y_LN INTEGER WITH DEFAULT 1
+ALTER TABLE GKARVOUN.T_R ADD y_LN INTEGER WITH DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0612N  "Y_LN" is a duplicate name.  SQLSTATE=42711
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+ALTER TABLE GKARVOUN.E ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL1477N  For table "" an object "" in table space "" cannot be accessed.  SQLSTATE=55019
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+CREATE INDEX GKARVOUN.E_IDX  ON GKARVOUN.E(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_IDX  ON GKARVOUN.E(x,y,x_LN,y_LN) CLUSTER
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0623N  A clustering index already exists on table "GKARVOUN.E".  SQLSTATE=55012
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+DROP TABLE GKARVOUN.E_NEW
+DROP TABLE GKARVOUN.E_NEW
+CREATE TABLE GKARVOUN.E_NEW AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+CREATE TABLE GKARVOUN.E_NEW AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+ALTER TABLE GKARVOUN.E_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_NEW_IDX  ON GKARVOUN.E_NEW(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_NEW_IDX  ON GKARVOUN.E_NEW(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_INS
+DROP TABLE GKARVOUN.E_INS
+CREATE TABLE GKARVOUN.E_INS AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+CREATE TABLE GKARVOUN.E_INS AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+ALTER TABLE GKARVOUN.E_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_INS_IDX  ON GKARVOUN.E_INS(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_INS_IDX  ON GKARVOUN.E_INS(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_DEL
+DROP TABLE GKARVOUN.E_DEL
+CREATE TABLE GKARVOUN.E_DEL AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+CREATE TABLE GKARVOUN.E_DEL AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+ALTER TABLE GKARVOUN.E_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_DEL_IDX  ON GKARVOUN.E_DEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_DEL_IDX  ON GKARVOUN.E_DEL(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_RCH
+DROP TABLE GKARVOUN.E_RCH
+CREATE TABLE GKARVOUN.E_RCH AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+CREATE TABLE GKARVOUN.E_RCH AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+ALTER TABLE GKARVOUN.E_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_RCH_IDX  ON GKARVOUN.E_RCH(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_RCH_IDX  ON GKARVOUN.E_RCH(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_INV
+DROP TABLE GKARVOUN.E_INV
+CREATE TABLE GKARVOUN.E_INV AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+CREATE TABLE GKARVOUN.E_INV AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+ALTER TABLE GKARVOUN.E_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_INV_IDX  ON GKARVOUN.E_INV(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_INV_IDX  ON GKARVOUN.E_INV(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_ALLDEL
+DROP TABLE GKARVOUN.E_ALLDEL
+CREATE TABLE GKARVOUN.E_ALLDEL AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+CREATE TABLE GKARVOUN.E_ALLDEL AS (SELECT * FROM GKARVOUN.E) WITH NO DATA
+ALTER TABLE GKARVOUN.E_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_ALLDEL_IDX  ON GKARVOUN.E_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_ALLDEL_IDX  ON GKARVOUN.E_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+ALTER TABLE GKARVOUN.T ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL1477N  For table "" an object "" in table space "" cannot be accessed.  SQLSTATE=55019
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+CREATE INDEX GKARVOUN.T_IDX  ON GKARVOUN.T(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_IDX  ON GKARVOUN.T(x,y,x_LN,y_LN) CLUSTER
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0623N  A clustering index already exists on table "GKARVOUN.T".  SQLSTATE=55012
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+DROP TABLE GKARVOUN.T_NEW
+DROP TABLE GKARVOUN.T_NEW
+CREATE TABLE GKARVOUN.T_NEW AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+CREATE TABLE GKARVOUN.T_NEW AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+ALTER TABLE GKARVOUN.T_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_NEW_IDX  ON GKARVOUN.T_NEW(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_NEW_IDX  ON GKARVOUN.T_NEW(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_INS
+DROP TABLE GKARVOUN.T_INS
+CREATE TABLE GKARVOUN.T_INS AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+CREATE TABLE GKARVOUN.T_INS AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+ALTER TABLE GKARVOUN.T_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_INS_IDX  ON GKARVOUN.T_INS(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_INS_IDX  ON GKARVOUN.T_INS(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_DEL
+DROP TABLE GKARVOUN.T_DEL
+CREATE TABLE GKARVOUN.T_DEL AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+CREATE TABLE GKARVOUN.T_DEL AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+ALTER TABLE GKARVOUN.T_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_DEL_IDX  ON GKARVOUN.T_DEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_DEL_IDX  ON GKARVOUN.T_DEL(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_RCH
+DROP TABLE GKARVOUN.T_RCH
+CREATE TABLE GKARVOUN.T_RCH AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+CREATE TABLE GKARVOUN.T_RCH AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+ALTER TABLE GKARVOUN.T_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_RCH_IDX  ON GKARVOUN.T_RCH(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_RCH_IDX  ON GKARVOUN.T_RCH(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_INV
+DROP TABLE GKARVOUN.T_INV
+CREATE TABLE GKARVOUN.T_INV AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+CREATE TABLE GKARVOUN.T_INV AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+ALTER TABLE GKARVOUN.T_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_INV_IDX  ON GKARVOUN.T_INV(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_INV_IDX  ON GKARVOUN.T_INV(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_ALLDEL
+DROP TABLE GKARVOUN.T_ALLDEL
+CREATE TABLE GKARVOUN.T_ALLDEL AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+CREATE TABLE GKARVOUN.T_ALLDEL AS (SELECT * FROM GKARVOUN.T) WITH NO DATA
+ALTER TABLE GKARVOUN.T_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_ALLDEL_IDX  ON GKARVOUN.T_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_ALLDEL_IDX  ON GKARVOUN.T_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+ALTER TABLE GKARVOUN.E_L ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_L ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL1477N  For table "" an object "" in table space "" cannot be accessed.  SQLSTATE=55019
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+CREATE INDEX GKARVOUN.E_L_IDX  ON GKARVOUN.E_L(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_L_IDX  ON GKARVOUN.E_L(x,y,x_LN,y_LN) CLUSTER
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0623N  A clustering index already exists on table "GKARVOUN.E_L".  SQLSTATE=55012
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+DROP TABLE GKARVOUN.E_L_NEW
+DROP TABLE GKARVOUN.E_L_NEW
+CREATE TABLE GKARVOUN.E_L_NEW AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+CREATE TABLE GKARVOUN.E_L_NEW AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+ALTER TABLE GKARVOUN.E_L_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_L_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_L_NEW_IDX  ON GKARVOUN.E_L_NEW(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_L_NEW_IDX  ON GKARVOUN.E_L_NEW(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_L_INS
+DROP TABLE GKARVOUN.E_L_INS
+CREATE TABLE GKARVOUN.E_L_INS AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+CREATE TABLE GKARVOUN.E_L_INS AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+ALTER TABLE GKARVOUN.E_L_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_L_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_L_INS_IDX  ON GKARVOUN.E_L_INS(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_L_INS_IDX  ON GKARVOUN.E_L_INS(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_L_DEL
+DROP TABLE GKARVOUN.E_L_DEL
+CREATE TABLE GKARVOUN.E_L_DEL AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+CREATE TABLE GKARVOUN.E_L_DEL AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+ALTER TABLE GKARVOUN.E_L_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_L_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_L_DEL_IDX  ON GKARVOUN.E_L_DEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_L_DEL_IDX  ON GKARVOUN.E_L_DEL(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_L_RCH
+DROP TABLE GKARVOUN.E_L_RCH
+CREATE TABLE GKARVOUN.E_L_RCH AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+CREATE TABLE GKARVOUN.E_L_RCH AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+ALTER TABLE GKARVOUN.E_L_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_L_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_L_RCH_IDX  ON GKARVOUN.E_L_RCH(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_L_RCH_IDX  ON GKARVOUN.E_L_RCH(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_L_INV
+DROP TABLE GKARVOUN.E_L_INV
+CREATE TABLE GKARVOUN.E_L_INV AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+CREATE TABLE GKARVOUN.E_L_INV AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+ALTER TABLE GKARVOUN.E_L_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_L_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_L_INV_IDX  ON GKARVOUN.E_L_INV(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_L_INV_IDX  ON GKARVOUN.E_L_INV(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_L_ALLDEL
+DROP TABLE GKARVOUN.E_L_ALLDEL
+CREATE TABLE GKARVOUN.E_L_ALLDEL AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+CREATE TABLE GKARVOUN.E_L_ALLDEL AS (SELECT * FROM GKARVOUN.E_L) WITH NO DATA
+ALTER TABLE GKARVOUN.E_L_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_L_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_L_ALLDEL_IDX  ON GKARVOUN.E_L_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_L_ALLDEL_IDX  ON GKARVOUN.E_L_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+ALTER TABLE GKARVOUN.T_L ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_L ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL1477N  For table "" an object "" in table space "" cannot be accessed.  SQLSTATE=55019
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+CREATE INDEX GKARVOUN.T_L_IDX  ON GKARVOUN.T_L(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_L_IDX  ON GKARVOUN.T_L(x,y,x_LN,y_LN) CLUSTER
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0623N  A clustering index already exists on table "GKARVOUN.T_L".  SQLSTATE=55012
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+DROP TABLE GKARVOUN.T_L_NEW
+DROP TABLE GKARVOUN.T_L_NEW
+CREATE TABLE GKARVOUN.T_L_NEW AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+CREATE TABLE GKARVOUN.T_L_NEW AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+ALTER TABLE GKARVOUN.T_L_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_L_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_L_NEW_IDX  ON GKARVOUN.T_L_NEW(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_L_NEW_IDX  ON GKARVOUN.T_L_NEW(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_L_INS
+DROP TABLE GKARVOUN.T_L_INS
+CREATE TABLE GKARVOUN.T_L_INS AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+CREATE TABLE GKARVOUN.T_L_INS AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+ALTER TABLE GKARVOUN.T_L_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_L_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_L_INS_IDX  ON GKARVOUN.T_L_INS(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_L_INS_IDX  ON GKARVOUN.T_L_INS(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_L_DEL
+DROP TABLE GKARVOUN.T_L_DEL
+CREATE TABLE GKARVOUN.T_L_DEL AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+CREATE TABLE GKARVOUN.T_L_DEL AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+ALTER TABLE GKARVOUN.T_L_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_L_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_L_DEL_IDX  ON GKARVOUN.T_L_DEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_L_DEL_IDX  ON GKARVOUN.T_L_DEL(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_L_RCH
+DROP TABLE GKARVOUN.T_L_RCH
+CREATE TABLE GKARVOUN.T_L_RCH AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+CREATE TABLE GKARVOUN.T_L_RCH AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+ALTER TABLE GKARVOUN.T_L_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_L_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_L_RCH_IDX  ON GKARVOUN.T_L_RCH(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_L_RCH_IDX  ON GKARVOUN.T_L_RCH(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_L_INV
+DROP TABLE GKARVOUN.T_L_INV
+CREATE TABLE GKARVOUN.T_L_INV AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+CREATE TABLE GKARVOUN.T_L_INV AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+ALTER TABLE GKARVOUN.T_L_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_L_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_L_INV_IDX  ON GKARVOUN.T_L_INV(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_L_INV_IDX  ON GKARVOUN.T_L_INV(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_L_ALLDEL
+DROP TABLE GKARVOUN.T_L_ALLDEL
+CREATE TABLE GKARVOUN.T_L_ALLDEL AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+CREATE TABLE GKARVOUN.T_L_ALLDEL AS (SELECT * FROM GKARVOUN.T_L) WITH NO DATA
+ALTER TABLE GKARVOUN.T_L_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_L_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_L_ALLDEL_IDX  ON GKARVOUN.T_L_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_L_ALLDEL_IDX  ON GKARVOUN.T_L_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+ALTER TABLE GKARVOUN.E_R ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_R ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL1477N  For table "" an object "" in table space "" cannot be accessed.  SQLSTATE=55019
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+CREATE INDEX GKARVOUN.E_R_IDX  ON GKARVOUN.E_R(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_R_IDX  ON GKARVOUN.E_R(x,y,x_LN,y_LN) CLUSTER
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0623N  A clustering index already exists on table "GKARVOUN.E_R".  SQLSTATE=55012
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+DROP TABLE GKARVOUN.E_R_NEW
+DROP TABLE GKARVOUN.E_R_NEW
+CREATE TABLE GKARVOUN.E_R_NEW AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+CREATE TABLE GKARVOUN.E_R_NEW AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+ALTER TABLE GKARVOUN.E_R_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_R_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_R_NEW_IDX  ON GKARVOUN.E_R_NEW(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_R_NEW_IDX  ON GKARVOUN.E_R_NEW(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_R_INS
+DROP TABLE GKARVOUN.E_R_INS
+CREATE TABLE GKARVOUN.E_R_INS AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+CREATE TABLE GKARVOUN.E_R_INS AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+ALTER TABLE GKARVOUN.E_R_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_R_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_R_INS_IDX  ON GKARVOUN.E_R_INS(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_R_INS_IDX  ON GKARVOUN.E_R_INS(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_R_DEL
+DROP TABLE GKARVOUN.E_R_DEL
+CREATE TABLE GKARVOUN.E_R_DEL AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+CREATE TABLE GKARVOUN.E_R_DEL AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+ALTER TABLE GKARVOUN.E_R_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_R_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_R_DEL_IDX  ON GKARVOUN.E_R_DEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_R_DEL_IDX  ON GKARVOUN.E_R_DEL(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_R_RCH
+DROP TABLE GKARVOUN.E_R_RCH
+CREATE TABLE GKARVOUN.E_R_RCH AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+CREATE TABLE GKARVOUN.E_R_RCH AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+ALTER TABLE GKARVOUN.E_R_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_R_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_R_RCH_IDX  ON GKARVOUN.E_R_RCH(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_R_RCH_IDX  ON GKARVOUN.E_R_RCH(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_R_INV
+DROP TABLE GKARVOUN.E_R_INV
+CREATE TABLE GKARVOUN.E_R_INV AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+CREATE TABLE GKARVOUN.E_R_INV AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+ALTER TABLE GKARVOUN.E_R_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_R_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_R_INV_IDX  ON GKARVOUN.E_R_INV(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_R_INV_IDX  ON GKARVOUN.E_R_INV(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.E_R_ALLDEL
+DROP TABLE GKARVOUN.E_R_ALLDEL
+CREATE TABLE GKARVOUN.E_R_ALLDEL AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+CREATE TABLE GKARVOUN.E_R_ALLDEL AS (SELECT * FROM GKARVOUN.E_R) WITH NO DATA
+ALTER TABLE GKARVOUN.E_R_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.E_R_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.E_R_ALLDEL_IDX  ON GKARVOUN.E_R_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.E_R_ALLDEL_IDX  ON GKARVOUN.E_R_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+ALTER TABLE GKARVOUN.T_R ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_R ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL1477N  For table "" an object "" in table space "" cannot be accessed.  SQLSTATE=55019
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+CREATE INDEX GKARVOUN.T_R_IDX  ON GKARVOUN.T_R(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_R_IDX  ON GKARVOUN.T_R(x,y,x_LN,y_LN) CLUSTER
+COM.ibm.db2.jdbc.DB2Exception: [IBM][CLI Driver][DB2/NT] SQL0623N  A clustering index already exists on table "GKARVOUN.T_R".  SQLSTATE=55012
+
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.throw_SQLException(Unknown Source)
+	at COM.ibm.db2.jdbc.app.SQLExceptionGenerator.check_return_code(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute2(Unknown Source)
+	at COM.ibm.db2.jdbc.app.DB2Statement.execute(Unknown Source)
+	at edu.upenn.cis.orchestra.engine.sql.SqlDb.evaluate(SqlDb.java:397)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.migrate(SqlEngine.java:545)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:97)
+DROP TABLE GKARVOUN.T_R_NEW
+DROP TABLE GKARVOUN.T_R_NEW
+CREATE TABLE GKARVOUN.T_R_NEW AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+CREATE TABLE GKARVOUN.T_R_NEW AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+ALTER TABLE GKARVOUN.T_R_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_R_NEW ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_R_NEW_IDX  ON GKARVOUN.T_R_NEW(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_R_NEW_IDX  ON GKARVOUN.T_R_NEW(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_R_INS
+DROP TABLE GKARVOUN.T_R_INS
+CREATE TABLE GKARVOUN.T_R_INS AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+CREATE TABLE GKARVOUN.T_R_INS AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+ALTER TABLE GKARVOUN.T_R_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_R_INS ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_R_INS_IDX  ON GKARVOUN.T_R_INS(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_R_INS_IDX  ON GKARVOUN.T_R_INS(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_R_DEL
+DROP TABLE GKARVOUN.T_R_DEL
+CREATE TABLE GKARVOUN.T_R_DEL AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+CREATE TABLE GKARVOUN.T_R_DEL AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+ALTER TABLE GKARVOUN.T_R_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_R_DEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_R_DEL_IDX  ON GKARVOUN.T_R_DEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_R_DEL_IDX  ON GKARVOUN.T_R_DEL(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_R_RCH
+DROP TABLE GKARVOUN.T_R_RCH
+CREATE TABLE GKARVOUN.T_R_RCH AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+CREATE TABLE GKARVOUN.T_R_RCH AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+ALTER TABLE GKARVOUN.T_R_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_R_RCH ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_R_RCH_IDX  ON GKARVOUN.T_R_RCH(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_R_RCH_IDX  ON GKARVOUN.T_R_RCH(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_R_INV
+DROP TABLE GKARVOUN.T_R_INV
+CREATE TABLE GKARVOUN.T_R_INV AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+CREATE TABLE GKARVOUN.T_R_INV AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+ALTER TABLE GKARVOUN.T_R_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_R_INV ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_R_INV_IDX  ON GKARVOUN.T_R_INV(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_R_INV_IDX  ON GKARVOUN.T_R_INV(x,y,x_LN,y_LN) CLUSTER
+DROP TABLE GKARVOUN.T_R_ALLDEL
+DROP TABLE GKARVOUN.T_R_ALLDEL
+CREATE TABLE GKARVOUN.T_R_ALLDEL AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+CREATE TABLE GKARVOUN.T_R_ALLDEL AS (SELECT * FROM GKARVOUN.T_R) WITH NO DATA
+ALTER TABLE GKARVOUN.T_R_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+ALTER TABLE GKARVOUN.T_R_ALLDEL ALTER COLUMN x_LN SET DEFAULT 1 ALTER COLUMN y_LN SET DEFAULT 1
+CREATE INDEX GKARVOUN.T_R_ALLDEL_IDX  ON GKARVOUN.T_R_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+CREATE INDEX GKARVOUN.T_R_ALLDEL_IDX  ON GKARVOUN.T_R_ALLDEL(x,y,x_LN,y_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0 AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_INDX ON GKARVOUN.M0 (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_NEW AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_NEW_INDX ON GKARVOUN.M0_NEW (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_INS AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_INS_INDX ON GKARVOUN.M0_INS (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_DEL AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_DEL_INDX ON GKARVOUN.M0_DEL (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_RCH AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_RCH_INDX ON GKARVOUN.M0_RCH (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_INV AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_INV_INDX ON GKARVOUN.M0_INV (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_ALLDEL AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_ALLDEL_INDX ON GKARVOUN.M0_ALLDEL (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0 AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_INDX ON GKARVOUN.M0 (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_NEW AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_NEW_INDX ON GKARVOUN.M0_NEW (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_INS AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_INS_INDX ON GKARVOUN.M0_INS (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_DEL AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_DEL_INDX ON GKARVOUN.M0_DEL (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_RCH AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_RCH_INDX ON GKARVOUN.M0_RCH (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_INV AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_INV_INDX ON GKARVOUN.M0_INV (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M0_ALLDEL AS (SELECT T.x AS C0,E.y AS C1,T.y AS C2,T.x_LN AS C0_LN,E.y_LN AS C1_LN,T.y_LN AS C2_LN FROM GKARVOUN.T T,GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M0_ALLDEL_INDX ON GKARVOUN.M0_ALLDEL (C0,C1,C2,C0_LN,C1_LN,C2_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1 AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_INDX ON GKARVOUN.M1 (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_NEW AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_NEW_INDX ON GKARVOUN.M1_NEW (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_INS AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_INS_INDX ON GKARVOUN.M1_INS (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_DEL AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_DEL_INDX ON GKARVOUN.M1_DEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_RCH AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_RCH_INDX ON GKARVOUN.M1_RCH (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_INV AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_INV_INDX ON GKARVOUN.M1_INV (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_ALLDEL AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_ALLDEL_INDX ON GKARVOUN.M1_ALLDEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1 AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_INDX ON GKARVOUN.M1 (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_NEW AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_NEW_INDX ON GKARVOUN.M1_NEW (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_INS AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_INS_INDX ON GKARVOUN.M1_INS (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_DEL AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_DEL_INDX ON GKARVOUN.M1_DEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_RCH AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_RCH_INDX ON GKARVOUN.M1_RCH (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_INV AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_INV_INDX ON GKARVOUN.M1_INV (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M1_ALLDEL AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M1_ALLDEL_INDX ON GKARVOUN.M1_ALLDEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2 AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_INDX ON GKARVOUN.M2 (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_NEW AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_NEW_INDX ON GKARVOUN.M2_NEW (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_INS AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_INS_INDX ON GKARVOUN.M2_INS (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_DEL AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_DEL_INDX ON GKARVOUN.M2_DEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_RCH AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_RCH_INDX ON GKARVOUN.M2_RCH (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_INV AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_INV_INDX ON GKARVOUN.M2_INV (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_ALLDEL AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_ALLDEL_INDX ON GKARVOUN.M2_ALLDEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2 AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_INDX ON GKARVOUN.M2 (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_NEW AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_NEW_INDX ON GKARVOUN.M2_NEW (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_INS AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_INS_INDX ON GKARVOUN.M2_INS (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_DEL AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_DEL_INDX ON GKARVOUN.M2_DEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_RCH AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_RCH_INDX ON GKARVOUN.M2_RCH (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_INV AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_INV_INDX ON GKARVOUN.M2_INV (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M2_ALLDEL AS (SELECT E.x AS C0,E.y AS C1,E.x_LN AS C0_LN,E.y_LN AS C1_LN FROM GKARVOUN.E E WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M2_ALLDEL_INDX ON GKARVOUN.M2_ALLDEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3 AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_INDX ON GKARVOUN.M3 (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_NEW AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_NEW_INDX ON GKARVOUN.M3_NEW (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_INS AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_INS_INDX ON GKARVOUN.M3_INS (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_DEL AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_DEL_INDX ON GKARVOUN.M3_DEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_RCH AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_RCH_INDX ON GKARVOUN.M3_RCH (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_INV AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_INV_INDX ON GKARVOUN.M3_INV (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_ALLDEL AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_ALLDEL_INDX ON GKARVOUN.M3_ALLDEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3 AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_INDX ON GKARVOUN.M3 (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_NEW AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_NEW_INDX ON GKARVOUN.M3_NEW (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_INS AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_INS_INDX ON GKARVOUN.M3_INS (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_DEL AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_DEL_INDX ON GKARVOUN.M3_DEL (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_RCH AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_RCH_INDX ON GKARVOUN.M3_RCH (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_INV AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_INV_INDX ON GKARVOUN.M3_INV (C0,C1,C0_LN,C1_LN) CLUSTER
+CREATE TABLE GKARVOUN.M3_ALLDEL AS (SELECT T.x AS C0,T.y AS C1,T.x_LN AS C0_LN,T.y_LN AS C1_LN FROM GKARVOUN.T T WHERE 1=2) WITH NO DATA
+CREATE INDEX GKARVOUN.M3_ALLDEL_INDX ON GKARVOUN.M3_ALLDEL (C0,C1,C0_LN,C1_LN) CLUSTER
+ALTER TABLE GKARVOUN.E ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.T ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.E_L ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.T_L ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.E_R ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.T_R ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
++++ Insertion Rules +++
+Non-Recursive Sequence {
+Non-Recursive{ 
+NEW_P.S.E_L(X370,X371) :- P.S.E_L(X370,X371)  
+NEW_P.S.T_L(X372,X373) :- P.S.T_L(X372,X373)  
+NEW_P.S.T_R(X374,X375) :- P.S.T_R(X374,X375)  
+NEW_P.S.E_R(X376,X377) :- P.S.E_R(X376,X377)  
+NEW_P.S.E(X378,X379) :- P.S.E(X378,X379)  
+NEW_P.S.T(X380,X381) :- P.S.T(X380,X381)  
+NEW_P.S.M0(X382,X383,X384) :- P.S.M0(X382,X383,X384)  
+NEW_P.S.M1(X385,X386) :- P.S.M1(X385,X386)  
+NEW_P.S.M2(X387,X388) :- P.S.M2(X387,X388)  
+NEW_P.S.M3(X389,X390) :- P.S.M3(X389,X390)  
+} END Non-Recursive
+} END Sequence 
+
+Non-Recursive Sequence {
+Non-Recursive{ 
+NEW_P.S.E_L(X391,X392) :- INS_P.S.E_L(X391,X392)  
+NEW_P.S.T_L(X393,X394) :- INS_P.S.T_L(X393,X394)  
+NEW_P.S.T_R(X395,X396) :- INS_P.S.T_R(X395,X396)  
+NEW_P.S.E_R(X397,X398) :- INS_P.S.E_R(X397,X398)  
+} END Non-Recursive
+Recursive{ 
+INS_P.S.M0(x_,y_,z_) :- INS_P.S.E(x_,y_), P.S.T(y_,z_)  
+INS_P.S.M0(x_,y_,z_) :- NEW_P.S.E(x_,y_), INS_P.S.T(y_,z_)  
+INS_P.S.M1(x_,y_) :- INS_P.S.E(x_,y_)  
+INS_P.S.M2(X1,X2) :- INS_P.S.E_L(X1,X2)  
+INS_P.S.M3(X3,X4) :- INS_P.S.T_L(X3,X4)  
+INS_P.S.T(x__,z__) :- INS_P.S.M0(x__,y__,z__), not(P.S.T_R(x__,z__))  
+INS_P.S.T(x__,y__) :- INS_P.S.M1(x__,y__), not(P.S.T_R(x__,y__))  
+INS_P.S.E(X1_,X2_) :- INS_P.S.M2(X1_,X2_), not(P.S.E_R(X1_,X2_))  
+INS_P.S.T(X3_,X4_) :- INS_P.S.M3(X3_,X4_), not(P.S.T_R(X3_,X4_))  
+NEW_P.S.E(X399,X400) :- INS_P.S.E(X399,X400)  
+NEW_P.S.T(X401,X402) :- INS_P.S.T(X401,X402)  
+} END Recursive
+} END Sequence 
+
+Non-Recursive Sequence {
+Non-Recursive{ 
+NEW_P.S.M0(X403,X404,X405) :- INS_P.S.M0(X403,X404,X405)  
+NEW_P.S.M1(X406,X407) :- INS_P.S.M1(X406,X407)  
+NEW_P.S.M2(X408,X409) :- INS_P.S.M2(X408,X409)  
+NEW_P.S.M3(X410,X411) :- INS_P.S.M3(X410,X411)  
+} END Non-Recursive
+Non-Recursive{ 
+P.S.E_L(X412,X413) :- NEW_P.S.E_L(X412,X413)  
+P.S.T_L(X414,X415) :- NEW_P.S.T_L(X414,X415)  
+P.S.T_R(X416,X417) :- NEW_P.S.T_R(X416,X417)  
+P.S.E_R(X418,X419) :- NEW_P.S.E_R(X418,X419)  
+P.S.E(X420,X421) :- NEW_P.S.E(X420,X421)  
+P.S.T(X422,X423) :- NEW_P.S.T(X422,X423)  
+P.S.M0(X424,X425,X426) :- NEW_P.S.M0(X424,X425,X426)  
+P.S.M1(X427,X428) :- NEW_P.S.M1(X427,X428)  
+P.S.M2(X429,X430) :- NEW_P.S.M2(X429,X430)  
+P.S.M3(X431,X432) :- NEW_P.S.M3(X431,X432)  
+} END Non-Recursive
+Non-Recursive{ 
+not(INS_P.S.E(X433,X434)) :-   
+not(INS_P.S.T(X435,X436)) :-   
+not(INS_P.S.E_L(X437,X438)) :-   
+not(INS_P.S.T_L(X439,X440)) :-   
+not(INS_P.S.T_R(X441,X442)) :-   
+not(INS_P.S.E_R(X443,X444)) :-   
+not(INS_P.S.M0(X445,X446,X447)) :-   
+not(INS_P.S.M1(X448,X449)) :-   
+not(INS_P.S.M2(X450,X451)) :-   
+not(INS_P.S.M3(X452,X453)) :-   
+} END Non-Recursive
+} END Sequence 
+
++++ Deletion Rules +++
+Non-Recursive Sequence {
+Non-Recursive{ 
+NEW_P.S.E_L(X651,X652) :- P.S.E_L(X651,X652)  
+NEW_P.S.T_L(X653,X654) :- P.S.T_L(X653,X654)  
+NEW_P.S.T_R(X655,X656) :- P.S.T_R(X655,X656)  
+NEW_P.S.E_R(X657,X658) :- P.S.E_R(X657,X658)  
+NEW_P.S.E(X659,X660) :- P.S.E(X659,X660)  
+NEW_P.S.T(X661,X662) :- P.S.T(X661,X662)  
+NEW_P.S.M0(X663,X664,X665) :- P.S.M0(X663,X664,X665)  
+NEW_P.S.M1(X666,X667) :- P.S.M1(X666,X667)  
+NEW_P.S.M2(X668,X669) :- P.S.M2(X668,X669)  
+NEW_P.S.M3(X670,X671) :- P.S.M3(X670,X671)  
+} END Non-Recursive
+} END Sequence 
+
+Non-Recursive Sequence {
+Non-Recursive{ 
+NEW_P.S.E_L(X672,X673) :- P.S.E_L(X672,X673), not(DEL_P.S.E_L(X672,X673))  
+NEW_P.S.T_L(X674,X675) :- P.S.T_L(X674,X675), not(DEL_P.S.T_L(X674,X675))  
+NEW_P.S.T_R(X676,X677) :- P.S.T_R(X676,X677), not(DEL_P.S.T_R(X676,X677))  
+NEW_P.S.E_R(X678,X679) :- P.S.E_R(X678,X679), not(DEL_P.S.E_R(X678,X679))  
+} END Non-Recursive
+Recursive Sequence {
+Non-Recursive{ 
+DEL_P.S.M0(x_,y_,z_) :- DEL_P.S.E(x_,y_), P.S.T(y_,z_), not(ALLDEL_P.S.M0(x_,y_,z_))  
+DEL_P.S.M1(x_,y_) :- DEL_P.S.E(x_,y_), not(ALLDEL_P.S.M1(x_,y_))  
+DEL_P.S.M2(X1,X2) :- DEL_P.S.E_L(X1,X2), not(ALLDEL_P.S.M2(X1,X2))  
+DEL_P.S.M3(X3,X4) :- DEL_P.S.T_L(X3,X4), not(ALLDEL_P.S.M3(X3,X4))  
+} END Non-Recursive
+Non-Recursive{ 
+NEW_P.S.M0(X681,X682,X683) :- P.S.M0(X681,X682,X683), not(DEL_P.S.M0(X681,X682,X683))  
+NEW_P.S.M1(X684,X685) :- P.S.M1(X684,X685), not(DEL_P.S.M1(X684,X685))  
+NEW_P.S.M2(X686,X687) :- P.S.M2(X686,X687), not(DEL_P.S.M2(X686,X687))  
+NEW_P.S.M3(X688,X689) :- P.S.M3(X688,X689), not(DEL_P.S.M3(X688,X689))  
+} END Non-Recursive
+Non-Recursive Sequence {
+Non-Recursive{ 
+ALLDEL_P.S.E(X690,X691) :- DEL_P.S.E(X690,X691)  
+ALLDEL_P.S.T(X692,X693) :- DEL_P.S.T(X692,X693)  
+} END Non-Recursive
+Non-Recursive{ 
+not(DEL_P.S.E(X694,X695)) :-   
+not(DEL_P.S.T(X696,X697)) :-   
+} END Non-Recursive
+} END Sequence 
+
+Non-Recursive{ 
+INV_P.S.T(x__,z__) :- DEL_P.S.M0(x__,y__,z__), not(ALLDEL_P.S.T(x__,z__))  
+INV_P.S.T(x__,y__) :- DEL_P.S.M1(x__,y__), not(ALLDEL_P.S.T(x__,y__))  
+INV_P.S.E(X1_,X2_) :- DEL_P.S.M2(X1_,X2_), not(ALLDEL_P.S.E(X1_,X2_))  
+INV_P.S.T(X3_,X4_) :- DEL_P.S.M3(X3_,X4_), not(ALLDEL_P.S.T(X3_,X4_))  
+} END Non-Recursive
+Non-Recursive Sequence {
+Recursive{ 
+INV_P.S.E_L(X1,X2) :- INV_P.S.M2(X1,X2), NEW_P.S.E_L(X1,X2)  
+INV_P.S.T_L(X3,X4) :- INV_P.S.M3(X3,X4), NEW_P.S.T_L(X3,X4)  
+INV_P.S.M2(x_,y_) :- INV_P.S.M1(x_,y_), NEW_P.S.M2(x_,y_)  
+INV_P.S.M2(x_,y_) :- INV_P.S.M0(x_,y_,z_), NEW_P.S.M2(x_,y_)  
+INV_P.S.M0(y_,X699,z_) :- INV_P.S.M0(x_,y_,z_), NEW_P.S.M0(y_,X699,z_)  
+INV_P.S.M2(x_,y_) :- INV_P.S.M0(x_,y_,z_), NEW_P.S.M2(x_,y_)  
+INV_P.S.M1(y_,z_) :- INV_P.S.M0(x_,y_,z_), NEW_P.S.M1(y_,z_)  
+INV_P.S.M2(x_,y_) :- INV_P.S.M0(x_,y_,z_), NEW_P.S.M2(x_,y_)  
+INV_P.S.M3(y_,z_) :- INV_P.S.M0(x_,y_,z_), NEW_P.S.M3(y_,z_)  
+INV_P.S.M0(x__,y__,z__) :- INV_P.S.T(x__,z__), NEW_P.S.M0(x__,y__,z__)  
+INV_P.S.M1(x__,y__) :- INV_P.S.T(x__,y__), NEW_P.S.M1(x__,y__)  
+INV_P.S.M2(X1_,X2_) :- INV_P.S.E(X1_,X2_), NEW_P.S.M2(X1_,X2_)  
+INV_P.S.M3(X3_,X4_) :- INV_P.S.T(X3_,X4_), NEW_P.S.M3(X3_,X4_)  
+} END Recursive
+Recursive{ 
+RCH_P.S.T(x__,z__) :- RCH_P.S.E(x__,y__), RCH_P.S.T(y__,z__), not(DEL_P.S.T(x__,z__)), not(ALLDEL_P.S.T(x__,z__))  
+RCH_P.S.T(x__,y__) :- RCH_P.S.E(x__,y__), not(DEL_P.S.T(x__,y__)), not(ALLDEL_P.S.T(x__,y__))  
+RCH_P.S.E(X1__,X2__) :- INV_P.S.E_L(X1__,X2__), not(DEL_P.S.E(X1__,X2__)), not(ALLDEL_P.S.E(X1__,X2__))  
+RCH_P.S.T(X3__,X4__) :- INV_P.S.T_L(X3__,X4__), not(DEL_P.S.T(X3__,X4__)), not(ALLDEL_P.S.T(X3__,X4__))  
+} END Recursive
+} END Sequence 
+
+Non-Recursive{ 
+DEL_P.S.E(X700,X701) :- INV_P.S.E(X700,X701), not(RCH_P.S.E(X700,X701))  
+DEL_P.S.T(X702,X703) :- INV_P.S.T(X702,X703), not(RCH_P.S.T(X702,X703))  
+} END Non-Recursive
+Non-Recursive{ 
+not(INV_P.S.E(X704,X705)) :-   
+not(INV_P.S.T(X706,X707)) :-   
+not(INV_P.S.E_L(X708,X709)) :-   
+not(INV_P.S.T_L(X710,X711)) :-   
+not(INV_P.S.T_R(X712,X713)) :-   
+not(INV_P.S.E_R(X714,X715)) :-   
+not(INV_P.S.M0(X716,X717,X718)) :-   
+not(INV_P.S.M1(X719,X720)) :-   
+not(INV_P.S.M2(X721,X722)) :-   
+not(INV_P.S.M3(X723,X724)) :-   
+} END Non-Recursive
+Non-Recursive{ 
+not(RCH_P.S.E(X725,X726)) :-   
+not(RCH_P.S.T(X727,X728)) :-   
+not(RCH_P.S.E_L(X729,X730)) :-   
+not(RCH_P.S.T_L(X731,X732)) :-   
+not(RCH_P.S.T_R(X733,X734)) :-   
+not(RCH_P.S.E_R(X735,X736)) :-   
+not(RCH_P.S.M0(X737,X738,X739)) :-   
+not(RCH_P.S.M1(X740,X741)) :-   
+not(RCH_P.S.M2(X742,X743)) :-   
+not(RCH_P.S.M3(X744,X745)) :-   
+} END Non-Recursive
+Non-Recursive Sequence {
+Non-Recursive{ 
+ALLDEL_P.S.M0(X746,X747,X748) :- DEL_P.S.M0(X746,X747,X748)  
+ALLDEL_P.S.M1(X749,X750) :- DEL_P.S.M1(X749,X750)  
+ALLDEL_P.S.M2(X751,X752) :- DEL_P.S.M2(X751,X752)  
+ALLDEL_P.S.M3(X753,X754) :- DEL_P.S.M3(X753,X754)  
+} END Non-Recursive
+Non-Recursive{ 
+not(DEL_P.S.M0(X755,X756,X757)) :-   
+not(DEL_P.S.M1(X758,X759)) :-   
+not(DEL_P.S.M2(X760,X761)) :-   
+not(DEL_P.S.M3(X762,X763)) :-   
+} END Non-Recursive
+} END Sequence 
+
+Non-Recursive{ 
+not(DEL_P.S.E_L(X764,X765)) :-   
+not(DEL_P.S.T_L(X766,X767)) :-   
+not(DEL_P.S.T_R(X768,X769)) :-   
+not(DEL_P.S.E_R(X770,X771)) :-   
+} END Non-Recursive
+} END Sequence 
+
+Non-Recursive{ 
+NEW_P.S.E(X772,X773) :- P.S.E(X772,X773), not(ALLDEL_P.S.E(X772,X773))  
+NEW_P.S.T(X774,X775) :- P.S.T(X774,X775), not(ALLDEL_P.S.T(X774,X775))  
+} END Non-Recursive
+Non-Recursive{ 
+NEW_P.S.M0(X776,X777,X778) :- P.S.M0(X776,X777,X778), not(ALLDEL_P.S.M0(X776,X777,X778))  
+NEW_P.S.M1(X779,X780) :- P.S.M1(X779,X780), not(ALLDEL_P.S.M1(X779,X780))  
+NEW_P.S.M2(X781,X782) :- P.S.M2(X781,X782), not(ALLDEL_P.S.M2(X781,X782))  
+NEW_P.S.M3(X783,X784) :- P.S.M3(X783,X784), not(ALLDEL_P.S.M3(X783,X784))  
+} END Non-Recursive
+} END Sequence 
+
+Non-Recursive Sequence {
+Non-Recursive{ 
+not(DEL_P.S.E(X785,X786)) :-   
+not(DEL_P.S.T(X787,X788)) :-   
+not(DEL_P.S.M0(X789,X790,X791)) :-   
+not(DEL_P.S.M1(X792,X793)) :-   
+not(DEL_P.S.M2(X794,X795)) :-   
+not(DEL_P.S.M3(X796,X797)) :-   
+} END Non-Recursive
+Non-Recursive{ 
+not(DEL_P.S.E_L(X798,X799)) :-   
+not(DEL_P.S.T_L(X800,X801)) :-   
+not(DEL_P.S.T_R(X802,X803)) :-   
+not(DEL_P.S.E_R(X804,X805)) :-   
+} END Non-Recursive
+Non-Recursive{ 
+not(ALLDEL_P.S.E(X806,X807)) :-   
+not(ALLDEL_P.S.T(X808,X809)) :-   
+not(ALLDEL_P.S.E_L(X810,X811)) :-   
+not(ALLDEL_P.S.T_L(X812,X813)) :-   
+not(ALLDEL_P.S.T_R(X814,X815)) :-   
+not(ALLDEL_P.S.E_R(X816,X817)) :-   
+not(ALLDEL_P.S.M0(X818,X819,X820)) :-   
+not(ALLDEL_P.S.M1(X821,X822)) :-   
+not(ALLDEL_P.S.M2(X823,X824)) :-   
+not(ALLDEL_P.S.M3(X825,X826)) :-   
+} END Non-Recursive
+Non-Recursive{ 
+P.S.E_L(X827,X828) :- NEW_P.S.E_L(X827,X828)  
+P.S.T_L(X829,X830) :- NEW_P.S.T_L(X829,X830)  
+P.S.T_R(X831,X832) :- NEW_P.S.T_R(X831,X832)  
+P.S.E_R(X833,X834) :- NEW_P.S.E_R(X833,X834)  
+P.S.E(X835,X836) :- NEW_P.S.E(X835,X836)  
+P.S.T(X837,X838) :- NEW_P.S.T(X837,X838)  
+P.S.M0(X839,X840,X841) :- NEW_P.S.M0(X839,X840,X841)  
+P.S.M1(X842,X843) :- NEW_P.S.M1(X842,X843)  
+P.S.M2(X844,X845) :- NEW_P.S.M2(X844,X845)  
+P.S.M3(X846,X847) :- NEW_P.S.M3(X846,X847)  
+} END Non-Recursive
+} END Sequence 
+
+================
+SCHEMA: tclr-1000i100d
+================
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf tclr-1000i100d.delete
+Process returned non-zero value:8
+Process output:
+DB21005E  An error occurred while accessing the file tclr-1000i100d.delete.
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests
+db2cmd /c /w /i db2 -tf tclr-1000i100d.insert
+Process returned non-zero value:8
+Process output:
+DB21005E  An error occurred while accessing the file tclr-1000i100d.insert.
+
+Process error:
+
+ALTER TABLE GKARVOUN.E_L ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.E_L_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_L_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_L_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_L_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_L_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_L_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_L_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_L_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_L_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_L_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_L_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_L_ALLDEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_L ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.T_L_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_L_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_L_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_L_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_L_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_L_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_L_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_L_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_L_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_L_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_L_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_L_ALLDEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_R ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.T_R_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_R_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_R_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_R_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_R_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_R_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_R_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_R_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_R_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_R_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_R_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_R_ALLDEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_R ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.E_R_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_R_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_R_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_R_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_R_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_R_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_R_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_R_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_R_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_R_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_R_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_R_ALLDEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.E_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.E_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.E_ALLDEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T ACTIVATE NOT LOGGED INITIALLY
+activateNotLoggedInitDB2 caught Exception - but should be ok anyway
+ALTER TABLE GKARVOUN.T_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.T_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.T_ALLDEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M0 ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M0 VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M0_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M0_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M0_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M0_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M0_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M0_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M0_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M0_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M0_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M0_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M0_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M0_ALLDEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M1 ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M1 VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M1_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M1_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M1_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M1_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M1_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M1_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M1_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M1_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M1_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M1_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M1_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M1_ALLDEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M2 ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M2 VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M2_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M2_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M2_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M2_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M2_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M2_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M2_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M2_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M2_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M2_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M2_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M2_ALLDEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M3 ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M3 VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M3_NEW ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M3_NEW VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M3_INS ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M3_INS VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M3_DEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M3_DEL VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M3_RCH ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M3_RCH VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M3_INV ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M3_INV VOLATILE CARDINALITY
+ALTER TABLE GKARVOUN.M3_ALLDEL ACTIVATE NOT LOGGED INITIALLY
+ALTER TABLE GKARVOUN.M3_ALLDEL VOLATILE CARDINALITY
+Prepare for non-incremental
+DELETE FROM GKARVOUN.E_L_INS R1 WHERE EXISTS (SELECT R2.KID FROM GKARVOUN.E_L_DEL R2 WHERE R2.KID = R1.KID)
+java.lang.RuntimeException: Unable to evaluate update[Ljava.lang.StackTraceElement;@1c695a6
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.prepareNonIncremental(SqlEngine.java:353)
+	at edu.upenn.cis.orchestra.engine.sql.SqlEngine.mapUpdates(SqlEngine.java:469)
+	at edu.upenn.cis.orchestra.Db2Map.run(Db2Map.java:189)
+	at edu.upenn.cis.orchestra.Db2Map.runNonIncremental(Db2Map.java:201)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:138)

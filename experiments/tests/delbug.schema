@@ -1,0 +1,48 @@
+// 14:18:57 02/20/07 EST
+// {'neighbors': 1, 'cutoff': 1024, 'peers': 2, 'password': 'GREG#00', 'insertions': 1, 'help': False, 'skip': 0, 'skew': 1.8, 'todd': False, 'deletions': 1, 'username': 'GKARVOUN', 'filename': '2p1n-1i1d', 'grigoris': True, 'seed': 0, 'dbalias': 'SIGMOD', 'olivier': True, 'mapped': 20, 'inout': True, 'schemas': 2}
+PEERS
+PEER P grw561-3.cis.upenn.edu-7777 "local peer"
+    SCHEMAS
+        SCHEMA S
+            RELATIONS
+                RELATION P0_S0_R0 MATERIALIZED
+                    DBINFO , GKARVOUN, P0_S0_R0
+                    FIELDS KID INTEGER INTEGER 10, FT VARCHAR  VARCHAR(1024) 1024, OC VARCHAR  VARCHAR(1024) 1024
+                    PRIMARY KEY PK_P0_S0_R0(KID)
+                RELATION P0_S0_R0_L MATERIALIZED
+                    DBINFO , GKARVOUN, P0_S0_R0_L
+                    FIELDS KID INTEGER INTEGER 10, FT VARCHAR  VARCHAR(1024) 1024, OC VARCHAR  VARCHAR(1024) 1024
+                    PRIMARY KEY PK_P0_S0_R0_L(KID)
+                RELATION P0_S0_R1 MATERIALIZED
+                    DBINFO , GKARVOUN, P0_S0_R1
+                    FIELDS KID INTEGER INTEGER 10, RN VARCHAR  VARCHAR(1024) 1024, DE VARCHAR  VARCHAR(1024) 1024
+                    PRIMARY KEY PK_P0_S0_R1(KID)
+                RELATION P0_S0_R1_L MATERIALIZED
+                    DBINFO , GKARVOUN, P0_S0_R1_L
+                    FIELDS KID INTEGER INTEGER 10, RN VARCHAR  VARCHAR(1024) 1024, DE VARCHAR  VARCHAR(1024) 1024
+                    PRIMARY KEY PK_P0_S0_R1_L(KID)
+                RELATION P1_S1_R0 MATERIALIZED
+                    DBINFO , GKARVOUN, P1_S1_R0
+                    FIELDS KID INTEGER INTEGER 10, OX VARCHAR  VARCHAR(1024) 1024, OS VARCHAR  VARCHAR(1024) 1024
+                    PRIMARY KEY PK_P1_S1_R0(KID)
+                RELATION P1_S1_R0_L MATERIALIZED
+                    DBINFO , GKARVOUN, P1_S1_R0_L
+                    FIELDS KID INTEGER INTEGER 10, OX VARCHAR  VARCHAR(1024) 1024, OS VARCHAR  VARCHAR(1024) 1024
+                    PRIMARY KEY PK_P1_S1_R0_L(KID)
+                RELATION P1_S1_R1 MATERIALIZED
+                    DBINFO , GKARVOUN, P1_S1_R1
+                    FIELDS KID INTEGER INTEGER 10, CC VARCHAR  VARCHAR(1024) 1024, RL VARCHAR  VARCHAR(1024) 1024
+                    PRIMARY KEY PK_P1_S1_R1(KID)
+                RELATION P1_S1_R1_L MATERIALIZED
+                    DBINFO , GKARVOUN, P1_S1_R1_L
+                    FIELDS KID INTEGER INTEGER 10, CC VARCHAR  VARCHAR(1024) 1024, RL VARCHAR  VARCHAR(1024) 1024
+                    PRIMARY KEY PK_P1_S1_R1_L(KID)
+        MAPPINGS
+//                M0 MATERIALIZED: P.S.P0_S0_R0(KID, X, Y), P.S.P0_S0_R1(KID, Z, -) :- P.S.P1_S1_R0(KID, Z, Y), P.S.P1_S1_R1(KID, X, W)
+//                M1 MATERIALIZED: P.S.P1_S1_R0(KID, W, Z), P.S.P1_S1_R1(KID, X, -) :- P.S.P0_S0_R0(KID, X, Y), P.S.P0_S0_R1(KID, W, Z)
+                M0 MATERIALIZED: P.S.P0_S0_R0(KID, X, Y), P.S.P0_S0_R1(KID, Z, -) :- P.S.P1_S1_R0(KID, X, Y), P.S.P1_S1_R1(KID, Z, W)
+                M1 MATERIALIZED: P.S.P1_S1_R0(KID, X, Y), P.S.P1_S1_R1(KID, Z, -) :- P.S.P0_S0_R0(KID, X, Y), P.S.P0_S0_R1(KID, Z, W)
+                M2 MATERIALIZED: P.S.P0_S0_R0(KID, X, Y) :- P.S.P0_S0_R0_L(KID, X, Y)
+                M3 MATERIALIZED: P.S.P0_S0_R1(KID, X, Y) :- P.S.P0_S0_R1_L(KID, X, Y)
+                M4 MATERIALIZED: P.S.P1_S1_R0(KID, X, Y) :- P.S.P1_S1_R0_L(KID, X, Y)
+                M5 MATERIALIZED: P.S.P1_S1_R1(KID, X, Y) :- P.S.P1_S1_R1_L(KID, X, Y)

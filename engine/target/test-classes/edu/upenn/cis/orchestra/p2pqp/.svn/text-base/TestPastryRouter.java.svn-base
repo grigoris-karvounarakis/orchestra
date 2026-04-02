@@ -1,0 +1,128 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+import static org.junit.Assert.*;
+
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import edu.upenn.cis.orchestra.p2pqp.Router.NodeInfo;
+
+public class TestPastryRouter {
+	
+	Router r, r5;
+	Id n1, n2, n3, n4, n5;
+	InetSocketAddress isa1, isa2, isa3, isa4, isa5;
+	
+	@Before
+	public void createRouter() throws Exception {
+		n1 = Id.fromLSBBytes(new byte[] {5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		n2 = Id.fromLSBBytes(new byte[] {15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		n3 = Id.fromLSBBytes(new byte[] {25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		n4 = Id.fromLSBBytes(new byte[] {35,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		n5 = Id.fromLSBBytes(new byte[] {45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		
+		isa1 = new InetSocketAddress(InetAddress.getLocalHost(), 1);
+		isa2 = new InetSocketAddress(InetAddress.getLocalHost(), 2);
+		isa3 = new InetSocketAddress(InetAddress.getLocalHost(), 3);
+		isa4 = new InetSocketAddress(InetAddress.getLocalHost(), 4);
+		isa5 = new InetSocketAddress(InetAddress.getLocalHost(), 5);
+		
+		List<NodeInfo> nis = new ArrayList<NodeInfo>(5);
+		nis.add(new NodeInfo(n1, isa1));
+		nis.add(new NodeInfo(n3, isa3));
+		nis.add(new NodeInfo(n2, isa2));
+		
+		r = new PastryRouter(nis);
+		
+		nis.add(new NodeInfo(n4, isa4));
+		nis.add(new NodeInfo(n5, isa5));
+		r5 = new PastryRouter(nis);
+	}
+	
+	@Test
+	public void testSimpleLookup() {
+		Id id1 =  Id.fromLSBBytes(new byte[] {17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		InetSocketAddress isa = r.getDest(id1);
+		assertEquals("Incorrect routing", isa2, isa);
+	}
+	
+	@Test
+	public void testNodeIdLookup() {
+		InetSocketAddress isa = r.getDest(n3);
+		assertEquals("Incorrect routing for node id", isa3, isa);
+	}
+	
+	@Test
+	public void testRangeBottomLookup() {
+		Id b1 = r.getOwnedRange(isa1).getCCW();
+		InetSocketAddress isa = r.getDest(b1);
+		assertEquals("Incorrect routing for node range bottom", isa1, isa);
+	}
+
+	@Test
+	public void testRangeWrap() {
+		Id id1 =  Id.fromLSBBytes(new byte[] {50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		InetSocketAddress isa = r.getDest(id1);
+		assertEquals("Incorrect routing for id higher than last node id", isa3, isa);
+	}
+	
+	@Test
+	public void testRangeWrap2() {
+		Id id1 =  Id.fromLSBBytes(new byte[] {100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		InetSocketAddress isa = r.getDest(id1);
+		assertEquals("Incorrect routing for id higher than last node id", isa3, isa);
+	}
+	
+	@Test
+	public void testReplicatedLookup() {
+		Id id1 =  Id.fromLSBBytes(new byte[] {7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		InetSocketAddress dests[] = r5.getDests(id1, 3);
+		Set<InetSocketAddress> expected = new HashSet<InetSocketAddress>(), actual = new HashSet<InetSocketAddress>();
+		for (InetSocketAddress dest : dests) {
+			actual.add(dest);
+		}
+		
+		expected.add(isa1);
+		expected.add(isa2);
+		expected.add(isa5);
+		
+		assertEquals("Incorrect result for replicated lookup", expected, actual);
+	}
+	
+	@Test
+	public void testReplicatedLoookUpForMoreThanAvailable() {
+		Id id1 =  Id.fromLSBBytes(new byte[] {7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		InetSocketAddress dests[] = r.getDests(id1, 17);
+		Set<InetSocketAddress> expected = new HashSet<InetSocketAddress>(), actual = new HashSet<InetSocketAddress>();
+		for (InetSocketAddress dest : dests) {
+			actual.add(dest);
+		}
+		
+		expected.add(isa1);
+		expected.add(isa2);
+		expected.add(isa3);
+		assertEquals("Incorrect result for replicated lookup", expected, actual);		
+	}
+	
+	@Test
+	public void testGetDestsForRange() {
+		IdRange range1 = new IdRange(Id.fromLSBBytes(new byte[] {7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}), Id.fromLSBBytes(new byte[] {27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}));
+		Set<InetSocketAddress> dests1 = new HashSet<InetSocketAddress>(Arrays.asList(r5.getDests(range1)));
+		Set<InetSocketAddress> expected1 = new HashSet<InetSocketAddress>(Arrays.asList(isa1, isa2, isa3));
+		assertEquals("Incorrect results for range lookup", expected1, dests1);
+
+		IdRange range2 = new IdRange(Id.fromLSBBytes(new byte[] {42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}), Id.fromLSBBytes(new byte[] {3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}));
+		Set<InetSocketAddress> dests2 = new HashSet<InetSocketAddress>(Arrays.asList(r5.getDests(range2)));
+		Set<InetSocketAddress> expected2 = new HashSet<InetSocketAddress>(Arrays.asList(isa1, isa5));
+		assertEquals("Incorrect results for wrapping range lookup", expected2, dests2);
+	}
+
+}

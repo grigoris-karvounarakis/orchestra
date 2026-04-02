@@ -1,0 +1,27 @@
+-------------
+Correct
+-------------
+(select M2.C0, M2.C1, M2.C2, 0, M2.C0_LN, M2.C1_LN, M2.C2_LN
+from S1.R2_L RR2, S1.R1_L RR1, S2.T3_L TT3, S3.U2_L UU2, S4.pM2 M2, S3.pM1 M1, S2.pM0 M0
+where RR1.R11 = RR2.R21 and RR1.R11_LN = RR2.R21_LN 
+and RR2.R22 = TT3.T31 and RR2.R22_LN = TT3.T31_LN 
+and TT3.T31 = UU2.U21 and TT3.T31_LN = UU2.U21_LN
+and M2.C0 = UU2.U21 and M2.C0_LN = UU2.U21_LN 
+and M2.C3 = 0 and M1.C3 = 0 and M0.C3 = 0 
+and M2.C2 = M1.C2 and M2.C2_LN = M1.C2_LN 
+and M2.C4 = M1.C1 and M2.C4_LN = M1.C1_LN
+and M0.C0 = M1.C0 and M0.C0_LN = M1.C0_LN 
+and M1.C1 = M0.C1 and M1.C1_LN = M0.C1_LN
+)
+
+
+-------------
+Wrong
+-------------
+select R0.R22 V11, M2.C1 V12, M2.C2 V13, 0 value, R0.R22_LN V11_LN, M2.C1_LN V12_LN, M2.C2_LN V13_LN, 1 value_LN,
+(('P4.S4.V1(P4.S4.pM2(P3.S3.U1(P3.S3.pM1(P2.S2.T1(P2.S2.pM0(P1.S1.R2(P1.S1.R2_L(' || '"' || R0.R21|| '"' || ',' || '"' || R0.R22|| '"' || ',' || CAST(null AS CHAR) || ',' || CAST(R0.value AS CHAR) || '))*P1.S1.R1(P1.S1.R1_L(' || '"' || R0.R21|| '"' || ',' || CAST(null AS CHAR) || ',' || CAST(R1.value AS CHAR) || '))))*P2.S2.T3(P2.S2.T3_L(' || '"' || R0.R22|| '"' || ',' || CAST(R2.value AS CHAR) || '))))*P3.S3.U2(P3.S3.U2_L(' || '"' || R0.R22|| '"' || ',' || CAST(R3.value AS CHAR) || '))))')) PROV__ 
+from S1.R2_L R0, S1.R1_L RR1, S2.T3_L TT3, S3.U2_L UU2, S4.pM2 M2, S3.pM1 M1, S2.pM0 M0
+where RR1.R11 = RR2.R21 and RR1.R11_LN = RR2.R21_LN
+and RR1.R12 = RR2.R23 and RR1.R12_LN = RR2.R23_LN
+
+and ((TT3.T31 = RR2.R22) and (TT3.T31_LN = RR2.R22_LN))) and ((UU2.U21 = RR2.R22) and (UU2.U21_LN = RR2.R22_LN))) and ((M2.C0 = RR2.R22) and (M2.C0_LN = RR2.R22_LN))) and ((M2.C3 = 0) and (M2.C3_LN = 1))) and ((M2.C6 = UU2.value) and (M2.C6_LN = UU2.value_LN))) and ((M1.C0 = RR2.R22) and (M1.C0_LN = RR2.R22_LN))) and ((M1.C1 = M2.C4) and (M1.C1_LN = M2.C4_LN))) and ((M1.C2 = M2.C2) and (M1.C2_LN = M2.C2_LN))) and ((M1.C3 = 0) and (M1.C3_LN = 1))) and ((M1.C6 = TT3.value) and (M1.C6_LN = TT3.value_LN))) and ((M0.C0 = RR2.R22) and (M0.C0_LN = RR2.R22_LN))) and ((M0.C1 = M2.C4) and (M0.C1_LN = M2.C4_LN))) and ((M0.C2 = M1.C4) and (M0.C2_LN = M1.C4_LN))) and ((M0.C3 = 0) and (M0.C3_LN = 1))) and ((M0.C4 = RR2.R21) and (M0.C4_LN = RR2.R21_LN))) and ((M0.C5 = RR2.R23) and (M0.C5_LN = RR2.R23_LN))) and ((M0.C6 = RR2.value) and (M0.C6_LN = RR2.value_LN))) and ((M0.C7 = RR1.value) and (M0.C7_LN = RR1.value_LN)))

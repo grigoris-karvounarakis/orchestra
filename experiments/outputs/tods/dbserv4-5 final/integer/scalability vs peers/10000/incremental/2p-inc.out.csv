@@ -1,0 +1,53 @@
+#PEERS:  2
+EXP:schema=2p
+>           set applybaseDel=false
+EXP:applybaseDel=false
+>           set applybaseIns=false
+EXP:applybaseIns=false
+2215 
+2199 
+2215 
+2215 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=true
+EXP:applybaseIns=true
+2215 
+>            set applybaseDel=false
+EXP:applybaseDel=false
+>            set applybaseIns=false
+EXP:applybaseIns=false
+686 
+172 
+171 
+156 
+171 
+312 
+328 
+328 
+327 
+327 
+1108 
+1185 
+1185 
+1171 
+1186 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=false
+EXP:applybaseIns=false
+328 
+327 
+327 
+327 
+328 
+484 
+515 
+530 
+531 
+530 
+1279 
+1357 
+1373 
+1373 
+1372 

@@ -1,0 +1,1000 @@
+3000|P47820; |[1] [2] |Biochem.|SIGNAL  |MEDLINE=|Name=Ace|Rattus n|2: Evide|Koike G.|Eukaryot|null|TISSUE=L|ACE_RAT |SEQUENCE|1
+3001|Q6Q4G4;|[1]|Biochem.|SIGNAL  |PubMed=1|Name=ACE|Theromyz|2: Evide|Riviere |Eukaryot|null|null|ACE_THET|SEQUENCE|1
+3002|P38441; |[1] [2] |Proc. Na|CHAIN   |MEDLINE=|Name=ace|Vibrio c|4: Predi|Trucksis|Bacteria|null|STRAIN=A|ACE_VIBC|SEQUENCE|1
+3003|Q46837; |[1] [2] |Science |SIGNAL  |MEDLINE=|Name=ygh|Escheric|4: Predi|Blattner|Bacteria|null|STRAIN=K|ACFD_ECO|SEQUENCE|1
+3004|A5F372; |[1] [2] |Infect. |SIGNAL  |MEDLINE=|Name=acf|Vibrio c|4: Predi|Karaolis|Bacteria|null|null|ACFD_VIB|SEQUENCE|1
+3005|P0C6F0; |[1] [2] |Infect. |SIGNAL  |MEDLINE=|Name=acf|Vibrio c|4: Predi|Karaolis|Bacteria|null|STRAIN=A|ACFD_VIB|SEQUENCE|1
+3006|Q9I8C7;|[1]|Submitte|SIGNAL  |null|Name=CHR|Gallus g|3: Infer|Barabino|Eukaryot|null|TISSUE=S|ACH10_CH|SEQUENCE|1
+3007|Q9GZZ6;|[1] [2] |Mol. Pha|SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Sgard F.|Eukaryot|null|TISSUE=S|ACH10_HU|SEQUENCE|1
+3008|Q9JLB5;|[1] [2] |Proc. Na|SIGNAL  |MEDLINE=|Name=Chr|Rattus n|1: Evide|Elgoyhen|Eukaryot|null|STRAIN=S|ACH10_RA|SEQUENCE|1
+3009|P35904;|[1] [2] |Biochem.|PEPTIDE |MEDLINE=|null|Achatina|1: Evide|Kamatani|Eukaryot|null|STRAIN=F|ACH1_ACH|SEQUENCE|1
+3010|Q754Q2;|[1]|Science |CHAIN   |PubMed=1|Name=ACH|Ashbya g|3: Infer|Dietrich|Eukaryot|null|STRAIN=A|ACH1_ASH|SEQUENCE|1
+3011|Q03383;|[1] [2]|Eur. J. |SIGNAL  |MEDLINE=|null|Bombyx m|1: Evide|Narumi H|Eukaryot|null|STRAIN=K|ACH1_BOM|SEQUENCE|1
+3012|P48180;|[1] [2] |J. Mol. |SIGNAL  |MEDLINE=|Name=acr|Caenorha|2: Evide|Ballivet|Eukaryot|null|STRAIN=B|ACH1_CAE|SEQUENCE|1
+3013|P83773;|[1]|Proteomi|CHAIN   |PubMed=1|Name=ACH|Candida |1: Evide|Pitarch |Eukaryot|null|STRAIN=S|ACH1_CAN|SEQUENCE|1
+3014|Q6FPF3;|[1]|Nature 4|CHAIN   |PubMed=1|Name=ACH|Candida |3: Infer|Dujon B.|Eukaryot|null|STRAIN=A|ACH1_CAN|SEQUENCE|1
+3015|Q6BKW1;|[1]|Nature 4|CHAIN   |PubMed=1|Name=ACH|Debaryom|3: Infer|Dujon B.|Eukaryot|null|STRAIN=A|ACH1_DEB|SEQUENCE|1
+3016|Q54K91;|[1]|Nature 4|CHAIN   |PubMed=1|Name=ach|Dictyost|3: Infer|Eichinge|Eukaryot|null|STRAIN=A|ACH1_DIC|SEQUENCE|1
+3017|P09478; |[1] [2] |EMBO J. |SIGNAL  |MEDLINE=|Name=nAc|Drosophi|2: Evide|Bossy B.|Eukaryot|null|STRAIN=O|ACH1_DRO|SEQUENCE|1
+3018|Q6CNR2;|[1]|Nature 4|CHAIN   |PubMed=1|Name=ACH|Kluyvero|3: Infer|Dujon B.|Eukaryot|null|STRAIN=A|ACH1_KLU|SEQUENCE|1
+3019|P23604;|[1]|Biochim.|CHAIN   |MEDLINE=|null|Lonomia |1: Evide|Amarant |Eukaryot|null|null|ACH1_LON|SEQUENCE|1
+3020|P91766;|[1]|Eur. J. |SIGNAL  |MEDLINE=|Name=ARA|Manduca |2: Evide|Eastham |Eukaryot|null|null|ACH1_MAN|SEQUENCE|1
+3021|P15937; |[1] [2] |Mol. Cel|CHAIN   |MEDLINE=|Name=acu|Neurospo|3: Infer|Marathe |Eukaryot|null|STRAIN=A|ACH1_NEU|SEQUENCE|1
+3022|P23414;|[1]|EMBO J. |SIGNAL  |MEDLINE=|null|Schistoc|2: Evide|Marshall|Eukaryot|null|null|ACH1_SCH|SEQUENCE|1
+3023|Q9UUJ9; |[1] [2]|Nature 4|CHAIN   |MEDLINE=|Name=ach|Schizosa|2: Evide|Wood V.,|Eukaryot|null|STRAIN=A|ACH1_SCH|SEQUENCE|1
+3024|Q6C3Z9;|[1]|Nature 4|CHAIN   |PubMed=1|Name=ACH|Yarrowia|3: Infer|Dujon B.|Eukaryot|null|STRAIN=C|ACH1_YAR|SEQUENCE|1
+3025|P32316;|[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=ACH|Saccharo|1: Evide|Lee F.-J|Eukaryot|null|STRAIN=A|ACH1_YEA|SEQUENCE|1
+3026|P80034;|[1]|Eur. J. |CHAIN   |MEDLINE=|null|Bombyx m|1: Evide|Sasaki T|Eukaryot|null|STRAIN=K|ACH2_BOM|SEQUENCE|1
+3027|P48181; |[1] [2] |J. Mol. |SIGNAL  |MEDLINE=|Name=unc|Caenorha|2: Evide|Ballivet|Eukaryot|null|STRAIN=B|ACH2_CAE|SEQUENCE|1
+3028|P17644; |[1] [2] |FEBS Let|SIGNAL  |MEDLINE=|Name=nAc|Drosophi|1: Evide|Jonas P.|Eukaryot|null|TISSUE=H|ACH2_DRO|SEQUENCE|1
+3029|P23605;|[1]|Biochim.|CHAIN   |MEDLINE=|null|Lonomia |1: Evide|Amarant |Eukaryot|null|null|ACH2_LON|SEQUENCE|1
+3030|P54244;|[1] [2] |Neuron 1|SIGNAL  |MEDLINE=|Name=deg|Caenorha|1: Evide|Treinin |Eukaryot|null|STRAIN=B|ACH3_CAE|SEQUENCE|1
+3031|P04755; |[1] [2] |EMBO J. |SIGNAL  |PubMed=1|Name=nAc|Drosophi|2: Evide|Hermans-|Eukaryot|null|STRAIN=B|ACH3_DRO|SEQUENCE|1
+3032|O76554;|[1] [2] |Proc. Na|SIGNAL  |MEDLINE=|Name=des|Caenorha|1: Evide|Treinin |Eukaryot|null|STRAIN=B|ACH4_CAE|SEQUENCE|1
+3033|P25162; |[1] [2] |FEBS Let|SIGNAL  |MEDLINE=|Name=nAc|Drosophi|2: Evide|Sawruk E|Eukaryot|null|STRAIN=C|ACH4_DRO|SEQUENCE|1
+3034|Q23022; |[1] [2] |J. Neuro|SIGNAL  |MEDLINE=|Name=unc|Caenorha|2: Evide|Fleming |Eukaryot|null|STRAIN=B|ACH5_CAE|SEQUENCE|1
+3035|Q9N587; |[1] [2] |J. Biol.|SIGNAL  |PubMed=1|Name=unc|Caenorha|1: Evide|Culetto |Eukaryot|null|STRAIN=B|ACH6_CAE|SEQUENCE|1
+3036|Q27218; |[1] [2] |J. Neuro|SIGNAL  |MEDLINE=|Name=lev|Caenorha|1: Evide|Fleming |Eukaryot|null|STRAIN=B|ACH7_CAE|SEQUENCE|1
+3037|Q60S81;|[1]|PLoS Bio|SIGNAL  |PubMed=1|Name=eat|Caenorha|3: Infer|Stein L.|Eukaryot|null|STRAIN=A|ACH8_CAE|SEQUENCE|1
+3038|Q9U298;|[1] [2] |Genetics|SIGNAL  |PubMed=1|Name=eat|Caenorha|2: Evide|McKay J.|Eukaryot|null|STRAIN=B|ACH8_CAE|SEQUENCE|1
+3039|Q8JFN7;|[1]|Neurosci|SIGNAL  |PubMed=1|Name=nac|Oncorhyn|2: Evide|Drescher|Eukaryot|null|TISSUE=S|ACH91_ON|SEQUENCE|1
+3040|Q68RJ7;|[1]|Neurosci|SIGNAL  |PubMed=1|null|Oncorhyn|2: Evide|Drescher|Eukaryot|null|TISSUE=S|ACH92_ON|SEQUENCE|1
+3041|P09480;|[1]|EMBO J. |SIGNAL  |MEDLINE=|Name=CHR|Gallus g|2: Evide|Nef P., |Eukaryot|null|STRAIN=W|ACHA2_CH|SEQUENCE|1
+3042|Q15822; |[1] [2] |J. Mol. |SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Elliott |Eukaryot|null|TISSUE=H|ACHA2_HU|SEQUENCE|1
+3043|Q91X60;|[1] [2]|Submitte|SIGNAL  |PubMed=1|Name=Chr|Mus musc|2: Evide|Groot Ko|Eukaryot|null|STRAIN=B|ACHA2_MO|SEQUENCE|1
+3044|Q5IS52;|[1]|Cell 119|SIGNAL  |PubMed=1|Name=CHR|Pan trog|2: Evide|Dorus S.|Eukaryot|null|null|ACHA2_PA|SEQUENCE|1
+3045|P12389; |[1] [2] |Science |SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Wada K.,|Eukaryot|null|STRAIN=S|ACHA2_RA|SEQUENCE|1
+3046|Q07263;|[1]|Neuroche|SIGNAL  |MEDLINE=|Name=CHR|Bos taur|2: Evide|Criado M|Eukaryot|null|null|ACHA3_BO|SEQUENCE|1
+3047|P18845;|[1] [2]|Nucleic |SIGNAL  |MEDLINE=|Name=chr|Carassiu|2: Evide|Hieber V|Eukaryot|null|TISSUE=R|ACHA3_CA|SEQUENCE|1
+3048|P09481;|[1] [2]|J. Biol.|SIGNAL  |MEDLINE=|Name=CHR|Gallus g|2: Evide|Couturie|Eukaryot|null|STRAIN=W|ACHA3_CH|SEQUENCE|1
+3049|P32297; |[1] [2] |Neurosci|SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Fornasar|Eukaryot|null|TISSUE=T|ACHA3_HU|SEQUENCE|1
+3050|Q8R4G9; |[1] [2] |Submitte|SIGNAL  |PubMed=1|Name=Chr|Mus musc|2: Evide|Lautner |Eukaryot|null|STRAIN=D|ACHA3_MO|SEQUENCE|1
+3051|P04757;|[1] [2] |Nature 3|SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Boulter |Eukaryot|null|TISSUE=L|ACHA3_RA|SEQUENCE|1
+3052|P09482;|[1] [2]|EMBO J. |SIGNAL  |MEDLINE=|Name=CHR|Gallus g|1: Evide|Nef P., |Eukaryot|null|STRAIN=W|ACHA4_CH|SEQUENCE|1
+3053|P43681; |[1] [2] |Gene 155|SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Monteggi|Eukaryot|null|TISSUE=B|ACHA4_HU|SEQUENCE|1
+3054|O70174; |[1] [2] |Pharmaco|SIGNAL  |MEDLINE=|Name=Chr|Mus musc|2: Evide|Stitzel |Eukaryot|null|STRAIN=L|ACHA4_MO|SEQUENCE|1
+3055|Q19AE6;|[1]|Mol. Pha|SIGNAL  |PubMed=1|Name=CHR|Mustela |2: Evide|Briggs C|Eukaryot|null|null|ACHA4_MU|SEQUENCE|1
+3056|Q5IS77;|[1]|Cell 119|SIGNAL  |PubMed=1|Name=CHR|Pan trog|2: Evide|Dorus S.|Eukaryot|null|null|ACHA4_PA|SEQUENCE|1
+3057|P09483; |[1] [2] |Cell 48:|SIGNAL  |MEDLINE=|Name=Chr|Rattus n|1: Evide|Goldman |Eukaryot|null|STRAIN=S|ACHA4_RA|SEQUENCE|1
+3058|Q8SPU7;|[1]|J. Neuro|SIGNAL  |MEDLINE=|Name=CHR|Bos taur|2: Evide|Campos-C|Eukaryot|null|null|ACHA5_BO|SEQUENCE|1
+3059|P26152;|[1]|J. Biol.|SIGNAL  |MEDLINE=|Name=CHR|Gallus g|2: Evide|Couturie|Eukaryot|null|STRAIN=W|ACHA5_CH|SEQUENCE|1
+3060|P30532; |[1] [2] |Proc. Na|SIGNAL  |MEDLINE=|Name=CHR|Homo sap|2: Evide|Chini B.|Eukaryot|null|TISSUE=E|ACHA5_HU|SEQUENCE|1
+3061|Q2MKA5; |[1] [2] |Submitte|SIGNAL  |PubMed=1|Name=Chr|Mus musc|2: Evide|Groot-Ko|Eukaryot|null|STRAIN=B|ACHA5_MO|SEQUENCE|1
+3062|Q5IS51;|[1]|Cell 119|SIGNAL  |PubMed=1|Name=CHR|Pan trog|2: Evide|Dorus S.|Eukaryot|null|null|ACHA5_PA|SEQUENCE|1
+3063|P20420;|[1]|J. Biol.|SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Boulter |Eukaryot|null|null|ACHA5_RA|SEQUENCE|1
+3064|P49581; |[1] [2]|Submitte|SIGNAL  |MEDLINE=|Name=CHR|Gallus g|2: Evide|Alliod C|Eukaryot|null|STRAIN=W|ACHA6_CH|SEQUENCE|1
+3065|Q15825;|[1] [2] |J. Mol. |SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Elliott |Eukaryot|null|TISSUE=S|ACHA6_HU|SEQUENCE|1
+3066|Q9R0W9; |[1] [2]|Submitte|SIGNAL  |PubMed=1|Name=Chr|Mus musc|2: Evide|Marubio |Eukaryot|null|TISSUE=E|ACHA6_MO|SEQUENCE|1
+3067|Q5IS76;|[1]|Cell 119|SIGNAL  |PubMed=1|Name=CHR|Pan trog|2: Evide|Dorus S.|Eukaryot|null|null|ACHA6_PA|SEQUENCE|1
+3068|P43143;|[1]|Submitte|SIGNAL  |null|Name=Chr|Rattus n|2: Evide|Boulter |Eukaryot|null|null|ACHA6_RA|SEQUENCE|1
+3069|P54131;|[1]|Eur. J. |SIGNAL  |MEDLINE=|Name=CHR|Bos taur|2: Evide|Garcia-G|Eukaryot|null|TISSUE=A|ACHA7_BO|SEQUENCE|1
+3070|P22770;|[1] [2] |Neuron 5|SIGNAL  |MEDLINE=|Name=CHR|Gallus g|1: Evide|Couturie|Eukaryot|null|TISSUE=B|ACHA7_CH|SEQUENCE|1
+3071|P36544; |[1] [2] |Mol. Pha|SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Peng X.,|Eukaryot|null|TISSUE=B|ACHA7_HU|SEQUENCE|1
+3072|Q866A2;|[1]|Endocrin|SIGNAL  |PubMed=1|Name=CHR|Macaca m|2: Evide|Proskoci|Eukaryot|null|null|ACHA7_MA|SEQUENCE|1
+3073|P49582;|[1]|Genomics|SIGNAL  |MEDLINE=|Name=Chr|Mus musc|2: Evide|Orr-Urtr|Eukaryot|null|STRAIN=B|ACHA7_MO|SEQUENCE|1
+3074|Q05941; |[1] [2] |J. Neuro|SIGNAL  |MEDLINE=|Name=Chr|Rattus n|1: Evide|Seguela |Eukaryot|null|TISSUE=B|ACHA7_RA|SEQUENCE|1
+3075|Q9PTS8;|[1]|Brain Re|SIGNAL  |MEDLINE=|Name=CHR|Gallus g|2: Evide|Hiel H.,|Eukaryot|null|TISSUE=C|ACHA9_CH|SEQUENCE|1
+3076|Q9UGM1; |[1] [2] |Mol. Pha|SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Sgard F.|Eukaryot|null|TISSUE=E|ACHA9_HU|SEQUENCE|1
+3077|P43144; |[1] [2] |Cell 79:|SIGNAL  |MEDLINE=|Name=Chr|Rattus n|1: Evide|Elgoyhen|Eukaryot|null|TISSUE=O|ACHA9_RA|SEQUENCE|1
+3078|P22456;|[1]|Nature 3|SIGNAL  |MEDLINE=|Name=chr|Xenopus |2: Evide|Hartman |Eukaryot|null|TISSUE=M|ACHAA_XE|SEQUENCE|1
+3079|P05377;|[1]|J. Cell |SIGNAL  |MEDLINE=|Name=chr|Xenopus |2: Evide|Baldwin |Eukaryot|null|TISSUE=M|ACHAB_XE|SEQUENCE|1
+3080|P02709;|[1]|Nature 3|SIGNAL  |MEDLINE=|Name=CHR|Bos taur|2: Evide|Noda M.,|Eukaryot|null|null|ACHA_BOV|SEQUENCE|1
+3081|P09479;|[1] [2] |EMBO J. |SIGNAL  |MEDLINE=|Name=CHR|Gallus g|1: Evide|Nef P., |Eukaryot|null|STRAIN=W|ACHA_CHI|SEQUENCE|1
+3082|P54248;|[1]|Biochemi|CHAIN   |MEDLINE=|Name=CHR|Crocidur|3: Infer|Barchan |Eukaryot|null|TISSUE=M|ACHA_CRO|SEQUENCE|1
+3083|Q98880;|[1] [2]|Genetics|SIGNAL  |MEDLINE=|Name=chr|Danio re|2: Evide|Sepich D|Eukaryot|null|TISSUE=E|ACHA_DAN|SEQUENCE|1
+3084|P09688;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=chr|Electrop|1: Evide|Conti-Tr|Eukaryot|null|null|ACHA_ELE|SEQUENCE|1
+3085|P54249;|[1]|Biochemi|CHAIN   |MEDLINE=|Name=CHR|Erinaceu|3: Infer|Barchan |Eukaryot|null|TISSUE=M|ACHA_ERI|SEQUENCE|1
+3086|P54250;|[1]|Biochemi|CHAIN   |MEDLINE=|Name=CHR|Felis si|3: Infer|Barchan |Eukaryot|null|TISSUE=M|ACHA_FEL|SEQUENCE|1
+3087|P54251;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=CHR|Herpeste|3: Infer|Barchan |Eukaryot|null|TISSUE=M|ACHA_HER|SEQUENCE|1
+3088|P02708;|[1] [2] |Nature 3|SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Noda M.,|Eukaryot|null|TISSUE=M|ACHA_HUM|SEQUENCE|1
+3089|P04756;|[1] [2] |Nucleic |SIGNAL  |MEDLINE=|Name=Chr|Mus musc|1: Evide|Isenberg|Eukaryot|null|STRAIN=C|ACHA_MOU|SEQUENCE|1
+3090|P14143;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=CHR|Naja naj|3: Infer|Neumann |Eukaryot|null|null|ACHA_NAJ|SEQUENCE|1
+3091|P14144;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=CHR|Natrix t|3: Infer|Neumann |Eukaryot|null|TISSUE=L|ACHA_NAT|SEQUENCE|1
+3092|P25108;|[1]|Eur. J. |SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Witzeman|Eukaryot|null|TISSUE=M|ACHA_RAT|SEQUENCE|1
+3093|P02710;|[1] [2] |Nature 2|SIGNAL  |MEDLINE=|Name=CHR|Torpedo |1: Evide|Noda M.,|Eukaryot|null|null|ACHA_TOR|SEQUENCE|1
+3094|P02711;|[1] [2] |Nucleic |SIGNAL  |MEDLINE=|Name=CHR|Torpedo |1: Evide|Sumikawa|Eukaryot|null|null|ACHA_TOR|SEQUENCE|1
+3095|P19370;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=chr|Carassiu|2: Evide|Hieber V|Eukaryot|null|TISSUE=R|ACHB2_CA|SEQUENCE|1
+3096|P09484;|[1] [2] |EMBO J. |SIGNAL  |MEDLINE=|Name=CHR|Gallus g|1: Evide|Nef P., |Eukaryot|null|STRAIN=W|ACHB2_CH|SEQUENCE|1
+3097|P17787; |[1] [2] |Nucleic |SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Anand R.|Eukaryot|null|TISSUE=F|ACHB2_HU|SEQUENCE|1
+3098|Q9ERK7;|[1]|Pharmaco|SIGNAL  |MEDLINE=|Name=Chr|Mus musc|2: Evide|Stitzel |Eukaryot|null|STRAIN=L|ACHB2_MO|SEQUENCE|1
+3099|P12390; |[1] [2] |Neuron 1|SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Deneris |Eukaryot|null|STRAIN=S|ACHB2_RA|SEQUENCE|1
+3100|P43679;|[1] [2]|J. Biol.|SIGNAL  |MEDLINE=|Name=CHR|Gallus g|2: Evide|Hernande|Eukaryot|null|STRAIN=W|ACHB3_CH|SEQUENCE|1
+3101|Q05901; |[1] [2] |J. Mol. |SIGNAL  |MEDLINE=|Name=CHR|Homo sap|2: Evide|Elliott |Eukaryot|null|TISSUE=S|ACHB3_HU|SEQUENCE|1
+3102|Q8BMN3; |[1] [2] |Submitte|SIGNAL  |PubMed=1|Name=Chr|Mus musc|2: Evide|Stitzel |Eukaryot|null|STRAIN=B|ACHB3_MO|SEQUENCE|1
+3103|Q5IS75;|[1]|Cell 119|SIGNAL  |PubMed=1|Name=CHR|Pan trog|2: Evide|Dorus S.|Eukaryot|null|null|ACHB3_PA|SEQUENCE|1
+3104|P12391;|[1]|J. Biol.|SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Deneris |Eukaryot|null|null|ACHB3_RA|SEQUENCE|1
+3105|Q8SPU6;|[1]|J. Neuro|SIGNAL  |MEDLINE=|Name=CHR|Bos taur|2: Evide|Campos-C|Eukaryot|null|TISSUE=A|ACHB4_BO|SEQUENCE|1
+3106|P26153;|[1]|J. Biol.|SIGNAL  |MEDLINE=|Name=CHR|Gallus g|2: Evide|Couturie|Eukaryot|null|STRAIN=W|ACHB4_CH|SEQUENCE|1
+3107|P30926; |[1] [2] |J. Mol. |SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Elliott |Eukaryot|null|null|ACHB4_HU|SEQUENCE|1
+3108|Q8R493; |[1] [2] |Submitte|SIGNAL  |MEDLINE=|Name=Chr|Mus musc|2: Evide|Lautner |Eukaryot|null|STRAIN=C|ACHB4_MO|SEQUENCE|1
+3109|P12392; |[1] [2] |Neuron 3|SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Duvoisin|Eukaryot|null|TISSUE=S|ACHB4_RA|SEQUENCE|1
+3110|P04758; |[1] [2]|Eur. J. |SIGNAL  |MEDLINE=|Name=CHR|Bos taur|2: Evide|Tanabe T|Eukaryot|null|STRAIN=H|ACHB_BOV|SEQUENCE|1
+3111|P16005;|[1]|J. Biol.|SIGNAL  |MEDLINE=|Name=CHR|Gallus g|3: Infer|Moss S.J|Eukaryot|null|null|ACHB_CHI|SEQUENCE|1
+3112|P09689;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=chr|Electrop|1: Evide|Conti-Tr|Eukaryot|null|null|ACHB_ELE|SEQUENCE|1
+3113|P11230; |[1] [2] |Nucleic |SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Beeson D|Eukaryot|null|TISSUE=E|ACHB_HUM|SEQUENCE|1
+3114|P09690;|[1] [2] |J. Biol.|SIGNAL  |MEDLINE=|Name=Chr|Mus musc|2: Evide|Buonanno|Eukaryot|null|STRAIN=C|ACHB_MOU|SEQUENCE|1
+3115|P25109;|[1]|Eur. J. |SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Witzeman|Eukaryot|null|TISSUE=M|ACHB_RAT|SEQUENCE|1
+3116|P02712;|[1] [2] |Nature 3|SIGNAL  |MEDLINE=|Name=CHR|Torpedo |1: Evide|Noda M.,|Eukaryot|null|null|ACHB_TOR|SEQUENCE|1
+3117|P49579;|[1]|Recept. |SIGNAL  |MEDLINE=|Name=chr|Xenopus |2: Evide|Kullberg|Eukaryot|null|null|ACHB_XEN|SEQUENCE|1
+3118|P35903;|[1]|Eur. J. |SIGNAL  |MEDLINE=|null|Achatina|1: Evide|Obara K.|Eukaryot|null|STRAIN=F|ACHC_ACH|SEQUENCE|1
+3119|P04759;|[1]|Eur. J. |SIGNAL  |MEDLINE=|Name=CHR|Bos taur|2: Evide|Kubo S.,|Eukaryot|null|null|ACHD_BOV|SEQUENCE|1
+3120|P02717;|[1] [2]|Proc. Na|SIGNAL  |MEDLINE=|Name=CHN|Gallus g|3: Infer|Nef P., |Eukaryot|null|null|ACHD_CHI|SEQUENCE|1
+3121|P09691;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=chn|Electrop|1: Evide|Conti-Tr|Eukaryot|null|null|ACHD_ELE|SEQUENCE|1
+3122|Q07001; |[1] [2] |J. Neuro|SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Luther M|Eukaryot|null|TISSUE=H|ACHD_HUM|SEQUENCE|1
+3123|P02716; |[1] [2] |Proc. Na|SIGNAL  |MEDLINE=|Name=Chr|Mus musc|2: Evide|Lapolla |Eukaryot|null|null|ACHD_MOU|SEQUENCE|1
+3124|P25110;|[1] [2] |Eur. J. |SIGNAL  |MEDLINE=|Name=Chr|Rattus n|1: Evide|Witzeman|Eukaryot|null|TISSUE=M|ACHD_RAT|SEQUENCE|1
+3125|P02718;|[1] [2] |Nature 3|SIGNAL  |MEDLINE=|Name=CHN|Torpedo |1: Evide|Noda M.,|Eukaryot|null|null|ACHD_TOR|SEQUENCE|1
+3126|P09628;|[1]|J. Cell |SIGNAL  |MEDLINE=|Name=chn|Xenopus |2: Evide|Baldwin |Eukaryot|null|TISSUE=M|ACHD_XEN|SEQUENCE|1
+3127|P02715; |[1] [2]|Nature 3|SIGNAL  |MEDLINE=|Name=CHR|Bos taur|2: Evide|Takai T.|Eukaryot|null|null|ACHE_BOV|SEQUENCE|1
+3128|Q04844;|[1] [2] |Eur. J. |SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Beeson D|Eukaryot|null|TISSUE=M|ACHE_HUM|SEQUENCE|1
+3129|P20782;|[1] [2]|J. Biol.|SIGNAL  |MEDLINE=|Name=Chr|Mus musc|2: Evide|Buonanno|Eukaryot|null|null|ACHE_MOU|SEQUENCE|1
+3130|P09660; |[1] [2] |Eur. J. |SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Witzeman|Eukaryot|null|TISSUE=M|ACHE_RAT|SEQUENCE|1
+3131|P49580;|[1] [2]|Neuron 1|SIGNAL  |MEDLINE=|Name=chr|Xenopus |2: Evide|Murray N|Eukaryot|null|null|ACHE_XEN|SEQUENCE|1
+3132|P13536;|[1]|Eur. J. |SIGNAL  |MEDLINE=|Name=CHR|Bos taur|2: Evide|Takai T.|Eukaryot|null|null|ACHG_BOV|SEQUENCE|1
+3133|P02713;|[1] [2] |Proc. Na|SIGNAL  |MEDLINE=|Name=CHR|Gallus g|3: Infer|Nef P., |Eukaryot|null|null|ACHG_CHI|SEQUENCE|1
+3134|P09692;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=chr|Electrop|1: Evide|Conti-Tr|Eukaryot|null|null|ACHG_ELE|SEQUENCE|1
+3135|P07510; |[1] [2] |Eur. J. |SIGNAL  |MEDLINE=|Name=CHR|Homo sap|1: Evide|Shibahar|Eukaryot|null|TISSUE=M|ACHG_HUM|SEQUENCE|1
+3136|P04760;|[1] [2] |Nucleic |SIGNAL  |MEDLINE=|Name=Chr|Mus musc|2: Evide|Yu L., L|Eukaryot|null|TISSUE=M|ACHG_MOU|SEQUENCE|1
+3137|P18916;|[1] [2]|Eur. J. |SIGNAL  |MEDLINE=|Name=Chr|Rattus n|2: Evide|Witzeman|Eukaryot|null|TISSUE=M|ACHG_RAT|SEQUENCE|1
+3138|P02714;|[1] [2] |Nature 3|SIGNAL  |MEDLINE=|Name=CHR|Torpedo |1: Evide|Noda M.,|Eukaryot|null|null|ACHG_TOR|SEQUENCE|1
+3139|P05376;|[1]|J. Cell |SIGNAL  |MEDLINE=|Name=chr|Xenopus |2: Evide|Baldwin |Eukaryot|null|TISSUE=M|ACHG_XEN|SEQUENCE|1
+3140|P13908;|[1]|J. Cell |SIGNAL  |MEDLINE=|null|Carassiu|2: Evide|Cauley K|Eukaryot|null|TISSUE=R|ACHN2_CA|SEQUENCE|1
+3141|P18257;|[1]|J. Neuro|SIGNAL  |MEDLINE=|null|Carassiu|2: Evide|Cauley K|Eukaryot|null|TISSUE=R|ACHN3_CA|SEQUENCE|1
+3142|P58154;|[1] [2]|Nature 4|SIGNAL  |MEDLINE=|null|Lymnaea |1: Evide|Smit A.B|Eukaryot|null|TISSUE=C|ACHP_LYM|SEQUENCE|1
+3143|P54247;|[1]|Gene 144|CHAIN   |MEDLINE=|null|Onchocer|2: Evide|Ajuh P.M|Eukaryot|null|null|ACHX_ONC|SEQUENCE|1
+3144|Q9UKV3; |[1] [2] |Nature 4|CHAIN   |MEDLINE=|Name=ACI|Homo sap|1: Evide|Sahara S|Eukaryot|null|TISSUE=F|ACINU_HU|SEQUENCE|1
+3145|Q9JIX8; |[1] [2] |Nature 4|CHAIN   |MEDLINE=|Name=Aci|Mus musc|1: Evide|Sahara S|Eukaryot|null|STRAIN=C|ACINU_MO|SEQUENCE|1
+3146|P18691;|[1]|Biochem.|PEPTIDE |MEDLINE=|null|Thunnus |1: Evide|Kohama Y|Eukaryot|null|TISSUE=M|ACI_THUA|SEQUENCE|1
+3147|P84761;|[1]|Peptides|PEPTIDE |PubMed=1|null|Tricholo|1: Evide|Hyoung L|Eukaryot|null|null|ACI_TRIG|SEQUENCE|1
+3148|Q17R13;|[1]|Submitte|CHAIN   |null|Name=TNK|Bos taur|2: Evide|null|Eukaryot|null|STRAIN=H|ACK1_BOV|SEQUENCE|1
+3149|Q07912; |[1] [2] |Nature 3|CHAIN   |MEDLINE=|Name=TNK|Homo sap|1: Evide|Manser E|Eukaryot|null|TISSUE=H|ACK1_HUM|SEQUENCE|1
+3150|O54967; |[1] [2] |Proc. Na|CHAIN   |PubMed=1|Name=Tnk|Mus musc|1: Evide|Galisteo|Eukaryot|null|TISSUE=B|ACK1_MOU|SEQUENCE|1
+3151|Q5U2X5;|[1]|Genome R|CHAIN   |PubMed=1|Name=Tnk|Rattus n|2: Evide|null|Eukaryot|null|TISSUE=K|ACK1_RAT|SEQUENCE|1
+3152|Q07622;|[1] [2] |Yeast 13|CHAIN   |MEDLINE=|Name=ACK|Saccharo|1: Evide|Bahr A.,|Eukaryot|null|STRAIN=A|ACK1_YEA|SEQUENCE|1
+3153|O02742;|[1]|J. Biol.|CHAIN   |MEDLINE=|Name=ACK|Bos taur|1: Evide|Yang W.,|Eukaryot|null|TISSUE=B|ACK2_BOV|SEQUENCE|1
+3154|Q8XNW5;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Clostrid|3: Infer|Shimizu |Bacteria|null|STRAIN=1|ACKA1_CL|SEQUENCE|1
+3155|Q9CE35;|[1]|Genome R|CHAIN   |MEDLINE=|Name=ack|Lactococ|3: Infer|Bolotin |Bacteria|null|STRAIN=I|ACKA1_LA|SEQUENCE|1
+3156|Q9X4M1; |[1] [2]|J. Mol. |CHAIN   |MEDLINE=|Name=ack|Lactobac|3: Infer|Stentz R|Bacteria|null|null|ACKA1_LA|SEQUENCE|1
+3157|Q92BD4;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Listeria|3: Infer|Glaser P|Bacteria|null|STRAIN=C|ACKA1_LI|SEQUENCE|1
+3158|Q720R2;|[1]|Nucleic |CHAIN   |PubMed=1|Name=ack|Listeria|3: Infer|Nelson K|Bacteria|null|null|ACKA1_LI|SEQUENCE|1
+3159|Q8Y6V0;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Listeria|3: Infer|Glaser P|Bacteria|null|STRAIN=A|ACKA1_LI|SEQUENCE|1
+3160|Q9JTM0; |[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Neisseri|3: Infer|Parkhill|Bacteria|null|STRAIN=Z|ACKA1_NE|SEQUENCE|1
+3161|Q9JYM1;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Neisseri|3: Infer|Tettelin|Bacteria|null|STRAIN=M|ACKA1_NE|SEQUENCE|1
+3162|Q6LNF6;|[1]|Science |CHAIN   |PubMed=1|Name=ack|Photobac|3: Infer|Vezzi A.|Bacteria|null|null|ACKA1_PH|SEQUENCE|1
+3163|P58382;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Rhizobiu|3: Infer|Finan T.|Bacteria|Plasmid |STRAIN=1|ACKA1_RH|SEQUENCE|1
+3164|Q9KT07;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Vibrio c|3: Infer|Heidelbe|Bacteria|null|STRAIN=A|ACKA1_VI|SEQUENCE|1
+3165|Q5E6L4;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Vibrio f|3: Infer|Ruby E.G|Bacteria|null|null|ACKA1_VI|SEQUENCE|1
+3166|Q87MZ4;|[1]|Lancet 3|CHAIN   |MEDLINE=|Name=ack|Vibrio p|3: Infer|Makino K|Bacteria|null|STRAIN=R|ACKA1_VI|SEQUENCE|1
+3167|Q8DAH8;|[1]|Submitte|CHAIN   |null|Name=ack|Vibrio v|3: Infer|Rhee J.H|Bacteria|null|STRAIN=C|ACKA1_VI|SEQUENCE|1
+3168|Q7MJM8;|[1]|Genome R|CHAIN   |PubMed=1|Name=ack|Vibrio v|3: Infer|Chen C.-|Bacteria|null|null|ACKA1_VI|SEQUENCE|1
+3169|Q8XJN2;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Clostrid|3: Infer|Shimizu |Bacteria|null|STRAIN=1|ACKA2_CL|SEQUENCE|1
+3170|Q9CE36;|[1]|Genome R|CHAIN   |MEDLINE=|Name=ack|Lactococ|3: Infer|Bolotin |Bacteria|null|STRAIN=I|ACKA2_LA|SEQUENCE|1
+3171|Q92CN9;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Listeria|3: Infer|Glaser P|Bacteria|null|STRAIN=C|ACKA2_LI|SEQUENCE|1
+3172|Q71Z86;|[1]|Nucleic |CHAIN   |PubMed=1|Name=ack|Listeria|3: Infer|Nelson K|Bacteria|null|null|ACKA2_LI|SEQUENCE|1
+3173|Q8Y7V1;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Listeria|3: Infer|Glaser P|Bacteria|null|STRAIN=A|ACKA2_LI|SEQUENCE|1
+3174|Q9JT07; |[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Neisseri|3: Infer|Parkhill|Bacteria|null|STRAIN=Z|ACKA2_NE|SEQUENCE|1
+3175|Q9K0X1;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Neisseri|3: Infer|Tettelin|Bacteria|null|STRAIN=M|ACKA2_NE|SEQUENCE|1
+3176|Q6LLD4;|[1]|Science |CHAIN   |PubMed=1|Name=ack|Photobac|3: Infer|Vezzi A.|Bacteria|null|null|ACKA2_PH|SEQUENCE|1
+3177|Q9X449; |[1] [2]|J. Bacte|CHAIN   |MEDLINE=|Name=ack|Rhizobiu|3: Infer|Summers |Bacteria|null|STRAIN=1|ACKA2_RH|SEQUENCE|1
+3178|Q9KMT5;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Vibrio c|3: Infer|Heidelbe|Bacteria|null|STRAIN=A|ACKA2_VI|SEQUENCE|1
+3179|Q5DZD2;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Vibrio f|3: Infer|Ruby E.G|Bacteria|null|null|ACKA2_VI|SEQUENCE|1
+3180|Q87IJ5;|[1]|Lancet 3|CHAIN   |MEDLINE=|Name=ack|Vibrio p|3: Infer|Makino K|Bacteria|null|STRAIN=R|ACKA2_VI|SEQUENCE|1
+3181|Q8D7K4;|[1]|Submitte|CHAIN   |null|Name=ack|Vibrio v|3: Infer|Rhee J.H|Bacteria|null|STRAIN=C|ACKA2_VI|SEQUENCE|1
+3182|Q7MEL2;|[1]|Genome R|CHAIN   |PubMed=1|Name=ack|Vibrio v|3: Infer|Chen C.-|Bacteria|null|null|ACKA2_VI|SEQUENCE|1
+3183|A9NFI4;|[1]|Submitte|CHAIN   |null|Name=ack|Acholepl|3: Infer|Kovaleva|Bacteria|null|null|ACKA_ACH|SEQUENCE|1
+3184|A3N011;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Actinoba|3: Infer|Foote S.|Bacteria|null|null|ACKA_ACT|SEQUENCE|1
+3185|A6TRU6;|[1]|Submitte|CHAIN   |null|Name=ack|Alkaliph|3: Infer|Copeland|Bacteria|null|null|ACKA_ALK|SEQUENCE|1
+3186|Q8YU00;|[1]|DNA Res.|CHAIN   |MEDLINE=|Name=ack|Anabaena|3: Infer|Kaneko T|Bacteria|null|null|ACKA_ANA|SEQUENCE|1
+3187|Q3MFX2;|[1]|Submitte|CHAIN   |null|Name=ack|Anabaena|3: Infer|Copeland|Bacteria|null|null|ACKA_ANA|SEQUENCE|1
+3188|A0JZZ4;|[1]|Submitte|CHAIN   |null|Name=ack|Arthroba|3: Infer|Copeland|Bacteria|null|null|ACKA_ART|SEQUENCE|1
+3189|Q2NIR6;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Aster ye|3: Infer|Bai X., |Bacteria|null|null|ACKA_AYW|SEQUENCE|1
+3190|A7Z7M2;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=ack|Bacillus|3: Infer|Chen X.H|Bacteria|null|null|ACKA_BAC|SEQUENCE|1
+3191|Q81KV0; |[1] [2] |Nature 4|CHAIN   |MEDLINE=|Name=ack|Bacillus|3: Infer|Read T.D|Bacteria|null|STRAIN=A|ACKA_BAC|SEQUENCE|1
+3192|Q72Z96;|[1]|Nucleic |CHAIN   |PubMed=1|Name=ack|Bacillus|3: Infer|Rasko D.|Bacteria|null|null|ACKA_BAC|SEQUENCE|1
+3193|A7GTR9;|[1]|Chem. Bi|CHAIN   |PubMed=1|Name=ack|Bacillus|3: Infer|Lapidus |Bacteria|null|null|ACKA_BAC|SEQUENCE|1
+3194|Q817C0;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Bacillus|3: Infer|Ivanova |Bacteria|null|null|ACKA_BAC|SEQUENCE|1
+3195|Q633F8;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Bacillus|3: Infer|Han C.S.|Bacteria|null|null|ACKA_BAC|SEQUENCE|1
+3196|Q5LI41;|[1]|Science |CHAIN   |PubMed=1|Name=ack|Bacteroi|3: Infer|Cerdeno-|Bacteria|null|null|ACKA_BAC|SEQUENCE|1
+3197|Q64Z48;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Bacteroi|3: Infer|Kuwahara|Bacteria|null|STRAIN=Y|ACKA_BAC|SEQUENCE|1
+3198|Q9K815;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=ack|Bacillus|3: Infer|Takami H|Bacteria|null|STRAIN=A|ACKA_BAC|SEQUENCE|1
+3199|Q6HCP0;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Bacillus|3: Infer|Han C.S.|Bacteria|null|STRAIN=9|ACKA_BAC|SEQUENCE|1
+3200|Q65G65; |[1] [2]|J. Mol. |CHAIN   |PubMed=1|Name=ack|Bacillus|3: Infer|Veith B.|Bacteria|null|null|ACKA_BAC|SEQUENCE|1
+3201|Q5WED5;|[1]|Submitte|CHAIN   |null|Name=ack|Bacillus|3: Infer|Takaki Y|Bacteria|null|null|ACKA_BAC|SEQUENCE|1
+3202|P37877;|[1] [2] |J. Bacte|CHAIN   |MEDLINE=|Name=ack|Bacillus|3: Infer|Grundy F|Bacteria|null|STRAIN=1|ACKA_BAC|SEQUENCE|1
+3203|Q8A1G8;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Bacteroi|3: Infer|Xu J., B|Bacteria|null|STRAIN=A|ACKA_BAC|SEQUENCE|1
+3204|A6KXS0;|[1]|PLoS Bio|CHAIN   |PubMed=1|Name=ack|Bacteroi|3: Infer|Xu J., M|Bacteria|null|null|ACKA_BAC|SEQUENCE|1
+3205|Q1LT88;|[1]|PLoS Bio|CHAIN   |PubMed=1|Name=ack|Baumanni|3: Infer|Wu D., D|Bacteria|null|null|ACKA_BAU|SEQUENCE|1
+3206|O51567;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=ack|Borrelia|3: Infer|Fraser C|Bacteria|null|STRAIN=A|ACKA_BOR|SEQUENCE|1
+3207|Q660Q0;|[1]|Nucleic |CHAIN   |PubMed=1|Name=ack|Borrelia|3: Infer|Gloeckne|Bacteria|null|STRAIN=P|ACKA_BOR|SEQUENCE|1
+3208|P57272;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Buchnera|3: Infer|Shigenob|Bacteria|null|STRAIN=T|ACKA_BUC|SEQUENCE|1
+3209|Q8K9W6;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Buchnera|3: Infer|Tamas I.|Bacteria|null|null|ACKA_BUC|SEQUENCE|1
+3210|Q89AS8;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Buchnera|3: Infer|van Ham |Bacteria|null|null|ACKA_BUC|SEQUENCE|1
+3211|A4XL40;|[1]|Submitte|CHAIN   |null|Name=ack|Caldicel|3: Infer|Copeland|Bacteria|null|null|ACKA_CAL|SEQUENCE|1
+3212|A7ZDP4;|[1]|Submitte|CHAIN   |null|Name=ack|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACKA_CAM|SEQUENCE|1
+3213|A7GYC8;|[1]|Submitte|CHAIN   |null|Name=ack|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACKA_CAM|SEQUENCE|1
+3214|A0RP54;|[1]|Submitte|CHAIN   |null|Name=ack|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACKA_CAM|SEQUENCE|1
+3215|A8FLB9;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Campylob|3: Infer|Pearson |Bacteria|null|null|ACKA_CAM|SEQUENCE|1
+3216|A7H4D5;|[1]|Submitte|CHAIN   |null|Name=ack|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACKA_CAM|SEQUENCE|1
+3217|Q9PPL8; |[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Campylob|3: Infer|Parkhill|Bacteria|null|STRAIN=N|ACKA_CAM|SEQUENCE|1
+3218|A1VZ44;|[1]|Submitte|CHAIN   |null|Name=ack|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACKA_CAM|SEQUENCE|1
+3219|Q5HV92;|[1]|PLoS Bio|CHAIN   |PubMed=1|Name=ack|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACKA_CAM|SEQUENCE|1
+3220|Q3AC47;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=ack|Carboxyd|3: Infer|Wu M., R|Bacteria|null|null|ACKA_CAR|SEQUENCE|1
+3221|O05278;|[1]|Submitte|CHAIN   |null|Name=ack|Chlorant|3: Infer|Carder J|Bacteria|null|null|ACKA_CHA|SEQUENCE|1
+3222|Q7NXU5;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Chromoba|3: Infer|Vasconce|Bacteria|null|STRAIN=A|ACKA_CHR|SEQUENCE|1
+3223|A5CPD5;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Clavibac|3: Infer|Garteman|Bacteria|null|null|ACKA_CLA|SEQUENCE|1
+3224|B0RIG4;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Clavibac|3: Infer|Bentley |Bacteria|null|null|ACKA_CLA|SEQUENCE|1
+3225|P71104;|[1] [2]|Appl. En|CHAIN   |MEDLINE=|Name=ack|Clostrid|3: Infer|Boynton |Bacteria|null|STRAIN=A|ACKA_CLO|SEQUENCE|1
+3226|A7FW24;|[1]|PLoS ONE|CHAIN   |PubMed=1|Name=ack|Clostrid|3: Infer|Smith T.|Bacteria|null|null|ACKA_CLO|SEQUENCE|1
+3227|A6LSL7;|[1]|Submitte|CHAIN   |null|Name=ack|Clostrid|3: Infer|Copeland|Bacteria|null|null|ACKA_CLO|SEQUENCE|1
+3228|A5I4N7; |[1] [2]|Genome R|CHAIN   |PubMed=1|Name=ack|Clostrid|3: Infer|Sebaihia|Bacteria|null|null|ACKA_CLO|SEQUENCE|1
+3229|A7GG48;|[1]|Submitte|CHAIN   |null|Name=ack|Clostrid|3: Infer|Brinkac |Bacteria|null|null|ACKA_CLO|SEQUENCE|1
+3230|Q18B36;|[1]|Nat. Gen|CHAIN   |PubMed=1|Name=ack|Clostrid|3: Infer|Sebaihia|Bacteria|null|null|ACKA_CLO|SEQUENCE|1
+3231|A5N802;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Clostrid|3: Infer|Seedorf |Bacteria|null|null|ACKA_CLO|SEQUENCE|1
+3232|A0Q0Z5;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=ack|Clostrid|3: Infer|Bettegow|Bacteria|null|null|ACKA_CLO|SEQUENCE|1
+3233|A9KNV3;|[1]|Submitte|CHAIN   |null|Name=ack|Clostrid|3: Infer|Leschine|Bacteria|null|null|ACKA_CLO|SEQUENCE|1
+3234|Q895N2;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Clostrid|3: Infer|Brueggem|Bacteria|null|STRAIN=M|ACKA_CLO|SEQUENCE|1
+3235|O52594; |[1] [2]|Submitte|CHAIN   |null|Name=ack|Clostrid|3: Infer|Stevens |Bacteria|null|null|ACKA_CLO|SEQUENCE|1
+3236|Q59331; |[1] [2]|Submitte|CHAIN   |null|Name=ack|Clostrid|3: Infer|Joerges |Bacteria|null|STRAIN=A|ACKA_CLO|SEQUENCE|1
+3237|Q6NF47;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=ack|Coryneba|3: Infer|Cerdeno-|Bacteria|null|STRAIN=A|ACKA_COR|SEQUENCE|1
+3238|Q8FMB7;|[1]|Genome R|CHAIN   |MEDLINE=|Name=ack|Coryneba|3: Infer|Nishio Y|Bacteria|null|STRAIN=D|ACKA_COR|SEQUENCE|1
+3239|A4QHF4;|[1]|Microbio|CHAIN   |PubMed=1|Name=ack|Coryneba|3: Infer|Yukawa H|Bacteria|null|null|ACKA_COR|SEQUENCE|1
+3240|P77845;|[1] [2] |Microbio|CHAIN   |MEDLINE=|Name=ack|Coryneba|1: Evide|Reinsche|Bacteria|null|STRAIN=A|ACKA_COR|SEQUENCE|1
+3241|Q4JXQ4;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Coryneba|3: Infer|Tauch A.|Bacteria|null|null|ACKA_COR|SEQUENCE|1
+3242|Q1J2C9;|[1]|Submitte|CHAIN   |null|Name=ack|Deinococ|3: Infer|Copeland|Bacteria|null|null|ACKA_DEI|SEQUENCE|1
+3243|Q9RR92;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Deinococ|3: Infer|White O.|Bacteria|null|STRAIN=A|ACKA_DEI|SEQUENCE|1
+3244|Q30WB0;|[1]|Submitte|CHAIN   |null|Name=ack|Desulfov|3: Infer|Copeland|Bacteria|null|null|ACKA_DES|SEQUENCE|1
+3245|Q24U35;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Desulfit|3: Infer|Nonaka H|Bacteria|null|null|ACKA_DES|SEQUENCE|1
+3246|Q6AQT5;|[1]|Environ.|CHAIN   |PubMed=1|Name=ack|Desulfot|3: Infer|Rabus R.|Bacteria|null|STRAIN=L|ACKA_DES|SEQUENCE|1
+3247|A4J6A8;|[1]|Submitte|CHAIN   |null|Name=ack|Desulfot|3: Infer|Copeland|Bacteria|null|null|ACKA_DES|SEQUENCE|1
+3248|Q726S6;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=ack|Desulfov|3: Infer|Heidelbe|Bacteria|null|null|ACKA_DES|SEQUENCE|1
+3249|A1VAA0;|[1]|Submitte|CHAIN   |null|Name=ack|Desulfov|3: Infer|Copeland|Bacteria|null|null|ACKA_DES|SEQUENCE|1
+3250|A5EVU0;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=ack|Dichelob|3: Infer|Myers G.|Bacteria|null|null|ACKA_DIC|SEQUENCE|1
+3251|P0A6A5; |[1] [2]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Escheric|3: Infer|Perna N.|Bacteria|null|STRAIN=O|ACKA_ECO|SEQUENCE|1
+3252|P0A6A4; |[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Escheric|3: Infer|Welch R.|Bacteria|null|STRAIN=O|ACKA_ECO|SEQUENCE|1
+3253|P0A6A3; |[1] [2] |J. Bacte|CHAIN   |MEDLINE=|Name=ack|Escheric|1: Evide|Matsuyam|Bacteria|null|STRAIN=K|ACKA_ECO|SEQUENCE|1
+3254|Q833H0;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Enteroco|3: Infer|Paulsen |Bacteria|null|STRAIN=V|ACKA_ENT|SEQUENCE|1
+3255|A7MH28;|[1]|Submitte|CHAIN   |null|Name=ack|Enteroba|3: Infer|McClella|Bacteria|null|null|ACKA_ENT|SEQUENCE|1
+3256|Q6D2Q6;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Erwinia |3: Infer|Bell K.S|Bacteria|null|STRAIN=S|ACKA_ERW|SEQUENCE|1
+3257|A7HL30;|[1]|Submitte|CHAIN   |null|Name=ack|Fervidob|3: Infer|Copeland|Bacteria|null|null|ACKA_FER|SEQUENCE|1
+3258|A5FE24;|[1]|Submitte|CHAIN   |null|Name=ack|Flavobac|3: Infer|Copeland|Bacteria|null|null|ACKA_FLA|SEQUENCE|1
+3259|Q8RED7;|[1]|J. Bacte|CHAIN   |MEDLINE=|Name=ack|Fusobact|3: Infer|Kapatral|Bacteria|null|STRAIN=A|ACKA_FUS|SEQUENCE|1
+3260|Q5KW66;|[1]|Nucleic |CHAIN   |PubMed=1|Name=ack|Geobacil|3: Infer|Takami H|Bacteria|null|STRAIN=H|ACKA_GEO|SEQUENCE|1
+3261|Q39WV0;|[1]|Submitte|CHAIN   |null|Name=ack|Geobacte|3: Infer|Copeland|Bacteria|null|null|ACKA_GEO|SEQUENCE|1
+3262|Q749N5;|[1]|Science |CHAIN   |PubMed=1|Name=ack|Geobacte|3: Infer|Methe B.|Bacteria|null|STRAIN=A|ACKA_GEO|SEQUENCE|1
+3263|Q7VLI5;|[1]|Submitte|CHAIN   |null|Name=ack|Haemophi|3: Infer|Munson R|Bacteria|null|STRAIN=3|ACKA_HAE|SEQUENCE|1
+3264|Q4QL95;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Haemophi|3: Infer|Harrison|Bacteria|null|null|ACKA_HAE|SEQUENCE|1
+3265|A5UCQ6;|[1]|Genome B|CHAIN   |PubMed=1|Name=ack|Haemophi|3: Infer|Hogg J.S|Bacteria|null|null|ACKA_HAE|SEQUENCE|1
+3266|A5UIW8;|[1]|Genome B|CHAIN   |PubMed=1|Name=ack|Haemophi|3: Infer|Hogg J.S|Bacteria|null|null|ACKA_HAE|SEQUENCE|1
+3267|P44406;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Haemophi|3: Infer|Fleischm|Bacteria|null|STRAIN=A|ACKA_HAE|SEQUENCE|1
+3268|Q0I3R3;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Haemophi|3: Infer|Challaco|Bacteria|null|null|ACKA_HAE|SEQUENCE|1
+3269|B0UTZ5;|[1]|Submitte|CHAIN   |null|Name=ack|Haemophi|3: Infer|Siddaram|Bacteria|null|null|ACKA_HAE|SEQUENCE|1
+3270|Q17WE3;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=ack|Helicoba|3: Infer|Eppinger|Bacteria|null|null|ACKA_HEL|SEQUENCE|1
+3271|Q7VGL3;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Helicoba|3: Infer|Suerbaum|Bacteria|null|STRAIN=A|ACKA_HEL|SEQUENCE|1
+3272|Q9ZKU5;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=ack|Helicoba|3: Infer|Alm R.A.|Bacteria|null|null|ACKA_HEL|SEQUENCE|1
+3273|Q03CP2;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Lactobac|3: Infer|Makarova|Bacteria|null|null|ACKA_LAC|SEQUENCE|1
+3274|Q88V41;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Lactobac|3: Infer|Kleerebe|Bacteria|null|STRAIN=A|ACKA_LAC|SEQUENCE|1
+3275|Q9F1X7;|[1]|Submitte|CHAIN   |null|Name=ack|Lactobac|3: Infer|Knorr R.|Bacteria|null|STRAIN=T|ACKA_LAC|SEQUENCE|1
+3276|Q1MRP0;|[1]|Submitte|CHAIN   |null|Name=ack|Lawsonia|3: Infer|Kaur K.,|Bacteria|null|null|ACKA_LAW|SEQUENCE|1
+3277|Q6AGY7;|[1]|Mol. Pla|CHAIN   |PubMed=1|Name=ack|Leifsoni|3: Infer|Monteiro|Bacteria|null|STRAIN=C|ACKA_LEI|SEQUENCE|1
+3278|Q65TV4;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=ack|Mannheim|3: Infer|Hong S.H|Bacteria|null|null|ACKA_MAN|SEQUENCE|1
+3279|Q6F273;|[1]|Submitte|CHAIN   |null|Name=ack|Mesoplas|3: Infer|Birren B|Bacteria|null|STRAIN=A|ACKA_MES|SEQUENCE|1
+3280|Q8TK19;|[1]|Genome R|CHAIN   |MEDLINE=|Name=ack|Methanos|3: Infer|Galagan |Archaea;|null|STRAIN=A|ACKA_MET|SEQUENCE|1
+3281|Q46BI1;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Methanos|3: Infer|Maeder D|Archaea;|null|null|ACKA_MET|SEQUENCE|1
+3282|Q8PZJ7; |[1] [2]|Submitte|CHAIN   |MEDLINE=|Name=ack|Methanos|3: Infer|Tonouti |Archaea;|null|STRAIN=2|ACKA_MET|SEQUENCE|1
+3283|P38502;|[1] [2] |J. Bacte|CHAIN   |MEDLINE=|Name=ack|Methanos|1: Evide|Latimer |Archaea;|null|STRAIN=D|ACKA_MET|SEQUENCE|1
+3284|B0JMT8;|[1]|DNA Res.|CHAIN   |PubMed=1|Name=ack|Microcys|3: Infer|Kaneko T|Bacteria|null|null|ACKA_MIC|SEQUENCE|1
+3285|Q2RJY3;|[1]|Submitte|CHAIN   |null|Name=ack|Moorella|3: Infer|Copeland|Bacteria|null|null|ACKA_MOO|SEQUENCE|1
+3286|P63410; |[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Mycobact|3: Infer|Garnier |Bacteria|null|STRAIN=A|ACKA_MYC|SEQUENCE|1
+3287|Q49113; |[1] [2]|Protein |CHAIN   |MEDLINE=|Name=ack|Mycoplas|3: Infer|Zhu P.P.|Bacteria|null|null|ACKA_MYC|SEQUENCE|1
+3288|Q7NAZ6;|[1]|Microbio|CHAIN   |MEDLINE=|Name=ack|Mycoplas|3: Infer|Papazisi|Bacteria|null|STRAIN=R|ACKA_MYC|SEQUENCE|1
+3289|P47599; |[1] [2]|Science |CHAIN   |MEDLINE=|Name=ack|Mycoplas|3: Infer|Fraser C|Bacteria|null|STRAIN=A|ACKA_MYC|SEQUENCE|1
+3290|Q6MTX5;|[1]|Genome R|CHAIN   |PubMed=1|Name=ack|Mycoplas|3: Infer|Westberg|Bacteria|null|STRAIN=P|ACKA_MYC|SEQUENCE|1
+3291|P75245;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=ack|Mycoplas|3: Infer|Himmelre|Bacteria|null|STRAIN=A|ACKA_MYC|SEQUENCE|1
+3292|A3PTW3;|[1]|Submitte|CHAIN   |null|Name=ack|Mycobact|3: Infer|Copeland|Bacteria|null|null|ACKA_MYC|SEQUENCE|1
+3293|A1UAA8;|[1]|Submitte|CHAIN   |null|Name=ack|Mycobact|3: Infer|Copeland|Bacteria|null|null|ACKA_MYC|SEQUENCE|1
+3294|Q1BEM5;|[1]|Submitte|CHAIN   |null|Name=ack|Mycobact|3: Infer|Copeland|Bacteria|null|null|ACKA_MYC|SEQUENCE|1
+3295|P63409; |[1] [2]|Nature 3|CHAIN   |MEDLINE=|Name=ack|Mycobact|3: Infer|Cole S.T|Bacteria|null|STRAIN=A|ACKA_MYC|SEQUENCE|1
+3296|Q5YNP4;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Nocardia|3: Infer|Ishikawa|Bacteria|null|STRAIN=I|ACKA_NOC|SEQUENCE|1
+3297|Q8EPB9;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=ack|Oceanoba|3: Infer|Takami H|Bacteria|null|STRAIN=D|ACKA_OCE|SEQUENCE|1
+3298|Q6YR57;|[1]|Nat. Gen|CHAIN   |PubMed=1|Name=ack|Onion ye|3: Infer|Oshima K|Bacteria|null|STRAIN=O|ACKA_ONY|SEQUENCE|1
+3299|A6LHA9;|[1]|PLoS Bio|CHAIN   |PubMed=1|Name=ack|Parabact|3: Infer|Xu J., M|Bacteria|null|null|ACKA_PAR|SEQUENCE|1
+3300|P57866;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Pasteure|3: Infer|May B.J.|Bacteria|null|STRAIN=P|ACKA_PAS|SEQUENCE|1
+3301|Q7N2I1;|[1]|Nat. Bio|CHAIN   |MEDLINE=|Name=ack|Photorha|3: Infer|Duchaud |Bacteria|null|STRAIN=T|ACKA_PHO|SEQUENCE|1
+3302|Q7MVI0;|[1]|J. Bacte|CHAIN   |MEDLINE=|Name=ack|Porphyro|3: Infer|Nelson K|Bacteria|null|STRAIN=A|ACKA_POR|SEQUENCE|1
+3303|A6VAE3;|[1]|Submitte|CHAIN   |null|Name=ack|Pseudomo|3: Infer|Dodson R|Bacteria|null|null|ACKA_PSE|SEQUENCE|1
+3304|Q02HZ4;|[1]|Genome B|CHAIN   |PubMed=1|Name=ack|Pseudomo|3: Infer|Lee D.G.|Bacteria|null|null|ACKA_PSE|SEQUENCE|1
+3305|Q9I5A4;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Pseudomo|3: Infer|Stover C|Bacteria|null|STRAIN=A|ACKA_PSE|SEQUENCE|1
+3306|A4XYH6;|[1]|Submitte|CHAIN   |null|Name=ack|Pseudomo|3: Infer|Copeland|Bacteria|null|null|ACKA_PSE|SEQUENCE|1
+3307|A4VIM1;|[1]|Submitte|CHAIN   |null|Name=ack|Pseudomo|3: Infer|Yan Y., |Bacteria|null|null|ACKA_PSE|SEQUENCE|1
+3308|A8GM71;|[1]|Submitte|CHAIN   |null|Name=ack|Ricketts|3: Infer|Madan A.|Bacteria|null|null|ACKA_RIC|SEQUENCE|1
+3309|Q4UNB0;|[1]|PLoS Bio|CHAIN   |PubMed=1|Name=ack|Ricketts|3: Infer|Ogata H.|Bacteria|null|STRAIN=A|ACKA_RIC|SEQUENCE|1
+3310|Q9ZE38;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=ack|Ricketts|3: Infer|Andersso|Bacteria|null|STRAIN=M|ACKA_RIC|SEQUENCE|1
+3311|Q68XX8;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Ricketts|3: Infer|McLeod M|Bacteria|null|STRAIN=A|ACKA_RIC|SEQUENCE|1
+3312|P63412; |[1] [2]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Salmonel|3: Infer|Parkhill|Bacteria|null|STRAIN=C|ACKA_SAL|SEQUENCE|1
+3313|P63411; |[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Salmonel|3: Infer|McClella|Bacteria|null|STRAIN=L|ACKA_SAL|SEQUENCE|1
+3314|A8GH24;|[1]|Submitte|CHAIN   |null|Name=ack|Serratia|3: Infer|Copeland|Bacteria|null|null|ACKA_SER|SEQUENCE|1
+3315|A1S5P6;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3316|A3D600;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3317|A6WPT9;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3318|A9L605;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3319|Q080J4;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3320|A3QFL1;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3321|Q8ED55;|[1]|Nat. Bio|CHAIN   |MEDLINE=|Name=ack|Shewanel|3: Infer|Heidelbe|Bacteria|null|STRAIN=M|ACKA_SHE|SEQUENCE|1
+3322|A8H356;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3323|A4Y819;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3324|A0KVG7;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3325|Q0HK48;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3326|Q0HWE9;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3327|A1RIH0;|[1]|Submitte|CHAIN   |null|Name=ack|Shewanel|3: Infer|Copeland|Bacteria|null|null|ACKA_SHE|SEQUENCE|1
+3328|Q2NSJ4;|[1]|Genome R|CHAIN   |PubMed=1|Name=ack|Sodalis |3: Infer|Toh H., |Bacteria|null|null|ACKA_SOD|SEQUENCE|1
+3329|Q022T0;|[1]|Submitte|CHAIN   |null|Name=ack|Solibact|3: Infer|Copeland|Bacteria|null|null|ACKA_SOL|SEQUENCE|1
+3330|A7X3E0;|[1]|Antimicr|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Neoh H.-|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3331|A6U2H8;|[1]|Submitte|CHAIN   |null|Name=ack|Staphylo|3: Infer|Copeland|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3332|Q2FG27;|[1]|Lancet 3|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Diep B.A|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3333|Q2FXL5;|[1]|Submitte|CHAIN   |null|Name=ack|Staphylo|3: Infer|Gillaspy|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3334|A5ITN4;|[1]|Submitte|CHAIN   |null|Name=ack|Staphylo|3: Infer|Copeland|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3335|Q2YTC9;|[1]|Submitte|CHAIN   |null|Name=ack|Staphylo|3: Infer|Herron-O|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3336|Q5HF63;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Gill S.R|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3337|A6QHP5;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Baba T.,|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3338|Q931P6;|[1]|Lancet 3|CHAIN   |MEDLINE=|Name=ack|Staphylo|1: Evide|Kuroda M|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3339|Q99TF2;|[1] [2] |Lancet 3|CHAIN   |MEDLINE=|Name=ack|Staphylo|1: Evide|Kuroda M|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3340|Q6GFZ6;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Holden M|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3341|Q6G8L6;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Holden M|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3342|A8Z2M7;|[1]|BMC Micr|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Highland|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3343|Q8NW53;|[1]|Lancet 3|CHAIN   |MEDLINE=|Name=ack|Staphylo|3: Infer|Baba T.,|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3344|Q5HNJ4;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Gill S.R|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3345|Q8CS60;|[1]|Mol. Mic|CHAIN   |MEDLINE=|Name=ack|Staphylo|3: Infer|Zhang Y.|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3346|Q4L752;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Takeuchi|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3347|Q49YE2;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Staphylo|3: Infer|Kuroda M|Bacteria|null|null|ACKA_STA|SEQUENCE|1
+3348|Q3K3K1;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Tettelin|Bacteria|null|STRAIN=A|ACKA_STR|SEQUENCE|1
+3349|Q8E7I7;|[1]|Mol. Mic|CHAIN   |MEDLINE=|Name=ack|Streptoc|3: Infer|Glaser P|Bacteria|null|STRAIN=N|ACKA_STR|SEQUENCE|1
+3350|Q8E231;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Streptoc|3: Infer|Tettelin|Bacteria|null|STRAIN=A|ACKA_STR|SEQUENCE|1
+3351|Q82JD1;|[1] [2]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Streptom|3: Infer|Omura S.|Bacteria|null|STRAIN=A|ACKA_STR|SEQUENCE|1
+3352|Q9L298;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=ack|Streptom|3: Infer|Bentley |Bacteria|null|STRAIN=A|ACKA_STR|SEQUENCE|1
+3353|A8AZH2;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Vickerma|Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3354|Q8DS57;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Streptoc|3: Infer|Ajdic D.|Bacteria|null|STRAIN=A|ACKA_STR|SEQUENCE|1
+3355|P63415; |[1] [2]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Streptoc|3: Infer|Ferretti|Bacteria|null|STRAIN=A|ACKA_STR|SEQUENCE|1
+3356|Q04IC8;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Lanie J.|Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3357|P63416; |[1] [2]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Streptoc|3: Infer|Beres S.|Bacteria|null|STRAIN=A|ACKA_STR|SEQUENCE|1
+3358|Q5XE86;|[1]|J. Infec|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Banks D.|Bacteria|null|STRAIN=A|ACKA_STR|SEQUENCE|1
+3359|Q8P2X6;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=ack|Streptoc|3: Infer|Smoot J.|Bacteria|null|STRAIN=M|ACKA_STR|SEQUENCE|1
+3360|Q1JE09;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Beres S.|Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3361|Q1JNW6;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Beres S.|Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3362|Q1JJ12;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Beres S.|Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3363|Q1J8W0;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Beres S.|Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3364|A2RC62;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Holden M|Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3365|Q48VQ0;|[1]|J. Infec|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Green N.|Bacteria|null|STRAIN=M|ACKA_STR|SEQUENCE|1
+3366|P63413; |[1]|Science |CHAIN   |MEDLINE=|Name=ack|Streptoc|3: Infer|Tettelin|Bacteria|null|STRAIN=A|ACKA_STR|SEQUENCE|1
+3367|P63414; |[1]|J. Bacte|CHAIN   |MEDLINE=|Name=ack|Streptoc|3: Infer|Hoskins |Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3368|A4VSL6;|[1]|PLoS ONE|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Chen C.,|Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3369|Q03IL2;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Streptoc|3: Infer|Makarova|Bacteria|null|null|ACKA_STR|SEQUENCE|1
+3370|Q30UJ4;|[1]|Appl. En|CHAIN   |PubMed=1|Name=ack|Sulfurim|3: Infer|Sievert |Bacteria|null|null|ACKA_SUL|SEQUENCE|1
+3371|A6QBT0;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Sulfurov|3: Infer|Nakagawa|Bacteria|null|null|ACKA_SUL|SEQUENCE|1
+3372|Q67L76;|[1]|Nucleic |CHAIN   |PubMed=1|Name=ack|Symbioba|3: Infer|Ueda K.,|Bacteria|null|STRAIN=T|ACKA_SYM|SEQUENCE|1
+3373|A0LIB0;|[1]|Submitte|CHAIN   |null|Name=ack|Syntroph|3: Infer|Copeland|Bacteria|null|null|ACKA_SYN|SEQUENCE|1
+3374|Q0AYW5;|[1]|Submitte|CHAIN   |null|Name=ack|Syntroph|3: Infer|Copeland|Bacteria|null|null|ACKA_SYN|SEQUENCE|1
+3375|P73162;|[1]|DNA Res.|CHAIN   |MEDLINE=|Name=ack|Synechoc|3: Infer|Kaneko T|Bacteria|null|null|ACKA_SYN|SEQUENCE|1
+3376|A8F3X9;|[1]|Submitte|CHAIN   |null|Name=ack|Thermoto|3: Infer|Copeland|Bacteria|null|null|ACKA_THE|SEQUENCE|1
+3377|A6LMG9;|[1]|Submitte|CHAIN   |null|Name=ack|Thermosi|3: Infer|Copeland|Bacteria|null|null|ACKA_THE|SEQUENCE|1
+3378|Q9WYB1;|[1] [2]|Nature 3|CHAIN   |MEDLINE=|Name=ack|Thermoto|1: Evide|Nelson K|Bacteria|null|STRAIN=A|ACKA_THE|SEQUENCE|1
+3379|A5IKE7;|[1]|Submitte|CHAIN   |null|Name=ack|Thermoto|3: Infer|Copeland|Bacteria|null|null|ACKA_THE|SEQUENCE|1
+3380|Q8R9V4;|[1]|Genome R|CHAIN   |MEDLINE=|Name=ack|Thermoan|3: Infer|Bao Q., |Bacteria|null|STRAIN=D|ACKA_THE|SEQUENCE|1
+3381|Q73P66;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Treponem|3: Infer|Seshadri|Bacteria|null|STRAIN=A|ACKA_TRE|SEQUENCE|1
+3382|O83489;|[1]|Science |CHAIN   |MEDLINE=|Name=ack|Treponem|3: Infer|Fraser C|Bacteria|null|STRAIN=N|ACKA_TRE|SEQUENCE|1
+3383|A7MVE1;|[1]|Submitte|CHAIN   |null|Name=ack|Vibrio h|3: Infer|Bassler |Bacteria|null|null|ACKA_VIB|SEQUENCE|1
+3384|Q8D320;|[1]|Nat. Gen|CHAIN   |MEDLINE=|Name=ack|Wigglesw|3: Infer|Akman L.|Bacteria|null|null|ACKA_WIG|SEQUENCE|1
+3385|A7FGP4;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=ack|Yersinia|3: Infer|Eppinger|Bacteria|null|null|ACKA_YER|SEQUENCE|1
+3386|Q1C6A1;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Yersinia|3: Infer|Chain P.|Bacteria|null|null|ACKA_YER|SEQUENCE|1
+3387|Q8ZDJ6; |[1] [2] |Nature 4|CHAIN   |MEDLINE=|Name=ack|Yersinia|3: Infer|Parkhill|Bacteria|null|STRAIN=C|ACKA_YER|SEQUENCE|1
+3388|Q1CHP3;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=ack|Yersinia|3: Infer|Chain P.|Bacteria|null|null|ACKA_YER|SEQUENCE|1
+3389|A4TM44;|[1]|Submitte|CHAIN   |null|Name=ack|Yersinia|3: Infer|Copeland|Bacteria|null|null|ACKA_YER|SEQUENCE|1
+3390|Q668Z0;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=ack|Yersinia|3: Infer|Chain P.|Bacteria|null|STRAIN=I|ACKA_YER|SEQUENCE|1
+3391|Q8X097; |[1] [2]|Nucleic |CHAIN   |MEDLINE=|ORFNames|Neurospo|3: Infer|Mannhaup|Eukaryot|null|STRAIN=A|ACL1_NEU|SEQUENCE|1
+3392|Q9P7W3; |[1] [2] |Nature 4|CHAIN   |MEDLINE=|ORFNames|Schizosa|1: Evide|Wood V.,|Eukaryot|null|STRAIN=A|ACL1_SCH|SEQUENCE|1
+3393|O93988;|[1] [2]|Mol. Cel|CHAIN   |MEDLINE=|Name=ACL|Sordaria|3: Infer|Nowrousi|Eukaryot|null|STRAIN=A|ACL1_SOR|SEQUENCE|1
+3394|O13907;|[1] [2] |Nature 4|CHAIN   |MEDLINE=|ORFNames|Schizosa|1: Evide|Wood V.,|Eukaryot|null|STRAIN=A|ACL2_SCH|SEQUENCE|1
+3395|O96019; |[1] [2] |Cell 95:|CHAIN   |MEDLINE=|Name=ACT|Homo sap|1: Evide|Zhao K.,|Eukaryot|null|TISSUE=B|ACL6A_HU|SEQUENCE|1
+3396|Q4R333;|[1]|Submitte|CHAIN   |null|Name=ACT|Macaca f|2: Evide|null|Eukaryot|null|TISSUE=T|ACL6A_MA|SEQUENCE|1
+3397|Q9Z2N8; |[1] [2] |Cell 95:|CHAIN   |MEDLINE=|Name=Act|Mus musc|2: Evide|Zhao K.,|Eukaryot|null|STRAIN=C|ACL6A_MO|SEQUENCE|1
+3398|O94805; |[1] [2] |Genome R|CHAIN   |MEDLINE=|Name=ACT|Homo sap|1: Evide|Gloeckne|Eukaryot|null|TISSUE=B|ACL6B_HU|SEQUENCE|1
+3399|Q99MR0;|[1] [2]|Nucleic |CHAIN   |MEDLINE=|Name=Act|Mus musc|1: Evide|Wilson M|Eukaryot|null|STRAIN=1|ACL6B_MO|SEQUENCE|1
+3400|Q32KZ2;|[1]|Submitte|CHAIN   |null|Name=ACT|Bos taur|2: Evide|null|Eukaryot|null|STRAIN=C|ACL7A_BO|SEQUENCE|1
+3401|Q9Y615; |[1] [2] |Genomics|CHAIN   |MEDLINE=|Name=ACT|Homo sap|2: Evide|Chadwick|Eukaryot|null|TISSUE=B|ACL7A_HU|SEQUENCE|1
+3402|Q4R6Q3; |[1]|Submitte|CHAIN   |null|Name=ACT|Macaca f|2: Evide|null|Eukaryot|null|TISSUE=T|ACL7A_MA|SEQUENCE|1
+3403|Q9QY84; |[1] [2] |Genomics|CHAIN   |MEDLINE=|Name=Act|Mus musc|2: Evide|Chadwick|Eukaryot|null|STRAIN=C|ACL7A_MO|SEQUENCE|1
+3404|Q641W9;|[1]|Genome R|CHAIN   |PubMed=1|Name=Act|Rattus n|2: Evide|null|Eukaryot|null|TISSUE=T|ACL7A_RA|SEQUENCE|1
+3405|Q32L91;|[1]|Submitte|CHAIN   |null|Name=ACT|Bos taur|2: Evide|null|Eukaryot|null|STRAIN=C|ACL7B_BO|SEQUENCE|1
+3406|Q9Y614; |[1] [2] |Genomics|CHAIN   |MEDLINE=|Name=ACT|Homo sap|2: Evide|Chadwick|Eukaryot|null|TISSUE=B|ACL7B_HU|SEQUENCE|1
+3407|Q95JK8;|[1]|BMC Geno|CHAIN   |MEDLINE=|Name=ACT|Macaca f|2: Evide|Osada N.|Eukaryot|null|TISSUE=T|ACL7B_MA|SEQUENCE|1
+3408|Q9QY83; |[1] [2] |Genomics|CHAIN   |MEDLINE=|Name=Act|Mus musc|2: Evide|Chadwick|Eukaryot|null|STRAIN=C|ACL7B_MO|SEQUENCE|1
+3409|Q4QR76;|[1]|Genome R|CHAIN   |PubMed=1|Name=Act|Rattus n|2: Evide|null|Eukaryot|null|TISSUE=T|ACL7B_RA|SEQUENCE|1
+3410|Q2T9W4;|[1]|Submitte|CHAIN   |null|Name=ACT|Bos taur|2: Evide|null|Eukaryot|null|STRAIN=C|ACL7C_BO|SEQUENCE|1
+3411|Q8TC94; |[1] [2] |Submitte|CHAIN   |PubMed=1|Name=ACT|Homo sap|2: Evide|Yang C.B|Eukaryot|null|TISSUE=T|ACL7C_HU|SEQUENCE|1
+3412|Q8CG27; |[1] [2]|Submitte|CHAIN   |PubMed=1|Name=Act|Mus musc|2: Evide|Brathwai|Eukaryot|null|STRAIN=1|ACL7C_MO|SEQUENCE|1
+3413|Q6AY16;|[1]|Genome R|CHAIN   |PubMed=1|Name=Act|Rattus n|2: Evide|null|Eukaryot|null|TISSUE=T|ACL7C_RA|SEQUENCE|1
+3414|P83855;|[1]|Submitte|CHAIN   |null|null|Mus musc|1: Evide|Kumar G.|Eukaryot|null|TISSUE=T|ACLP_MOU|SEQUENCE|1
+3415|P81730;|[1]|Submitte|CHAIN   |null|null|Achromob|1: Evide|Li S.L.;|Bacteria|null|STRAIN=M|ACLY_ACH|SEQUENCE|1
+3416|Q32PF2;|[1]|Submitte|CHAIN   |null|Name=ACL|Bos taur|2: Evide|null|Eukaryot|null|STRAIN=H|ACLY_BOV|SEQUENCE|1
+3417|P53585;|[1]|Science |CHAIN   |MEDLINE=|ORFNames|Caenorha|2: Evide|null|Eukaryot|null|STRAIN=B|ACLY_CAE|SEQUENCE|1
+3418|P53396; |[1] [2] |Eur. J. |CHAIN   |MEDLINE=|Name=ACL|Homo sap|1: Evide|Elshourb|Eukaryot|null|TISSUE=L|ACLY_HUM|SEQUENCE|1
+3419|Q91V92;|[1] [2] |Mamm. Ge|CHAIN   |MEDLINE=|Name=Acl|Mus musc|1: Evide|Ehringer|Eukaryot|null|STRAIN=I|ACLY_MOU|SEQUENCE|1
+3420|P16638; |[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=Acl|Rattus n|1: Evide|Elshourb|Eukaryot|null|TISSUE=L|ACLY_RAT|SEQUENCE|1
+3421|Q2TCH3;|[1]|Submitte|CHAIN   |null|Name=ACL|Ovis ari|2: Evide|Morin F.|Eukaryot|null|TISSUE=P|ACLY_SHE|SEQUENCE|1
+3422|Q18007; |[1] [2] |J. Neuro|CHAIN   |MEDLINE=|Name=gar|Caenorha|2: Evide|Lee Y.-S|Eukaryot|null|STRAIN=B|ACM1_CAE|SEQUENCE|1
+3423|P16395; |[1] [2] |FEBS Let|CHAIN   |MEDLINE=|Name=mAc|Drosophi|2: Evide|Onai T.,|Eukaryot|null|STRAIN=B|ACM1_DRO|SEQUENCE|1
+3424|P11229;|[1] [2] |Nucleic |CHAIN   |MEDLINE=|Name=CHR|Homo sap|1: Evide|Allard W|Eukaryot|null|TISSUE=B|ACM1_HUM|SEQUENCE|1
+3425|P56489;|[1]|Submitte|CHAIN   |null|Name=CHR|Macaca m|2: Evide|Rae J.L.|Eukaryot|null|TISSUE=L|ACM1_MAC|SEQUENCE|1
+3426|P12657; |[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=Chr|Mus musc|2: Evide|Shapiro |Eukaryot|null|STRAIN=C|ACM1_MOU|SEQUENCE|1
+3427|P04761;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=CHR|Sus scro|2: Evide|Kubo T.,|Eukaryot|null|TISSUE=B|ACM1_PIG|SEQUENCE|1
+3428|Q5R949;|[1]|Submitte|CHAIN   |null|Name=CHR|Pongo ab|2: Evide|null|Eukaryot|null|TISSUE=B|ACM1_PON|SEQUENCE|1
+3429|P08482;|[1] [2] |Science |CHAIN   |MEDLINE=|Name=Chr|Rattus n|1: Evide|Bonner T|Eukaryot|null|null|ACM1_RAT|SEQUENCE|1
+3430|Q08981;|[1] [2] |Nature 3|CHAIN   |MEDLINE=|Name=ACM|Saccharo|1: Evide|Bussey H|Eukaryot|null|STRAIN=A|ACM1_YEA|SEQUENCE|1
+3431|P41985; |[1] [2]|Submitte|CHAIN   |null|Name=CHR|Bos taur|2: Evide|Rae J.L.|Eukaryot|null|TISSUE=C|ACM2_BOV|SEQUENCE|1
+3432|Q09388; |[1] [2] |J. Neuro|CHAIN   |MEDLINE=|Name=gar|Caenorha|2: Evide|Lee Y.-S|Eukaryot|null|STRAIN=B|ACM2_CAE|SEQUENCE|1
+3433|P30372;|[1]|J. Biol.|CHAIN   |MEDLINE=|Name=CHR|Gallus g|3: Infer|Tietje K|Eukaryot|null|null|ACM2_CHI|SEQUENCE|1
+3434|P08172; |[1] [2] |Science |CHAIN   |MEDLINE=|Name=CHR|Homo sap|2: Evide|Bonner T|Eukaryot|null|TISSUE=B|ACM2_HUM|SEQUENCE|1
+3435|Q9ERZ4;|[1] [2]|Submitte|CHAIN   |PubMed=1|Name=Chr|Mus musc|1: Evide|Gomeza J|Eukaryot|null|TISSUE=B|ACM2_MOU|SEQUENCE|1
+3436|Q9N2A7;|[1]|Submitte|CHAIN   |null|Name=CHR|Pan trog|3: Infer|Kitano T|Eukaryot|null|STRAIN=I|ACM2_PAN|SEQUENCE|1
+3437|P06199;|[1] [2]|FEBS Let|CHAIN   |MEDLINE=|Name=CHR|Sus scro|2: Evide|Kubo T.,|Eukaryot|null|TISSUE=H|ACM2_PIG|SEQUENCE|1
+3438|P10980; |[1] [2]|Proc. Na|CHAIN   |MEDLINE=|Name=Chr|Rattus n|2: Evide|Gocayne |Eukaryot|null|TISSUE=I|ACM2_RAT|SEQUENCE|1
+3439|P41984;|[1] [2]|Biochim.|CHAIN   |MEDLINE=|Name=CHR|Bos taur|2: Evide|Lee P.H.|Eukaryot|null|TISSUE=B|ACM3_BOV|SEQUENCE|1
+3440|Q9U7D5; |[1] [2] |Recept. |CHAIN   |MEDLINE=|Name=gar|Caenorha|1: Evide|Hwang J.|Eukaryot|null|STRAIN=B|ACM3_CAE|SEQUENCE|1
+3441|P49578;|[1]|J. Biol.|CHAIN   |MEDLINE=|Name=CHR|Gallus g|2: Evide|Gadbut A|Eukaryot|null|TISSUE=B|ACM3_CHI|SEQUENCE|1
+3442|Q9N2A3;|[1]|Submitte|CHAIN   |null|Name=CHR|Gorilla |3: Infer|Kitano T|Eukaryot|null|null|ACM3_GOR|SEQUENCE|1
+3443|P20309; |[1] [2] |EMBO J. |CHAIN   |MEDLINE=|Name=CHR|Homo sap|1: Evide|Peralta |Eukaryot|null|TISSUE=B|ACM3_HUM|SEQUENCE|1
+3444|Q9ERZ3; |[1] [2]|Submitte|CHAIN   |MEDLINE=|Name=Chr|Mus musc|2: Evide|Gomeza J|Eukaryot|null|TISSUE=B|ACM3_MOU|SEQUENCE|1
+3445|Q9N2A4;|[1]|Submitte|CHAIN   |null|Name=CHR|Pan trog|3: Infer|Kitano T|Eukaryot|null|null|ACM3_PAN|SEQUENCE|1
+3446|P11483;|[1]|FEBS Let|CHAIN   |MEDLINE=|Name=CHR|Sus scro|3: Infer|Akiba I.|Eukaryot|null|null|ACM3_PIG|SEQUENCE|1
+3447|Q9N2A2; |[1] [2]|Submitte|CHAIN   |null|Name=CHR|Pongo py|2: Evide|Kitano T|Eukaryot|null|STRAIN=I|ACM3_PON|SEQUENCE|1
+3448|P08483; |[1] [2] |Science |CHAIN   |MEDLINE=|Name=Chr|Rattus n|1: Evide|Bonner T|Eukaryot|null|TISSUE=B|ACM3_RAT|SEQUENCE|1
+3449|P41986;|[1]|Submitte|CHAIN   |null|Name=CHR|Bos taur|2: Evide|Sui A.-L|Eukaryot|null|TISSUE=A|ACM4_BOV|SEQUENCE|1
+3450|P17200;|[1]|J. Biol.|CHAIN   |MEDLINE=|Name=CHR|Gallus g|2: Evide|Tietje K|Eukaryot|null|null|ACM4_CHI|SEQUENCE|1
+3451|P08173; |[1] [2] |Science |CHAIN   |MEDLINE=|Name=CHR|Homo sap|2: Evide|Bonner T|Eukaryot|null|TISSUE=B|ACM4_HUM|SEQUENCE|1
+3452|P32211; |[1] [2]|Biochim.|CHAIN   |MEDLINE=|Name=Chr|Mus musc|2: Evide|van Kopp|Eukaryot|null|TISSUE=B|ACM4_MOU|SEQUENCE|1
+3453|P08485;|[1]|Science |CHAIN   |MEDLINE=|Name=Chr|Rattus n|2: Evide|Bonner T|Eukaryot|null|null|ACM4_RAT|SEQUENCE|1
+3454|P30544;|[1]|FEBS Let|CHAIN   |MEDLINE=|Name=chr|Xenopus |3: Infer|Herrera |Eukaryot|null|TISSUE=O|ACM4_XEN|SEQUENCE|1
+3455|P08912; |[1] [2] |Neuron 1|CHAIN   |MEDLINE=|Name=CHR|Homo sap|2: Evide|Bonner T|Eukaryot|null|TISSUE=L|ACM5_HUM|SEQUENCE|1
+3456|P56490;|[1]|Submitte|CHAIN   |null|Name=CHR|Macaca m|2: Evide|Rae J.L.|Eukaryot|null|TISSUE=L|ACM5_MAC|SEQUENCE|1
+3457|Q920H4;|[1]|Submitte|CHAIN   |null|Name=Chr|Mus musc|2: Evide|Yamada M|Eukaryot|null|null|ACM5_MOU|SEQUENCE|1
+3458|Q5IS53;|[1]|Cell 119|CHAIN   |PubMed=1|Name=CHR|Pan trog|2: Evide|Dorus S.|Eukaryot|null|null|ACM5_PAN|SEQUENCE|1
+3459|P08911;|[1] [2] |Neuron 1|CHAIN   |MEDLINE=|Name=Chr|Rattus n|1: Evide|Bonner T|Eukaryot|null|null|ACM5_RAT|SEQUENCE|1
+3460|Q5IS98;|[1]|Cell 119|CHAIN   |PubMed=1|Name=CHR|Saimiri |2: Evide|Dorus S.|Eukaryot|null|null|ACM5_SAI|SEQUENCE|1
+3461|Q9CIT4;|[1]|Genome R|SIGNAL  |MEDLINE=|Name=acm|Lactococ|3: Infer|Bolotin |Bacteria|null|STRAIN=I|ACMA_LAC|SEQUENCE|1
+3462|P0C2T5; |[1]|J. Dairy|SIGNAL  |MEDLINE=|Name=acm|Lactococ|3: Infer|Govindas|Bacteria|null|STRAIN=2|ACMA_LAC|SEQUENCE|1
+3463|A2RHZ5; |[1] [2]|J. Bacte|SIGNAL  |MEDLINE=|Name=acm|Lactococ|3: Infer|Buist G.|Bacteria|null|null|ACMA_LAC|SEQUENCE|1
+3464|Q0II68;|[1]|Submitte|CHAIN   |null|Name=ACM|Bos taur|2: Evide|null|Eukaryot|null|STRAIN=C|ACMSD_BO|SEQUENCE|1
+3465|Q8T8B9;|[1] [2]|J. Biol.|CHAIN   |MEDLINE=|Name=acm|Caenorha|2: Evide|Fukuoka |Eukaryot|null|STRAIN=B|ACMSD_CA|SEQUENCE|1
+3466|Q54LN9;|[1]|Nature 4|CHAIN   |PubMed=1|Name=acm|Dictyost|3: Infer|Eichinge|Eukaryot|null|STRAIN=A|ACMSD_DI|SEQUENCE|1
+3467|Q8TDX5; |[1] [2]|J. Biol.|CHAIN   |MEDLINE=|Name=ACM|Homo sap|2: Evide|Fukuoka |Eukaryot|null|TISSUE=B|ACMSD_HU|SEQUENCE|1
+3468|Q8R519; |[1] [2] |Science |CHAIN   |PubMed=1|Name=Acm|Mus musc|1: Evide|Carninci|Eukaryot|null|STRAIN=C|ACMSD_MO|SEQUENCE|1
+3469|P83662;|[1]|J. Biol.|CHAIN   |MEDLINE=|Name=ACM|Sus scro|1: Evide|Fukuoka |Eukaryot|null|TISSUE=B|ACMSD_PI|SEQUENCE|1
+3470|Q8R5M5;|[1] [2]|Biochem.|CHAIN   |MEDLINE=|Name=Acm|Rattus n|1: Evide|Tanabe A|Eukaryot|null|STRAIN=W|ACMSD_RA|SEQUENCE|1
+3471|Q8I948;|[1]|Dev. Com|SIGNAL  |MEDLINE=|Name=aca|Acanthos|1: Evide|Lorenzin|Eukaryot|null|TISSUE=H|ACN1_ACA|SEQUENCE|1
+3472|Q18581; |[1] [2] |Science |SIGNAL  |MEDLINE=|Name=acn|Caenorha|1: Evide|Brooks D|Eukaryot|null|STRAIN=B|ACN1_CAE|SEQUENCE|1
+3473|Q8I6R7;|[1]|Dev. Com|PEPTIDE |MEDLINE=|Name=aca|Acanthos|1: Evide|Lorenzin|Eukaryot|null|TISSUE=H|ACN2_ACA|SEQUENCE|1
+3474|Q751X1;|[1]|Science |TRANSIT |PubMed=1|Name=ACN|Ashbya g|3: Infer|Dietrich|Eukaryot|null|STRAIN=A|ACN9_ASH|SEQUENCE|1
+3475|Q4WHK3;|[1]|Nature 4|TRANSIT |PubMed=1|Name=acn|Aspergil|3: Infer|Nierman |Eukaryot|null|STRAIN=A|ACN9_ASP|SEQUENCE|1
+3476|Q0P574;|[1]|Submitte|TRANSIT |null|Name=ACN|Bos taur|2: Evide|null|Eukaryot|null|STRAIN=H|ACN9_BOV|SEQUENCE|1
+3477|Q59L89;|[1]|Proc. Na|TRANSIT |PubMed=1|Name=ACN|Candida |3: Infer|Jones T.|Eukaryot|null|STRAIN=S|ACN9_CAN|SEQUENCE|1
+3478|Q6FMR7;|[1]|Nature 4|TRANSIT |PubMed=1|Name=ACN|Candida |3: Infer|Dujon B.|Eukaryot|null|STRAIN=A|ACN9_CAN|SEQUENCE|1
+3479|Q5KLU1; |[1]|Science |TRANSIT |PubMed=1|Name=ACN|Cryptoco|3: Infer|Loftus B|Eukaryot|null|STRAIN=B|ACN9_CRY|SEQUENCE|1
+3480|Q5XIY4;|[1]|Submitte|TRANSIT |null|Name=acn|Danio re|2: Evide|null|Eukaryot|null|TISSUE=B|ACN9_DAN|SEQUENCE|1
+3481|Q6BIY6;|[1]|Nature 4|TRANSIT |PubMed=1|Name=ACN|Debaryom|3: Infer|Dujon B.|Eukaryot|null|STRAIN=A|ACN9_DEB|SEQUENCE|1
+3482|Q86H49; |[1] [2]|Nature 4|TRANSIT |MEDLINE=|Name=acn|Dictyost|3: Infer|Gloeckne|Eukaryot|null|STRAIN=A|ACN9_DIC|SEQUENCE|1
+3483|Q5BBH7;|[1]|Nature 4|TRANSIT |PubMed=1|Name=acn|Emericel|3: Infer|Galagan |Eukaryot|null|STRAIN=F|ACN9_EME|SEQUENCE|1
+3484|Q4IN52;|[1]|Science |TRANSIT |PubMed=1|Name=ACN|Gibberel|3: Infer|Cuomo C.|Eukaryot|null|STRAIN=P|ACN9_GIB|SEQUENCE|1
+3485|Q9NRP4; |[1] [2] |Submitte|TRANSIT |MEDLINE=|Name=ACN|Homo sap|2: Evide|Gu J., H|Eukaryot|null|TISSUE=D|ACN9_HUM|SEQUENCE|1
+3486|Q6CUY0; |[1] [2]|Nature 4|TRANSIT |PubMed=1|Name=ACN|Kluyvero|3: Infer|Dujon B.|Eukaryot|null|STRAIN=A|ACN9_KLU|SEQUENCE|1
+3487|P0C146; |[1]|Nature 4|TRANSIT |PubMed=1|Name=ACN|Magnapor|3: Infer|Dean R.A|Eukaryot|null|STRAIN=7|ACN9_MAG|SEQUENCE|1
+3488|Q8BQU3; |[1]|Science |TRANSIT |PubMed=1|Name=Acn|Mus musc|2: Evide|Carninci|Eukaryot|null|STRAIN=C|ACN9_MOU|SEQUENCE|1
+3489|A7S1H9;|[1]|Science |TRANSIT |PubMed=1|Name=acn|Nematost|3: Infer|Putnam N|Eukaryot|null|STRAIN=C|ACN9_NEM|SEQUENCE|1
+3490|Q7SF55;|[1] [2]|Nucleic |TRANSIT |MEDLINE=|Name=acn|Neurospo|3: Infer|Mannhaup|Eukaryot|null|STRAIN=A|ACN9_NEU|SEQUENCE|1
+3491|Q6TUF2;|[1] [2]|Submitte|TRANSIT |PubMed=1|Name=Acn|Rattus n|2: Evide|Xu C.S.,|Eukaryot|null|STRAIN=S|ACN9_RAT|SEQUENCE|1
+3492|Q9P7Y2;|[1]|Nature 4|TRANSIT |MEDLINE=|Name=acn|Schizosa|2: Evide|Wood V.,|Eukaryot|null|STRAIN=A|ACN9_SCH|SEQUENCE|1
+3493|Q4PCI7;|[1]|Nature 4|TRANSIT |PubMed=1|Name=ACN|Ustilago|3: Infer|Kaemper |Eukaryot|null|STRAIN=5|ACN9_UST|SEQUENCE|1
+3494|Q04401; |[1] [2] |Submitte|TRANSIT |MEDLINE=|Name=ACN|Saccharo|1: Evide|Meluh P.|Eukaryot|null|STRAIN=Y|ACN9_YEA|SEQUENCE|1
+3495|Q6NH62;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=acn|Coryneba|3: Infer|Cerdeno-|Bacteria|null|STRAIN=A|ACNR_COR|SEQUENCE|1
+3496|Q8FTA6;|[1]|Genome R|CHAIN   |MEDLINE=|Name=acn|Coryneba|3: Infer|Nishio Y|Bacteria|null|STRAIN=D|ACNR_COR|SEQUENCE|1
+3497|Q8NQ97; |[1] [2] |Submitte|CHAIN   |MEDLINE=|Name=acn|Coryneba|1: Evide|Nakagawa|Bacteria|null|STRAIN=A|ACNR_COR|SEQUENCE|1
+3498|Q4JVM3;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acn|Coryneba|3: Infer|Tauch A.|Bacteria|null|null|ACNR_COR|SEQUENCE|1
+3499|Q32MW3; |[1] [2] |J. Biol.|TRANSIT |MEDLINE=|Name=Aco|Mus musc|2: Evide|Poupon V|Eukaryot|null|null|ACO10_MO|SEQUENCE|1
+3500|Q8WXI4; |[1] [2] |Biochem.|CHAIN   |MEDLINE=|Name=ACO|Homo sap|1: Evide|Adams S.|Eukaryot|null|TISSUE=B|ACO11_HU|SEQUENCE|1
+3501|Q8VHQ9;|[1] [2]|Biochem.|CHAIN   |MEDLINE=|Name=Aco|Mus musc|2: Evide|Adams S.|Eukaryot|null|STRAIN=F|ACO11_MO|SEQUENCE|1
+3502|O44390; |[1] [2] |Proc. Na|CHAIN   |MEDLINE=|Name=D11|Trichopl|2: Evide|Knipple |Eukaryot|null|TISSUE=P|ACO11_TR|SEQUENCE|1
+3503|Q9ZQP2;|[1] [2] |Nature 4|CHAIN   |MEDLINE=|Name=ACX|Arabidop|2: Evide|Lin X., |Eukaryot|null|STRAIN=c|ACO12_AR|SEQUENCE|1
+3504|Q8WYK0;|[1] [2]|Acta Bio|CHAIN   |PubMed=1|Name=ACO|Homo sap|1: Evide|Suematsu|Eukaryot|null|TISSUE=L|ACO12_HU|SEQUENCE|1
+3505|Q9DBK0; |[1] [2] |Acta Bio|CHAIN   |MEDLINE=|Name=Aco|Mus musc|2: Evide|Suematsu|Eukaryot|null|STRAIN=C|ACO12_MO|SEQUENCE|1
+3506|Q99NB7;|[1]|Eur. J. |CHAIN   |MEDLINE=|Name=Aco|Rattus n|1: Evide|Suematsu|Eukaryot|null|STRAIN=D|ACO12_RA|SEQUENCE|1
+3507|Q12618;|[1]|Lipids 3|CHAIN   |MEDLINE=|Name=OLE|Ajellomy|3: Infer|Gargano |Eukaryot|null|STRAIN=A|ACO1_AJE|SEQUENCE|1
+3508|Q42560; |[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=ACO|Arabidop|1: Evide|Peyret P|Eukaryot|null|STRAIN=c|ACO1_ARA|SEQUENCE|1
+3509|O94523; |[1] [2]|Nature 4|CHAIN   |MEDLINE=|ORFNames|Schizosa|2: Evide|Wood V.,|Eukaryot|null|STRAIN=A|ACO1_SCH|SEQUENCE|1
+3510|P21147;|[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=OLE|Saccharo|1: Evide|Stukey J|Eukaryot|null|STRAIN=A|ACO1_YEA|SEQUENCE|1
+3511|Q9SIB9; |[1] [2] |Nature 4|TRANSIT |MEDLINE=|Name=ACO|Arabidop|1: Evide|Lin X., |Eukaryot|null|STRAIN=c|ACO2M_AR|SEQUENCE|1
+3512|Q9LMI7;|[1] [2]|Nature 4|TRANSIT |MEDLINE=|Name=ACX|Arabidop|3: Infer|Theologi|Eukaryot|null|STRAIN=c|ACO32_AR|SEQUENCE|1
+3513|Q94A28; |[1] [2] |Nature 4|TRANSIT |MEDLINE=|Name=ACO|Arabidop|1: Evide|Mayer K.|Eukaryot|null|STRAIN=c|ACO3M_AR|SEQUENCE|1
+3514|P27745; |[1] [2]|J. Bacte|INIT_MET|MEDLINE=|Name=aco|Ralstoni|1: Evide|Priefert|Bacteria|null|null|ACOA_RAL|SEQUENCE|1
+3515|O34591;|[1] [2] |J. Bacte|INIT_MET|MEDLINE=|Name=aco|Bacillus|3: Infer|Huang M.|Bacteria|null|STRAIN=1|ACOB_BAC|SEQUENCE|1
+3516|P27746; |[1] [2]|J. Bacte|INIT_MET|MEDLINE=|Name=aco|Ralstoni|1: Evide|Priefert|Bacteria|null|null|ACOB_RAL|SEQUENCE|1
+3517|O31550;|[1] [2]|Microbio|CHAIN   |MEDLINE=|Name=aco|Bacillus|3: Infer|Yamamoto|Bacteria|null|STRAIN=A|ACOC_BAC|SEQUENCE|1
+3518|Q0VCU1;|[1]|Submitte|CHAIN   |null|Name=ACO|Bos taur|2: Evide|null|Eukaryot|null|STRAIN=H|ACOC_BOV|SEQUENCE|1
+3519|Q23500;|[1] [2] |Science |CHAIN   |MEDLINE=|Name=aco|Caenorha|1: Evide|Gourley |Eukaryot|null|STRAIN=B|ACOC_CAE|SEQUENCE|1
+3520|Q90875;|[1]|Chromoso|CHAIN   |MEDLINE=|Name=ACO|Gallus g|2: Evide|Saitoh Y|Eukaryot|null|TISSUE=L|ACOC_CHI|SEQUENCE|1
+3521|P49608;|[1]|Plant Ce|CHAIN   |MEDLINE=|null|Cucurbit|2: Evide|Hayashi |Eukaryot|null|STRAIN=c|ACOC_CUC|SEQUENCE|1
+3522|Q42669;|[1]|J. Biol.|CHAIN   |MEDLINE=|Name=ACO|Cucumis |2: Evide|Peyret P|Eukaryot|null|STRAIN=c|ACOC_CUC|SEQUENCE|1
+3523|Q54X73;|[1]|Nature 4|CHAIN   |PubMed=1|Name=aco|Dictyost|3: Infer|Eichinge|Eukaryot|null|STRAIN=A|ACOC_DIC|SEQUENCE|1
+3524|P21399; |[1] [2] |Nucleic |CHAIN   |MEDLINE=|Name=ACO|Homo sap|1: Evide|Hirling |Eukaryot|null|TISSUE=U|ACOC_HUM|SEQUENCE|1
+3525|P28271; |[1] [2]|Nucleic |CHAIN   |MEDLINE=|Name=Aco|Mus musc|1: Evide|Philpott|Eukaryot|null|null|ACOC_MOU|SEQUENCE|1
+3526|Q6YZX6;|[1]|Submitte|CHAIN   |null|OrderedL|Oryza sa|3: Infer|null|Eukaryot|null|STRAIN=c|ACOC_ORY|SEQUENCE|1
+3527|Q59695;|[1]|FEMS Mic|CHAIN   |MEDLINE=|Name=aco|Pseudomo|3: Infer|Huang M.|Bacteria|null|STRAIN=G|ACOC_PSE|SEQUENCE|1
+3528|Q01059;|[1] [2]|J. Biol.|CHAIN   |MEDLINE=|Name=ACO|Oryctola|1: Evide|Patino M|Eukaryot|null|TISSUE=L|ACOC_RAB|SEQUENCE|1
+3529|P27747; |[1] [2]|J. Bacte|INIT_MET|MEDLINE=|Name=aco|Ralstoni|1: Evide|Priefert|Bacteria|null|null|ACOC_RAL|SEQUENCE|1
+3530|Q63270;|[1] [2]|J. Biol.|CHAIN   |MEDLINE=|Name=Aco|Rattus n|1: Evide|Yu Y., R|Eukaryot|null|STRAIN=S|ACOC_RAT|SEQUENCE|1
+3531|O04916;|[1]|Submitte|CHAIN   |null|null|Solanum |2: Evide|Surpili |Eukaryot|null|STRAIN=c|ACOC_SOL|SEQUENCE|1
+3532|P13516; |[1] [2]|J. Biol.|CHAIN   |MEDLINE=|Name=Scd|Mus musc|2: Evide|Ntambi J|Eukaryot|null|TISSUE=A|ACOD1_MO|SEQUENCE|1
+3533|P07308; |[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=Scd|Rattus n|2: Evide|Thiede M|Eukaryot|null|STRAIN=B|ACOD1_RA|SEQUENCE|1
+3534|P13011;|[1]|J. Biol.|CHAIN   |MEDLINE=|Name=Scd|Mus musc|2: Evide|Kaestner|Eukaryot|null|TISSUE=A|ACOD2_MO|SEQUENCE|1
+3535|Q6P7B9; |[1] [2] |Submitte|CHAIN   |PubMed=1|Name=Scd|Rattus n|2: Evide|Hoshino |Eukaryot|null|TISSUE=P|ACOD2_RA|SEQUENCE|1
+3536|Q9TT94; |[1] [2] |Biosci. |CHAIN   |MEDLINE=|Name=SCD|Bos taur|2: Evide|Chung M.|Eukaryot|null|TISSUE=A|ACOD_BOV|SEQUENCE|1
+3537|Q95MI7;|[1]|J. Anim.|CHAIN   |MEDLINE=|Name=SCD|Capra hi|2: Evide|Yahyaoui|Eukaryot|null|null|ACOD_CAP|SEQUENCE|1
+3538|Q92038;|[1] [2]|Science |CHAIN   |MEDLINE=|null|Cyprinus|2: Evide|Tiku P.E|Eukaryot|null|TISSUE=L|ACOD_CYP|SEQUENCE|1
+3539|O00767; |[1] [2] |Submitte|CHAIN   |MEDLINE=|Name=SCD|Homo sap|2: Evide|Al-Jerya|Eukaryot|null|TISSUE=L|ACOD_HUM|SEQUENCE|1
+3540|Q64420;|[1]|J. Derma|CHAIN   |MEDLINE=|Name=SCD|Mesocric|2: Evide|Ideta R.|Eukaryot|null|null|ACOD_MES|SEQUENCE|1
+3541|O02858;|[1]|Submitte|CHAIN   |null|Name=SCD|Sus scro|2: Evide|Fumiere |Eukaryot|null|null|ACOD_PIG|SEQUENCE|1
+3542|O62849;|[1]|Biochim.|CHAIN   |MEDLINE=|Name=SCD|Ovis ari|2: Evide|Ward R.J|Eukaryot|null|STRAIN=Y|ACOD_SHE|SEQUENCE|1
+3543|P25516; |[1] [2] |Eur. J. |INIT_MET|MEDLINE=|Name=acn|Escheric|1: Evide|Prodromo|Bacteria|null|STRAIN=K|ACON1_EC|SEQUENCE|1
+3544|Q9I3F5;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acn|Pseudomo|3: Infer|Stover C|Bacteria|null|STRAIN=A|ACON1_PS|SEQUENCE|1
+3545|P36683; |[1] [2] |Nucleic |CHAIN   |MEDLINE=|Name=acn|Escheric|1: Evide|Fujita N|Bacteria|null|STRAIN=K|ACON2_EC|SEQUENCE|1
+3546|Q9ZL64;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=acn|Helicoba|3: Infer|Alm R.A.|Bacteria|null|null|ACON2_HE|SEQUENCE|1
+3547|P56418;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=acn|Helicoba|3: Infer|Tomb J.-|Bacteria|null|STRAIN=A|ACON2_HE|SEQUENCE|1
+3548|Q9I2V5;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acn|Pseudomo|3: Infer|Stover C|Bacteria|null|STRAIN=A|ACON2_PS|SEQUENCE|1
+3549|Q9P7D4;|[1] [2]|Nature 4|CHAIN   |MEDLINE=|ORFNames|Schizosa|2: Evide|Wood V.,|Eukaryot|null|STRAIN=A|ACON2_SC|SEQUENCE|1
+3550|P74582;|[1]|DNA Res.|CHAIN   |MEDLINE=|Name=acn|Synechoc|3: Infer|Kaneko T|Bacteria|null|null|ACON2_SY|SEQUENCE|1
+3551|P39533;|[1] [2] |Yeast 10|CHAIN   |MEDLINE=|Name=ACO|Saccharo|1: Evide|Purnelle|Eukaryot|null|STRAIN=A|ACON2_YE|SEQUENCE|1
+3552|P09339; |[1] [2] |Microbio|INIT_MET|MEDLINE=|Name=cit|Bacillus|1: Evide|Rose M.,|Bacteria|null|STRAIN=1|ACON_BAC|SEQUENCE|1
+3553|P20004; |[1] [2] |Submitte|TRANSIT |MEDLINE=|Name=ACO|Bos taur|1: Evide|Xu N., L|Eukaryot|null|TISSUE=H|ACON_BOV|SEQUENCE|1
+3554|P70920;|[1] [2] |J. Bacte|CHAIN   |MEDLINE=|Name=acn|Bradyrhi|3: Infer|Thoeny-M|Bacteria|null|STRAIN=U|ACON_BRA|SEQUENCE|1
+3555|P34455; |[1] [2] |Nature 3|TRANSIT |MEDLINE=|Name=aco|Caenorha|2: Evide|Wilson R|Eukaryot|null|STRAIN=B|ACON_CAE|SEQUENCE|1
+3556|P82611;|[1]|Electrop|CHAIN   |MEDLINE=|Name=ACO|Candida |1: Evide|Pardo M.|Eukaryot|null|STRAIN=S|ACON_CAN|SEQUENCE|1
+3557|Q6NH63;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=acn|Coryneba|2: Evide|Cerdeno-|Bacteria|null|STRAIN=A|ACON_COR|SEQUENCE|1
+3558|Q8FTA8;|[1]|Genome R|CHAIN   |MEDLINE=|Name=acn|Coryneba|2: Evide|Nishio Y|Bacteria|null|STRAIN=D|ACON_COR|SEQUENCE|1
+3559|Q8NQ98; |[1] [2] |Submitte|CHAIN   |MEDLINE=|Name=acn|Coryneba|1: Evide|Nakamura|Bacteria|null|STRAIN=A|ACON_COR|SEQUENCE|1
+3560|Q4JVM4;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acn|Coryneba|2: Evide|Tauch A.|Bacteria|null|null|ACON_COR|SEQUENCE|1
+3561|Q54XS2;|[1]|Nature 4|TRANSIT |PubMed=1|Name=aco|Dictyost|3: Infer|Eichinge|Eukaryot|null|STRAIN=A|ACON_DIC|SEQUENCE|1
+3562|Q2A1K3;|[1]|Submitte|CHAIN   |null|Name=acn|Francise|3: Infer|Chain P.|Bacteria|null|null|ACON_FRA|SEQUENCE|1
+3563|P49609;|[1]|Plant Mo|TRANSIT |MEDLINE=|null|Gracilar|3: Infer|Zhou Y.H|Eukaryot|null|null|ACON_GRA|SEQUENCE|1
+3564|Q99798; |[1] [2] |Submitte|TRANSIT |MEDLINE=|Name=ACO|Homo sap|1: Evide|Juang H.|Eukaryot|null|TISSUE=S|ACON_HUM|SEQUENCE|1
+3565|P37032; |[1] [2]|J. Bacte|CHAIN   |MEDLINE=|Name=acn|Legionel|3: Infer|Mengaud |Bacteria|null|null|ACON_LEG|SEQUENCE|1
+3566|Q99KI0; |[1] [2] |Science |TRANSIT |PubMed=1|Name=Aco|Mus musc|1: Evide|Carninci|Eukaryot|null|STRAIN=C|ACON_MOU|SEQUENCE|1
+3567|O08451;|[1]|Microbio|CHAIN   |MEDLINE=|Name=acn|Mycobact|3: Infer|Labo M.,|Bacteria|null|STRAIN=G|ACON_MYC|SEQUENCE|1
+3568|P16276;|[1] [2] |J. Biol.|TRANSIT |MEDLINE=|Name=ACO|Sus scro|1: Evide|Zheng L.|Eukaryot|null|TISSUE=H|ACON_PIG|SEQUENCE|1
+3569|Q9ER34; |[1] [2] |Submitte|TRANSIT |PubMed=1|Name=Aco|Rattus n|1: Evide|Wieland |Eukaryot|null|TISSUE=H|ACON_RAT|SEQUENCE|1
+3570|Q1RKD5;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acn|Ricketts|3: Infer|Ogata H.|Bacteria|null|null|ACON_RIC|SEQUENCE|1
+3571|Q92G90;|[1]|Science |CHAIN   |MEDLINE=|Name=acn|Ricketts|3: Infer|Ogata H.|Bacteria|null|STRAIN=A|ACON_RIC|SEQUENCE|1
+3572|Q4UK20;|[1]|PLoS Bio|CHAIN   |PubMed=1|Name=acn|Ricketts|3: Infer|Ogata H.|Bacteria|null|STRAIN=A|ACON_RIC|SEQUENCE|1
+3573|Q9ZCF4;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=acn|Ricketts|3: Infer|Andersso|Bacteria|null|STRAIN=M|ACON_RIC|SEQUENCE|1
+3574|Q68VV0;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acn|Ricketts|3: Infer|McLeod M|Bacteria|null|STRAIN=A|ACON_RIC|SEQUENCE|1
+3575|O13966;|[1]|Nature 4|TRANSIT |MEDLINE=|ORFNames|Schizosa|2: Evide|Wood V.,|Eukaryot|null|STRAIN=A|ACON_SCH|SEQUENCE|1
+3576|Q5HG69;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acn|Staphylo|3: Infer|Gill S.R|Bacteria|null|null|ACON_STA|SEQUENCE|1
+3577|P63433; |[1]|Lancet 3|CHAIN   |MEDLINE=|Name=acn|Staphylo|1: Evide|Kuroda M|Bacteria|null|null|ACON_STA|SEQUENCE|1
+3578|P99148; |[1] [2] |Lancet 3|CHAIN   |MEDLINE=|Name=acn|Staphylo|1: Evide|Kuroda M|Bacteria|null|null|ACON_STA|SEQUENCE|1
+3579|Q6GH55;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acn|Staphylo|3: Infer|Holden M|Bacteria|null|null|ACON_STA|SEQUENCE|1
+3580|Q6G9K9;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acn|Staphylo|3: Infer|Holden M|Bacteria|null|null|ACON_STA|SEQUENCE|1
+3581|P63434; |[1]|Lancet 3|CHAIN   |MEDLINE=|Name=acn|Staphylo|3: Infer|Baba T.,|Bacteria|null|null|ACON_STA|SEQUENCE|1
+3582|Q5HPJ0;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acn|Staphylo|3: Infer|Gill S.R|Bacteria|null|null|ACON_STA|SEQUENCE|1
+3583|Q8CPC2;|[1]|Mol. Mic|CHAIN   |MEDLINE=|Name=acn|Staphylo|3: Infer|Zhang Y.|Bacteria|null|null|ACON_STA|SEQUENCE|1
+3584|Q59938;|[1] [2]|Proc. Na|CHAIN   |MEDLINE=|Name=acn|Streptoc|3: Infer|Ajdic D.|Bacteria|null|STRAIN=A|ACON_STR|SEQUENCE|1
+3585|P19414;|[1] [2] |Mol. Cel|TRANSIT |MEDLINE=|Name=ACO|Saccharo|1: Evide|Gangloff|Eukaryot|null|STRAIN=A|ACON_YEA|SEQUENCE|1
+3586|P28614; |[1] [2]|J. Bacte|CHAIN   |MEDLINE=|Name=aco|Ralstoni|1: Evide|Krueger |Bacteria|null|null|ACOR_RAL|SEQUENCE|1
+3587|Q86TX2; |[1] [2]|Submitte|CHAIN   |null|Name=ACO|Homo sap|2: Evide|Hunt M.C|Eukaryot|null|TISSUE=N|ACOT1_HU|SEQUENCE|1
+3588|O55137; |[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=Aco|Mus musc|1: Evide|Hunt M.C|Eukaryot|null|STRAIN=C|ACOT1_MO|SEQUENCE|1
+3589|O88267; |[1] [2] |Biochem.|CHAIN   |MEDLINE=|Name=Aco|Rattus n|1: Evide|Yamada J|Eukaryot|null|TISSUE=L|ACOT1_RA|SEQUENCE|1
+3590|P49753; |[1] [2] |Nature 3|TRANSIT |MEDLINE=|Name=ACO|Homo sap|1: Evide|Sherring|Eukaryot|null|TISSUE=B|ACOT2_HU|SEQUENCE|1
+3591|Q9QYR9;|[1] [2]|J. Biol.|TRANSIT |MEDLINE=|Name=Aco|Mus musc|1: Evide|Hunt M.C|Eukaryot|null|STRAIN=C|ACOT2_MO|SEQUENCE|1
+3592|O55171; |[1] [2] |Biochem.|TRANSIT |MEDLINE=|Name=Aco|Rattus n|1: Evide|Svensson|Eukaryot|null|STRAIN=S|ACOT2_RA|SEQUENCE|1
+3593|Q9QYR7; |[1] [2]|J. Biol.|CHAIN   |MEDLINE=|Name=Aco|Mus musc|2: Evide|Hunt M.C|Eukaryot|null|STRAIN=C|ACOT3_MO|SEQUENCE|1
+3594|Q8N9L9; |[1] [2] |Nat. Gen|CHAIN   |PubMed=1|Name=ACO|Homo sap|2: Evide|Ota T., |Eukaryot|null|TISSUE=C|ACOT4_HU|SEQUENCE|1
+3595|Q8BWN8; |[1] [2]|J. Biol.|CHAIN   |MEDLINE=|Name=Aco|Mus musc|2: Evide|Hunt M.C|Eukaryot|null|STRAIN=C|ACOT4_MO|SEQUENCE|1
+3596|Q6Q2Z6;|[1] [2]|J. Biol.|CHAIN   |PubMed=1|Name=Aco|Mus musc|1: Evide|Westin M|Eukaryot|null|STRAIN=1|ACOT5_MO|SEQUENCE|1
+3597|Q3I5F7;|[1] [2]|FASEB J.|CHAIN   |PubMed=1|Name=ACO|Homo sap|1: Evide|Hunt M.C|Eukaryot|null|null|ACOT6_HU|SEQUENCE|1
+3598|Q32Q92; |[1] [2] |J. Biol.|CHAIN   |PubMed=1|Name=Aco|Mus musc|1: Evide|Westin M|Eukaryot|null|STRAIN=1|ACOT6_MO|SEQUENCE|1
+3599|O14734; |[1] [2] |Biochem.|CHAIN   |MEDLINE=|Name=ACO|Homo sap|1: Evide|Watanabe|Eukaryot|null|TISSUE=L|ACOT8_HU|SEQUENCE|1
+3600|P58137; |[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=Aco|Mus musc|1: Evide|Hunt M.C|Eukaryot|null|STRAIN=1|ACOT8_MO|SEQUENCE|1
+3601|Q8VHK0;|[1]|Biochem.|CHAIN   |PubMed=1|Name=Aco|Rattus n|2: Evide|Ofman R.|Eukaryot|null|null|ACOT8_RA|SEQUENCE|1
+3602|Q9Y305;|[1]|Genome R|CHAIN   |MEDLINE=|Name=ACO|Homo sap|2: Evide|Lai C.-H|Eukaryot|null|null|ACOT9_HU|SEQUENCE|1
+3603|Q9R0X4; |[1] [2] |J. Biol.|TRANSIT |MEDLINE=|Name=Aco|Mus musc|1: Evide|Poupon V|Eukaryot|null|STRAIN=A|ACOT9_MO|SEQUENCE|1
+3604|O65202; |[1] [2] |Plant J.|CHAIN   |MEDLINE=|Name=ACX|Arabidop|1: Evide|Hooks M.|Eukaryot|null|STRAIN=c|ACOX1_AR|SEQUENCE|1
+3605|Q3SZP5;|[1]|Submitte|CHAIN   |null|Name=ACO|Bos taur|2: Evide|null|Eukaryot|null|STRAIN=C|ACOX1_BO|SEQUENCE|1
+3606|Q9Z1N0;|[1]|Submitte|CHAIN   |null|Name=ACO|Cavia po|2: Evide|Baumgart|Eukaryot|null|null|ACOX1_CA|SEQUENCE|1
+3607|Q54GQ6;|[1]|Nature 4|CHAIN   |PubMed=1|Name=aco|Dictyost|3: Infer|Eichinge|Eukaryot|null|STRAIN=A|ACOX1_DI|SEQUENCE|1
+3608|Q15067; |[1] [2] |Proc. Na|CHAIN   |MEDLINE=|Name=ACO|Homo sap|1: Evide|Varanasi|Eukaryot|null|TISSUE=F|ACOX1_HU|SEQUENCE|1
+3609|Q9R0H0; |[1] [2] |Eur. J. |CHAIN   |MEDLINE=|Name=Aco|Mus musc|1: Evide|Nohammer|Eukaryot|null|STRAIN=C|ACOX1_MO|SEQUENCE|1
+3610|Q8HYL8; |[1]|Gene 309|CHAIN   |MEDLINE=|Name=ACO|Phascola|1: Evide|Ngo S.N.|Eukaryot|null|TISSUE=L|ACOX1_PH|SEQUENCE|1
+3611|Q5RC19; |[1]|Submitte|CHAIN   |null|Name=ACO|Pongo ab|2: Evide|null|Eukaryot|null|TISSUE=H|ACOX1_PO|SEQUENCE|1
+3612|P07872; |[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=Aco|Rattus n|1: Evide|Miyazawa|Eukaryot|null|TISSUE=K|ACOX1_RA|SEQUENCE|1
+3613|O74934; |[1] [2] |Submitte|CHAIN   |PubMed=1|Name=POX|Yarrowia|1: Evide|Le Clain|Eukaryot|null|STRAIN=A|ACOX1_YA|SEQUENCE|1
+3614|O65201; |[1] [2] |Plant J.|TRANSIT |MEDLINE=|Name=ACX|Arabidop|1: Evide|Hooks M.|Eukaryot|null|STRAIN=c|ACOX2_AR|SEQUENCE|1
+3615|Q00468;|[1]|Gene 167|CHAIN   |MEDLINE=|Name=POX|Candida |3: Infer|Masuda Y|Eukaryot|null|STRAIN=A|ACOX2_CA|SEQUENCE|1
+3616|P11356;|[1]|Gene 58:|INIT_MET|MEDLINE=|Name=POX|Candida |3: Infer|Okazaki |Eukaryot|null|null|ACOX2_CA|SEQUENCE|1
+3617|O64894;|[1]|J. Biol.|TRANSIT |MEDLINE=|Name=Acx|Cucurbit|1: Evide|Hayashi |Eukaryot|null|STRAIN=c|ACOX2_CU|SEQUENCE|1
+3618|Q99424; |[1] [2] |Proc. Na|CHAIN   |MEDLINE=|Name=ACO|Homo sap|1: Evide|Baumgart|Eukaryot|null|TISSUE=L|ACOX2_HU|SEQUENCE|1
+3619|Q9QXD1;|[1] [2]|Submitte|CHAIN   |PubMed=1|Name=Aco|Mus musc|1: Evide|Amery L.|Eukaryot|null|TISSUE=L|ACOX2_MO|SEQUENCE|1
+3620|O02767;|[1]|J. Biol.|CHAIN   |MEDLINE=|Name=ACO|Oryctola|1: Evide|Pedersen|Eukaryot|null|STRAIN=N|ACOX2_RA|SEQUENCE|1
+3621|P97562;|[1] [2]|Biochem.|CHAIN   |MEDLINE=|Name=Aco|Rattus n|1: Evide|Baumgart|Eukaryot|null|TISSUE=L|ACOX2_RA|SEQUENCE|1
+3622|O74935; |[1] [2] |Arch. Bi|CHAIN   |MEDLINE=|Name=POX|Yarrowia|1: Evide|Luo Y.S.|Eukaryot|null|STRAIN=A|ACOX2_YA|SEQUENCE|1
+3623|Q9LLH9; |[1] [2] |Plant Ph|TRANSIT |MEDLINE=|Name=ACX|Arabidop|1: Evide|Froman B|Eukaryot|null|STRAIN=c|ACOX3_AR|SEQUENCE|1
+3624|O15254; |[1] [2]|Biochem.|CHAIN   |MEDLINE=|Name=ACO|Homo sap|2: Evide|Vanhoore|Eukaryot|null|TISSUE=L|ACOX3_HU|SEQUENCE|1
+3625|Q9EPL9; |[1] [2]|Submitte|CHAIN   |PubMed=1|Name=Aco|Mus musc|2: Evide|Van Veld|Eukaryot|null|STRAIN=F|ACOX3_MO|SEQUENCE|1
+3626|Q5RAU0;|[1]|Submitte|CHAIN   |null|Name=ACO|Pongo ab|2: Evide|null|Eukaryot|null|TISSUE=K|ACOX3_PO|SEQUENCE|1
+3627|Q63448;|[1]|Eur. J. |CHAIN   |MEDLINE=|Name=Aco|Rattus n|1: Evide|Vanhoore|Eukaryot|null|TISSUE=L|ACOX3_RA|SEQUENCE|1
+3628|O74936; |[1] [2] |Yeast 14|CHAIN   |MEDLINE=|Name=POX|Yarrowia|1: Evide|Wang H.,|Eukaryot|null|STRAIN=A|ACOX3_YA|SEQUENCE|1
+3629|Q96329;|[1] [2] |Submitte|CHAIN   |MEDLINE=|Name=ACX|Arabidop|1: Evide|Grellet |Eukaryot|null|STRAIN=c|ACOX4_AR|SEQUENCE|1
+3630|P05335;|[1]|Nucleic |INIT_MET|MEDLINE=|Name=POX|Candida |3: Infer|Hill D.E|Eukaryot|null|STRAIN=A|ACOX4_CA|SEQUENCE|1
+3631|P06598; |[1] [2] |Gene 51:|INIT_MET|MEDLINE=|Name=POX|Candida |2: Evide|Murray W|Eukaryot|null|STRAIN=A|ACOX4_CA|SEQUENCE|1
+3632|P08790;|[1] [2]|Proc. Na|INIT_MET|MEDLINE=|Name=POX|Candida |3: Infer|Okazaki |Eukaryot|null|null|ACOX5_CA|SEQUENCE|1
+3633|Q9NUZ1; |[1] [2] |Nat. Gen|CHAIN   |PubMed=1|Name=ACO|Homo sap|2: Evide|Ota T., |Eukaryot|null|TISSUE=P|ACOXL_HU|SEQUENCE|1
+3634|Q9DBS4; |[1] [2] |Science |CHAIN   |PubMed=1|Name=Aco|Mus musc|2: Evide|Carninci|Eukaryot|null|STRAIN=C|ACOXL_MO|SEQUENCE|1
+3635|Q756A9;|[1]|Science |CHAIN   |PubMed=1|Name=POX|Ashbya g|3: Infer|Dietrich|Eukaryot|null|STRAIN=A|ACOX_ASH|SEQUENCE|1
+3636|P34355;|[1] [2]|Nature 3|CHAIN   |MEDLINE=|ORFNames|Caenorha|2: Evide|Wilson R|Eukaryot|null|STRAIN=B|ACOX_CAE|SEQUENCE|1
+3637|Q6FY63;|[1]|Nature 4|CHAIN   |PubMed=1|Name=POX|Candida |3: Infer|Dujon B.|Eukaryot|null|STRAIN=A|ACOX_CAN|SEQUENCE|1
+3638|Q6BRD5;|[1]|Nature 4|CHAIN   |PubMed=1|Name=POX|Debaryom|3: Infer|Dujon B.|Eukaryot|null|STRAIN=A|ACOX_DEB|SEQUENCE|1
+3639|Q6CKK7;|[1]|Nature 4|CHAIN   |PubMed=1|Name=POX|Kluyvero|3: Infer|Dujon B.|Eukaryot|null|STRAIN=A|ACOX_KLU|SEQUENCE|1
+3640|Q9Y7B1;|[1]|Yeast 15|CHAIN   |MEDLINE=|Name=POX|Pichia p|3: Infer|Koller A|Eukaryot|null|null|ACOX_PIC|SEQUENCE|1
+3641|P27748; |[1] [2]|J. Bacte|CHAIN   |MEDLINE=|Name=aco|Ralstoni|4: Predi|Priefert|Bacteria|null|null|ACOX_RAL|SEQUENCE|1
+3642|P13711;|[1] [2] |Gene 88:|CHAIN   |MEDLINE=|Name=POX|Saccharo|1: Evide|Dmochows|Eukaryot|null|STRAIN=A|ACOX_YEA|SEQUENCE|1
+3643|P11829;|[1] [2] |Nucleic |TRANSIT |MEDLINE=|Name=ACP|Arabidop|1: Evide|Post-Bei|Eukaryot|null|STRAIN=c|ACP1_ARA|SEQUENCE|1
+3644|P10352;|[1] [2] |Plant Mo|TRANSIT |MEDLINE=|Name=ACL|Brassica|2: Evide|de Silva|Eukaryot|null|STRAIN=c|ACP1_BRA|SEQUENCE|1
+3645|P93092;|[1]|(er) Pla|TRANSIT |null|Name=ACP|Casuarin|2: Evide|Laplaze |Eukaryot|null|TISSUE=R|ACP1_CAS|SEQUENCE|1
+3646|P52411;|[1]|Plant Ph|TRANSIT |MEDLINE=|Name=ACL|Cuphea l|2: Evide|Voetz M.|Eukaryot|null|null|ACP1_CUP|SEQUENCE|1
+3647|P36184; |[1] [2] |Parasito|SIGNAL  |MEDLINE=|Name=ACP|Entamoeb|1: Evide|Bruchhau|Eukaryot|null|STRAIN=H|ACP1_ENT|SEQUENCE|1
+3648|P02902;|[1] [2] |Mol. Gen|TRANSIT |MEDLINE=|Name=ACL|Hordeum |1: Evide|Hansen L|Eukaryot|null|null|ACP1_HOR|SEQUENCE|1
+3649|O54439;|[1] [2]|J. Bacte|INIT_MET|MEDLINE=|Name=acp|Pseudomo|3: Infer|Kutchma |Bacteria|null|STRAIN=A|ACP1_PSE|SEQUENCE|1
+3650|Q8Y0J1;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Ralstoni|3: Infer|Salanoub|Bacteria|null|STRAIN=G|ACP1_RAL|SEQUENCE|1
+3651|P0A6B3; |[1] [2]|Nucleic |INIT_MET|MEDLINE=|Name=acp|Shigella|3: Infer|Jin Q., |Bacteria|null|STRAIN=3|ACP1_SHI|SEQUENCE|1
+3652|P07854;|[1] [2] |Plant Mo|TRANSIT |MEDLINE=|Name=ACL|Spinacia|1: Evide|Scherer |Eukaryot|null|TISSUE=L|ACP1_SPI|SEQUENCE|1
+3653|P25701; |[1] [2] |Plant Mo|TRANSIT |MEDLINE=|Name=ACL|Arabidop|1: Evide|Lamppa G|Eukaryot|null|STRAIN=c|ACP2_ARA|SEQUENCE|1
+3654|P17650; |[1] [2] |Plant Mo|TRANSIT |MEDLINE=|Name=ACL|Brassica|2: Evide|de Silva|Eukaryot|null|STRAIN=c|ACP2_BRA|SEQUENCE|1
+3655|P52412;|[1]|Plant Ph|TRANSIT |MEDLINE=|Name=ACL|Cuphea l|2: Evide|Voetz M.|Eukaryot|null|null|ACP2_CUP|SEQUENCE|1
+3656|P36185;|[1]|J. Clin.|SIGNAL  |MEDLINE=|Name=ACP|Entamoeb|1: Evide|Reed S.,|Eukaryot|null|STRAIN=H|ACP2_ENT|SEQUENCE|1
+3657|P08817;|[1] [2]|Plant Ph|TRANSIT |PubMed=1|Name=ACL|Hordeum |1: Evide|Hansen L|Eukaryot|null|STRAIN=c|ACP2_HOR|SEQUENCE|1
+3658|O52658;|[1] [2]|Mol. Mic|CHAIN   |MEDLINE=|Name=acp|Pseudomo|3: Infer|Martinez|Bacteria|null|STRAIN=K|ACP2_PSE|SEQUENCE|1
+3659|Q8XSU8;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Ralstoni|3: Infer|Salanoub|Bacteria|Plasmid |STRAIN=G|ACP2_RAL|SEQUENCE|1
+3660|P0A199; |[1] [2] |Mol. Mic|CHAIN   |MEDLINE=|Name=acp|Shigella|3: Infer|Buchries|Bacteria|Plasmid |STRAIN=M|ACP2_SHI|SEQUENCE|1
+3661|P23235;|[1] [2]|Plant Mo|TRANSIT |MEDLINE=|Name=ACL|Spinacia|1: Evide|Schmid K|Eukaryot|null|STRAIN=c|ACP2_SPI|SEQUENCE|1
+3662|P25702; |[1] [2] |Plant Mo|TRANSIT |MEDLINE=|Name=ACL|Arabidop|1: Evide|Lamppa G|Eukaryot|null|STRAIN=c|ACP3_ARA|SEQUENCE|1
+3663|P32887; |[1] [2]|Eur. J. |TRANSIT |MEDLINE=|Name=ACL|Brassica|2: Evide|Safford |Eukaryot|null|STRAIN=c|ACP3_BRA|SEQUENCE|1
+3664|P52413;|[1]|Plant Ph|TRANSIT |MEDLINE=|Name=ACL|Cuphea l|2: Evide|Voetz M.|Eukaryot|null|null|ACP3_CUP|SEQUENCE|1
+3665|P15543;|[1] [2]|Mol. Gen|TRANSIT |MEDLINE=|Name=ACL|Hordeum |2: Evide|Hansen L|Eukaryot|null|null|ACP3_HOR|SEQUENCE|1
+3666|Q8XPI1;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Ralstoni|3: Infer|Salanoub|Bacteria|Plasmid |STRAIN=G|ACP3_RAL|SEQUENCE|1
+3667|P52414;|[1]|Submitte|TRANSIT |null|Name=ACL|Cuphea l|3: Infer|Voetz M.|Eukaryot|null|TISSUE=L|ACP4_CUP|SEQUENCE|1
+3668|P08971;|[1] [2]|Eur. J. |TRANSIT |MEDLINE=|Name=ACL|Brassica|2: Evide|Safford |Eukaryot|null|STRAIN=c|ACP5_BRA|SEQUENCE|1
+3669|Q44643;|[1] [2] |Gene 152|CHAIN   |MEDLINE=|Name=acp|Bacillus|2: Evide|Vietri N|Bacteria|Plasmid |STRAIN=P|ACPA_BAC|SEQUENCE|1
+3670|Q9RMX9;|[1] [2] |J. Appl.|CHAIN   |MEDLINE=|Name=acp|Bacillus|2: Evide|Okinaka |Bacteria|Plasmid |STRAIN=P|ACPB_BAC|SEQUENCE|1
+3671|P80227;|[1]|Eur. J. |CHAIN   |MEDLINE=|Name=APE|Bos taur|1: Evide|Sharma K|Eukaryot|null|TISSUE=L|ACPH_BOV|SEQUENCE|1
+3672|Q97HJ4;|[1]|J. Bacte|CHAIN   |MEDLINE=|OrderedL|Clostrid|3: Infer|Noelling|Bacteria|null|STRAIN=A|ACPH_CLO|SEQUENCE|1
+3673|A7ZIF6;|[1]|Submitte|CHAIN   |null|Name=acp|Escheric|3: Infer|Rasko D.|Bacteria|null|null|ACPH_ECO|SEQUENCE|1
+3674|Q8XE96; |[1] [2]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Escheric|3: Infer|Perna N.|Bacteria|null|STRAIN=O|ACPH_ECO|SEQUENCE|1
+3675|A7ZX55;|[1]|Submitte|CHAIN   |null|Name=acp|Escheric|3: Infer|Rasko D.|Bacteria|null|null|ACPH_ECO|SEQUENCE|1
+3676|Q0TKN7;|[1]|Mol. Mic|CHAIN   |PubMed=1|Name=acp|Escheric|3: Infer|Hochhut |Bacteria|null|null|ACPH_ECO|SEQUENCE|1
+3677|Q8FKC6;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Escheric|3: Infer|Welch R.|Bacteria|null|STRAIN=O|ACPH_ECO|SEQUENCE|1
+3678|B1J045;|[1]|Submitte|CHAIN   |null|Name=acp|Escheric|3: Infer|Copeland|Bacteria|null|null|ACPH_ECO|SEQUENCE|1
+3679|P21515; |[1] [2] |J. Bacte|CHAIN   |MEDLINE=|Name=acp|Escheric|3: Infer|Reuter K|Bacteria|null|STRAIN=K|ACPH_ECO|SEQUENCE|1
+3680|A4W777;|[1]|Submitte|CHAIN   |null|Name=acp|Enteroba|3: Infer|Copeland|Bacteria|null|null|ACPH_ENT|SEQUENCE|1
+3681|Q6D857;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Erwinia |3: Infer|Bell K.S|Bacteria|null|STRAIN=S|ACPH_ERW|SEQUENCE|1
+3682|P13798; |[1] [2] |DNA Res.|CHAIN   |MEDLINE=|Name=APE|Homo sap|1: Evide|Mitta M.|Eukaryot|null|TISSUE=L|ACPH_HUM|SEQUENCE|1
+3683|A6T5D6;|[1]|Submitte|CHAIN   |null|Name=acp|Klebsiel|3: Infer|McClella|Bacteria|null|null|ACPH_KLE|SEQUENCE|1
+3684|P47529;|[1]|Science |CHAIN   |MEDLINE=|OrderedL|Mycoplas|3: Infer|Fraser C|Bacteria|null|STRAIN=A|ACPH_MYC|SEQUENCE|1
+3685|P75378;|[1]|Nucleic |CHAIN   |MEDLINE=|OrderedL|Mycoplas|3: Infer|Himmelre|Bacteria|null|STRAIN=A|ACPH_MYC|SEQUENCE|1
+3686|Q98QK3;|[1]|Nucleic |CHAIN   |MEDLINE=|OrderedL|Mycoplas|3: Infer|Chambaud|Bacteria|null|STRAIN=U|ACPH_MYC|SEQUENCE|1
+3687|Q7N0I2;|[1]|Nat. Bio|CHAIN   |MEDLINE=|Name=acp|Photorha|3: Infer|Duchaud |Bacteria|null|STRAIN=T|ACPH_PHO|SEQUENCE|1
+3688|P19205; |[1] [2]|J. Bioch|CHAIN   |MEDLINE=|Name=APE|Sus scro|1: Evide|Mitta M.|Eukaryot|null|TISSUE=L|ACPH_PIG|SEQUENCE|1
+3689|P25154;|[1]|Anal. Bi|CHAIN   |MEDLINE=|Name=APE|Oryctola|1: Evide|Krishna |Eukaryot|null|TISSUE=M|ACPH_RAB|SEQUENCE|1
+3690|P13676; |[1] [2] |J. Biol.|CHAIN   |MEDLINE=|Name=Ape|Rattus n|1: Evide|Kobayash|Eukaryot|null|TISSUE=L|ACPH_RAT|SEQUENCE|1
+3691|A9MM59;|[1]|Submitte|CHAIN   |null|Name=acp|Salmonel|3: Infer|McClella|Bacteria|null|null|ACPH_SAL|SEQUENCE|1
+3692|Q57SG0;|[1]|Nucleic |CHAIN   |PubMed=1|Name=acp|Salmonel|3: Infer|Chiu C.-|Bacteria|null|STRAIN=S|ACPH_SAL|SEQUENCE|1
+3693|Q5PFT4;|[1]|Nat. Gen|CHAIN   |PubMed=1|Name=acp|Salmonel|3: Infer|McClella|Bacteria|null|STRAIN=A|ACPH_SAL|SEQUENCE|1
+3694|A9MX32;|[1]|Submitte|CHAIN   |null|Name=acp|Salmonel|3: Infer|McClella|Bacteria|null|null|ACPH_SAL|SEQUENCE|1
+3695|Q8XEZ8; |[1] [2]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Salmonel|3: Infer|Parkhill|Bacteria|null|STRAIN=C|ACPH_SAL|SEQUENCE|1
+3696|Q7CR41;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Salmonel|3: Infer|McClella|Bacteria|null|STRAIN=L|ACPH_SAL|SEQUENCE|1
+3697|A8GAM3;|[1]|Submitte|CHAIN   |null|Name=acp|Serratia|3: Infer|Copeland|Bacteria|null|null|ACPH_SER|SEQUENCE|1
+3698|Q325J7;|[1]|Nucleic |CHAIN   |PubMed=1|Name=acp|Shigella|3: Infer|Yang F.,|Bacteria|null|null|ACPH_SHI|SEQUENCE|1
+3699|Q32JF8;|[1]|Nucleic |CHAIN   |PubMed=1|Name=acp|Shigella|5: Uncer|Yang F.,|Bacteria|null|null|ACPH_SHI|SEQUENCE|1
+3700|Q83SG7;|[1] [2]|Nucleic |CHAIN   |MEDLINE=|Name=acp|Shigella|5: Uncer|Jin Q., |Bacteria|null|STRAIN=3|ACPH_SHI|SEQUENCE|1
+3701|Q3Z505;|[1]|Nucleic |CHAIN   |PubMed=1|Name=acp|Shigella|3: Infer|Yang F.,|Bacteria|null|null|ACPH_SHI|SEQUENCE|1
+3702|Q9PPY4;|[1]|Nature 4|CHAIN   |MEDLINE=|OrderedL|Ureaplas|3: Infer|Glass J.|Bacteria|null|STRAIN=A|ACPH_URE|SEQUENCE|1
+3703|A1JNT5;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Yersinia|3: Infer|Thomson |Bacteria|null|null|ACPH_YER|SEQUENCE|1
+3704|A7FLF7;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Yersinia|3: Infer|Eppinger|Bacteria|null|null|ACPH_YER|SEQUENCE|1
+3705|Q8ZC31; |[1] [2] |Nature 4|CHAIN   |MEDLINE=|Name=acp|Yersinia|3: Infer|Parkhill|Bacteria|null|STRAIN=C|ACPH_YER|SEQUENCE|1
+3706|Q66DW7;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Yersinia|3: Infer|Chain P.|Bacteria|null|STRAIN=I|ACPH_YER|SEQUENCE|1
+3707|Q7PC63; |[1] [2]|Nature 3|CHAIN   |MEDLINE=|Name=acp|Bacillus|1: Evide|Kunst F.|Bacteria|null|STRAIN=1|ACPK_BAC|SEQUENCE|1
+3708|Q6DH46;|[1]|Submitte|SIGNAL  |null|Name=acp|Danio re|2: Evide|null|Eukaryot|null|TISSUE=L|ACPL2_DA|SEQUENCE|1
+3709|Q8TE99; |[1] [2] |Genome R|SIGNAL  |MEDLINE=|Name=ACP|Homo sap|2: Evide|Clark H.|Eukaryot|null|TISSUE=H|ACPL2_HU|SEQUENCE|1
+3710|Q8BHA9; |[1] [2]|Science |SIGNAL  |PubMed=1|Name=Acp|Mus musc|2: Evide|Carninci|Eukaryot|null|STRAIN=C|ACPL2_MO|SEQUENCE|1
+3711|Q66H78;|[1]|Genome R|SIGNAL  |PubMed=1|Name=Acp|Rattus n|2: Evide|null|Eukaryot|null|TISSUE=K|ACPL2_RA|SEQUENCE|1
+3712|Q0IHQ9;|[1]|Submitte|SIGNAL  |null|Name=acp|Xenopus |2: Evide|null|Eukaryot|null|TISSUE=T|ACPL2_XE|SEQUENCE|1
+3713|P53665;|[1] [2]|Plant Ph|TRANSIT |MEDLINE=|OrderedL|Arabidop|2: Evide|Shintani|Eukaryot|null|STRAIN=c|ACPM_ARA|SEQUENCE|1
+3714|P52505; |[1] [2]|Submitte|TRANSIT |MEDLINE=|Name=NDU|Bos taur|1: Evide|Runswick|Eukaryot|null|STRAIN=C|ACPM_BOV|SEQUENCE|1
+3715|Q54E22;|[1]|Nature 4|TRANSIT |PubMed=1|Name=ndu|Dictyost|3: Infer|Eichinge|Eukaryot|null|STRAIN=A|ACPM_DIC|SEQUENCE|1
+3716|Q94519; |[1] [2] |Mol. Gen|TRANSIT |MEDLINE=|Name=mta|Drosophi|1: Evide|Caggese |Eukaryot|null|TISSUE=O|ACPM_DRO|SEQUENCE|1
+3717|Q0MQC2;|[1]|Gene 378|TRANSIT |PubMed=1|Name=NDU|Gorilla |2: Evide|Mishmar |Eukaryot|null|null|ACPM_GOR|SEQUENCE|1
+3718|O14561; |[1] [2] |Biochem.|TRANSIT |MEDLINE=|Name=NDU|Homo sap|1: Evide|Loeffen |Eukaryot|null|TISSUE=S|ACPM_HUM|SEQUENCE|1
+3719|Q9CR21; |[1] [2] |Science |TRANSIT |PubMed=1|Name=Ndu|Mus musc|1: Evide|Carninci|Eukaryot|null|STRAIN=C|ACPM_MOU|SEQUENCE|1
+3720|P61156;|[1]|Submitte|CHAIN   |null|Name=acp|Mycobact|3: Infer|Bansal T|Bacteria|null|null|ACPM_MYC|SEQUENCE|1
+3721|P0A4W7; |[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Mycobact|3: Infer|Garnier |Bacteria|null|STRAIN=A|ACPM_MYC|SEQUENCE|1
+3722|O69475;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Mycobact|3: Infer|Cole S.T|Bacteria|null|STRAIN=T|ACPM_MYC|SEQUENCE|1
+3723|P0A4W6; |[1] [2]|Nature 3|CHAIN   |MEDLINE=|Name=acp|Mycobact|1: Evide|Cole S.T|Bacteria|null|STRAIN=A|ACPM_MYC|SEQUENCE|1
+3724|P11943; |[1] [2] |Eur. J. |TRANSIT |MEDLINE=|Name=nuo|Neurospo|1: Evide|Sackmann|Eukaryot|null|STRAIN=7|ACPM_NEU|SEQUENCE|1
+3725|Q0MQC3;|[1]|Gene 378|TRANSIT |PubMed=1|Name=NDU|Pan trog|2: Evide|Mishmar |Eukaryot|null|null|ACPM_PAN|SEQUENCE|1
+3726|Q0MQC1;|[1]|Gene 378|TRANSIT |PubMed=1|Name=NDU|Pongo ab|2: Evide|Mishmar |Eukaryot|null|null|ACPM_PON|SEQUENCE|1
+3727|Q10217;|[1]|Nature 4|TRANSIT |MEDLINE=|ORFNames|Schizosa|2: Evide|Wood V.,|Eukaryot|null|STRAIN=A|ACPM_SCH|SEQUENCE|1
+3728|P32463;|[1] [2] |Yeast 9:|TRANSIT |MEDLINE=|Name=ACP|Saccharo|1: Evide|Cheret G|Eukaryot|null|STRAIN=S|ACPM_YEA|SEQUENCE|1
+3729|Q8XAN7;|[1] [2]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Escheric|3: Infer|Perna N.|Bacteria|null|STRAIN=O|ACPS2_EC|SEQUENCE|1
+3730|A9NHV3;|[1]|Submitte|CHAIN   |null|Name=acp|Acholepl|3: Infer|Kovaleva|Bacteria|null|null|ACPS_ACH|SEQUENCE|1
+3731|Q1IHY2;|[1]|Submitte|CHAIN   |null|Name=acp|Acidobac|3: Infer|Copeland|Bacteria|null|null|ACPS_ACI|SEQUENCE|1
+3732|A5FVX4;|[1]|Submitte|CHAIN   |null|Name=acp|Acidiphi|3: Infer|Copeland|Bacteria|null|null|ACPS_ACI|SEQUENCE|1
+3733|A1WAW0;|[1]|Submitte|CHAIN   |null|Name=acp|Acidovor|3: Infer|Copeland|Bacteria|null|null|ACPS_ACI|SEQUENCE|1
+3734|Q8UGK4;|[1] [2]|Science |CHAIN   |MEDLINE=|Name=acp|Agrobact|3: Infer|Wood D.W|Bacteria|null|null|ACPS_AGR|SEQUENCE|1
+3735|Q0A8Y7;|[1]|Submitte|CHAIN   |null|Name=acp|Alkalili|3: Infer|Copeland|Bacteria|null|null|ACPS_ALH|SEQUENCE|1
+3736|A6TVL0;|[1]|Submitte|CHAIN   |null|Name=acp|Alkaliph|3: Infer|Copeland|Bacteria|null|null|ACPS_ALK|SEQUENCE|1
+3737|A8MJ27;|[1]|Submitte|CHAIN   |null|Name=acp|Alkaliph|3: Infer|Copeland|Bacteria|null|null|ACPS_ALK|SEQUENCE|1
+3738|Q2IHZ3;|[1]|Submitte|CHAIN   |null|Name=acp|Anaeromy|3: Infer|Copeland|Bacteria|null|null|ACPS_ANA|SEQUENCE|1
+3739|A7HCT8;|[1]|Submitte|CHAIN   |null|Name=acp|Anaeromy|3: Infer|Copeland|Bacteria|null|null|ACPS_ANA|SEQUENCE|1
+3740|Q5PAZ6;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Anaplasm|3: Infer|Brayton |Bacteria|null|null|ACPS_ANA|SEQUENCE|1
+3741|Q2GK71;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Anaplasm|3: Infer|Dunning |Bacteria|null|null|ACPS_ANA|SEQUENCE|1
+3742|O66995;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=acp|Aquifex |3: Infer|Deckert |Bacteria|null|STRAIN=V|ACPS_AQU|SEQUENCE|1
+3743|A8ERC0;|[1]|Submitte|CHAIN   |null|Name=acp|Arcobact|3: Infer|Miller W|Bacteria|null|null|ACPS_ARC|SEQUENCE|1
+3744|A1R8P6;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Arthroba|3: Infer|Mongodin|Bacteria|null|null|ACPS_ART|SEQUENCE|1
+3745|A0JZ20;|[1]|Submitte|CHAIN   |null|Name=acp|Arthroba|3: Infer|Copeland|Bacteria|null|null|ACPS_ART|SEQUENCE|1
+3746|A8I3B0;|[1]|Submitte|CHAIN   |null|Name=acp|Azorhizo|3: Infer|Lee K.B.|Bacteria|null|null|ACPS_AZO|SEQUENCE|1
+3747|A1K608;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=acp|Azoarcus|3: Infer|Krause A|Bacteria|null|null|ACPS_AZO|SEQUENCE|1
+3748|Q5P082;|[1]|Arch. Mi|CHAIN   |PubMed=1|Name=acp|Azoarcus|3: Infer|Rabus R.|Bacteria|null|null|ACPS_AZO|SEQUENCE|1
+3749|A7Z1L9;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=acp|Bacillus|3: Infer|Chen X.H|Bacteria|null|null|ACPS_BAC|SEQUENCE|1
+3750|A0R8U9;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Bacillus|3: Infer|Challaco|Bacteria|null|null|ACPS_BAC|SEQUENCE|1
+3751|Q81JG3; |[1] [2] |Nature 4|CHAIN   |MEDLINE=|Name=acp|Bacillus|3: Infer|Read T.D|Bacteria|null|STRAIN=A|ACPS_BAC|SEQUENCE|1
+3752|Q73ET8;|[1]|Nucleic |CHAIN   |PubMed=1|Name=acp|Bacillus|3: Infer|Rasko D.|Bacteria|null|null|ACPS_BAC|SEQUENCE|1
+3753|A7GKE4;|[1]|Chem. Bi|CHAIN   |PubMed=1|Name=acp|Bacillus|3: Infer|Lapidus |Bacteria|null|null|ACPS_BAC|SEQUENCE|1
+3754|Q81IT7;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Bacillus|3: Infer|Ivanova |Bacteria|null|null|ACPS_BAC|SEQUENCE|1
+3755|Q63GX2;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Bacillus|3: Infer|Han C.S.|Bacteria|null|null|ACPS_BAC|SEQUENCE|1
+3756|Q9KFG1;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=acp|Bacillus|3: Infer|Takami H|Bacteria|null|STRAIN=A|ACPS_BAC|SEQUENCE|1
+3757|Q6HPE3;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Bacillus|3: Infer|Han C.S.|Bacteria|null|STRAIN=9|ACPS_BAC|SEQUENCE|1
+3758|A8FA63;|[1]|PLoS ONE|CHAIN   |PubMed=1|Name=acp|Bacillus|3: Infer|Gioia J.|Bacteria|null|null|ACPS_BAC|SEQUENCE|1
+3759|Q5WJW1;|[1]|Submitte|CHAIN   |null|Name=acp|Bacillus|3: Infer|Takaki Y|Bacteria|null|null|ACPS_BAC|SEQUENCE|1
+3760|P96618;|[1] [2] |Submitte|CHAIN   |MEDLINE=|Name=acp|Bacillus|1: Evide|Kasahara|Bacteria|null|STRAIN=1|ACPS_BAC|SEQUENCE|1
+3761|A1US34;|[1]|Submitte|CHAIN   |null|Name=acp|Bartonel|3: Infer|Hendrix |Bacteria|null|null|ACPS_BAR|SEQUENCE|1
+3762|Q6G461;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Bartonel|3: Infer|Alsmark |Bacteria|null|STRAIN=A|ACPS_BAR|SEQUENCE|1
+3763|Q6G084;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Bartonel|3: Infer|Alsmark |Bacteria|null|STRAIN=T|ACPS_BAR|SEQUENCE|1
+3764|A9IRM3;|[1]|Nat. Gen|CHAIN   |PubMed=1|Name=acp|Bartonel|3: Infer|Saenz H.|Bacteria|null|null|ACPS_BAR|SEQUENCE|1
+3765|Q1LTI6;|[1]|PLoS Bio|CHAIN   |PubMed=1|Name=acp|Baumanni|3: Infer|Wu D., D|Bacteria|null|null|ACPS_BAU|SEQUENCE|1
+3766|A1A005;|[1]|Submitte|CHAIN   |null|Name=acp|Bifidoba|3: Infer|Suzuki T|Bacteria|null|null|ACPS_BIF|SEQUENCE|1
+3767|Q7VRR2;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Blochman|3: Infer|Gil R., |Bacteria|null|null|ACPS_BLO|SEQUENCE|1
+3768|Q492D3;|[1]|Genome R|CHAIN   |PubMed=1|Name=acp|Blochman|3: Infer|Degnan P|Bacteria|null|null|ACPS_BLO|SEQUENCE|1
+3769|Q0SPF4;|[1]|BMC Geno|CHAIN   |PubMed=1|Name=acp|Borrelia|3: Infer|Gloeckne|Bacteria|null|null|ACPS_BOR|SEQUENCE|1
+3770|Q7WH64;|[1]|Nat. Gen|CHAIN   |MEDLINE=|Name=acp|Bordetel|3: Infer|Parkhill|Bacteria|null|STRAIN=R|ACPS_BOR|SEQUENCE|1
+3771|O51043;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=acp|Borrelia|3: Infer|Fraser C|Bacteria|null|STRAIN=A|ACPS_BOR|SEQUENCE|1
+3772|Q663A2;|[1]|Nucleic |CHAIN   |PubMed=1|Name=acp|Borrelia|3: Infer|Gloeckne|Bacteria|null|STRAIN=P|ACPS_BOR|SEQUENCE|1
+3773|Q7W9J6;|[1]|Nat. Gen|CHAIN   |MEDLINE=|Name=acp|Bordetel|3: Infer|Parkhill|Bacteria|null|STRAIN=1|ACPS_BOR|SEQUENCE|1
+3774|Q7VWV9;|[1]|Nat. Gen|CHAIN   |MEDLINE=|Name=acp|Bordetel|3: Infer|Parkhill|Bacteria|null|STRAIN=T|ACPS_BOR|SEQUENCE|1
+3775|O69159;|[1] [2]|Mol. Gen|CHAIN   |MEDLINE=|Name=acp|Bradyrhi|3: Infer|Bairl A.|Bacteria|null|STRAIN=U|ACPS_BRA|SEQUENCE|1
+3776|A5EKL9;|[1]|Science |CHAIN   |PubMed=1|Name=acp|Bradyrhi|3: Infer|Giraud E|Bacteria|null|null|ACPS_BRA|SEQUENCE|1
+3777|Q2YN04;|[1]|Infect. |CHAIN   |PubMed=1|Name=acp|Brucella|3: Infer|Chain P.|Bacteria|null|null|ACPS_BRU|SEQUENCE|1
+3778|Q57E83;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Brucella|3: Infer|Halling |Bacteria|null|STRAIN=9|ACPS_BRU|SEQUENCE|1
+3779|A9MA33;|[1]|Submitte|CHAIN   |null|Name=acp|Brucella|3: Infer|Setubal |Bacteria|null|null|ACPS_BRU|SEQUENCE|1
+3780|P63464; |[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Brucella|3: Infer|DelVecch|Bacteria|null|STRAIN=1|ACPS_BRU|SEQUENCE|1
+3781|A5VPJ6;|[1]|Submitte|CHAIN   |null|Name=acp|Brucella|3: Infer|Paulsen |Bacteria|null|null|ACPS_BRU|SEQUENCE|1
+3782|B0CKY5;|[1]|Submitte|CHAIN   |null|Name=acp|Brucella|3: Infer|Setubal |Bacteria|null|null|ACPS_BRU|SEQUENCE|1
+3783|P63465; |[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Brucella|3: Infer|Paulsen |Bacteria|null|STRAIN=1|ACPS_BRU|SEQUENCE|1
+3784|P57344;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Buchnera|3: Infer|Shigenob|Bacteria|null|STRAIN=T|ACPS_BUC|SEQUENCE|1
+3785|Q8K9R3;|[1]|Science |CHAIN   |MEDLINE=|Name=acp|Buchnera|3: Infer|Tamas I.|Bacteria|null|null|ACPS_BUC|SEQUENCE|1
+3786|P59475;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Buchnera|3: Infer|van Ham |Bacteria|null|null|ACPS_BUC|SEQUENCE|1
+3787|Q057R6;|[1]|Science |CHAIN   |PubMed=1|Name=acp|Buchnera|3: Infer|Perez-Br|Bacteria|null|null|ACPS_BUC|SEQUENCE|1
+3788|Q1BXT7;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|Copeland|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3789|A0K5W3;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|Copeland|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3790|Q0BH00;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|Copeland|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3791|A3MM38;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|DeShazer|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3792|A2S9Z9;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|DeShazer|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3793|Q62LS6;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Burkhold|3: Infer|Nierman |Bacteria|null|STRAIN=A|ACPS_BUR|SEQUENCE|1
+3794|A1V6B3;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|DeShazer|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3795|A3NXL2;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|DeShazer|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3796|A3NBS5;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|DeShazer|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3797|Q63S99;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Burkhold|3: Infer|Holden M|Bacteria|null|STRAIN=K|ACPS_BUR|SEQUENCE|1
+3798|Q39I69;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|Copeland|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3799|Q2SXT0;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|Fraser C|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3800|A4JCR5;|[1]|Submitte|CHAIN   |null|Name=acp|Burkhold|3: Infer|Copeland|Bacteria|null|null|ACPS_BUR|SEQUENCE|1
+3801|A4XIB7;|[1]|Submitte|CHAIN   |null|Name=acp|Caldicel|3: Infer|Copeland|Bacteria|null|null|ACPS_CAL|SEQUENCE|1
+3802|A7ZDS5;|[1]|Submitte|CHAIN   |null|Name=acp|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACPS_CAM|SEQUENCE|1
+3803|A7GY16;|[1]|Submitte|CHAIN   |null|Name=acp|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACPS_CAM|SEQUENCE|1
+3804|A0RPF9;|[1]|Submitte|CHAIN   |null|Name=acp|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACPS_CAM|SEQUENCE|1
+3805|A7I379;|[1]|Submitte|CHAIN   |null|Name=acp|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACPS_CAM|SEQUENCE|1
+3806|A8FN84;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Campylob|3: Infer|Pearson |Bacteria|null|null|ACPS_CAM|SEQUENCE|1
+3807|A7H5D0;|[1]|Submitte|CHAIN   |null|Name=acp|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACPS_CAM|SEQUENCE|1
+3808|Q9PMP8; |[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Campylob|3: Infer|Parkhill|Bacteria|null|STRAIN=N|ACPS_CAM|SEQUENCE|1
+3809|A1W123;|[1]|Submitte|CHAIN   |null|Name=acp|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACPS_CAM|SEQUENCE|1
+3810|Q5HT08;|[1]|PLoS Bio|CHAIN   |PubMed=1|Name=acp|Campylob|3: Infer|Fouts D.|Bacteria|null|null|ACPS_CAM|SEQUENCE|1
+3811|Q3AEB5;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Carboxyd|3: Infer|Wu M., R|Bacteria|null|null|ACPS_CAR|SEQUENCE|1
+3812|Q9A807;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Caulobac|3: Infer|Nierman |Bacteria|null|STRAIN=A|ACPS_CAU|SEQUENCE|1
+3813|B0T3H7;|[1]|Submitte|CHAIN   |null|Name=acp|Caulobac|3: Infer|Copeland|Bacteria|null|null|ACPS_CAU|SEQUENCE|1
+3814|Q5L623;|[1]|Genome R|CHAIN   |PubMed=1|Name=acp|Chlamydo|3: Infer|Thomson |Bacteria|null|STRAIN=S|ACPS_CHL|SEQUENCE|1
+3815|Q3AU14;|[1]|Submitte|CHAIN   |null|Name=acp|Chlorobi|3: Infer|Copeland|Bacteria|null|null|ACPS_CHL|SEQUENCE|1
+3816|Q820E7;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=acp|Chlamydo|3: Infer|Read T.D|Bacteria|null|STRAIN=G|ACPS_CHL|SEQUENCE|1
+3817|Q254H8;|[1]|DNA Res.|CHAIN   |PubMed=1|Name=acp|Chlamydo|3: Infer|Azuma Y.|Bacteria|null|null|ACPS_CHL|SEQUENCE|1
+3818|Q9PKT6;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=acp|Chlamydi|3: Infer|Read T.D|Bacteria|null|STRAIN=M|ACPS_CHL|SEQUENCE|1
+3819|Q9Z8M5; |[1] [2] |Nat. Gen|CHAIN   |MEDLINE=|Name=acp|Chlamydi|3: Infer|Kalman S|Bacteria|null|STRAIN=C|ACPS_CHL|SEQUENCE|1
+3820|Q3KMS0;|[1]|Infect. |CHAIN   |PubMed=1|Name=acp|Chlamydi|3: Infer|Carlson |Bacteria|null|null|ACPS_CHL|SEQUENCE|1
+3821|Q8KB56;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Chlorobi|3: Infer|Eisen J.|Bacteria|null|STRAIN=A|ACPS_CHL|SEQUENCE|1
+3822|O84102;|[1]|Science |CHAIN   |MEDLINE=|Name=acp|Chlamydi|3: Infer|Stephens|Bacteria|null|STRAIN=D|ACPS_CHL|SEQUENCE|1
+3823|Q7NWB8;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Chromoba|3: Infer|Vasconce|Bacteria|null|STRAIN=A|ACPS_CHR|SEQUENCE|1
+3824|A8AD21;|[1]|Submitte|CHAIN   |null|Name=acp|Citrobac|3: Infer|McClella|Bacteria|null|null|ACPS_CIT|SEQUENCE|1
+3825|A5CU72;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Clavibac|3: Infer|Garteman|Bacteria|null|null|ACPS_CLA|SEQUENCE|1
+3826|B0RD39;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Clavibac|3: Infer|Bentley |Bacteria|null|null|ACPS_CLA|SEQUENCE|1
+3827|Q97LR5;|[1]|J. Bacte|CHAIN   |MEDLINE=|Name=acp|Clostrid|3: Infer|Noelling|Bacteria|null|STRAIN=A|ACPS_CLO|SEQUENCE|1
+3828|A6M302;|[1]|Submitte|CHAIN   |null|Name=acp|Clostrid|3: Infer|Copeland|Bacteria|null|null|ACPS_CLO|SEQUENCE|1
+3829|A5N379;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Clostrid|3: Infer|Seedorf |Bacteria|null|null|ACPS_CLO|SEQUENCE|1
+3830|A0PY92;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=acp|Clostrid|3: Infer|Bettegow|Bacteria|null|null|ACPS_CLO|SEQUENCE|1
+3831|Q0TUE3;|[1]|Genome R|CHAIN   |PubMed=1|Name=acp|Clostrid|3: Infer|Myers G.|Bacteria|null|null|ACPS_CLO|SEQUENCE|1
+3832|Q8XNP1;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Clostrid|3: Infer|Shimizu |Bacteria|null|STRAIN=1|ACPS_CLO|SEQUENCE|1
+3833|A9KLF9;|[1]|Submitte|CHAIN   |null|Name=acp|Clostrid|3: Infer|Leschine|Bacteria|null|null|ACPS_CLO|SEQUENCE|1
+3834|Q0SW89;|[1]|Genome R|CHAIN   |PubMed=1|Name=acp|Clostrid|3: Infer|Myers G.|Bacteria|null|null|ACPS_CLO|SEQUENCE|1
+3835|Q890W8;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Clostrid|3: Infer|Brueggem|Bacteria|null|STRAIN=M|ACPS_CLO|SEQUENCE|1
+3836|Q8FMW0;|[1]|Genome R|CHAIN   |MEDLINE=|Name=acp|Coryneba|3: Infer|Nishio Y|Bacteria|null|STRAIN=D|ACPS_COR|SEQUENCE|1
+3837|A4QGP6;|[1]|Microbio|CHAIN   |PubMed=1|Name=acp|Coryneba|3: Infer|Yukawa H|Bacteria|null|null|ACPS_COR|SEQUENCE|1
+3838|Q8NMS4;|[1] [2]|Submitte|CHAIN   |MEDLINE=|Name=acp|Coryneba|3: Infer|Nakagawa|Bacteria|null|STRAIN=A|ACPS_COR|SEQUENCE|1
+3839|Q11T75;|[1]|Appl. En|CHAIN   |PubMed=1|Name=acp|Cytophag|3: Infer|Xie G., |Bacteria|null|null|ACPS_CYT|SEQUENCE|1
+3840|Q47EF3;|[1]|Submitte|CHAIN   |null|Name=acp|Dechloro|3: Infer|Copeland|Bacteria|null|null|ACPS_DEC|SEQUENCE|1
+3841|Q3Z9B0;|[1]|Science |CHAIN   |PubMed=1|Name=acp|Dehaloco|3: Infer|Seshadri|Bacteria|null|null|ACPS_DEH|SEQUENCE|1
+3842|A5FS12;|[1]|Submitte|CHAIN   |null|Name=acp|Dehaloco|3: Infer|Copeland|Bacteria|null|null|ACPS_DEH|SEQUENCE|1
+3843|Q3ZZK3;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=acp|Dehaloco|3: Infer|Kube M.,|Bacteria|null|null|ACPS_DEH|SEQUENCE|1
+3844|Q9RXR0;|[1]|Science |CHAIN   |MEDLINE=|Name=acp|Deinococ|3: Infer|White O.|Bacteria|null|STRAIN=A|ACPS_DEI|SEQUENCE|1
+3845|Q30ZQ5;|[1]|Submitte|CHAIN   |null|Name=acp|Desulfov|3: Infer|Copeland|Bacteria|null|null|ACPS_DES|SEQUENCE|1
+3846|A4J8G9;|[1]|Submitte|CHAIN   |null|Name=acp|Desulfot|3: Infer|Copeland|Bacteria|null|null|ACPS_DES|SEQUENCE|1
+3847|Q72AT2;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=acp|Desulfov|3: Infer|Heidelbe|Bacteria|null|null|ACPS_DES|SEQUENCE|1
+3848|A1VCV8;|[1]|Submitte|CHAIN   |null|Name=acp|Desulfov|3: Infer|Copeland|Bacteria|null|null|ACPS_DES|SEQUENCE|1
+3849|A8LLD7;|[1]|Submitte|CHAIN   |null|Name=acp|Dinorose|3: Infer|Copeland|Bacteria|null|null|ACPS_DIN|SEQUENCE|1
+3850|A7ZQ07;|[1]|Submitte|CHAIN   |null|Name=acp|Escheric|3: Infer|Rasko D.|Bacteria|null|null|ACPS_ECO|SEQUENCE|1
+3851|Q8XA39;|[1] [2]|Nature 4|INIT_MET|MEDLINE=|Name=acp|Escheric|3: Infer|Perna N.|Bacteria|null|STRAIN=O|ACPS_ECO|SEQUENCE|1
+3852|A8A373;|[1]|Submitte|CHAIN   |null|Name=acp|Escheric|3: Infer|Rasko D.|Bacteria|null|null|ACPS_ECO|SEQUENCE|1
+3853|A1AE93;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Escheric|3: Infer|Johnson |Bacteria|null|null|ACPS_ECO|SEQUENCE|1
+3854|Q0TES5;|[1]|Mol. Mic|CHAIN   |PubMed=1|Name=acp|Escheric|3: Infer|Hochhut |Bacteria|null|null|ACPS_ECO|SEQUENCE|1
+3855|Q8FF19;|[1]|Proc. Na|INIT_MET|MEDLINE=|Name=acp|Escheric|3: Infer|Welch R.|Bacteria|null|STRAIN=O|ACPS_ECO|SEQUENCE|1
+3856|B1IVR4;|[1]|Submitte|CHAIN   |null|Name=acp|Escheric|3: Infer|Copeland|Bacteria|null|null|ACPS_ECO|SEQUENCE|1
+3857|P24224; |[1] [2] |J. Bacte|INIT_MET|MEDLINE=|Name=acp|Escheric|1: Evide|Takiff H|Bacteria|null|STRAIN=K|ACPS_ECO|SEQUENCE|1
+3858|Q1R8H0;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Escheric|3: Infer|Chen S.L|Bacteria|null|null|ACPS_ECO|SEQUENCE|1
+3859|Q3YSD5;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Ehrlichi|3: Infer|Mavromat|Bacteria|null|null|ACPS_EHR|SEQUENCE|1
+3860|Q2GG91;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Ehrlichi|3: Infer|Dunning |Bacteria|null|null|ACPS_EHR|SEQUENCE|1
+3861|Q5FHL6;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Ehrlichi|3: Infer|Frutos R|Bacteria|null|null|ACPS_EHR|SEQUENCE|1
+3862|Q5HBI7; |[1] [2]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Ehrlichi|3: Infer|Collins |Bacteria|null|null|ACPS_EHR|SEQUENCE|1
+3863|A4WDD4;|[1]|Submitte|CHAIN   |null|Name=acp|Enteroba|3: Infer|Copeland|Bacteria|null|null|ACPS_ENT|SEQUENCE|1
+3864|Q820V0;|[1]|Science |CHAIN   |MEDLINE=|Name=acp|Enteroco|3: Infer|Paulsen |Bacteria|null|STRAIN=V|ACPS_ENT|SEQUENCE|1
+3865|A7MH03;|[1]|Submitte|CHAIN   |null|Name=acp|Enteroba|3: Infer|McClella|Bacteria|null|null|ACPS_ENT|SEQUENCE|1
+3866|Q6D222;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Erwinia |3: Infer|Bell K.S|Bacteria|null|STRAIN=S|ACPS_ERW|SEQUENCE|1
+3867|Q2NCF7;|[1]|Submitte|CHAIN   |null|Name=acp|Erythrob|3: Infer|Giovanno|Bacteria|null|null|ACPS_ERY|SEQUENCE|1
+3868|Q0RRN3;|[1]|Genome R|CHAIN   |PubMed=1|Name=acp|Frankia |3: Infer|Normand |Bacteria|null|null|ACPS_FRA|SEQUENCE|1
+3869|Q2JFD8;|[1]|Genome R|CHAIN   |PubMed=1|Name=acp|Frankia |3: Infer|Normand |Bacteria|null|null|ACPS_FRA|SEQUENCE|1
+3870|Q8RDZ7;|[1]|J. Bacte|CHAIN   |MEDLINE=|Name=acp|Fusobact|3: Infer|Kapatral|Bacteria|null|STRAIN=A|ACPS_FUS|SEQUENCE|1
+3871|Q5L3G7;|[1]|Nucleic |CHAIN   |PubMed=1|Name=acp|Geobacil|3: Infer|Takami H|Bacteria|null|STRAIN=H|ACPS_GEO|SEQUENCE|1
+3872|Q39UG1;|[1]|Submitte|CHAIN   |null|Name=acp|Geobacte|3: Infer|Copeland|Bacteria|null|null|ACPS_GEO|SEQUENCE|1
+3873|Q74C71;|[1]|Science |CHAIN   |PubMed=1|Name=acp|Geobacte|3: Infer|Methe B.|Bacteria|null|STRAIN=A|ACPS_GEO|SEQUENCE|1
+3874|A4IJT3;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Geobacil|3: Infer|Feng L.,|Bacteria|null|null|ACPS_GEO|SEQUENCE|1
+3875|Q7NE72;|[1]|DNA Res.|CHAIN   |MEDLINE=|Name=acp|Gloeobac|3: Infer|Nakamura|Bacteria|null|STRAIN=P|ACPS_GLO|SEQUENCE|1
+3876|Q5FPZ9;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=acp|Gluconob|3: Infer|Prust C.|Bacteria|null|STRAIN=6|ACPS_GLU|SEQUENCE|1
+3877|Q0BTG4;|[1]|Submitte|CHAIN   |null|Name=acp|Granulob|3: Infer|Greenber|Bacteria|null|null|ACPS_GRA|SEQUENCE|1
+3878|A1WT13;|[1]|Submitte|CHAIN   |null|Name=acp|Halorhod|3: Infer|Copeland|Bacteria|null|null|ACPS_HAL|SEQUENCE|1
+3879|Q17XL2;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Helicoba|3: Infer|Eppinger|Bacteria|null|null|ACPS_HEL|SEQUENCE|1
+3880|Q1CT62;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Helicoba|3: Infer|Oh J.D.,|Bacteria|null|null|ACPS_HEL|SEQUENCE|1
+3881|Q9ZL36;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=acp|Helicoba|3: Infer|Alm R.A.|Bacteria|null|null|ACPS_HEL|SEQUENCE|1
+3882|O25488;|[1]|Nature 3|CHAIN   |MEDLINE=|Name=acp|Helicoba|3: Infer|Tomb J.-|Bacteria|null|STRAIN=A|ACPS_HEL|SEQUENCE|1
+3883|A4G6R4;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Herminii|3: Infer|Muller D|Bacteria|null|STRAIN=U|ACPS_HER|SEQUENCE|1
+3884|Q0C3U0;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Hyphomon|3: Infer|Badger J|Bacteria|null|null|ACPS_HYP|SEQUENCE|1
+3885|Q5R110;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Idiomari|3: Infer|Hou S., |Bacteria|null|STRAIN=L|ACPS_IDI|SEQUENCE|1
+3886|A6SXR7;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Janthino|3: Infer|Audic S.|Bacteria|null|null|ACPS_JAN|SEQUENCE|1
+3887|Q28V25;|[1]|Submitte|CHAIN   |null|Name=acp|Jannasch|3: Infer|Copeland|Bacteria|null|null|ACPS_JAN|SEQUENCE|1
+3888|A6W5X5;|[1]|Submitte|CHAIN   |null|Name=acp|Kineococ|3: Infer|Copeland|Bacteria|null|null|ACPS_KIN|SEQUENCE|1
+3889|A6TCH7;|[1]|Submitte|CHAIN   |null|Name=acp|Klebsiel|3: Infer|McClella|Bacteria|null|null|ACPS_KLE|SEQUENCE|1
+3890|Q5FMB3;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Lactobac|3: Infer|Alterman|Bacteria|null|STRAIN=N|ACPS_LAC|SEQUENCE|1
+3891|Q03T07;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Lactobac|3: Infer|Makarova|Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3892|Q034T8;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Lactobac|3: Infer|Makarova|Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3893|Q1GBP7;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Lactobac|3: Infer|van de G|Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3894|Q04C46;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Lactobac|3: Infer|Makarova|Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3895|A8YXI2;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Lactobac|3: Infer|Callanan|Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3896|Q74LB3;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Lactobac|3: Infer|Pridmore|Bacteria|null|STRAIN=N|ACPS_LAC|SEQUENCE|1
+3897|Q9CH95;|[1]|Genome R|CHAIN   |MEDLINE=|Name=acp|Lactococ|3: Infer|Bolotin |Bacteria|null|STRAIN=I|ACPS_LAC|SEQUENCE|1
+3898|A2RLV5;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Lactococ|3: Infer|Wegmann |Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3899|Q030B5;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Lactococ|3: Infer|Makarova|Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3900|Q88Z44;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Lactobac|3: Infer|Kleerebe|Bacteria|null|STRAIN=A|ACPS_LAC|SEQUENCE|1
+3901|Q9FCV3;|[1]|Curr. Mi|CHAIN   |MEDLINE=|Name=acp|Lactobac|3: Infer|Thompson|Bacteria|null|STRAIN=A|ACPS_LAC|SEQUENCE|1
+3902|A5VI50;|[1]|Submitte|CHAIN   |null|Name=acp|Lactobac|3: Infer|Copeland|Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3903|Q1WV15;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Lactobac|3: Infer|Claesson|Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3904|Q38V63;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=acp|Lactobac|3: Infer|Chaillou|Bacteria|null|null|ACPS_LAC|SEQUENCE|1
+3905|Q6AD33;|[1]|Mol. Pla|CHAIN   |PubMed=1|Name=acp|Leifsoni|3: Infer|Monteiro|Bacteria|null|STRAIN=C|ACPS_LEI|SEQUENCE|1
+3906|Q04U76;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Leptospi|3: Infer|Bulach D|Bacteria|null|null|ACPS_LEP|SEQUENCE|1
+3907|Q053N9;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Leptospi|3: Infer|Bulach D|Bacteria|null|null|ACPS_LEP|SEQUENCE|1
+3908|Q72U18;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Leptospi|3: Infer|Nascimen|Bacteria|null|STRAIN=F|ACPS_LEP|SEQUENCE|1
+3909|Q8F136;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Leptospi|3: Infer|Ren S.-X|Bacteria|null|STRAIN=5|ACPS_LEP|SEQUENCE|1
+3910|Q03V72;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Leuconos|3: Infer|Makarova|Bacteria|null|null|ACPS_LEU|SEQUENCE|1
+3911|Q92DD0;|[1]|Science |CHAIN   |MEDLINE=|Name=acp|Listeria|3: Infer|Glaser P|Bacteria|null|STRAIN=C|ACPS_LIS|SEQUENCE|1
+3912|Q721T0;|[1]|Nucleic |CHAIN   |PubMed=1|Name=acp|Listeria|3: Infer|Nelson K|Bacteria|null|null|ACPS_LIS|SEQUENCE|1
+3913|Q8Y8L2;|[1]|Science |CHAIN   |MEDLINE=|Name=acp|Listeria|3: Infer|Glaser P|Bacteria|null|STRAIN=A|ACPS_LIS|SEQUENCE|1
+3914|A0AH03;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Listeria|3: Infer|Hain T.,|Bacteria|null|null|ACPS_LIS|SEQUENCE|1
+3915|Q2W515;|[1]|DNA Res.|CHAIN   |PubMed=1|Name=acp|Magnetos|3: Infer|Matsunag|Bacteria|null|null|ACPS_MAG|SEQUENCE|1
+3916|A0L8S4;|[1]|Submitte|CHAIN   |null|Name=acp|Magnetoc|3: Infer|Copeland|Bacteria|null|null|ACPS_MAG|SEQUENCE|1
+3917|Q0APC3;|[1]|Submitte|CHAIN   |null|Name=acp|Maricaul|3: Infer|Copeland|Bacteria|null|null|ACPS_MAR|SEQUENCE|1
+3918|A6VUP9;|[1]|Submitte|CHAIN   |null|Name=acp|Marinomo|3: Infer|Copeland|Bacteria|null|null|ACPS_MAR|SEQUENCE|1
+3919|Q11JT0;|[1]|Submitte|CHAIN   |null|Name=acp|Mesorhiz|3: Infer|Copeland|Bacteria|null|null|ACPS_MES|SEQUENCE|1
+3920|A2SDH7;|[1]|J. Bacte|CHAIN   |PubMed=1|Name=acp|Methylib|3: Infer|Kane S.R|Bacteria|null|null|ACPS_MET|SEQUENCE|1
+3921|Q2RGI1;|[1]|Submitte|CHAIN   |null|Name=acp|Moorella|3: Infer|Copeland|Bacteria|null|null|ACPS_MOO|SEQUENCE|1
+3922|P0A4W9; |[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Mycobact|3: Infer|Garnier |Bacteria|null|STRAIN=A|ACPS_MYC|SEQUENCE|1
+3923|A1KLL9;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Mycobact|3: Infer|Brosch R|Bacteria|null|null|ACPS_MYC|SEQUENCE|1
+3924|Q2SS83;|[1]|Submitte|CHAIN   |null|Name=acp|Mycoplas|3: Infer|Glass J.|Bacteria|null|null|ACPS_MYC|SEQUENCE|1
+3925|Q7NB74;|[1]|Microbio|CHAIN   |MEDLINE=|Name=acp|Mycoplas|3: Infer|Papazisi|Bacteria|null|STRAIN=R|ACPS_MYC|SEQUENCE|1
+3926|Q9ZB79;|[1] [2]|Science |CHAIN   |MEDLINE=|Name=acp|Mycoplas|3: Infer|Fraser C|Bacteria|null|STRAIN=A|ACPS_MYC|SEQUENCE|1
+3927|Q9X7E3;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Mycobact|3: Infer|Cole S.T|Bacteria|null|STRAIN=T|ACPS_MYC|SEQUENCE|1
+3928|Q6KHG5;|[1]|Genome R|CHAIN   |PubMed=1|Name=acp|Mycoplas|3: Infer|Jaffe J.|Bacteria|null|STRAIN=A|ACPS_MYC|SEQUENCE|1
+3929|Q6MT35;|[1]|Genome R|CHAIN   |PubMed=1|Name=acp|Mycoplas|3: Infer|Westberg|Bacteria|null|STRAIN=P|ACPS_MYC|SEQUENCE|1
+3930|Q73XH8;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Mycobact|3: Infer|Li L., B|Bacteria|null|STRAIN=A|ACPS_MYC|SEQUENCE|1
+3931|P75480;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=acp|Mycoplas|3: Infer|Himmelre|Bacteria|null|STRAIN=A|ACPS_MYC|SEQUENCE|1
+3932|Q98R97;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=acp|Mycoplas|3: Infer|Chambaud|Bacteria|null|STRAIN=U|ACPS_MYC|SEQUENCE|1
+3933|A0R1H6;|[1]|Submitte|CHAIN   |null|Name=acp|Mycobact|3: Infer|Fleischm|Bacteria|null|null|ACPS_MYC|SEQUENCE|1
+3934|A3Q2R0;|[1]|Submitte|CHAIN   |null|Name=acp|Mycobact|3: Infer|Copeland|Bacteria|null|null|ACPS_MYC|SEQUENCE|1
+3935|A1UJA6;|[1]|Submitte|CHAIN   |null|Name=acp|Mycobact|3: Infer|Copeland|Bacteria|null|null|ACPS_MYC|SEQUENCE|1
+3936|Q1B5T0;|[1]|Submitte|CHAIN   |null|Name=acp|Mycobact|3: Infer|Copeland|Bacteria|null|null|ACPS_MYC|SEQUENCE|1
+3937|A5U5M1;|[1]|Submitte|CHAIN   |null|Name=acp|Mycobact|3: Infer|Wang S.Y|Bacteria|null|null|ACPS_MYC|SEQUENCE|1
+3938|P0A4W8; |[1] [2]|Nature 3|CHAIN   |MEDLINE=|Name=acp|Mycobact|3: Infer|Cole S.T|Bacteria|null|STRAIN=A|ACPS_MYC|SEQUENCE|1
+3939|A0PU93;|[1]|Genome R|CHAIN   |PubMed=1|Name=acp|Mycobact|3: Infer|Stinear |Bacteria|null|null|ACPS_MYC|SEQUENCE|1
+3940|Q1D4A0;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Myxococc|3: Infer|Goldman |Bacteria|null|null|ACPS_MYX|SEQUENCE|1
+3941|Q5F6P2;|[1]|Submitte|CHAIN   |null|Name=acp|Neisseri|3: Infer|Lewis L.|Bacteria|null|null|ACPS_NEI|SEQUENCE|1
+3942|A9M273;|[1]|Genomics|CHAIN   |PubMed=1|Name=acp|Neisseri|3: Infer|Peng J.,|Bacteria|null|null|ACPS_NEI|SEQUENCE|1
+3943|Q9RQW2; |[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Neisseri|3: Infer|Parkhill|Bacteria|null|STRAIN=Z|ACPS_NEI|SEQUENCE|1
+3944|P0A0Q5; |[1]|Science |CHAIN   |MEDLINE=|Name=acp|Neisseri|3: Infer|Tettelin|Bacteria|null|STRAIN=M|ACPS_NEI|SEQUENCE|1
+3945|P0A0Q6; |[1]|Mol. Mic|CHAIN   |MEDLINE=|Name=acp|Neisseri|3: Infer|Linz B.,|Bacteria|null|STRAIN=Z|ACPS_NEI|SEQUENCE|1
+3946|A1KVH5;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Neisseri|3: Infer|Bentley |Bacteria|null|null|ACPS_NEI|SEQUENCE|1
+3947|Q0AF73;|[1]|Environ.|CHAIN   |PubMed=1|Name=acp|Nitrosom|3: Infer|Stein L.|Bacteria|null|null|ACPS_NIT|SEQUENCE|1
+3948|Q820I1;|[1]|J. Bacte|CHAIN   |MEDLINE=|Name=acp|Nitrosom|3: Infer|Chain P.|Bacteria|null|STRAIN=A|ACPS_NIT|SEQUENCE|1
+3949|Q1QL52;|[1]|Submitte|CHAIN   |null|Name=acp|Nitrobac|3: Infer|Copeland|Bacteria|null|null|ACPS_NIT|SEQUENCE|1
+3950|Q2Y864;|[1]|Submitte|CHAIN   |null|Name=acp|Nitrosos|3: Infer|Copeland|Bacteria|null|null|ACPS_NIT|SEQUENCE|1
+3951|Q3JCY7;|[1]|Appl. En|CHAIN   |PubMed=1|Name=acp|Nitrosoc|3: Infer|Klotz M.|Bacteria|null|null|ACPS_NIT|SEQUENCE|1
+3952|A6Q3W1;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Nitratir|3: Infer|Nakagawa|Bacteria|null|null|ACPS_NIT|SEQUENCE|1
+3953|Q3SRB1;|[1]|Appl. En|CHAIN   |PubMed=1|Name=acp|Nitrobac|3: Infer|Starkenb|Bacteria|null|null|ACPS_NIT|SEQUENCE|1
+3954|Q5Z0D8;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Nocardia|3: Infer|Ishikawa|Bacteria|null|STRAIN=I|ACPS_NOC|SEQUENCE|1
+3955|A1SF35;|[1]|Submitte|CHAIN   |null|Name=acp|Nocardio|3: Infer|Copeland|Bacteria|null|null|ACPS_NOC|SEQUENCE|1
+3956|Q8ESK9;|[1]|Nucleic |CHAIN   |MEDLINE=|Name=acp|Oceanoba|3: Infer|Takami H|Bacteria|null|STRAIN=D|ACPS_OCE|SEQUENCE|1
+3957|Q04DI0;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Oenococc|3: Infer|Makarova|Bacteria|null|null|ACPS_OEN|SEQUENCE|1
+3958|Q6YQD4;|[1]|Nat. Gen|CHAIN   |PubMed=1|Name=acp|Onion ye|3: Infer|Oshima K|Bacteria|null|STRAIN=O|ACPS_ONY|SEQUENCE|1
+3959|A5CDM0;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Orientia|3: Infer|Cho N.-H|Bacteria|null|null|ACPS_ORI|SEQUENCE|1
+3960|A1AZ41;|[1]|Submitte|CHAIN   |null|Name=acp|Paracocc|3: Infer|Copeland|Bacteria|null|null|ACPS_PAR|SEQUENCE|1
+3961|A7HX46;|[1]|Submitte|CHAIN   |null|Name=acp|Parvibac|3: Infer|Copeland|Bacteria|null|null|ACPS_PAR|SEQUENCE|1
+3962|Q6MAG4;|[1]|Science |CHAIN   |PubMed=1|Name=acp|Protochl|3: Infer|Horn M.,|Bacteria|null|null|ACPS_PAR|SEQUENCE|1
+3963|Q03DZ1;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Pediococ|3: Infer|Makarova|Bacteria|null|null|ACPS_PED|SEQUENCE|1
+3964|Q3A5V3;|[1]|Submitte|CHAIN   |null|Name=acp|Pelobact|3: Infer|Copeland|Bacteria|null|null|ACPS_PEL|SEQUENCE|1
+3965|Q3B672;|[1]|Submitte|CHAIN   |null|Name=acp|Pelodict|3: Infer|Copeland|Bacteria|null|null|ACPS_PEL|SEQUENCE|1
+3966|A1AR95;|[1]|Submitte|CHAIN   |null|Name=acp|Pelobact|3: Infer|Copeland|Bacteria|null|null|ACPS_PEL|SEQUENCE|1
+3967|Q4FLS7;|[1]|Science |CHAIN   |PubMed=1|Name=acp|Pelagiba|3: Infer|Giovanno|Bacteria|null|STRAIN=H|ACPS_PEL|SEQUENCE|1
+3968|A9BJX6;|[1]|Submitte|CHAIN   |null|Name=acp|Petrotog|3: Infer|Copeland|Bacteria|null|null|ACPS_PET|SEQUENCE|1
+3969|Q7N1X9;|[1]|Nat. Bio|CHAIN   |MEDLINE=|Name=acp|Photorha|3: Infer|Duchaud |Bacteria|null|STRAIN=T|ACPS_PHO|SEQUENCE|1
+3970|Q6LMS5;|[1]|Science |CHAIN   |PubMed=1|Name=acp|Photobac|3: Infer|Vezzi A.|Bacteria|null|null|ACPS_PHO|SEQUENCE|1
+3971|A1VRS8;|[1]|Submitte|CHAIN   |null|Name=acp|Polaromo|3: Infer|Copeland|Bacteria|null|null|ACPS_POL|SEQUENCE|1
+3972|Q126K7;|[1]|Submitte|CHAIN   |null|Name=acp|Polaromo|3: Infer|Copeland|Bacteria|null|null|ACPS_POL|SEQUENCE|1
+3973|Q6A6U0;|[1]|Science |CHAIN   |PubMed=1|Name=acp|Propioni|3: Infer|Brueggem|Bacteria|null|STRAIN=K|ACPS_PRO|SEQUENCE|1
+3974|A4SCZ9;|[1]|Submitte|CHAIN   |null|Name=acp|Prosthec|3: Infer|Copeland|Bacteria|null|null|ACPS_PRO|SEQUENCE|1
+3975|Q15PH8;|[1]|Submitte|CHAIN   |null|Name=acp|Pseudoal|3: Infer|Copeland|Bacteria|null|null|ACPS_PSE|SEQUENCE|1
+3976|Q0K8N7;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=acp|Ralstoni|3: Infer|Pohlmann|Bacteria|null|null|ACPS_RAL|SEQUENCE|1
+3977|Q46Z22;|[1]|Submitte|CHAIN   |null|Name=acp|Ralstoni|3: Infer|Copeland|Bacteria|null|null|ACPS_RAL|SEQUENCE|1
+3978|Q1LKN5;|[1]|Submitte|CHAIN   |null|Name=acp|Ralstoni|3: Infer|Copeland|Bacteria|null|null|ACPS_RAL|SEQUENCE|1
+3979|Q8Y0H7;|[1]|Nature 4|CHAIN   |MEDLINE=|Name=acp|Ralstoni|3: Infer|Salanoub|Bacteria|null|STRAIN=G|ACPS_RAL|SEQUENCE|1
+3980|A9WMF1;|[1]|Submitte|CHAIN   |null|Name=acp|Renibact|3: Infer|Wiens G.|Bacteria|null|null|ACPS_REN|SEQUENCE|1
+3981|Q2KAE5;|[1]|Proc. Na|CHAIN   |PubMed=1|Name=acp|Rhizobiu|3: Infer|Gonzalez|Bacteria|null|null|ACPS_RHI|SEQUENCE|1
+3982|Q1MJ56;|[1]|Genome B|CHAIN   |PubMed=1|Name=acp|Rhizobiu|3: Infer|Young J.|Bacteria|null|null|ACPS_RHI|SEQUENCE|1
+3983|Q985A8;|[1]|DNA Res.|CHAIN   |MEDLINE=|Name=acp|Rhizobiu|3: Infer|Kaneko T|Bacteria|null|STRAIN=M|ACPS_RHI|SEQUENCE|1
+3984|Q92R49;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Rhizobiu|3: Infer|Capela D|Bacteria|null|STRAIN=1|ACPS_RHI|SEQUENCE|1
+3985|Q7UQA5;|[1]|Proc. Na|CHAIN   |MEDLINE=|Name=acp|Rhodopir|3: Infer|Gloeckne|Bacteria|null|STRAIN=1|ACPS_RHO|SEQUENCE|1
+3986|Q21XM1;|[1]|Submitte|CHAIN   |null|Name=acp|Rhodofer|3: Infer|Copeland|Bacteria|null|null|ACPS_RHO|SEQUENCE|1
+3987|Q2IWU7;|[1]|Submitte|CHAIN   |null|Name=acp|Rhodopse|3: Infer|Copeland|Bacteria|null|null|ACPS_RHO|SEQUENCE|1
+3988|Q07M73;|[1]|Submitte|CHAIN   |null|Name=acp|Rhodopse|3: Infer|Copeland|Bacteria|null|null|ACPS_RHO|SEQUENCE|1
+3989|Q6N6C3;|[1]|Nat. Bio|CHAIN   |PubMed=1|Name=acp|Rhodopse|3: Infer|Larimer |Bacteria|null|STRAIN=A|ACPS_RHO|SEQUENCE|1
+3990|Q214J8;|[1]|Submitte|CHAIN   |null|Name=acp|Rhodopse|3: Infer|Copeland|Bacteria|null|null|ACPS_RHO|SEQUENCE|1
+3991|Q136W1;|[1]|Submitte|CHAIN   |null|Name=acp|Rhodopse|3: Infer|Copeland|Bacteria|null|null|ACPS_RHO|SEQUENCE|1
+3992|A3PGF6;|[1]|Submitte|CHAIN   |null|Name=acp|Rhodobac|3: Infer|Copeland|Bacteria|null|null|ACPS_RHO|SEQUENCE|1
+3993|Q3J5W3;|[1]|Submitte|CHAIN   |null|Name=acp|Rhodobac|3: Infer|Copeland|Bacteria|null|null|ACPS_RHO|SEQUENCE|1
+3994|A4WVP7;|[1]|Submitte|CHAIN   |null|Name=acp|Rhodobac|3: Infer|Copeland|Bacteria|null|null|ACPS_RHO|SEQUENCE|1
+3995|A8GP44;|[1]|Submitte|CHAIN   |null|Name=acp|Ricketts|3: Infer|Madan A.|Bacteria|null|null|ACPS_RIC|SEQUENCE|1
+3996|A8GW65;|[1]|Submitte|CHAIN   |null|Name=acp|Ricketts|3: Infer|Madan A.|Bacteria|null|null|ACPS_RIC|SEQUENCE|1
+3997|Q1RHU1;|[1]|PLoS Gen|CHAIN   |PubMed=1|Name=acp|Ricketts|3: Infer|Ogata H.|Bacteria|null|null|ACPS_RIC|SEQUENCE|1
+3998|A8EYA8;|[1]|Submitte|CHAIN   |null|Name=acp|Ricketts|3: Infer|Madan A.|Bacteria|null|null|ACPS_RIC|SEQUENCE|1
+3999|Q92H90;|[1]|Science |CHAIN   |MEDLINE=|Name=acp|Ricketts|3: Infer|Ogata H.|Bacteria|null|STRAIN=A|ACPS_RIC|SEQUENCE|1

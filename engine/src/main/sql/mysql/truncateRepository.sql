@@ -1,0 +1,9 @@
+TRUNCATE TABLE mappingsAtoms;
+TRUNCATE TABLE  mappings;
+TRUNCATE TABLE  foreignKeys;
+TRUNCATE TABLE  constraintsFields;
+TRUNCATE TABLE  constraints;
+TRUNCATE TABLE  fields;
+TRUNCATE TABLE  relations;
+TRUNCATE TABLE   orchSchema;
+TRUNCATE TABLE  peer;

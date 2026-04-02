@@ -1,0 +1,15 @@
+#-------------------------------------------------------------
+:TEST
+4 initial peers; 100,000 tuples; add one peer and one bypass
+#-------------------------------------------------------------
+
+:FLAGS
+GREEDY | LIMITED
+
+:INSERTIONS
+1000
+
+:CMDLINE
+--maxcycles 0 --peers 4 --coverage 1 --relsize 14 --iterations 1 --addBypasses 1 --addPeers 1
+
+:ENDTEST

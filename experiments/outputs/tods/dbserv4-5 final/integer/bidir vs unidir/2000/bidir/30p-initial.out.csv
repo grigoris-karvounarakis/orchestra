@@ -1,0 +1,6 @@
+#PEERS:  30
+EXP:schema=30p
+>           set applybaseDel=false
+EXP:applybaseDel=false
+>           set applybaseIns=false
+EXP:applybaseIns=false

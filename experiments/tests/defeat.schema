@@ -1,0 +1,644 @@
+<?xml version="1.0" ?>
+<!--15:21:24 05/31/07 EDT
+{'cutoff': 1024, 'help': False, 'skip': 0, 'fanout': 2, 'todd': False, 'schemas': 3, 'xmlformat': True, 'filename': 'defeat', 'maxcycles': None, 'deletions': 0, 'dbalias': 'DEFEAT', 'coverage': 0.75, 'mincycles': None, 'password': 'todd9807', 'integers': False, 'peers': 3, 'insertions': 3, 'updateAlias': 'DESPAIR', 'tukwila': False, 'username': 'TJGREEN', 'seed': 0, 'olivier': False, 'oracle': False, 'relsize': 4}-->
+<catalog name="defeat" recMode="false">
+  <migrated>true</migrated>
+  <peer address="grw561-3.cis.upenn.edu-7777" name="P0">
+    <schema name="S0">
+      <relation materialized="true" name="P0_S0_R0">
+        <dbinfo schema="TJGREEN" table="P0_S0_R0"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="FT" type="varchar(1024)"/>
+        <field name="RN" type="varchar(821)"/>
+        <field name="OC" type="varchar(281)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R0_L">
+        <dbinfo schema="TJGREEN" table="P0_S0_R0_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="FT" type="varchar(1024)"/>
+        <field name="RN" type="varchar(821)"/>
+        <field name="OC" type="varchar(281)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R0_R">
+        <dbinfo schema="TJGREEN" table="P0_S0_R0_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="FT" type="varchar(1024)"/>
+        <field name="RN" type="varchar(821)"/>
+        <field name="OC" type="varchar(281)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R1">
+        <dbinfo schema="TJGREEN" table="P0_S0_R1"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="DE" type="varchar(795)"/>
+        <field name="OH" type="varchar(1024)"/>
+        <field name="ID" type="varchar(44)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R1_L">
+        <dbinfo schema="TJGREEN" table="P0_S0_R1_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="DE" type="varchar(795)"/>
+        <field name="OH" type="varchar(1024)"/>
+        <field name="ID" type="varchar(44)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R1_R">
+        <dbinfo schema="TJGREEN" table="P0_S0_R1_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="DE" type="varchar(795)"/>
+        <field name="OH" type="varchar(1024)"/>
+        <field name="ID" type="varchar(44)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R2">
+        <dbinfo schema="TJGREEN" table="P0_S0_R2"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="CC" type="varchar(1024)"/>
+        <field name="DR" type="varchar(1024)"/>
+        <field name="RX" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R2_L">
+        <dbinfo schema="TJGREEN" table="P0_S0_R2_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="CC" type="varchar(1024)"/>
+        <field name="DR" type="varchar(1024)"/>
+        <field name="RX" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R2_R">
+        <dbinfo schema="TJGREEN" table="P0_S0_R2_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="CC" type="varchar(1024)"/>
+        <field name="DR" type="varchar(1024)"/>
+        <field name="RX" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R3">
+        <dbinfo schema="TJGREEN" table="P0_S0_R3"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="AC" type="varchar(911)"/>
+        <field name="RA" type="varchar(1024)"/>
+        <field name="SD" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R3_L">
+        <dbinfo schema="TJGREEN" table="P0_S0_R3_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="AC" type="varchar(911)"/>
+        <field name="RA" type="varchar(1024)"/>
+        <field name="SD" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R3_R">
+        <dbinfo schema="TJGREEN" table="P0_S0_R3_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="AC" type="varchar(911)"/>
+        <field name="RA" type="varchar(1024)"/>
+        <field name="SD" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R4">
+        <dbinfo schema="TJGREEN" table="P0_S0_R4"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="GN" type="varchar(1024)"/>
+        <field name="RG" type="varchar(259)"/>
+        <field name="RP" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R4_L">
+        <dbinfo schema="TJGREEN" table="P0_S0_R4_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="GN" type="varchar(1024)"/>
+        <field name="RG" type="varchar(259)"/>
+        <field name="RP" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R4_R">
+        <dbinfo schema="TJGREEN" table="P0_S0_R4_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="GN" type="varchar(1024)"/>
+        <field name="RG" type="varchar(259)"/>
+        <field name="RP" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R5">
+        <dbinfo schema="TJGREEN" table="P0_S0_R5"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RC" type="varchar(1024)"/>
+        <field name="KW" type="varchar(585)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R5_L">
+        <dbinfo schema="TJGREEN" table="P0_S0_R5_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RC" type="varchar(1024)"/>
+        <field name="KW" type="varchar(585)"/>
+      </relation>
+      <relation materialized="true" name="P0_S0_R5_R">
+        <dbinfo schema="TJGREEN" table="P0_S0_R5_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RC" type="varchar(1024)"/>
+        <field name="KW" type="varchar(585)"/>
+      </relation>
+    </schema>
+  </peer>
+  <peer address="grw561-3.cis.upenn.edu-7777" name="P1">
+    <schema name="S1">
+      <relation materialized="true" name="P1_S1_R0">
+        <dbinfo schema="TJGREEN" table="P1_S1_R0"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RN" type="varchar(821)"/>
+        <field name="FT" type="varchar(1024)"/>
+        <field name="DR" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R0_L">
+        <dbinfo schema="TJGREEN" table="P1_S1_R0_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RN" type="varchar(821)"/>
+        <field name="FT" type="varchar(1024)"/>
+        <field name="DR" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R0_R">
+        <dbinfo schema="TJGREEN" table="P1_S1_R0_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RN" type="varchar(821)"/>
+        <field name="FT" type="varchar(1024)"/>
+        <field name="DR" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R1">
+        <dbinfo schema="TJGREEN" table="P1_S1_R1"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="ID" type="varchar(44)"/>
+        <field name="AC" type="varchar(911)"/>
+        <field name="DT" type="varchar(115)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R1_L">
+        <dbinfo schema="TJGREEN" table="P1_S1_R1_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="ID" type="varchar(44)"/>
+        <field name="AC" type="varchar(911)"/>
+        <field name="DT" type="varchar(115)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R1_R">
+        <dbinfo schema="TJGREEN" table="P1_S1_R1_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="ID" type="varchar(44)"/>
+        <field name="AC" type="varchar(911)"/>
+        <field name="DT" type="varchar(115)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R2">
+        <dbinfo schema="TJGREEN" table="P1_S1_R2"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RC" type="varchar(1024)"/>
+        <field name="RG" type="varchar(259)"/>
+        <field name="SQ" type="varchar(58)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R2_L">
+        <dbinfo schema="TJGREEN" table="P1_S1_R2_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RC" type="varchar(1024)"/>
+        <field name="RG" type="varchar(259)"/>
+        <field name="SQ" type="varchar(58)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R2_R">
+        <dbinfo schema="TJGREEN" table="P1_S1_R2_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RC" type="varchar(1024)"/>
+        <field name="RG" type="varchar(259)"/>
+        <field name="SQ" type="varchar(58)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R3">
+        <dbinfo schema="TJGREEN" table="P1_S1_R3"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="GN" type="varchar(1024)"/>
+        <field name="RA" type="varchar(1024)"/>
+        <field name="OX" type="varchar(18)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R3_L">
+        <dbinfo schema="TJGREEN" table="P1_S1_R3_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="GN" type="varchar(1024)"/>
+        <field name="RA" type="varchar(1024)"/>
+        <field name="OX" type="varchar(18)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R3_R">
+        <dbinfo schema="TJGREEN" table="P1_S1_R3_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="GN" type="varchar(1024)"/>
+        <field name="RA" type="varchar(1024)"/>
+        <field name="OX" type="varchar(18)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R4">
+        <dbinfo schema="TJGREEN" table="P1_S1_R4"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RP" type="varchar(1024)"/>
+        <field name="CC" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R4_L">
+        <dbinfo schema="TJGREEN" table="P1_S1_R4_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RP" type="varchar(1024)"/>
+        <field name="CC" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P1_S1_R4_R">
+        <dbinfo schema="TJGREEN" table="P1_S1_R4_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RP" type="varchar(1024)"/>
+        <field name="CC" type="varchar(1024)"/>
+      </relation>
+    </schema>
+  </peer>
+  <peer address="grw561-3.cis.upenn.edu-7777" name="P2">
+    <schema name="S2">
+      <relation materialized="true" name="P2_S2_R0">
+        <dbinfo schema="TJGREEN" table="P2_S2_R0"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RP" type="varchar(1024)"/>
+        <field name="RX" type="varchar(1024)"/>
+        <field name="RG" type="varchar(259)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R0_L">
+        <dbinfo schema="TJGREEN" table="P2_S2_R0_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RP" type="varchar(1024)"/>
+        <field name="RX" type="varchar(1024)"/>
+        <field name="RG" type="varchar(259)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R0_R">
+        <dbinfo schema="TJGREEN" table="P2_S2_R0_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="RP" type="varchar(1024)"/>
+        <field name="RX" type="varchar(1024)"/>
+        <field name="RG" type="varchar(259)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R1">
+        <dbinfo schema="TJGREEN" table="P2_S2_R1"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="OH" type="varchar(1024)"/>
+        <field name="OC" type="varchar(281)"/>
+        <field name="OS" type="varchar(144)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R1_L">
+        <dbinfo schema="TJGREEN" table="P2_S2_R1_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="OH" type="varchar(1024)"/>
+        <field name="OC" type="varchar(281)"/>
+        <field name="OS" type="varchar(144)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R1_R">
+        <dbinfo schema="TJGREEN" table="P2_S2_R1_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="OH" type="varchar(1024)"/>
+        <field name="OC" type="varchar(281)"/>
+        <field name="OS" type="varchar(144)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R2">
+        <dbinfo schema="TJGREEN" table="P2_S2_R2"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="CC" type="varchar(1024)"/>
+        <field name="FT" type="varchar(1024)"/>
+        <field name="ID" type="varchar(44)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R2_L">
+        <dbinfo schema="TJGREEN" table="P2_S2_R2_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="CC" type="varchar(1024)"/>
+        <field name="FT" type="varchar(1024)"/>
+        <field name="ID" type="varchar(44)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R2_R">
+        <dbinfo schema="TJGREEN" table="P2_S2_R2_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="CC" type="varchar(1024)"/>
+        <field name="FT" type="varchar(1024)"/>
+        <field name="ID" type="varchar(44)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R3">
+        <dbinfo schema="TJGREEN" table="P2_S2_R3"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="SQ" type="varchar(58)"/>
+        <field name="DT" type="varchar(115)"/>
+        <field name="DR" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R3_L">
+        <dbinfo schema="TJGREEN" table="P2_S2_R3_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="SQ" type="varchar(58)"/>
+        <field name="DT" type="varchar(115)"/>
+        <field name="DR" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R3_R">
+        <dbinfo schema="TJGREEN" table="P2_S2_R3_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="SQ" type="varchar(58)"/>
+        <field name="DT" type="varchar(115)"/>
+        <field name="DR" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R4">
+        <dbinfo schema="TJGREEN" table="P2_S2_R4"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="GN" type="varchar(1024)"/>
+        <field name="RN" type="varchar(821)"/>
+        <field name="RC" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R4_L">
+        <dbinfo schema="TJGREEN" table="P2_S2_R4_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="GN" type="varchar(1024)"/>
+        <field name="RN" type="varchar(821)"/>
+        <field name="RC" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R4_R">
+        <dbinfo schema="TJGREEN" table="P2_S2_R4_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="GN" type="varchar(1024)"/>
+        <field name="RN" type="varchar(821)"/>
+        <field name="RC" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R5">
+        <dbinfo schema="TJGREEN" table="P2_S2_R5"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="AC" type="varchar(911)"/>
+        <field name="DE" type="varchar(795)"/>
+        <field name="OG" type="varchar(385)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R5_L">
+        <dbinfo schema="TJGREEN" table="P2_S2_R5_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="AC" type="varchar(911)"/>
+        <field name="DE" type="varchar(795)"/>
+        <field name="OG" type="varchar(385)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R5_R">
+        <dbinfo schema="TJGREEN" table="P2_S2_R5_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="AC" type="varchar(911)"/>
+        <field name="DE" type="varchar(795)"/>
+        <field name="OG" type="varchar(385)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R6">
+        <dbinfo schema="TJGREEN" table="P2_S2_R6"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="OX" type="varchar(18)"/>
+        <field name="SD" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R6_L">
+        <dbinfo schema="TJGREEN" table="P2_S2_R6_L"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="OX" type="varchar(18)"/>
+        <field name="SD" type="varchar(1024)"/>
+      </relation>
+      <relation materialized="true" name="P2_S2_R6_R">
+        <dbinfo schema="TJGREEN" table="P2_S2_R6_R"/>
+        <field key="true" name="KID" type="integer"/>
+        <field name="OX" type="varchar(18)"/>
+        <field name="SD" type="varchar(1024)"/>
+      </relation>
+    </schema>
+  </peer>
+  <mapping materialized="true" name="M0">
+    <head>
+      <atom>
+        P0.S0.P0_S0_R0(KID, FT, RN, -)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R1(KID, -, -, ID)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R2(KID, CC, DR, -)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R3(KID, AC, RA, -)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R4(KID, GN, RG, RP)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R5(KID, RC, -)
+      </atom>
+    </head>
+    <body>
+      <atom>
+        P1.S1.P1_S1_R0(KID, RN, FT, DR)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R1(KID, ID, AC, _)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R2(KID, RC, RG, _)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R3(KID, GN, RA, _)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R4(KID, RP, CC)
+      </atom>
+    </body>
+  </mapping>
+  <mapping materialized="true" name="M1">
+    <head>
+      <atom>
+        P1.S1.P1_S1_R0(KID, RN, FT, DR)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R1(KID, ID, AC, DT)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R2(KID, RC, RG, SQ)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R3(KID, GN, -, OX)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R4(KID, RP, CC)
+      </atom>
+    </head>
+    <body>
+      <atom>
+        P2.S2.P2_S2_R0(KID, RP, _, RG)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R2(KID, CC, FT, ID)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R3(KID, SQ, DT, DR)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R4(KID, GN, RN, RC)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R5(KID, AC, _, _)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R6(KID, OX, _)
+      </atom>
+    </body>
+  </mapping>
+  <mapping materialized="true" name="M2">
+    <head>
+      <atom>
+        P2.S2.P2_S2_R0(KID, RP, RX, RG)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R1(KID, OH, OC, -)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R2(KID, CC, FT, ID)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R3(KID, -, -, DR)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R4(KID, GN, RN, RC)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R5(KID, AC, DE, -)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R6(KID, -, SD)
+      </atom>
+    </head>
+    <body>
+      <atom>
+        P0.S0.P0_S0_R0(KID, FT, RN, OC)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R1(KID, DE, OH, ID)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R2(KID, CC, DR, RX)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R3(KID, AC, _, SD)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R4(KID, GN, RG, RP)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R5(KID, RC, _)
+      </atom>
+    </body>
+  </mapping>
+  <mapping materialized="true" name="M3">
+    <head>
+      <atom>
+        P2.S2.P2_S2_R0(KID, RP, -, RG)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R2(KID, CC, FT, ID)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R3(KID, SQ, DT, DR)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R4(KID, GN, RN, RC)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R5(KID, AC, -, -)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R6(KID, OX, -)
+      </atom>
+    </head>
+    <body>
+      <atom>
+        P1.S1.P1_S1_R0(KID, RN, FT, DR)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R1(KID, ID, AC, DT)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R2(KID, RC, RG, SQ)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R3(KID, GN, _, OX)
+      </atom>
+      <atom>
+        P1.S1.P1_S1_R4(KID, RP, CC)
+      </atom>
+    </body>
+  </mapping>
+  <mapping materialized="true" name="M4">
+    <head>
+      <atom>
+        P0.S0.P0_S0_R0(KID, FT, RN, OC)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R1(KID, DE, OH, ID)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R2(KID, CC, DR, RX)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R3(KID, AC, -, SD)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R4(KID, GN, RG, RP)
+      </atom>
+      <atom>
+        P0.S0.P0_S0_R5(KID, RC, -)
+      </atom>
+    </head>
+    <body>
+      <atom>
+        P2.S2.P2_S2_R0(KID, RP, RX, RG)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R1(KID, OH, OC, _)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R2(KID, CC, FT, ID)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R3(KID, _, _, DR)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R4(KID, GN, RN, RC)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R5(KID, AC, DE, _)
+      </atom>
+      <atom>
+        P2.S2.P2_S2_R6(KID, _, SD)
+      </atom>
+    </body>
+  </mapping>
+  <engine>
+    <mappings password="todd9807" server="jdbc:db2://grw561-3.cis.upenn.edu:50000/DEFEAT" type="sql" username="TJGREEN"/>
+    <updates password="todd9807" server="jdbc:db2://grw561-3.cis.upenn.edu:50000/DESPAIR" type="sql" username="TJGREEN"/>
+  </engine>
+  <store>
+    <update hostname="localhost" port="42" type="bdb"/>
+    <state type="hash"/>
+  </store>
+  <trustConditions peer="P0" schema="S0">
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P0_S0_R0"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P0_S0_R1"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P0_S0_R2"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P0_S0_R3"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P0_S0_R4"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P0_S0_R5"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P0_S0_R0"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P0_S0_R1"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P0_S0_R2"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P0_S0_R3"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P0_S0_R4"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P0_S0_R5"/>
+  </trustConditions>
+  <trustConditions peer="P1" schema="S1">
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P1_S1_R0"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P1_S1_R1"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P1_S1_R2"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P1_S1_R3"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P1_S1_R4"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P1_S1_R0"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P1_S1_R1"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P1_S1_R2"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P1_S1_R3"/>
+    <trusts pid="P2" pidType="STRING" priority="5" relation="P1_S1_R4"/>
+  </trustConditions>
+  <trustConditions peer="P2" schema="S2">
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P2_S2_R0"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P2_S2_R1"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P2_S2_R2"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P2_S2_R3"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P2_S2_R4"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P2_S2_R5"/>
+    <trusts pid="P0" pidType="STRING" priority="5" relation="P2_S2_R6"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P2_S2_R0"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P2_S2_R1"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P2_S2_R2"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P2_S2_R3"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P2_S2_R4"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P2_S2_R5"/>
+    <trusts pid="P1" pidType="STRING" priority="5" relation="P2_S2_R6"/>
+  </trustConditions>
+</catalog>

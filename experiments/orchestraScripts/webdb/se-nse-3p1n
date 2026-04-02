@@ -1,0 +1,33 @@
+set debug=false
+set autocommit=false
+set prepare=true
+set workdir=/cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen
+set delete=false
+set insert=true
+set schema=3p1n-0c1v
+
+create-noscript
+migrate
+
+conn
+set workdir=/cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen/3p1n-0c1v/insertions
+
+# Compute bidirectional
+set schema=3p1n-0c1v
+
+import-bulk /cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen/3p1n-0c1v/insertions/3p1n-0c1v-2000i0d
+translate P0
+
+
+# Incremental deletions
+set delete=true
+set insert=false
+set workdir=/cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen/3p1n-0c1v/localdeletions
+import-bulk /cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen/3p1n-0c1v/localdeletions/3p1n-0c1v-200i200d
+translate P0
+
+import-bulk /cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen/3p1n-0c1v/localdeletions/3p1n-0c1v-200i200d
+translate P0
+
+import-bulk /cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/webdb/autogen/3p1n-0c1v/localdeletions/3p1n-0c1v-200i200d
+translate P0

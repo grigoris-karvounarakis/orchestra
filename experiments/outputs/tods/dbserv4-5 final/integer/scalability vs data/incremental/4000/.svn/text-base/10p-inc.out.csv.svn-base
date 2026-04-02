@@ -1,0 +1,53 @@
+#PEERS:  10
+EXP:schema=10p
+>           set applybaseDel=false
+EXP:applybaseDel=false
+>           set applybaseIns=false
+EXP:applybaseIns=false
+12496 
+11263 
+11264 
+11310 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=true
+EXP:applybaseIns=true
+11326 
+>            set applybaseDel=false
+EXP:applybaseDel=false
+>            set applybaseIns=false
+EXP:applybaseIns=false
+7270 
+1014 
+1014 
+1060 
+1107 
+1919 
+2075 
+1981 
+1997 
+1981 
+6615 
+6942 
+7020 
+6989 
+7005 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=false
+EXP:applybaseIns=false
+2855 
+2091 
+2060 
+2074 
+2075 
+2995 
+3011 
+3011 
+3010 
+3026 
+6989 
+7332 
+7332 
+7317 
+7379 

@@ -1,0 +1,4254 @@
+#PEERS:  25
+===========
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/orchestraScripts/tods/cycles/1-cycles/2000/test-25p-initial
+> 
+>         set apply=true
+SET: KEY=apply, VALUE=true
+EXP: =========================================
+EXP:apply=true
+EXP: =========================================
+>         set batch=false
+SET: KEY=batch, VALUE=false
+EXP: =========================================
+EXP:batch=false
+EXP: =========================================
+>         set incremental=true
+SET: KEY=incremental, VALUE=true
+EXP: =========================================
+EXP:incremental=true
+EXP: =========================================
+>         set debug=false
+EXP: =========================================
+EXP:debug=false
+EXP: =========================================
+>         set wideprov=true
+EXP: =========================================
+EXP:wideprov=true
+EXP: =========================================
+>         set autocommit=false
+EXP: =========================================
+EXP:autocommit=false
+EXP: =========================================
+>         set prepare=true
+EXP: =========================================
+EXP:prepare=true
+EXP: =========================================
+> #            set prepare=false
+>         set union=false
+EXP: =========================================
+EXP:union=false
+EXP: =========================================
+>         set indexall=true
+EXP: =========================================
+EXP:indexall=true
+EXP: =========================================
+>        set rejectionTables=false
+EXP: =========================================
+EXP:rejectionTables=false
+EXP: =========================================
+> # bidir needs these!
+> #        set rejectionTables=true
+>         set stratified=true
+EXP: =========================================
+EXP:stratified=true
+EXP: =========================================
+> 
+>         set workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/
+EXP: =========================================
+EXP:workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/
+EXP: =========================================
+>         set schema=25p
+EXP: =========================================
+EXP:schema=25p
+EXP: =========================================
+>         set skipFakeMappings=true
+EXP: =========================================
+EXP:skipFakeMappings=true
+EXP: =========================================
+>         set queryCutoff=5000000
+EXP: =========================================
+EXP:queryCutoff=5000000
+EXP: =========================================
+>         set transactionCutoff=500000000
+EXP: =========================================
+EXP:transactionCutoff=500000000
+EXP: =========================================
+> #            set queryCutoff=500
+> #            set transactionCutoff=50000
+>         set runStatistics=false
+EXP: =========================================
+EXP:runStatistics=false
+EXP: =========================================
+> 
+>         startUSS
+*******deserializing catalog********
+Unable to find schema map 25p
+Successfully verified schema 25p
+>         create-noscript
++++ Initialization +++
+EXP: INIT TIME: 3260 msec
+>         migrate
+* Adding non-temp table orchestra.P0_S0_R0_NEW
+* Adding non-temp table orchestra.P0_S0_R0_INS
+* Adding non-temp table orchestra.P0_S0_R0_DEL
+* Adding non-temp table orchestra.P0_S0_R0_RCH
+* Adding non-temp table orchestra.P0_S0_R0_INV
+* Adding non-temp table orchestra.P0_S0_R0_L_NEW
+* Adding non-temp table orchestra.P0_S0_R0_L_INS
+* Adding non-temp table orchestra.P0_S0_R0_L_DEL
+* Adding non-temp table orchestra.P0_S0_R0_L_INV
+* Adding non-temp table orchestra.P0_S0_R1_NEW
+* Adding non-temp table orchestra.P0_S0_R1_INS
+* Adding non-temp table orchestra.P0_S0_R1_DEL
+* Adding non-temp table orchestra.P0_S0_R1_RCH
+* Adding non-temp table orchestra.P0_S0_R1_INV
+* Adding non-temp table orchestra.P0_S0_R1_L_NEW
+* Adding non-temp table orchestra.P0_S0_R1_L_INS
+* Adding non-temp table orchestra.P0_S0_R1_L_DEL
+* Adding non-temp table orchestra.P0_S0_R1_L_INV
+* Adding non-temp table orchestra.P1_S1_R0_NEW
+* Adding non-temp table orchestra.P1_S1_R0_INS
+* Adding non-temp table orchestra.P1_S1_R0_DEL
+* Adding non-temp table orchestra.P1_S1_R0_RCH
+* Adding non-temp table orchestra.P1_S1_R0_INV
+* Adding non-temp table orchestra.P1_S1_R0_L_NEW
+* Adding non-temp table orchestra.P1_S1_R0_L_INS
+* Adding non-temp table orchestra.P1_S1_R0_L_DEL
+* Adding non-temp table orchestra.P1_S1_R0_L_INV
+* Adding non-temp table orchestra.P1_S1_R1_NEW
+* Adding non-temp table orchestra.P1_S1_R1_INS
+* Adding non-temp table orchestra.P1_S1_R1_DEL
+* Adding non-temp table orchestra.P1_S1_R1_RCH
+* Adding non-temp table orchestra.P1_S1_R1_INV
+* Adding non-temp table orchestra.P1_S1_R1_L_NEW
+* Adding non-temp table orchestra.P1_S1_R1_L_INS
+* Adding non-temp table orchestra.P1_S1_R1_L_DEL
+* Adding non-temp table orchestra.P1_S1_R1_L_INV
+* Adding non-temp table orchestra.P10_S10_R0_NEW
+* Adding non-temp table orchestra.P10_S10_R0_INS
+* Adding non-temp table orchestra.P10_S10_R0_DEL
+* Adding non-temp table orchestra.P10_S10_R0_RCH
+* Adding non-temp table orchestra.P10_S10_R0_INV
+* Adding non-temp table orchestra.P10_S10_R0_L_NEW
+* Adding non-temp table orchestra.P10_S10_R0_L_INS
+* Adding non-temp table orchestra.P10_S10_R0_L_DEL
+* Adding non-temp table orchestra.P10_S10_R0_L_INV
+* Adding non-temp table orchestra.P10_S10_R1_NEW
+* Adding non-temp table orchestra.P10_S10_R1_INS
+* Adding non-temp table orchestra.P10_S10_R1_DEL
+* Adding non-temp table orchestra.P10_S10_R1_RCH
+* Adding non-temp table orchestra.P10_S10_R1_INV
+* Adding non-temp table orchestra.P10_S10_R1_L_NEW
+* Adding non-temp table orchestra.P10_S10_R1_L_INS
+* Adding non-temp table orchestra.P10_S10_R1_L_DEL
+* Adding non-temp table orchestra.P10_S10_R1_L_INV
+* Adding non-temp table orchestra.P11_S11_R0_NEW
+* Adding non-temp table orchestra.P11_S11_R0_INS
+* Adding non-temp table orchestra.P11_S11_R0_DEL
+* Adding non-temp table orchestra.P11_S11_R0_RCH
+* Adding non-temp table orchestra.P11_S11_R0_INV
+* Adding non-temp table orchestra.P11_S11_R0_L_NEW
+* Adding non-temp table orchestra.P11_S11_R0_L_INS
+* Adding non-temp table orchestra.P11_S11_R0_L_DEL
+* Adding non-temp table orchestra.P11_S11_R0_L_INV
+* Adding non-temp table orchestra.P11_S11_R1_NEW
+* Adding non-temp table orchestra.P11_S11_R1_INS
+* Adding non-temp table orchestra.P11_S11_R1_DEL
+* Adding non-temp table orchestra.P11_S11_R1_RCH
+* Adding non-temp table orchestra.P11_S11_R1_INV
+* Adding non-temp table orchestra.P11_S11_R1_L_NEW
+* Adding non-temp table orchestra.P11_S11_R1_L_INS
+* Adding non-temp table orchestra.P11_S11_R1_L_DEL
+* Adding non-temp table orchestra.P11_S11_R1_L_INV
+* Adding non-temp table orchestra.P12_S12_R0_NEW
+* Adding non-temp table orchestra.P12_S12_R0_INS
+* Adding non-temp table orchestra.P12_S12_R0_DEL
+* Adding non-temp table orchestra.P12_S12_R0_RCH
+* Adding non-temp table orchestra.P12_S12_R0_INV
+* Adding non-temp table orchestra.P12_S12_R0_L_NEW
+* Adding non-temp table orchestra.P12_S12_R0_L_INS
+* Adding non-temp table orchestra.P12_S12_R0_L_DEL
+* Adding non-temp table orchestra.P12_S12_R0_L_INV
+* Adding non-temp table orchestra.P12_S12_R1_NEW
+* Adding non-temp table orchestra.P12_S12_R1_INS
+* Adding non-temp table orchestra.P12_S12_R1_DEL
+* Adding non-temp table orchestra.P12_S12_R1_RCH
+* Adding non-temp table orchestra.P12_S12_R1_INV
+* Adding non-temp table orchestra.P12_S12_R1_L_NEW
+* Adding non-temp table orchestra.P12_S12_R1_L_INS
+* Adding non-temp table orchestra.P12_S12_R1_L_DEL
+* Adding non-temp table orchestra.P12_S12_R1_L_INV
+* Adding non-temp table orchestra.P13_S13_R0_NEW
+* Adding non-temp table orchestra.P13_S13_R0_INS
+* Adding non-temp table orchestra.P13_S13_R0_DEL
+* Adding non-temp table orchestra.P13_S13_R0_RCH
+* Adding non-temp table orchestra.P13_S13_R0_INV
+* Adding non-temp table orchestra.P13_S13_R0_L_NEW
+* Adding non-temp table orchestra.P13_S13_R0_L_INS
+* Adding non-temp table orchestra.P13_S13_R0_L_DEL
+* Adding non-temp table orchestra.P13_S13_R0_L_INV
+* Adding non-temp table orchestra.P13_S13_R1_NEW
+* Adding non-temp table orchestra.P13_S13_R1_INS
+* Adding non-temp table orchestra.P13_S13_R1_DEL
+* Adding non-temp table orchestra.P13_S13_R1_RCH
+* Adding non-temp table orchestra.P13_S13_R1_INV
+* Adding non-temp table orchestra.P13_S13_R1_L_NEW
+* Adding non-temp table orchestra.P13_S13_R1_L_INS
+* Adding non-temp table orchestra.P13_S13_R1_L_DEL
+* Adding non-temp table orchestra.P13_S13_R1_L_INV
+* Adding non-temp table orchestra.P14_S14_R0_NEW
+* Adding non-temp table orchestra.P14_S14_R0_INS
+* Adding non-temp table orchestra.P14_S14_R0_DEL
+* Adding non-temp table orchestra.P14_S14_R0_RCH
+* Adding non-temp table orchestra.P14_S14_R0_INV
+* Adding non-temp table orchestra.P14_S14_R0_L_NEW
+* Adding non-temp table orchestra.P14_S14_R0_L_INS
+* Adding non-temp table orchestra.P14_S14_R0_L_DEL
+* Adding non-temp table orchestra.P14_S14_R0_L_INV
+* Adding non-temp table orchestra.P14_S14_R1_NEW
+* Adding non-temp table orchestra.P14_S14_R1_INS
+* Adding non-temp table orchestra.P14_S14_R1_DEL
+* Adding non-temp table orchestra.P14_S14_R1_RCH
+* Adding non-temp table orchestra.P14_S14_R1_INV
+* Adding non-temp table orchestra.P14_S14_R1_L_NEW
+* Adding non-temp table orchestra.P14_S14_R1_L_INS
+* Adding non-temp table orchestra.P14_S14_R1_L_DEL
+* Adding non-temp table orchestra.P14_S14_R1_L_INV
+* Adding non-temp table orchestra.P15_S15_R0_NEW
+* Adding non-temp table orchestra.P15_S15_R0_INS
+* Adding non-temp table orchestra.P15_S15_R0_DEL
+* Adding non-temp table orchestra.P15_S15_R0_RCH
+* Adding non-temp table orchestra.P15_S15_R0_INV
+* Adding non-temp table orchestra.P15_S15_R0_L_NEW
+* Adding non-temp table orchestra.P15_S15_R0_L_INS
+* Adding non-temp table orchestra.P15_S15_R0_L_DEL
+* Adding non-temp table orchestra.P15_S15_R0_L_INV
+* Adding non-temp table orchestra.P15_S15_R1_NEW
+* Adding non-temp table orchestra.P15_S15_R1_INS
+* Adding non-temp table orchestra.P15_S15_R1_DEL
+* Adding non-temp table orchestra.P15_S15_R1_RCH
+* Adding non-temp table orchestra.P15_S15_R1_INV
+* Adding non-temp table orchestra.P15_S15_R1_L_NEW
+* Adding non-temp table orchestra.P15_S15_R1_L_INS
+* Adding non-temp table orchestra.P15_S15_R1_L_DEL
+* Adding non-temp table orchestra.P15_S15_R1_L_INV
+* Adding non-temp table orchestra.P16_S16_R0_NEW
+* Adding non-temp table orchestra.P16_S16_R0_INS
+* Adding non-temp table orchestra.P16_S16_R0_DEL
+* Adding non-temp table orchestra.P16_S16_R0_RCH
+* Adding non-temp table orchestra.P16_S16_R0_INV
+* Adding non-temp table orchestra.P16_S16_R0_L_NEW
+* Adding non-temp table orchestra.P16_S16_R0_L_INS
+* Adding non-temp table orchestra.P16_S16_R0_L_DEL
+* Adding non-temp table orchestra.P16_S16_R0_L_INV
+* Adding non-temp table orchestra.P16_S16_R1_NEW
+* Adding non-temp table orchestra.P16_S16_R1_INS
+* Adding non-temp table orchestra.P16_S16_R1_DEL
+* Adding non-temp table orchestra.P16_S16_R1_RCH
+* Adding non-temp table orchestra.P16_S16_R1_INV
+* Adding non-temp table orchestra.P16_S16_R1_L_NEW
+* Adding non-temp table orchestra.P16_S16_R1_L_INS
+* Adding non-temp table orchestra.P16_S16_R1_L_DEL
+* Adding non-temp table orchestra.P16_S16_R1_L_INV
+* Adding non-temp table orchestra.P17_S17_R0_NEW
+* Adding non-temp table orchestra.P17_S17_R0_INS
+* Adding non-temp table orchestra.P17_S17_R0_DEL
+* Adding non-temp table orchestra.P17_S17_R0_RCH
+* Adding non-temp table orchestra.P17_S17_R0_INV
+* Adding non-temp table orchestra.P17_S17_R0_L_NEW
+* Adding non-temp table orchestra.P17_S17_R0_L_INS
+* Adding non-temp table orchestra.P17_S17_R0_L_DEL
+* Adding non-temp table orchestra.P17_S17_R0_L_INV
+* Adding non-temp table orchestra.P17_S17_R1_NEW
+* Adding non-temp table orchestra.P17_S17_R1_INS
+* Adding non-temp table orchestra.P17_S17_R1_DEL
+* Adding non-temp table orchestra.P17_S17_R1_RCH
+* Adding non-temp table orchestra.P17_S17_R1_INV
+* Adding non-temp table orchestra.P17_S17_R1_L_NEW
+* Adding non-temp table orchestra.P17_S17_R1_L_INS
+* Adding non-temp table orchestra.P17_S17_R1_L_DEL
+* Adding non-temp table orchestra.P17_S17_R1_L_INV
+* Adding non-temp table orchestra.P18_S18_R0_NEW
+* Adding non-temp table orchestra.P18_S18_R0_INS
+* Adding non-temp table orchestra.P18_S18_R0_DEL
+* Adding non-temp table orchestra.P18_S18_R0_RCH
+* Adding non-temp table orchestra.P18_S18_R0_INV
+* Adding non-temp table orchestra.P18_S18_R0_L_NEW
+* Adding non-temp table orchestra.P18_S18_R0_L_INS
+* Adding non-temp table orchestra.P18_S18_R0_L_DEL
+* Adding non-temp table orchestra.P18_S18_R0_L_INV
+* Adding non-temp table orchestra.P18_S18_R1_NEW
+* Adding non-temp table orchestra.P18_S18_R1_INS
+* Adding non-temp table orchestra.P18_S18_R1_DEL
+* Adding non-temp table orchestra.P18_S18_R1_RCH
+* Adding non-temp table orchestra.P18_S18_R1_INV
+* Adding non-temp table orchestra.P18_S18_R1_L_NEW
+* Adding non-temp table orchestra.P18_S18_R1_L_INS
+* Adding non-temp table orchestra.P18_S18_R1_L_DEL
+* Adding non-temp table orchestra.P18_S18_R1_L_INV
+* Adding non-temp table orchestra.P19_S19_R0_NEW
+* Adding non-temp table orchestra.P19_S19_R0_INS
+* Adding non-temp table orchestra.P19_S19_R0_DEL
+* Adding non-temp table orchestra.P19_S19_R0_RCH
+* Adding non-temp table orchestra.P19_S19_R0_INV
+* Adding non-temp table orchestra.P19_S19_R0_L_NEW
+* Adding non-temp table orchestra.P19_S19_R0_L_INS
+* Adding non-temp table orchestra.P19_S19_R0_L_DEL
+* Adding non-temp table orchestra.P19_S19_R0_L_INV
+* Adding non-temp table orchestra.P19_S19_R1_NEW
+* Adding non-temp table orchestra.P19_S19_R1_INS
+* Adding non-temp table orchestra.P19_S19_R1_DEL
+* Adding non-temp table orchestra.P19_S19_R1_RCH
+* Adding non-temp table orchestra.P19_S19_R1_INV
+* Adding non-temp table orchestra.P19_S19_R1_L_NEW
+* Adding non-temp table orchestra.P19_S19_R1_L_INS
+* Adding non-temp table orchestra.P19_S19_R1_L_DEL
+* Adding non-temp table orchestra.P19_S19_R1_L_INV
+* Adding non-temp table orchestra.P2_S2_R0_NEW
+* Adding non-temp table orchestra.P2_S2_R0_INS
+* Adding non-temp table orchestra.P2_S2_R0_DEL
+* Adding non-temp table orchestra.P2_S2_R0_RCH
+* Adding non-temp table orchestra.P2_S2_R0_INV
+* Adding non-temp table orchestra.P2_S2_R0_L_NEW
+* Adding non-temp table orchestra.P2_S2_R0_L_INS
+* Adding non-temp table orchestra.P2_S2_R0_L_DEL
+* Adding non-temp table orchestra.P2_S2_R0_L_INV
+* Adding non-temp table orchestra.P2_S2_R1_NEW
+* Adding non-temp table orchestra.P2_S2_R1_INS
+* Adding non-temp table orchestra.P2_S2_R1_DEL
+* Adding non-temp table orchestra.P2_S2_R1_RCH
+* Adding non-temp table orchestra.P2_S2_R1_INV
+* Adding non-temp table orchestra.P2_S2_R1_L_NEW
+* Adding non-temp table orchestra.P2_S2_R1_L_INS
+* Adding non-temp table orchestra.P2_S2_R1_L_DEL
+* Adding non-temp table orchestra.P2_S2_R1_L_INV
+* Adding non-temp table orchestra.P20_S20_R0_NEW
+* Adding non-temp table orchestra.P20_S20_R0_INS
+* Adding non-temp table orchestra.P20_S20_R0_DEL
+* Adding non-temp table orchestra.P20_S20_R0_RCH
+* Adding non-temp table orchestra.P20_S20_R0_INV
+* Adding non-temp table orchestra.P20_S20_R0_L_NEW
+* Adding non-temp table orchestra.P20_S20_R0_L_INS
+* Adding non-temp table orchestra.P20_S20_R0_L_DEL
+* Adding non-temp table orchestra.P20_S20_R0_L_INV
+* Adding non-temp table orchestra.P20_S20_R1_NEW
+* Adding non-temp table orchestra.P20_S20_R1_INS
+* Adding non-temp table orchestra.P20_S20_R1_DEL
+* Adding non-temp table orchestra.P20_S20_R1_RCH
+* Adding non-temp table orchestra.P20_S20_R1_INV
+* Adding non-temp table orchestra.P20_S20_R1_L_NEW
+* Adding non-temp table orchestra.P20_S20_R1_L_INS
+* Adding non-temp table orchestra.P20_S20_R1_L_DEL
+* Adding non-temp table orchestra.P20_S20_R1_L_INV
+* Adding non-temp table orchestra.P21_S21_R0_NEW
+* Adding non-temp table orchestra.P21_S21_R0_INS
+* Adding non-temp table orchestra.P21_S21_R0_DEL
+* Adding non-temp table orchestra.P21_S21_R0_RCH
+* Adding non-temp table orchestra.P21_S21_R0_INV
+* Adding non-temp table orchestra.P21_S21_R0_L_NEW
+* Adding non-temp table orchestra.P21_S21_R0_L_INS
+* Adding non-temp table orchestra.P21_S21_R0_L_DEL
+* Adding non-temp table orchestra.P21_S21_R0_L_INV
+* Adding non-temp table orchestra.P21_S21_R1_NEW
+* Adding non-temp table orchestra.P21_S21_R1_INS
+* Adding non-temp table orchestra.P21_S21_R1_DEL
+* Adding non-temp table orchestra.P21_S21_R1_RCH
+* Adding non-temp table orchestra.P21_S21_R1_INV
+* Adding non-temp table orchestra.P21_S21_R1_L_NEW
+* Adding non-temp table orchestra.P21_S21_R1_L_INS
+* Adding non-temp table orchestra.P21_S21_R1_L_DEL
+* Adding non-temp table orchestra.P21_S21_R1_L_INV
+* Adding non-temp table orchestra.P22_S22_R0_NEW
+* Adding non-temp table orchestra.P22_S22_R0_INS
+* Adding non-temp table orchestra.P22_S22_R0_DEL
+* Adding non-temp table orchestra.P22_S22_R0_RCH
+* Adding non-temp table orchestra.P22_S22_R0_INV
+* Adding non-temp table orchestra.P22_S22_R0_L_NEW
+* Adding non-temp table orchestra.P22_S22_R0_L_INS
+* Adding non-temp table orchestra.P22_S22_R0_L_DEL
+* Adding non-temp table orchestra.P22_S22_R0_L_INV
+* Adding non-temp table orchestra.P22_S22_R1_NEW
+* Adding non-temp table orchestra.P22_S22_R1_INS
+* Adding non-temp table orchestra.P22_S22_R1_DEL
+* Adding non-temp table orchestra.P22_S22_R1_RCH
+* Adding non-temp table orchestra.P22_S22_R1_INV
+* Adding non-temp table orchestra.P22_S22_R1_L_NEW
+* Adding non-temp table orchestra.P22_S22_R1_L_INS
+* Adding non-temp table orchestra.P22_S22_R1_L_DEL
+* Adding non-temp table orchestra.P22_S22_R1_L_INV
+* Adding non-temp table orchestra.P23_S23_R0_NEW
+* Adding non-temp table orchestra.P23_S23_R0_INS
+* Adding non-temp table orchestra.P23_S23_R0_DEL
+* Adding non-temp table orchestra.P23_S23_R0_RCH
+* Adding non-temp table orchestra.P23_S23_R0_INV
+* Adding non-temp table orchestra.P23_S23_R0_L_NEW
+* Adding non-temp table orchestra.P23_S23_R0_L_INS
+* Adding non-temp table orchestra.P23_S23_R0_L_DEL
+* Adding non-temp table orchestra.P23_S23_R0_L_INV
+* Adding non-temp table orchestra.P23_S23_R1_NEW
+* Adding non-temp table orchestra.P23_S23_R1_INS
+* Adding non-temp table orchestra.P23_S23_R1_DEL
+* Adding non-temp table orchestra.P23_S23_R1_RCH
+* Adding non-temp table orchestra.P23_S23_R1_INV
+* Adding non-temp table orchestra.P23_S23_R1_L_NEW
+* Adding non-temp table orchestra.P23_S23_R1_L_INS
+* Adding non-temp table orchestra.P23_S23_R1_L_DEL
+* Adding non-temp table orchestra.P23_S23_R1_L_INV
+* Adding non-temp table orchestra.P24_S24_R0_NEW
+* Adding non-temp table orchestra.P24_S24_R0_INS
+* Adding non-temp table orchestra.P24_S24_R0_DEL
+* Adding non-temp table orchestra.P24_S24_R0_RCH
+* Adding non-temp table orchestra.P24_S24_R0_INV
+* Adding non-temp table orchestra.P24_S24_R0_L_NEW
+* Adding non-temp table orchestra.P24_S24_R0_L_INS
+* Adding non-temp table orchestra.P24_S24_R0_L_DEL
+* Adding non-temp table orchestra.P24_S24_R0_L_INV
+* Adding non-temp table orchestra.P24_S24_R1_NEW
+* Adding non-temp table orchestra.P24_S24_R1_INS
+* Adding non-temp table orchestra.P24_S24_R1_DEL
+* Adding non-temp table orchestra.P24_S24_R1_RCH
+* Adding non-temp table orchestra.P24_S24_R1_INV
+* Adding non-temp table orchestra.P24_S24_R1_L_NEW
+* Adding non-temp table orchestra.P24_S24_R1_L_INS
+* Adding non-temp table orchestra.P24_S24_R1_L_DEL
+* Adding non-temp table orchestra.P24_S24_R1_L_INV
+* Adding non-temp table orchestra.P3_S3_R0_NEW
+* Adding non-temp table orchestra.P3_S3_R0_INS
+* Adding non-temp table orchestra.P3_S3_R0_DEL
+* Adding non-temp table orchestra.P3_S3_R0_RCH
+* Adding non-temp table orchestra.P3_S3_R0_INV
+* Adding non-temp table orchestra.P3_S3_R0_L_NEW
+* Adding non-temp table orchestra.P3_S3_R0_L_INS
+* Adding non-temp table orchestra.P3_S3_R0_L_DEL
+* Adding non-temp table orchestra.P3_S3_R0_L_INV
+* Adding non-temp table orchestra.P3_S3_R1_NEW
+* Adding non-temp table orchestra.P3_S3_R1_INS
+* Adding non-temp table orchestra.P3_S3_R1_DEL
+* Adding non-temp table orchestra.P3_S3_R1_RCH
+* Adding non-temp table orchestra.P3_S3_R1_INV
+* Adding non-temp table orchestra.P3_S3_R1_L_NEW
+* Adding non-temp table orchestra.P3_S3_R1_L_INS
+* Adding non-temp table orchestra.P3_S3_R1_L_DEL
+* Adding non-temp table orchestra.P3_S3_R1_L_INV
+* Adding non-temp table orchestra.P4_S4_R0_NEW
+* Adding non-temp table orchestra.P4_S4_R0_INS
+* Adding non-temp table orchestra.P4_S4_R0_DEL
+* Adding non-temp table orchestra.P4_S4_R0_RCH
+* Adding non-temp table orchestra.P4_S4_R0_INV
+* Adding non-temp table orchestra.P4_S4_R0_L_NEW
+* Adding non-temp table orchestra.P4_S4_R0_L_INS
+* Adding non-temp table orchestra.P4_S4_R0_L_DEL
+* Adding non-temp table orchestra.P4_S4_R0_L_INV
+* Adding non-temp table orchestra.P4_S4_R1_NEW
+* Adding non-temp table orchestra.P4_S4_R1_INS
+* Adding non-temp table orchestra.P4_S4_R1_DEL
+* Adding non-temp table orchestra.P4_S4_R1_RCH
+* Adding non-temp table orchestra.P4_S4_R1_INV
+* Adding non-temp table orchestra.P4_S4_R1_L_NEW
+* Adding non-temp table orchestra.P4_S4_R1_L_INS
+* Adding non-temp table orchestra.P4_S4_R1_L_DEL
+* Adding non-temp table orchestra.P4_S4_R1_L_INV
+* Adding non-temp table orchestra.P5_S5_R0_NEW
+* Adding non-temp table orchestra.P5_S5_R0_INS
+* Adding non-temp table orchestra.P5_S5_R0_DEL
+* Adding non-temp table orchestra.P5_S5_R0_RCH
+* Adding non-temp table orchestra.P5_S5_R0_INV
+* Adding non-temp table orchestra.P5_S5_R0_L_NEW
+* Adding non-temp table orchestra.P5_S5_R0_L_INS
+* Adding non-temp table orchestra.P5_S5_R0_L_DEL
+* Adding non-temp table orchestra.P5_S5_R0_L_INV
+* Adding non-temp table orchestra.P5_S5_R1_NEW
+* Adding non-temp table orchestra.P5_S5_R1_INS
+* Adding non-temp table orchestra.P5_S5_R1_DEL
+* Adding non-temp table orchestra.P5_S5_R1_RCH
+* Adding non-temp table orchestra.P5_S5_R1_INV
+* Adding non-temp table orchestra.P5_S5_R1_L_NEW
+* Adding non-temp table orchestra.P5_S5_R1_L_INS
+* Adding non-temp table orchestra.P5_S5_R1_L_DEL
+* Adding non-temp table orchestra.P5_S5_R1_L_INV
+* Adding non-temp table orchestra.P6_S6_R0_NEW
+* Adding non-temp table orchestra.P6_S6_R0_INS
+* Adding non-temp table orchestra.P6_S6_R0_DEL
+* Adding non-temp table orchestra.P6_S6_R0_RCH
+* Adding non-temp table orchestra.P6_S6_R0_INV
+* Adding non-temp table orchestra.P6_S6_R0_L_NEW
+* Adding non-temp table orchestra.P6_S6_R0_L_INS
+* Adding non-temp table orchestra.P6_S6_R0_L_DEL
+* Adding non-temp table orchestra.P6_S6_R0_L_INV
+* Adding non-temp table orchestra.P6_S6_R1_NEW
+* Adding non-temp table orchestra.P6_S6_R1_INS
+* Adding non-temp table orchestra.P6_S6_R1_DEL
+* Adding non-temp table orchestra.P6_S6_R1_RCH
+* Adding non-temp table orchestra.P6_S6_R1_INV
+* Adding non-temp table orchestra.P6_S6_R1_L_NEW
+* Adding non-temp table orchestra.P6_S6_R1_L_INS
+* Adding non-temp table orchestra.P6_S6_R1_L_DEL
+* Adding non-temp table orchestra.P6_S6_R1_L_INV
+* Adding non-temp table orchestra.P7_S7_R0_NEW
+* Adding non-temp table orchestra.P7_S7_R0_INS
+* Adding non-temp table orchestra.P7_S7_R0_DEL
+* Adding non-temp table orchestra.P7_S7_R0_RCH
+* Adding non-temp table orchestra.P7_S7_R0_INV
+* Adding non-temp table orchestra.P7_S7_R0_L_NEW
+* Adding non-temp table orchestra.P7_S7_R0_L_INS
+* Adding non-temp table orchestra.P7_S7_R0_L_DEL
+* Adding non-temp table orchestra.P7_S7_R0_L_INV
+* Adding non-temp table orchestra.P7_S7_R1_NEW
+* Adding non-temp table orchestra.P7_S7_R1_INS
+* Adding non-temp table orchestra.P7_S7_R1_DEL
+* Adding non-temp table orchestra.P7_S7_R1_RCH
+* Adding non-temp table orchestra.P7_S7_R1_INV
+* Adding non-temp table orchestra.P7_S7_R1_L_NEW
+* Adding non-temp table orchestra.P7_S7_R1_L_INS
+* Adding non-temp table orchestra.P7_S7_R1_L_DEL
+* Adding non-temp table orchestra.P7_S7_R1_L_INV
+* Adding non-temp table orchestra.P8_S8_R0_NEW
+* Adding non-temp table orchestra.P8_S8_R0_INS
+* Adding non-temp table orchestra.P8_S8_R0_DEL
+* Adding non-temp table orchestra.P8_S8_R0_RCH
+* Adding non-temp table orchestra.P8_S8_R0_INV
+* Adding non-temp table orchestra.P8_S8_R0_L_NEW
+* Adding non-temp table orchestra.P8_S8_R0_L_INS
+* Adding non-temp table orchestra.P8_S8_R0_L_DEL
+* Adding non-temp table orchestra.P8_S8_R0_L_INV
+* Adding non-temp table orchestra.P8_S8_R1_NEW
+* Adding non-temp table orchestra.P8_S8_R1_INS
+* Adding non-temp table orchestra.P8_S8_R1_DEL
+* Adding non-temp table orchestra.P8_S8_R1_RCH
+* Adding non-temp table orchestra.P8_S8_R1_INV
+* Adding non-temp table orchestra.P8_S8_R1_L_NEW
+* Adding non-temp table orchestra.P8_S8_R1_L_INS
+* Adding non-temp table orchestra.P8_S8_R1_L_DEL
+* Adding non-temp table orchestra.P8_S8_R1_L_INV
+* Adding non-temp table orchestra.P9_S9_R0_NEW
+* Adding non-temp table orchestra.P9_S9_R0_INS
+* Adding non-temp table orchestra.P9_S9_R0_DEL
+* Adding non-temp table orchestra.P9_S9_R0_RCH
+* Adding non-temp table orchestra.P9_S9_R0_INV
+* Adding non-temp table orchestra.P9_S9_R0_L_NEW
+* Adding non-temp table orchestra.P9_S9_R0_L_INS
+* Adding non-temp table orchestra.P9_S9_R0_L_DEL
+* Adding non-temp table orchestra.P9_S9_R0_L_INV
+* Adding non-temp table orchestra.P9_S9_R1_NEW
+* Adding non-temp table orchestra.P9_S9_R1_INS
+* Adding non-temp table orchestra.P9_S9_R1_DEL
+* Adding non-temp table orchestra.P9_S9_R1_RCH
+* Adding non-temp table orchestra.P9_S9_R1_INV
+* Adding non-temp table orchestra.P9_S9_R1_L_NEW
+* Adding non-temp table orchestra.P9_S9_R1_L_INS
+* Adding non-temp table orchestra.P9_S9_R1_L_DEL
+* Adding non-temp table orchestra.P9_S9_R1_L_INV
++++ Migration +++
+EXP: MIGRATE ORIG RELATIONS TIME: 28490 msec
+EXP: MIGRATE PROVENANCE RELATIONS TIME: 15637 msec
+EXP: TOTAL MIGRATE TIME: 45376 msec
+> 
+>         set workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial
+EXP: =========================================
+EXP:workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial
+EXP: =========================================
+>   
+> 
+>           # Compute initial
+>           set delete=false
+EXP: =========================================
+EXP:delete=false
+EXP: =========================================
+>           set insert=true
+EXP: =========================================
+EXP:insert=true
+EXP: =========================================
+>           set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>           set applybaseIns=false
+EXP: =========================================
+EXP:applybaseIns=false
+EXP: =========================================
+>           generateDeltaRules
+NET: Cleanup prepared statements
+> 
+>        import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 9169 msec
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+2000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+2000 tuples imported into orchestra.P0_S0_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R0_L_DEL
+2000 tuples imported into orchestra.P20_S20_R0_L_INS
+0 tuples imported into orchestra.P2_S2_R0_L_DEL
+2000 tuples imported into orchestra.P2_S2_R0_L_INS
+0 tuples imported into orchestra.P10_S10_R0_L_DEL
+2000 tuples imported into orchestra.P10_S10_R0_L_INS
+0 tuples imported into orchestra.P12_S12_R1_L_DEL
+2000 tuples imported into orchestra.P12_S12_R1_L_INS
+0 tuples imported into orchestra.P10_S10_R1_L_DEL
+2000 tuples imported into orchestra.P10_S10_R1_L_INS
+0 tuples imported into orchestra.P19_S19_R1_L_DEL
+2000 tuples imported into orchestra.P19_S19_R1_L_INS
+0 tuples imported into orchestra.P9_S9_R1_L_DEL
+2000 tuples imported into orchestra.P9_S9_R1_L_INS
+0 tuples imported into orchestra.P22_S22_R0_L_DEL
+2000 tuples imported into orchestra.P22_S22_R0_L_INS
+0 tuples imported into orchestra.P9_S9_R0_L_DEL
+2000 tuples imported into orchestra.P9_S9_R0_L_INS
+0 tuples imported into orchestra.P22_S22_R1_L_DEL
+2000 tuples imported into orchestra.P22_S22_R1_L_INS
+0 tuples imported into orchestra.P6_S6_R1_L_DEL
+2000 tuples imported into orchestra.P6_S6_R1_L_INS
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+2000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P23_S23_R1_L_DEL
+2000 tuples imported into orchestra.P23_S23_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R1_L_DEL
+2000 tuples imported into orchestra.P3_S3_R1_L_INS
+0 tuples imported into orchestra.P5_S5_R0_L_DEL
+2000 tuples imported into orchestra.P5_S5_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R0_L_DEL
+2000 tuples imported into orchestra.P17_S17_R0_L_INS
+0 tuples imported into orchestra.P7_S7_R0_L_DEL
+2000 tuples imported into orchestra.P7_S7_R0_L_INS
+0 tuples imported into orchestra.P8_S8_R0_L_DEL
+2000 tuples imported into orchestra.P8_S8_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+2000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P4_S4_R0_L_DEL
+2000 tuples imported into orchestra.P4_S4_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R0_L_DEL
+2000 tuples imported into orchestra.P15_S15_R0_L_INS
+0 tuples imported into orchestra.P14_S14_R0_L_DEL
+2000 tuples imported into orchestra.P14_S14_R0_L_INS
+0 tuples imported into orchestra.P16_S16_R1_L_DEL
+2000 tuples imported into orchestra.P16_S16_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R1_L_DEL
+2000 tuples imported into orchestra.P11_S11_R1_L_INS
+0 tuples imported into orchestra.P13_S13_R1_L_DEL
+2000 tuples imported into orchestra.P13_S13_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R0_L_DEL
+2000 tuples imported into orchestra.P3_S3_R0_L_INS
+0 tuples imported into orchestra.P24_S24_R1_L_DEL
+2000 tuples imported into orchestra.P24_S24_R1_L_INS
+0 tuples imported into orchestra.P18_S18_R1_L_DEL
+2000 tuples imported into orchestra.P18_S18_R1_L_INS
+0 tuples imported into orchestra.P2_S2_R1_L_DEL
+2000 tuples imported into orchestra.P2_S2_R1_L_INS
+0 tuples imported into orchestra.P14_S14_R1_L_DEL
+2000 tuples imported into orchestra.P14_S14_R1_L_INS
+0 tuples imported into orchestra.P7_S7_R1_L_DEL
+2000 tuples imported into orchestra.P7_S7_R1_L_INS
+0 tuples imported into orchestra.P16_S16_R0_L_DEL
+2000 tuples imported into orchestra.P16_S16_R0_L_INS
+0 tuples imported into orchestra.P19_S19_R0_L_DEL
+2000 tuples imported into orchestra.P19_S19_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R1_L_DEL
+2000 tuples imported into orchestra.P20_S20_R1_L_INS
+0 tuples imported into orchestra.P24_S24_R0_L_DEL
+2000 tuples imported into orchestra.P24_S24_R0_L_INS
+0 tuples imported into orchestra.P5_S5_R1_L_DEL
+2000 tuples imported into orchestra.P5_S5_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R0_L_DEL
+2000 tuples imported into orchestra.P11_S11_R0_L_INS
+0 tuples imported into orchestra.P18_S18_R0_L_DEL
+2000 tuples imported into orchestra.P18_S18_R0_L_INS
+0 tuples imported into orchestra.P13_S13_R0_L_DEL
+2000 tuples imported into orchestra.P13_S13_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R1_L_DEL
+2000 tuples imported into orchestra.P17_S17_R1_L_INS
+0 tuples imported into orchestra.P8_S8_R1_L_DEL
+2000 tuples imported into orchestra.P8_S8_R1_L_INS
+0 tuples imported into orchestra.P21_S21_R0_L_DEL
+2000 tuples imported into orchestra.P21_S21_R0_L_INS
+0 tuples imported into orchestra.P21_S21_R1_L_DEL
+2000 tuples imported into orchestra.P21_S21_R1_L_INS
+0 tuples imported into orchestra.P12_S12_R0_L_DEL
+2000 tuples imported into orchestra.P12_S12_R0_L_INS
+0 tuples imported into orchestra.P4_S4_R1_L_DEL
+2000 tuples imported into orchestra.P4_S4_R1_L_INS
+0 tuples imported into orchestra.P23_S23_R0_L_DEL
+2000 tuples imported into orchestra.P23_S23_R0_L_INS
+0 tuples imported into orchestra.P6_S6_R0_L_DEL
+2000 tuples imported into orchestra.P6_S6_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R1_L_DEL
+2000 tuples imported into orchestra.P15_S15_R1_L_INS
+>        translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 4499 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 136
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 100000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 432000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 512000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 496000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 468000
+Recursive sequence - LAST ITERATION (6) RETURNED COUNT: 440000
+Recursive sequence - LAST ITERATION (7) RETURNED COUNT: 384000
+Recursive sequence - LAST ITERATION (8) RETURNED COUNT: 300000
+Recursive sequence - LAST ITERATION (9) RETURNED COUNT: 216000
+Recursive sequence - LAST ITERATION (10) RETURNED COUNT: 136000
+Recursive sequence - LAST ITERATION (11) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (12) RETURNED COUNT: 8000
+Recursive sequence - LAST ITERATION (13) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 373540 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 0 msec
+EXP: NET INSERTION TIME: 373540 msec
+TOTAL TUPLE COUNT: 3752000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 3090
+POST INSERTION TIME: 95566 msec
+TOTAL TUPLE COUNT: 3852000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 272
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>     
+> 
+>        import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 9193 msec
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+2000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+2000 tuples imported into orchestra.P0_S0_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R0_L_DEL
+2000 tuples imported into orchestra.P20_S20_R0_L_INS
+0 tuples imported into orchestra.P2_S2_R0_L_DEL
+2000 tuples imported into orchestra.P2_S2_R0_L_INS
+0 tuples imported into orchestra.P10_S10_R0_L_DEL
+2000 tuples imported into orchestra.P10_S10_R0_L_INS
+0 tuples imported into orchestra.P12_S12_R1_L_DEL
+2000 tuples imported into orchestra.P12_S12_R1_L_INS
+0 tuples imported into orchestra.P10_S10_R1_L_DEL
+2000 tuples imported into orchestra.P10_S10_R1_L_INS
+0 tuples imported into orchestra.P19_S19_R1_L_DEL
+2000 tuples imported into orchestra.P19_S19_R1_L_INS
+0 tuples imported into orchestra.P9_S9_R1_L_DEL
+2000 tuples imported into orchestra.P9_S9_R1_L_INS
+0 tuples imported into orchestra.P22_S22_R0_L_DEL
+2000 tuples imported into orchestra.P22_S22_R0_L_INS
+0 tuples imported into orchestra.P9_S9_R0_L_DEL
+2000 tuples imported into orchestra.P9_S9_R0_L_INS
+0 tuples imported into orchestra.P22_S22_R1_L_DEL
+2000 tuples imported into orchestra.P22_S22_R1_L_INS
+0 tuples imported into orchestra.P6_S6_R1_L_DEL
+2000 tuples imported into orchestra.P6_S6_R1_L_INS
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+2000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P23_S23_R1_L_DEL
+2000 tuples imported into orchestra.P23_S23_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R1_L_DEL
+2000 tuples imported into orchestra.P3_S3_R1_L_INS
+0 tuples imported into orchestra.P5_S5_R0_L_DEL
+2000 tuples imported into orchestra.P5_S5_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R0_L_DEL
+2000 tuples imported into orchestra.P17_S17_R0_L_INS
+0 tuples imported into orchestra.P7_S7_R0_L_DEL
+2000 tuples imported into orchestra.P7_S7_R0_L_INS
+0 tuples imported into orchestra.P8_S8_R0_L_DEL
+2000 tuples imported into orchestra.P8_S8_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+2000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P4_S4_R0_L_DEL
+2000 tuples imported into orchestra.P4_S4_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R0_L_DEL
+2000 tuples imported into orchestra.P15_S15_R0_L_INS
+0 tuples imported into orchestra.P14_S14_R0_L_DEL
+2000 tuples imported into orchestra.P14_S14_R0_L_INS
+0 tuples imported into orchestra.P16_S16_R1_L_DEL
+2000 tuples imported into orchestra.P16_S16_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R1_L_DEL
+2000 tuples imported into orchestra.P11_S11_R1_L_INS
+0 tuples imported into orchestra.P13_S13_R1_L_DEL
+2000 tuples imported into orchestra.P13_S13_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R0_L_DEL
+2000 tuples imported into orchestra.P3_S3_R0_L_INS
+0 tuples imported into orchestra.P24_S24_R1_L_DEL
+2000 tuples imported into orchestra.P24_S24_R1_L_INS
+0 tuples imported into orchestra.P18_S18_R1_L_DEL
+2000 tuples imported into orchestra.P18_S18_R1_L_INS
+0 tuples imported into orchestra.P2_S2_R1_L_DEL
+2000 tuples imported into orchestra.P2_S2_R1_L_INS
+0 tuples imported into orchestra.P14_S14_R1_L_DEL
+2000 tuples imported into orchestra.P14_S14_R1_L_INS
+0 tuples imported into orchestra.P7_S7_R1_L_DEL
+2000 tuples imported into orchestra.P7_S7_R1_L_INS
+0 tuples imported into orchestra.P16_S16_R0_L_DEL
+2000 tuples imported into orchestra.P16_S16_R0_L_INS
+0 tuples imported into orchestra.P19_S19_R0_L_DEL
+2000 tuples imported into orchestra.P19_S19_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R1_L_DEL
+2000 tuples imported into orchestra.P20_S20_R1_L_INS
+0 tuples imported into orchestra.P24_S24_R0_L_DEL
+2000 tuples imported into orchestra.P24_S24_R0_L_INS
+0 tuples imported into orchestra.P5_S5_R1_L_DEL
+2000 tuples imported into orchestra.P5_S5_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R0_L_DEL
+2000 tuples imported into orchestra.P11_S11_R0_L_INS
+0 tuples imported into orchestra.P18_S18_R0_L_DEL
+2000 tuples imported into orchestra.P18_S18_R0_L_INS
+0 tuples imported into orchestra.P13_S13_R0_L_DEL
+2000 tuples imported into orchestra.P13_S13_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R1_L_DEL
+2000 tuples imported into orchestra.P17_S17_R1_L_INS
+0 tuples imported into orchestra.P8_S8_R1_L_DEL
+2000 tuples imported into orchestra.P8_S8_R1_L_INS
+0 tuples imported into orchestra.P21_S21_R0_L_DEL
+2000 tuples imported into orchestra.P21_S21_R0_L_INS
+0 tuples imported into orchestra.P21_S21_R1_L_DEL
+2000 tuples imported into orchestra.P21_S21_R1_L_INS
+0 tuples imported into orchestra.P12_S12_R0_L_DEL
+2000 tuples imported into orchestra.P12_S12_R0_L_INS
+0 tuples imported into orchestra.P4_S4_R1_L_DEL
+2000 tuples imported into orchestra.P4_S4_R1_L_INS
+0 tuples imported into orchestra.P23_S23_R0_L_DEL
+2000 tuples imported into orchestra.P23_S23_R0_L_INS
+0 tuples imported into orchestra.P6_S6_R0_L_DEL
+2000 tuples imported into orchestra.P6_S6_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R1_L_DEL
+2000 tuples imported into orchestra.P15_S15_R1_L_INS
+>        translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 624 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 136
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 100000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 432000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 512000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 496000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 468000
+Recursive sequence - LAST ITERATION (6) RETURNED COUNT: 440000
+Recursive sequence - LAST ITERATION (7) RETURNED COUNT: 384000
+Recursive sequence - LAST ITERATION (8) RETURNED COUNT: 300000
+Recursive sequence - LAST ITERATION (9) RETURNED COUNT: 216000
+Recursive sequence - LAST ITERATION (10) RETURNED COUNT: 136000
+Recursive sequence - LAST ITERATION (11) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (12) RETURNED COUNT: 8000
+Recursive sequence - LAST ITERATION (13) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 409173 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 16 msec
+EXP: NET INSERTION TIME: 409173 msec
+TOTAL TUPLE COUNT: 3752000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 3090
+POST INSERTION TIME: 94965 msec
+TOTAL TUPLE COUNT: 3852000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 272
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>     
+> 
+>        import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 9314 msec
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+2000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+2000 tuples imported into orchestra.P0_S0_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R0_L_DEL
+2000 tuples imported into orchestra.P20_S20_R0_L_INS
+0 tuples imported into orchestra.P2_S2_R0_L_DEL
+2000 tuples imported into orchestra.P2_S2_R0_L_INS
+0 tuples imported into orchestra.P10_S10_R0_L_DEL
+2000 tuples imported into orchestra.P10_S10_R0_L_INS
+0 tuples imported into orchestra.P12_S12_R1_L_DEL
+2000 tuples imported into orchestra.P12_S12_R1_L_INS
+0 tuples imported into orchestra.P10_S10_R1_L_DEL
+2000 tuples imported into orchestra.P10_S10_R1_L_INS
+0 tuples imported into orchestra.P19_S19_R1_L_DEL
+2000 tuples imported into orchestra.P19_S19_R1_L_INS
+0 tuples imported into orchestra.P9_S9_R1_L_DEL
+2000 tuples imported into orchestra.P9_S9_R1_L_INS
+0 tuples imported into orchestra.P22_S22_R0_L_DEL
+2000 tuples imported into orchestra.P22_S22_R0_L_INS
+0 tuples imported into orchestra.P9_S9_R0_L_DEL
+2000 tuples imported into orchestra.P9_S9_R0_L_INS
+0 tuples imported into orchestra.P22_S22_R1_L_DEL
+2000 tuples imported into orchestra.P22_S22_R1_L_INS
+0 tuples imported into orchestra.P6_S6_R1_L_DEL
+2000 tuples imported into orchestra.P6_S6_R1_L_INS
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+2000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P23_S23_R1_L_DEL
+2000 tuples imported into orchestra.P23_S23_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R1_L_DEL
+2000 tuples imported into orchestra.P3_S3_R1_L_INS
+0 tuples imported into orchestra.P5_S5_R0_L_DEL
+2000 tuples imported into orchestra.P5_S5_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R0_L_DEL
+2000 tuples imported into orchestra.P17_S17_R0_L_INS
+0 tuples imported into orchestra.P7_S7_R0_L_DEL
+2000 tuples imported into orchestra.P7_S7_R0_L_INS
+0 tuples imported into orchestra.P8_S8_R0_L_DEL
+2000 tuples imported into orchestra.P8_S8_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+2000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P4_S4_R0_L_DEL
+2000 tuples imported into orchestra.P4_S4_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R0_L_DEL
+2000 tuples imported into orchestra.P15_S15_R0_L_INS
+0 tuples imported into orchestra.P14_S14_R0_L_DEL
+2000 tuples imported into orchestra.P14_S14_R0_L_INS
+0 tuples imported into orchestra.P16_S16_R1_L_DEL
+2000 tuples imported into orchestra.P16_S16_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R1_L_DEL
+2000 tuples imported into orchestra.P11_S11_R1_L_INS
+0 tuples imported into orchestra.P13_S13_R1_L_DEL
+2000 tuples imported into orchestra.P13_S13_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R0_L_DEL
+2000 tuples imported into orchestra.P3_S3_R0_L_INS
+0 tuples imported into orchestra.P24_S24_R1_L_DEL
+2000 tuples imported into orchestra.P24_S24_R1_L_INS
+0 tuples imported into orchestra.P18_S18_R1_L_DEL
+2000 tuples imported into orchestra.P18_S18_R1_L_INS
+0 tuples imported into orchestra.P2_S2_R1_L_DEL
+2000 tuples imported into orchestra.P2_S2_R1_L_INS
+0 tuples imported into orchestra.P14_S14_R1_L_DEL
+2000 tuples imported into orchestra.P14_S14_R1_L_INS
+0 tuples imported into orchestra.P7_S7_R1_L_DEL
+2000 tuples imported into orchestra.P7_S7_R1_L_INS
+0 tuples imported into orchestra.P16_S16_R0_L_DEL
+2000 tuples imported into orchestra.P16_S16_R0_L_INS
+0 tuples imported into orchestra.P19_S19_R0_L_DEL
+2000 tuples imported into orchestra.P19_S19_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R1_L_DEL
+2000 tuples imported into orchestra.P20_S20_R1_L_INS
+0 tuples imported into orchestra.P24_S24_R0_L_DEL
+2000 tuples imported into orchestra.P24_S24_R0_L_INS
+0 tuples imported into orchestra.P5_S5_R1_L_DEL
+2000 tuples imported into orchestra.P5_S5_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R0_L_DEL
+2000 tuples imported into orchestra.P11_S11_R0_L_INS
+0 tuples imported into orchestra.P18_S18_R0_L_DEL
+2000 tuples imported into orchestra.P18_S18_R0_L_INS
+0 tuples imported into orchestra.P13_S13_R0_L_DEL
+2000 tuples imported into orchestra.P13_S13_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R1_L_DEL
+2000 tuples imported into orchestra.P17_S17_R1_L_INS
+0 tuples imported into orchestra.P8_S8_R1_L_DEL
+2000 tuples imported into orchestra.P8_S8_R1_L_INS
+0 tuples imported into orchestra.P21_S21_R0_L_DEL
+2000 tuples imported into orchestra.P21_S21_R0_L_INS
+0 tuples imported into orchestra.P21_S21_R1_L_DEL
+2000 tuples imported into orchestra.P21_S21_R1_L_INS
+0 tuples imported into orchestra.P12_S12_R0_L_DEL
+2000 tuples imported into orchestra.P12_S12_R0_L_INS
+0 tuples imported into orchestra.P4_S4_R1_L_DEL
+2000 tuples imported into orchestra.P4_S4_R1_L_INS
+0 tuples imported into orchestra.P23_S23_R0_L_DEL
+2000 tuples imported into orchestra.P23_S23_R0_L_INS
+0 tuples imported into orchestra.P6_S6_R0_L_DEL
+2000 tuples imported into orchestra.P6_S6_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R1_L_DEL
+2000 tuples imported into orchestra.P15_S15_R1_L_INS
+>        translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 1217 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 136
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 100000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 432000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 512000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 496000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 468000
+Recursive sequence - LAST ITERATION (6) RETURNED COUNT: 440000
+Recursive sequence - LAST ITERATION (7) RETURNED COUNT: 384000
+Recursive sequence - LAST ITERATION (8) RETURNED COUNT: 300000
+Recursive sequence - LAST ITERATION (9) RETURNED COUNT: 216000
+Recursive sequence - LAST ITERATION (10) RETURNED COUNT: 136000
+Recursive sequence - LAST ITERATION (11) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (12) RETURNED COUNT: 8000
+Recursive sequence - LAST ITERATION (13) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 486318 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 0 msec
+EXP: NET INSERTION TIME: 486318 msec
+TOTAL TUPLE COUNT: 3752000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 3090
+POST INSERTION TIME: 103399 msec
+TOTAL TUPLE COUNT: 3852000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 272
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>     
+> 
+>        import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 8830 msec
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+2000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+2000 tuples imported into orchestra.P0_S0_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R0_L_DEL
+2000 tuples imported into orchestra.P20_S20_R0_L_INS
+0 tuples imported into orchestra.P2_S2_R0_L_DEL
+2000 tuples imported into orchestra.P2_S2_R0_L_INS
+0 tuples imported into orchestra.P10_S10_R0_L_DEL
+2000 tuples imported into orchestra.P10_S10_R0_L_INS
+0 tuples imported into orchestra.P12_S12_R1_L_DEL
+2000 tuples imported into orchestra.P12_S12_R1_L_INS
+0 tuples imported into orchestra.P10_S10_R1_L_DEL
+2000 tuples imported into orchestra.P10_S10_R1_L_INS
+0 tuples imported into orchestra.P19_S19_R1_L_DEL
+2000 tuples imported into orchestra.P19_S19_R1_L_INS
+0 tuples imported into orchestra.P9_S9_R1_L_DEL
+2000 tuples imported into orchestra.P9_S9_R1_L_INS
+0 tuples imported into orchestra.P22_S22_R0_L_DEL
+2000 tuples imported into orchestra.P22_S22_R0_L_INS
+0 tuples imported into orchestra.P9_S9_R0_L_DEL
+2000 tuples imported into orchestra.P9_S9_R0_L_INS
+0 tuples imported into orchestra.P22_S22_R1_L_DEL
+2000 tuples imported into orchestra.P22_S22_R1_L_INS
+0 tuples imported into orchestra.P6_S6_R1_L_DEL
+2000 tuples imported into orchestra.P6_S6_R1_L_INS
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+2000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P23_S23_R1_L_DEL
+2000 tuples imported into orchestra.P23_S23_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R1_L_DEL
+2000 tuples imported into orchestra.P3_S3_R1_L_INS
+0 tuples imported into orchestra.P5_S5_R0_L_DEL
+2000 tuples imported into orchestra.P5_S5_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R0_L_DEL
+2000 tuples imported into orchestra.P17_S17_R0_L_INS
+0 tuples imported into orchestra.P7_S7_R0_L_DEL
+2000 tuples imported into orchestra.P7_S7_R0_L_INS
+0 tuples imported into orchestra.P8_S8_R0_L_DEL
+2000 tuples imported into orchestra.P8_S8_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+2000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P4_S4_R0_L_DEL
+2000 tuples imported into orchestra.P4_S4_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R0_L_DEL
+2000 tuples imported into orchestra.P15_S15_R0_L_INS
+0 tuples imported into orchestra.P14_S14_R0_L_DEL
+2000 tuples imported into orchestra.P14_S14_R0_L_INS
+0 tuples imported into orchestra.P16_S16_R1_L_DEL
+2000 tuples imported into orchestra.P16_S16_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R1_L_DEL
+2000 tuples imported into orchestra.P11_S11_R1_L_INS
+0 tuples imported into orchestra.P13_S13_R1_L_DEL
+2000 tuples imported into orchestra.P13_S13_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R0_L_DEL
+2000 tuples imported into orchestra.P3_S3_R0_L_INS
+0 tuples imported into orchestra.P24_S24_R1_L_DEL
+2000 tuples imported into orchestra.P24_S24_R1_L_INS
+0 tuples imported into orchestra.P18_S18_R1_L_DEL
+2000 tuples imported into orchestra.P18_S18_R1_L_INS
+0 tuples imported into orchestra.P2_S2_R1_L_DEL
+2000 tuples imported into orchestra.P2_S2_R1_L_INS
+0 tuples imported into orchestra.P14_S14_R1_L_DEL
+2000 tuples imported into orchestra.P14_S14_R1_L_INS
+0 tuples imported into orchestra.P7_S7_R1_L_DEL
+2000 tuples imported into orchestra.P7_S7_R1_L_INS
+0 tuples imported into orchestra.P16_S16_R0_L_DEL
+2000 tuples imported into orchestra.P16_S16_R0_L_INS
+0 tuples imported into orchestra.P19_S19_R0_L_DEL
+2000 tuples imported into orchestra.P19_S19_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R1_L_DEL
+2000 tuples imported into orchestra.P20_S20_R1_L_INS
+0 tuples imported into orchestra.P24_S24_R0_L_DEL
+2000 tuples imported into orchestra.P24_S24_R0_L_INS
+0 tuples imported into orchestra.P5_S5_R1_L_DEL
+2000 tuples imported into orchestra.P5_S5_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R0_L_DEL
+2000 tuples imported into orchestra.P11_S11_R0_L_INS
+0 tuples imported into orchestra.P18_S18_R0_L_DEL
+2000 tuples imported into orchestra.P18_S18_R0_L_INS
+0 tuples imported into orchestra.P13_S13_R0_L_DEL
+2000 tuples imported into orchestra.P13_S13_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R1_L_DEL
+2000 tuples imported into orchestra.P17_S17_R1_L_INS
+0 tuples imported into orchestra.P8_S8_R1_L_DEL
+2000 tuples imported into orchestra.P8_S8_R1_L_INS
+0 tuples imported into orchestra.P21_S21_R0_L_DEL
+2000 tuples imported into orchestra.P21_S21_R0_L_INS
+0 tuples imported into orchestra.P21_S21_R1_L_DEL
+2000 tuples imported into orchestra.P21_S21_R1_L_INS
+0 tuples imported into orchestra.P12_S12_R0_L_DEL
+2000 tuples imported into orchestra.P12_S12_R0_L_INS
+0 tuples imported into orchestra.P4_S4_R1_L_DEL
+2000 tuples imported into orchestra.P4_S4_R1_L_INS
+0 tuples imported into orchestra.P23_S23_R0_L_DEL
+2000 tuples imported into orchestra.P23_S23_R0_L_INS
+0 tuples imported into orchestra.P6_S6_R0_L_DEL
+2000 tuples imported into orchestra.P6_S6_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R1_L_DEL
+2000 tuples imported into orchestra.P15_S15_R1_L_INS
+>        translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 1170 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 136
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 100000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 432000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 512000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 496000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 468000
+Recursive sequence - LAST ITERATION (6) RETURNED COUNT: 440000
+Recursive sequence - LAST ITERATION (7) RETURNED COUNT: 384000
+Recursive sequence - LAST ITERATION (8) RETURNED COUNT: 300000
+Recursive sequence - LAST ITERATION (9) RETURNED COUNT: 216000
+Recursive sequence - LAST ITERATION (10) RETURNED COUNT: 136000
+Recursive sequence - LAST ITERATION (11) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (12) RETURNED COUNT: 8000
+Recursive sequence - LAST ITERATION (13) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 496962 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 16 msec
+EXP: NET INSERTION TIME: 496962 msec
+TOTAL TUPLE COUNT: 3752000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 3090
+POST INSERTION TIME: 95754 msec
+TOTAL TUPLE COUNT: 3852000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 272
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>     
+> 
+>          set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>          set applybaseIns=true
+EXP: =========================================
+EXP:applybaseIns=true
+EXP: =========================================
+>          generateDeltaRules
+NET: Cleanup prepared statements
+>      
+>          import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.delete
+Process executed successfully
+Process output:
+
+Process error:
+
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments
+db2cmd /c /w /i db2 -tf C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/tods/autogen/cycles/1-cycles/2000/25p/initial/25p.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 2000
+Number of rows skipped      = 0
+Number of rows inserted     = 2000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 2000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 8908 msec
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+2000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+2000 tuples imported into orchestra.P0_S0_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R0_L_DEL
+2000 tuples imported into orchestra.P20_S20_R0_L_INS
+0 tuples imported into orchestra.P2_S2_R0_L_DEL
+2000 tuples imported into orchestra.P2_S2_R0_L_INS
+0 tuples imported into orchestra.P10_S10_R0_L_DEL
+2000 tuples imported into orchestra.P10_S10_R0_L_INS
+0 tuples imported into orchestra.P12_S12_R1_L_DEL
+2000 tuples imported into orchestra.P12_S12_R1_L_INS
+0 tuples imported into orchestra.P10_S10_R1_L_DEL
+2000 tuples imported into orchestra.P10_S10_R1_L_INS
+0 tuples imported into orchestra.P19_S19_R1_L_DEL
+2000 tuples imported into orchestra.P19_S19_R1_L_INS
+0 tuples imported into orchestra.P9_S9_R1_L_DEL
+2000 tuples imported into orchestra.P9_S9_R1_L_INS
+0 tuples imported into orchestra.P22_S22_R0_L_DEL
+2000 tuples imported into orchestra.P22_S22_R0_L_INS
+0 tuples imported into orchestra.P9_S9_R0_L_DEL
+2000 tuples imported into orchestra.P9_S9_R0_L_INS
+0 tuples imported into orchestra.P22_S22_R1_L_DEL
+2000 tuples imported into orchestra.P22_S22_R1_L_INS
+0 tuples imported into orchestra.P6_S6_R1_L_DEL
+2000 tuples imported into orchestra.P6_S6_R1_L_INS
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+2000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P23_S23_R1_L_DEL
+2000 tuples imported into orchestra.P23_S23_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R1_L_DEL
+2000 tuples imported into orchestra.P3_S3_R1_L_INS
+0 tuples imported into orchestra.P5_S5_R0_L_DEL
+2000 tuples imported into orchestra.P5_S5_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R0_L_DEL
+2000 tuples imported into orchestra.P17_S17_R0_L_INS
+0 tuples imported into orchestra.P7_S7_R0_L_DEL
+2000 tuples imported into orchestra.P7_S7_R0_L_INS
+0 tuples imported into orchestra.P8_S8_R0_L_DEL
+2000 tuples imported into orchestra.P8_S8_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+2000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P4_S4_R0_L_DEL
+2000 tuples imported into orchestra.P4_S4_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R0_L_DEL
+2000 tuples imported into orchestra.P15_S15_R0_L_INS
+0 tuples imported into orchestra.P14_S14_R0_L_DEL
+2000 tuples imported into orchestra.P14_S14_R0_L_INS
+0 tuples imported into orchestra.P16_S16_R1_L_DEL
+2000 tuples imported into orchestra.P16_S16_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R1_L_DEL
+2000 tuples imported into orchestra.P11_S11_R1_L_INS
+0 tuples imported into orchestra.P13_S13_R1_L_DEL
+2000 tuples imported into orchestra.P13_S13_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R0_L_DEL
+2000 tuples imported into orchestra.P3_S3_R0_L_INS
+0 tuples imported into orchestra.P24_S24_R1_L_DEL
+2000 tuples imported into orchestra.P24_S24_R1_L_INS
+0 tuples imported into orchestra.P18_S18_R1_L_DEL
+2000 tuples imported into orchestra.P18_S18_R1_L_INS
+0 tuples imported into orchestra.P2_S2_R1_L_DEL
+2000 tuples imported into orchestra.P2_S2_R1_L_INS
+0 tuples imported into orchestra.P14_S14_R1_L_DEL
+2000 tuples imported into orchestra.P14_S14_R1_L_INS
+0 tuples imported into orchestra.P7_S7_R1_L_DEL
+2000 tuples imported into orchestra.P7_S7_R1_L_INS
+0 tuples imported into orchestra.P16_S16_R0_L_DEL
+2000 tuples imported into orchestra.P16_S16_R0_L_INS
+0 tuples imported into orchestra.P19_S19_R0_L_DEL
+2000 tuples imported into orchestra.P19_S19_R0_L_INS
+0 tuples imported into orchestra.P20_S20_R1_L_DEL
+2000 tuples imported into orchestra.P20_S20_R1_L_INS
+0 tuples imported into orchestra.P24_S24_R0_L_DEL
+2000 tuples imported into orchestra.P24_S24_R0_L_INS
+0 tuples imported into orchestra.P5_S5_R1_L_DEL
+2000 tuples imported into orchestra.P5_S5_R1_L_INS
+0 tuples imported into orchestra.P11_S11_R0_L_DEL
+2000 tuples imported into orchestra.P11_S11_R0_L_INS
+0 tuples imported into orchestra.P18_S18_R0_L_DEL
+2000 tuples imported into orchestra.P18_S18_R0_L_INS
+0 tuples imported into orchestra.P13_S13_R0_L_DEL
+2000 tuples imported into orchestra.P13_S13_R0_L_INS
+0 tuples imported into orchestra.P17_S17_R1_L_DEL
+2000 tuples imported into orchestra.P17_S17_R1_L_INS
+0 tuples imported into orchestra.P8_S8_R1_L_DEL
+2000 tuples imported into orchestra.P8_S8_R1_L_INS
+0 tuples imported into orchestra.P21_S21_R0_L_DEL
+2000 tuples imported into orchestra.P21_S21_R0_L_INS
+0 tuples imported into orchestra.P21_S21_R1_L_DEL
+2000 tuples imported into orchestra.P21_S21_R1_L_INS
+0 tuples imported into orchestra.P12_S12_R0_L_DEL
+2000 tuples imported into orchestra.P12_S12_R0_L_INS
+0 tuples imported into orchestra.P4_S4_R1_L_DEL
+2000 tuples imported into orchestra.P4_S4_R1_L_INS
+0 tuples imported into orchestra.P23_S23_R0_L_DEL
+2000 tuples imported into orchestra.P23_S23_R0_L_INS
+0 tuples imported into orchestra.P6_S6_R0_L_DEL
+2000 tuples imported into orchestra.P6_S6_R0_L_INS
+0 tuples imported into orchestra.P15_S15_R1_L_DEL
+2000 tuples imported into orchestra.P15_S15_R1_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 904 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 136
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 100000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 432000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 512000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 496000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 468000
+Recursive sequence - LAST ITERATION (6) RETURNED COUNT: 440000
+Recursive sequence - LAST ITERATION (7) RETURNED COUNT: 384000
+Recursive sequence - LAST ITERATION (8) RETURNED COUNT: 300000
+Recursive sequence - LAST ITERATION (9) RETURNED COUNT: 216000
+Recursive sequence - LAST ITERATION (10) RETURNED COUNT: 136000
+Recursive sequence - LAST ITERATION (11) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (12) RETURNED COUNT: 8000
+Recursive sequence - LAST ITERATION (13) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 406308 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 0 msec
+EXP: NET INSERTION TIME: 406308 msec
+TOTAL TUPLE COUNT: 3752000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 3090
+POST INSERTION TIME: 114116 msec
+TOTAL TUPLE COUNT: 5778000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 544
+# OF BASE AND MAPPING TABLES: 136
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 1926000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 1188000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>        
+>   
+> 
+> #          clear
+> #           stopUSS
+>           drop
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 1926000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 730
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 730
+>           quit

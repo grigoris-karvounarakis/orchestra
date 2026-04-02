@@ -1,0 +1,23 @@
+# Prepare statements before executing
+prepare=false
+
+# URL for DB2 server
+#db2server=jdbc:db2:SIGMOD
+sqlserver=jdbc:hsqldb:file:/cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests/hsqldb
+
+# Username
+user=sa
+
+# Password
+password=
+
+# Schema file prefix
+schema=2p1n
+
+# Workload files prefix
+workload=2p1n
+
+# Directory with workload and schema files
+workdir=/cygwin/home/gkarvoun/EclipseWorkspace/sharq/experiments/tests
+
+jdbc-driver=org.hsqldb.jdbcDriver

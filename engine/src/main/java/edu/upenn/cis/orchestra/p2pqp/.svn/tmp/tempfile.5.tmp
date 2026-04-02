@@ -1,0 +1,409 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+<<<<<<< .mine
+import java.io.IOException;
+
+=======
+>>>>>>> .r7061
+import edu.upenn.cis.orchestra.datamodel.ByteBufferReader;
+import edu.upenn.cis.orchestra.datamodel.ByteBufferWriter;
+import edu.upenn.cis.orchestra.p2pqp.bdd.BDD;
+import edu.upenn.cis.orchestra.p2pqp.bdd.BDDFactory;
+
+@SuppressWarnings({"unchecked","static-access"})
+public class AbsorptionProvenance extends TupleProvenance{ 
+	
+    private BDD absorbProv;
+    //private final Id nodeId; 
+    //private HashMap<Integer,KeyandEpoch> IK;
+	//private HashMap<KeyandEpoch, Integer> KI;
+	
+	//static private Random rnd = new Random();
+    
+	public AbsorptionProvenance(BDD absorbProv) {
+		this.absorbProv = absorbProv;
+		//this.nodeId = nodeId;
+		//this.IK = new HashMap<Integer,KeyandEpoch>(IK);
+		//this.KI = new HashMap<KeyandEpoch, Integer>(KI);
+	}
+	
+	public AbsorptionProvenance(AbsorptionProvenance that) {
+		this.absorbProv = that.absorbProv.id();
+		//this.nodeId = that.nodeId;
+		//this.IK = new HashMap<Integer,KeyandEpoch>(that.IK);
+		//this.KI = new HashMap<KeyandEpoch, Integer>(that.KI);
+	}
+	/*
+	public AbsorptionProvenance(KeyandEpoch key){
+		//this.nodeId = nodeId;
+		this.IK = new HashMap<Integer,KeyandEpoch>();
+		this.KI = new HashMap<KeyandEpoch, Integer>();
+		//int lastInt = ProvenanceTokenHashFactory.keytoBDD(key);
+		//KI.put(key, new Integer(lastInt));
+		//IK.put(new Integer(lastInt), key);
+		//this.absorbProv = ProvenanceTokenHashFactory.getBDDFactory().ithVar(lastInt);
+		//this.absorbProv = this.keytoBDD(key);
+		int lastInt = rnd.nextInt(ProvenanceTokenHashFactory.MAXVARNUM);
+		absorbProv = ProvenanceTokenHashFactory.bddFactory.ithVar(lastInt);
+
+		this.KI.put(key, new Integer(lastInt));
+		this.IK.put(new Integer(lastInt), key);
+	}*/
+	
+	public AbsorptionProvenance(KeyandEpoch key){
+		//this.IK = new HashMap<Integer,KeyandEpoch>();
+		//this.KI = new HashMap<KeyandEpoch, Integer>();
+		int lastInt = ProvenanceTokenHashFactory.keytoBDD(key);
+		//this.KI.put(key, new Integer(lastInt));
+		//this.IK.put(new Integer(lastInt), key);
+		this.absorbProv = ProvenanceTokenHashFactory.getBDDFactory().ithVar(lastInt);
+	}
+	
+	/*
+	public BDD keytoBDD(KeyandEpoch key) {
+		BDD bdd;
+		if (!KI.containsKey(key))
+		{	
+			int lastInt = KI.size();
+            lastInt++; 
+			if (lastInt >= ProvenanceTokenHashFactory.MAXVARNUM) {
+				throw new RuntimeException("Too many BDDs!");
+			}
+			bdd = ProvenanceTokenHashFactory.getBDDFactory().ithVar(lastInt);
+			KI.put(key, new Integer(lastInt));
+			IK.put(new Integer(lastInt), key);
+		}
+		else {
+			int index = KI.get(key).intValue();
+			bdd = ProvenanceTokenHashFactory.getBDDFactory().ithVar(index);
+		}
+		return bdd;
+	}*/
+	
+	
+	synchronized private BDD mergeIndices(AbsorptionProvenance second) {
+			/*
+		    HashSet<Integer> used = new HashSet<Integer>();
+		    used.addAll(KI.values());
+		    used.addAll(second.KI.values());
+		    
+			HashMap<KeyandEpoch, Integer> newKI = new HashMap<KeyandEpoch, Integer>(KI);
+			HashMap<Integer, KeyandEpoch> newIK = new HashMap<Integer, KeyandEpoch>(IK);			
+			
+			if (newKI.size() != KI.size()) {
+				System.out.println("Wrong size of newKI:"+newKI.size()+" KI:"+KI.size());
+			}
+			
+			if (this.absorbProv.isZero()) {
+				return null;
+			}
+			 
+			BDDFactory f = ProvenanceTokenHashFactory.getBDDFactory();
+
+			BDD result = second.absorbProv.id();
+			
+			if (result.isZero()) {
+				return result;
+			}
+				
+			for (KeyandEpoch key: second.KI.keySet()) {
+				if (KI.get(key) == null) {
+					Integer val = second.KI.get(key);
+					if (used.contains(val)) {
+						while (used.contains(val))
+							val = rnd.nextInt(ProvenanceTokenHashFactory.MAXVARNUM);
+						used.add(val);
+						BDD previousresult = result;
+						int oldVar = second.KI.get(key).intValue();
+						int newVar = val.intValue();
+						
+						try {
+							result = previousresult.replaceVar(oldVar, newVar); 
+						 while (result.isZero()) {
+							 result = previousresult.replaceVar(oldVar, newVar); 
+						 }
+						} catch (Exception e) {
+							e.printStackTrace();
+							System.out.println("result:"+result+" with pair:"+oldVar+":"+newVar);
+						}
+					}  
+					newKI.put(key, val);
+					newIK.put(val, key);
+				} else {
+					if (!KI.get(key).equals(second.KI.get(key))) {
+						Integer val = KI.get(key);
+						if (used.contains(val)) {
+							while (used.contains(val))
+								val = rnd.nextInt(ProvenanceTokenHashFactory.MAXVARNUM);						
+							
+							used.add(val);
+							BDD previousresult = result;
+							int oldVar = second.KI.get(key).intValue();
+							int newVar = val.intValue();
+							try {
+								result = previousresult.replaceVar(oldVar, newVar); 
+								while(result.isZero()) {
+									result = previousresult.replaceVar(oldVar, newVar); 
+								 }
+							} catch (Exception e) {
+								e.printStackTrace();
+								System.out.println("result:"+result+" with pair:"+oldVar+":"+newVar);
+							}
+
+							oldVar = this.KI.get(key).intValue();
+							newVar = val.intValue();
+							
+							BDD previousAbsorb = this.absorbProv;
+							try {
+								this.absorbProv = previousAbsorb.replaceVar(oldVar,newVar); 
+								while(this.absorbProv.isZero()) {
+									 this.absorbProv = previousAbsorb.replaceVar(oldVar,newVar); 
+								 }
+								} catch (Exception e) {
+									e.printStackTrace();
+									System.out.println("this absorbProv:"+this.absorbProv+" with pair:"+oldVar+":"+newVar);
+								}
+
+							newIK.remove(newKI.get(key));
+							newKI.put(key, val);
+							newIK.put(val, key);
+						} else {
+							int oldVar = second.KI.get(key).intValue();
+							int newVar = val.intValue();
+							
+							used.add(val);
+							BDD previousresult = result;
+							try {
+								result = previousresult.replaceVar(oldVar, newVar); 
+								while(result.isZero()) {
+									 result = previousresult.replaceVar(oldVar, newVar); 
+								 }
+							} catch (Exception e) {
+								e.printStackTrace();
+								System.out.println("result:"+result+" with pair:"+oldVar+":"+newVar);
+							}
+						}
+					}
+				}
+			}
+		
+			this.KI = newKI; 
+			this.IK = newIK;
+			
+			this.sanityCheck();
+			
+			
+			if (result == null) {
+				throw new RuntimeException("This absorbProv is zero!");
+			}
+			return result;
+			*/
+		return second.absorbProv;
+			
+	}
+
+	public byte[] getBytes() {
+		ByteBufferWriter bbw = new ByteBufferWriter();
+
+        if (this.absorbProv == null) {
+        	throw new RuntimeException("Wrong absorption Provenance!");
+        }
+        
+        if (this.absorbProv.isZero()) {
+        	throw new RuntimeException("Absorption Provenance cannot be zero!");
+        }
+        
+        BDDFactory f = ProvenanceTokenHashFactory.getBDDFactory();
+        try {
+        	f.save(bbw, this.absorbProv);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	System.out.println("Wrong absorption Provenance getting bytes from BDD"+this.absorbProv+"!");
+        	throw new RuntimeException("Wrong absorption Provenance getting bytes from BDD"+this.absorbProv+"!");
+        }
+
+		/*
+        Set<KeyandEpoch> keySet = KI.keySet();
+        bbw.addToBuffer(keySet.size());
+        for (KeyandEpoch key: keySet) {
+        	Integer value = KI.get(key);
+        	bbw.addToBuffer(key.getEpoch());
+        	bbw.addToBuffer(key.getKey());
+        	bbw.addToBuffer(value.intValue());
+        }
+        */
+		return bbw.getByteArray();
+		
+	}
+	
+	public static AbsorptionProvenance fromBytes(byte[] bytes) {
+		ByteBufferReader bbr = new ByteBufferReader(null, bytes);
+		BDDFactory f = ProvenanceTokenHashFactory.getBDDFactory();
+		BDD result = null;
+		try {
+		 result = f.load(bbr);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		/*
+        HashMap<KeyandEpoch, Integer> newKI = new HashMap<KeyandEpoch, Integer>();
+        HashMap<Integer,KeyandEpoch> newIK = new HashMap<Integer,KeyandEpoch>();
+		
+        int keyNum = bbr.readInt();
+		for (int i=0; i< keyNum; i++) {
+			int epoch = bbr.readInt();
+			byte[] key = bbr.readByteArray();
+			int value = bbr.readInt();
+			newKI.put(new KeyandEpoch(key, epoch), new Integer(value));
+			newIK.put(new Integer(value),new KeyandEpoch(key, epoch));	
+		}*/
+		
+		AbsorptionProvenance ret = new AbsorptionProvenance(result);
+		return ret;
+	}
+
+	public AbsorptionProvenance derive(int op) {
+		AbsorptionProvenance ret = copy();
+		ret.setCreator(op);
+		return ret;
+	}
+	
+	public synchronized AbsorptionProvenance joinWith(TupleProvenance r_2) {
+		AbsorptionProvenance ret = copy();
+		if (!(r_2 instanceof AbsorptionProvenance))
+			return null;
+		AbsorptionProvenance r2 = (AbsorptionProvenance)r_2;
+		BDD newr2BDD = ret.mergeIndices(r2); 
+		try {
+			BDD retOld = ret.absorbProv;
+			ret.absorbProv = retOld.and(newr2BDD);
+		} catch(Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("Wrong join of this abosrbProv:"+ret.absorbProv+"and that absorbprov:"+
+					newr2BDD);
+		}
+		return ret;
+	}
+	
+	public synchronized AbsorptionProvenance unionWith(TupleProvenance r_2) {
+		AbsorptionProvenance ret = copy();
+		if (!(r_2 instanceof AbsorptionProvenance))
+			return null;
+		AbsorptionProvenance r2 = (AbsorptionProvenance)r_2;
+		//BDD newr2BDD = ret.mergeIndices(r2);
+		try {
+			// Most expensive one
+			ret.absorbProv = this.absorbProv.or(r2.absorbProv);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ret;
+	}
+	
+	// return this - r_2
+	public synchronized TupleProvenance differenceWith(TupleProvenance r_2){
+		/*
+		AbsorptionProvenance ret = copy();
+		if (!(r_2 instanceof AbsorptionProvenance))
+			return null;
+		AbsorptionProvenance r2 = (AbsorptionProvenance)r_2;
+		AbsorptionProvenance newr2 = ret.mergeIndices(r2);
+		ret.absorbProv = ret.absorbProv.and(newr2.absorbProv.not());
+		return ret;
+		*/
+		return setZero(r_2);
+    }
+	
+	public synchronized AbsorptionProvenance setZero(TupleProvenance r_2){
+		AbsorptionProvenance ret = copy();
+		if (!(r_2 instanceof AbsorptionProvenance))
+			return null;
+		
+		AbsorptionProvenance r2 = (AbsorptionProvenance)r_2;
+		//BDD newr2BDD = ret.mergeIndices(r2);
+		// Most expensive one
+		BDD r = r2.absorbProv.not();
+		ret.absorbProv = this.absorbProv.restrict(r);
+		return ret;
+	}
+	
+	// return true if this > r_2
+    public synchronized boolean contains(TupleProvenance r_2){
+    	if (!(r_2 instanceof AbsorptionProvenance))
+			return false;
+	    AbsorptionProvenance r2 = (AbsorptionProvenance)r_2;
+    	BDD first = this.absorbProv; 
+        BDD second = r2.absorbProv;
+        // Most expensive one
+        BDD r = first.not();
+        BDD third = second.restrict(r);
+		      	
+        if (third.isZero()) {
+        	return true;
+        }
+        return false;
+    }
+    
+    public synchronized AbsorptionProvenance find(TupleProvenance r_2){
+    	AbsorptionProvenance ret = copy();
+    	if (!(r_2 instanceof AbsorptionProvenance))
+			return null;
+    	AbsorptionProvenance r2 = (AbsorptionProvenance)r_2;
+        ret.absorbProv = r2.absorbProv;
+        return ret;
+    }
+ 
+    
+	public synchronized AbsorptionProvenance copy() {
+		AbsorptionProvenance ret = new AbsorptionProvenance(this);
+		return ret;
+	}
+	
+	public synchronized boolean equalProvenance(TupleProvenance r_2) {
+		//return this.contains(r_2) && r_2.contains(this);
+		
+		
+		if (!(r_2 instanceof AbsorptionProvenance))
+			return false;
+    	AbsorptionProvenance r2 = (AbsorptionProvenance)r_2;
+    	
+    	/*
+    	if (this.absorbProv.equals(r2.absorbProv)) {
+    		return true;
+    	}
+    	*/
+
+    	if (this.absorbProv.simplify(r2.absorbProv).equals(r2.absorbProv)) {
+    		return true;
+    	}
+    	if (r2.absorbProv.simplify(this.absorbProv).equals(this.absorbProv)) {
+    		return true;
+    	}
+		return false;
+		
+	}
+
+	public String toString() {
+		//return absorbProv.high().toString();
+		return absorbProv.toString();
+	}
+	
+	public int size(){
+		return absorbProv.nodeCount();
+	}
+	
+	/** @deprecated */
+	public int getID() {
+		return absorbProv.hashCode();
+	}
+	
+	public boolean isZero() {
+		return absorbProv == null || absorbProv.isZero();
+	}
+
+	public boolean isOne() {
+		return absorbProv != null && absorbProv.isOne();
+	}
+
+}

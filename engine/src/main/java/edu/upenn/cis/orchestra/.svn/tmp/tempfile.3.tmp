@@ -1,0 +1,213 @@
+package edu.upenn.cis.orchestra;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.security.InvalidParameterException;
+import java.util.Enumeration;
+import java.util.Properties;
+
+
+public class Config {
+	//
+	// Config manages and provides access to a list of properties
+	// determining the system's runtime configuration.  These 
+	// properties can be specified in three ways:
+	//
+	// (1) in the global.properties file in edu.upenn.cis.orchestra
+	// (2) in the local.properties file in edu.upenn.cis.orchestra
+	// (3) as command-line arguments of the form -key=value
+	//
+	// These are in order of increasing precedence (command-line 
+	// arguments have highest precedence, global.properties lowest). 
+	protected static Properties s_props = new Properties();
+
+	static {
+		InputStream global = Config.class.getResourceAsStream("global.properties");
+		InputStream local = Config.class.getResourceAsStream("local.properties");
+		if (global != null) {
+			try { s_props.load(global); } catch (IOException e) { assert(false); }
+		}
+		if (local != null) {
+			try { s_props.load(local); } catch (IOException e) { assert(false); }
+		}
+		initVars();
+	}
+
+	public static boolean getBoolean(String name) {
+		return Boolean.parseBoolean(getString(name));
+	}
+	
+	public static int getInteger(String name) {
+		return Integer.parseInt(getString(name));
+	}
+
+	public static String getString(String name) {
+		return s_props.getProperty(name);
+	}
+	
+	public static void parseConfigFile() {
+		initVars();
+	}
+	
+	public static void parseCommandLine(String[] args) {
+		for (int i = 0; i < args.length; i++) {
+			int index = args[i].indexOf("=");
+			if (args[i].startsWith("-") && index != -1) {
+				String name = args[i].substring(1, index);
+				String value = args[i].substring(index+1);
+				s_props.put(name, value);
+			} else {
+				throw new InvalidParameterException("Invalid command-line argument: " + args[i]);
+			}
+		}
+		initVars();
+	}
+
+	public static void dumpParams(PrintStream out) {
+		out.println("PARAMETERS:");
+		for (Enumeration e = s_props.keys(); e.hasMoreElements(); ) {
+			Object key = e.nextElement();
+			out.println(key + "=" + s_props.get(key));
+		}
+	}
+
+	public static void setParam(String key, String value) {
+		s_props.setProperty(key, value);
+		initVars();
+	}
+
+	protected static void initVars() {
+		DRIVER = getString("jdbc-driver");
+		DO_PREPARE = getBoolean("prepare");
+		DO_APPLY = getBoolean("apply");
+		DO_MIGRATE = getBoolean("migrate");
+		DO_OUTER_UNION = getBoolean("outerunion");
+		DO_INSERT = getBoolean("insert");
+		DO_DELETE = getBoolean("delete");
+		DO_RESET = getBoolean("reset");
+		DO_NON_INCREMENTAL = !getBoolean("incremental");
+		DO_AUTOCOMMIT = getBoolean("autocommit");
+		DO_DEBUG = getBoolean("debug");
+		DO_BATCH = getBoolean("batch");
+		DO_UNION = getBoolean("union");
+		DO_DRED = getBoolean("dred");
+		DO_STRATIFIED = getBoolean("stratified");
+		
+		FULL_TEST_NAME = getString("workload");
+		TEST_SCHEMA_NAME = getString("schema");
+		SCHEMAFILE = "file://" + getString("workdir") + "/" + TEST_SCHEMA_NAME + ".schema";
+		INDEX_ALL_FIELDS = getBoolean("indexall");
+		EST_TABLE_SIZE = getInteger("tablesize");
+		FULL_DEBUG = getBoolean("fulldebug");
+		UDF_HOME = getString("udfhome");
+
+		SQLSERVER = getString("sqlserver");
+		if(SQLSERVER == null)
+			SQLSERVER = getString("db2server");
+
+		USER = getString("user");
+
+		if(USER == null)
+			USER = getString("db2user");
+
+		PASSWORD = getString("password");
+		if(PASSWORD == null)
+			PASSWORD = getString("db2pwd");
+
+		DO_SET = getBoolean("setsemantics");
+		DBNAME = getString("dbname");
+		CYGWINHOME = getString("cygwinhome");
+		USEXMLFORMAT = getBoolean("xmlformat");
+	}
+	
+	public static boolean isDB2() {
+		return DRIVER.contains("db2");
+	}
+	
+	public static boolean isOracle() {
+		return DRIVER.contains("oracle");
+	}
+
+	public static boolean isHsql() {
+		return DRIVER.contains("db2");
+	}
+	
+	/** Prepare statements before executing
+	 */
+	public static boolean DO_PREPARE;
+
+	/** Apply SQL to DBMS
+	 */
+	public static boolean DO_APPLY;
+
+	/** Create outer unions, versus individual
+	 * mapping relations
+	 */
+	public static boolean DO_OUTER_UNION;
+
+	/** Create insertion rules */
+	public static boolean DO_INSERT;
+
+	/** Create deletion rules */
+	public static boolean DO_DELETE;
+
+	/** Reset the tables at the end */
+	public static boolean DO_RESET;
+
+	/** 
+	 * Don't do incremental maintenance -- instead
+	 * simply recompute.  Disables DO_INSERT, DO_DELETE.
+	 */
+	public static boolean DO_NON_INCREMENTAL;
+
+	/** Autocommit  */
+	public static boolean DO_AUTOCOMMIT;
+
+	/** Debug  */
+	public static boolean DO_DEBUG;
+
+	/** Put multiple queries in one batch */
+	public static boolean DO_BATCH;
+
+	/** Put rules with the same body in one union query */
+	public static boolean DO_UNION;
+
+//	public static String TEST_SCHEMA_NAME = "inv";
+//	public static String FULL_TEST_NAME = "inv";
+
+//	public static String TEST_SCHEMA_NAME = "tc";
+//	public static String FULL_TEST_NAME = "tc";
+
+//	public static String TEST_SCHEMA_NAME = "def-schema";
+//	public static String FULL_TEST_NAME = "def-schema-1ins-1del";
+
+	public static String TEST_SCHEMA_NAME;
+	public static String FULL_TEST_NAME;  
+
+	public static String SCHEMAFILE;
+
+//	Don't remember what exactly false means ... maybe not to include labeled nulls in index?
+	public static boolean INDEX_ALL_FIELDS;
+
+	public static Integer EST_TABLE_SIZE;
+
+	/** If in debug mode, output verbose debug messages */
+	public static boolean FULL_DEBUG;
+	
+	public static String DRIVER;
+	public static String USER;
+	public static String PASSWORD;
+	public static String SQLSERVER;
+	public static String DBNAME;
+	public static boolean DO_SET;
+	public static boolean DO_DRED;
+	public static boolean DO_STRATIFIED;
+	public static boolean DO_RECOMPUTE_QUERIES = false;
+	public static boolean DO_APPLY_UPDATES_TO_BASE = true;
+	public static boolean DO_MIGRATE;
+	public static boolean USEXMLFORMAT;
+	public static String CYGWINHOME;
+	
+	public static String UDF_HOME;
+}

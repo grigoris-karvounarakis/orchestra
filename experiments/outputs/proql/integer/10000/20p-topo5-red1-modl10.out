@@ -1,0 +1,3434 @@
+#PEERS:  20p-topo5-red1-modl10
+===========
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/orchestraScripts/proql/integer/10000/test-20p-topo5-red1-modl10
+> 
+>         set apply=true
+EXP: =========================================
+EXP:apply=true
+EXP: =========================================
+>         set batch=false
+EXP: =========================================
+EXP:batch=false
+EXP: =========================================
+>         set incremental=true
+EXP: =========================================
+EXP:incremental=true
+EXP: =========================================
+>         set debug=false
+EXP: =========================================
+EXP:debug=false
+EXP: =========================================
+>         set wideprov=true
+EXP: =========================================
+EXP:wideprov=true
+EXP: =========================================
+>         set autocommit=false
+EXP: =========================================
+EXP:autocommit=false
+EXP: =========================================
+>         set prepare=true
+EXP: =========================================
+EXP:prepare=true
+EXP: =========================================
+>         set union=false
+EXP: =========================================
+EXP:union=false
+EXP: =========================================
+>         set indexall=true
+EXP: =========================================
+EXP:indexall=true
+EXP: =========================================
+>       set rejectionTables=false
+EXP: =========================================
+EXP:rejectionTables=false
+EXP: =========================================
+>         set stratified=true
+EXP: =========================================
+EXP:stratified=true
+EXP: =========================================
+> 
+>         set workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/
+EXP: =========================================
+EXP:workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/
+EXP: =========================================
+>         set schema=20p-topo5-red1-modl10
+EXP: =========================================
+EXP:schema=20p-topo5-red1-modl10
+EXP: =========================================
+>         set skipFakeMappings=true
+EXP: =========================================
+EXP:skipFakeMappings=true
+EXP: =========================================
+>         set queryCutoff=5000000
+EXP: =========================================
+EXP:queryCutoff=5000000
+EXP: =========================================
+>         set transactionCutoff=500000000
+EXP: =========================================
+EXP:transactionCutoff=500000000
+EXP: =========================================
+> #            set queryCutoff=500
+> #            set transactionCutoff=50000
+>         set runStatistics=false
+EXP: =========================================
+EXP:runStatistics=false
+EXP: =========================================
+> 
+>         startUSS
+*******deserializing catalog********
+Unable to find schema map 20p-topo5-red1-modl10
+Successfully verified schema 20p-topo5-red1-modl10
+>         create-noscript
++++ Initialization +++
+EXP: INIT TIME: 905 msec
+>         migrate
+* Adding non-temp table orchestra.P0_S0_R0_NEW
+* Adding non-temp table orchestra.P0_S0_R0_INS
+* Adding non-temp table orchestra.P0_S0_R0_DEL
+* Adding non-temp table orchestra.P0_S0_R0_RCH
+* Adding non-temp table orchestra.P0_S0_R0_INV
+* Adding non-temp table orchestra.P0_S0_R1_NEW
+* Adding non-temp table orchestra.P0_S0_R1_INS
+* Adding non-temp table orchestra.P0_S0_R1_DEL
+* Adding non-temp table orchestra.P0_S0_R1_RCH
+* Adding non-temp table orchestra.P0_S0_R1_INV
+* Adding non-temp table orchestra.P1_S1_R0_NEW
+* Adding non-temp table orchestra.P1_S1_R0_INS
+* Adding non-temp table orchestra.P1_S1_R0_DEL
+* Adding non-temp table orchestra.P1_S1_R0_RCH
+* Adding non-temp table orchestra.P1_S1_R0_INV
+* Adding non-temp table orchestra.P1_S1_R1_NEW
+* Adding non-temp table orchestra.P1_S1_R1_INS
+* Adding non-temp table orchestra.P1_S1_R1_DEL
+* Adding non-temp table orchestra.P1_S1_R1_RCH
+* Adding non-temp table orchestra.P1_S1_R1_INV
+* Adding non-temp table orchestra.P10_S10_R0_NEW
+* Adding non-temp table orchestra.P10_S10_R0_INS
+* Adding non-temp table orchestra.P10_S10_R0_DEL
+* Adding non-temp table orchestra.P10_S10_R0_RCH
+* Adding non-temp table orchestra.P10_S10_R0_INV
+* Adding non-temp table orchestra.P10_S10_R1_NEW
+* Adding non-temp table orchestra.P10_S10_R1_INS
+* Adding non-temp table orchestra.P10_S10_R1_DEL
+* Adding non-temp table orchestra.P10_S10_R1_RCH
+* Adding non-temp table orchestra.P10_S10_R1_INV
+* Adding non-temp table orchestra.P11_S11_R0_NEW
+* Adding non-temp table orchestra.P11_S11_R0_INS
+* Adding non-temp table orchestra.P11_S11_R0_DEL
+* Adding non-temp table orchestra.P11_S11_R0_RCH
+* Adding non-temp table orchestra.P11_S11_R0_INV
+* Adding non-temp table orchestra.P11_S11_R1_NEW
+* Adding non-temp table orchestra.P11_S11_R1_INS
+* Adding non-temp table orchestra.P11_S11_R1_DEL
+* Adding non-temp table orchestra.P11_S11_R1_RCH
+* Adding non-temp table orchestra.P11_S11_R1_INV
+* Adding non-temp table orchestra.P12_S12_R0_NEW
+* Adding non-temp table orchestra.P12_S12_R0_INS
+* Adding non-temp table orchestra.P12_S12_R0_DEL
+* Adding non-temp table orchestra.P12_S12_R0_RCH
+* Adding non-temp table orchestra.P12_S12_R0_INV
+* Adding non-temp table orchestra.P12_S12_R1_NEW
+* Adding non-temp table orchestra.P12_S12_R1_INS
+* Adding non-temp table orchestra.P12_S12_R1_DEL
+* Adding non-temp table orchestra.P12_S12_R1_RCH
+* Adding non-temp table orchestra.P12_S12_R1_INV
+* Adding non-temp table orchestra.P12_S12_R0_L_NEW
+* Adding non-temp table orchestra.P12_S12_R0_L_INS
+* Adding non-temp table orchestra.P12_S12_R0_L_DEL
+* Adding non-temp table orchestra.P12_S12_R0_L_INV
+* Adding non-temp table orchestra.P12_S12_R1_L_NEW
+* Adding non-temp table orchestra.P12_S12_R1_L_INS
+* Adding non-temp table orchestra.P12_S12_R1_L_DEL
+* Adding non-temp table orchestra.P12_S12_R1_L_INV
+* Adding non-temp table orchestra.P13_S13_R0_NEW
+* Adding non-temp table orchestra.P13_S13_R0_INS
+* Adding non-temp table orchestra.P13_S13_R0_DEL
+* Adding non-temp table orchestra.P13_S13_R0_RCH
+* Adding non-temp table orchestra.P13_S13_R0_INV
+* Adding non-temp table orchestra.P13_S13_R1_NEW
+* Adding non-temp table orchestra.P13_S13_R1_INS
+* Adding non-temp table orchestra.P13_S13_R1_DEL
+* Adding non-temp table orchestra.P13_S13_R1_RCH
+* Adding non-temp table orchestra.P13_S13_R1_INV
+* Adding non-temp table orchestra.P14_S14_R0_NEW
+* Adding non-temp table orchestra.P14_S14_R0_INS
+* Adding non-temp table orchestra.P14_S14_R0_DEL
+* Adding non-temp table orchestra.P14_S14_R0_RCH
+* Adding non-temp table orchestra.P14_S14_R0_INV
+* Adding non-temp table orchestra.P14_S14_R1_NEW
+* Adding non-temp table orchestra.P14_S14_R1_INS
+* Adding non-temp table orchestra.P14_S14_R1_DEL
+* Adding non-temp table orchestra.P14_S14_R1_RCH
+* Adding non-temp table orchestra.P14_S14_R1_INV
+* Adding non-temp table orchestra.P15_S15_R0_NEW
+* Adding non-temp table orchestra.P15_S15_R0_INS
+* Adding non-temp table orchestra.P15_S15_R0_DEL
+* Adding non-temp table orchestra.P15_S15_R0_RCH
+* Adding non-temp table orchestra.P15_S15_R0_INV
+* Adding non-temp table orchestra.P15_S15_R1_NEW
+* Adding non-temp table orchestra.P15_S15_R1_INS
+* Adding non-temp table orchestra.P15_S15_R1_DEL
+* Adding non-temp table orchestra.P15_S15_R1_RCH
+* Adding non-temp table orchestra.P15_S15_R1_INV
+* Adding non-temp table orchestra.P16_S16_R0_NEW
+* Adding non-temp table orchestra.P16_S16_R0_INS
+* Adding non-temp table orchestra.P16_S16_R0_DEL
+* Adding non-temp table orchestra.P16_S16_R0_RCH
+* Adding non-temp table orchestra.P16_S16_R0_INV
+* Adding non-temp table orchestra.P16_S16_R1_NEW
+* Adding non-temp table orchestra.P16_S16_R1_INS
+* Adding non-temp table orchestra.P16_S16_R1_DEL
+* Adding non-temp table orchestra.P16_S16_R1_RCH
+* Adding non-temp table orchestra.P16_S16_R1_INV
+* Adding non-temp table orchestra.P17_S17_R0_NEW
+* Adding non-temp table orchestra.P17_S17_R0_INS
+* Adding non-temp table orchestra.P17_S17_R0_DEL
+* Adding non-temp table orchestra.P17_S17_R0_RCH
+* Adding non-temp table orchestra.P17_S17_R0_INV
+* Adding non-temp table orchestra.P17_S17_R1_NEW
+* Adding non-temp table orchestra.P17_S17_R1_INS
+* Adding non-temp table orchestra.P17_S17_R1_DEL
+* Adding non-temp table orchestra.P17_S17_R1_RCH
+* Adding non-temp table orchestra.P17_S17_R1_INV
+* Adding non-temp table orchestra.P18_S18_R0_NEW
+* Adding non-temp table orchestra.P18_S18_R0_INS
+* Adding non-temp table orchestra.P18_S18_R0_DEL
+* Adding non-temp table orchestra.P18_S18_R0_RCH
+* Adding non-temp table orchestra.P18_S18_R0_INV
+* Adding non-temp table orchestra.P18_S18_R1_NEW
+* Adding non-temp table orchestra.P18_S18_R1_INS
+* Adding non-temp table orchestra.P18_S18_R1_DEL
+* Adding non-temp table orchestra.P18_S18_R1_RCH
+* Adding non-temp table orchestra.P18_S18_R1_INV
+* Adding non-temp table orchestra.P19_S19_R0_NEW
+* Adding non-temp table orchestra.P19_S19_R0_INS
+* Adding non-temp table orchestra.P19_S19_R0_DEL
+* Adding non-temp table orchestra.P19_S19_R0_RCH
+* Adding non-temp table orchestra.P19_S19_R0_INV
+* Adding non-temp table orchestra.P19_S19_R1_NEW
+* Adding non-temp table orchestra.P19_S19_R1_INS
+* Adding non-temp table orchestra.P19_S19_R1_DEL
+* Adding non-temp table orchestra.P19_S19_R1_RCH
+* Adding non-temp table orchestra.P19_S19_R1_INV
+* Adding non-temp table orchestra.P19_S19_R0_L_NEW
+* Adding non-temp table orchestra.P19_S19_R0_L_INS
+* Adding non-temp table orchestra.P19_S19_R0_L_DEL
+* Adding non-temp table orchestra.P19_S19_R0_L_INV
+* Adding non-temp table orchestra.P19_S19_R1_L_NEW
+* Adding non-temp table orchestra.P19_S19_R1_L_INS
+* Adding non-temp table orchestra.P19_S19_R1_L_DEL
+* Adding non-temp table orchestra.P19_S19_R1_L_INV
+* Adding non-temp table orchestra.P2_S2_R0_NEW
+* Adding non-temp table orchestra.P2_S2_R0_INS
+* Adding non-temp table orchestra.P2_S2_R0_DEL
+* Adding non-temp table orchestra.P2_S2_R0_RCH
+* Adding non-temp table orchestra.P2_S2_R0_INV
+* Adding non-temp table orchestra.P2_S2_R1_NEW
+* Adding non-temp table orchestra.P2_S2_R1_INS
+* Adding non-temp table orchestra.P2_S2_R1_DEL
+* Adding non-temp table orchestra.P2_S2_R1_RCH
+* Adding non-temp table orchestra.P2_S2_R1_INV
+* Adding non-temp table orchestra.P3_S3_R0_NEW
+* Adding non-temp table orchestra.P3_S3_R0_INS
+* Adding non-temp table orchestra.P3_S3_R0_DEL
+* Adding non-temp table orchestra.P3_S3_R0_RCH
+* Adding non-temp table orchestra.P3_S3_R0_INV
+* Adding non-temp table orchestra.P3_S3_R1_NEW
+* Adding non-temp table orchestra.P3_S3_R1_INS
+* Adding non-temp table orchestra.P3_S3_R1_DEL
+* Adding non-temp table orchestra.P3_S3_R1_RCH
+* Adding non-temp table orchestra.P3_S3_R1_INV
+* Adding non-temp table orchestra.P4_S4_R0_NEW
+* Adding non-temp table orchestra.P4_S4_R0_INS
+* Adding non-temp table orchestra.P4_S4_R0_DEL
+* Adding non-temp table orchestra.P4_S4_R0_RCH
+* Adding non-temp table orchestra.P4_S4_R0_INV
+* Adding non-temp table orchestra.P4_S4_R1_NEW
+* Adding non-temp table orchestra.P4_S4_R1_INS
+* Adding non-temp table orchestra.P4_S4_R1_DEL
+* Adding non-temp table orchestra.P4_S4_R1_RCH
+* Adding non-temp table orchestra.P4_S4_R1_INV
+* Adding non-temp table orchestra.P5_S5_R0_NEW
+* Adding non-temp table orchestra.P5_S5_R0_INS
+* Adding non-temp table orchestra.P5_S5_R0_DEL
+* Adding non-temp table orchestra.P5_S5_R0_RCH
+* Adding non-temp table orchestra.P5_S5_R0_INV
+* Adding non-temp table orchestra.P5_S5_R1_NEW
+* Adding non-temp table orchestra.P5_S5_R1_INS
+* Adding non-temp table orchestra.P5_S5_R1_DEL
+* Adding non-temp table orchestra.P5_S5_R1_RCH
+* Adding non-temp table orchestra.P5_S5_R1_INV
+* Adding non-temp table orchestra.P6_S6_R0_NEW
+* Adding non-temp table orchestra.P6_S6_R0_INS
+* Adding non-temp table orchestra.P6_S6_R0_DEL
+* Adding non-temp table orchestra.P6_S6_R0_RCH
+* Adding non-temp table orchestra.P6_S6_R0_INV
+* Adding non-temp table orchestra.P6_S6_R1_NEW
+* Adding non-temp table orchestra.P6_S6_R1_INS
+* Adding non-temp table orchestra.P6_S6_R1_DEL
+* Adding non-temp table orchestra.P6_S6_R1_RCH
+* Adding non-temp table orchestra.P6_S6_R1_INV
+* Adding non-temp table orchestra.P6_S6_R0_L_NEW
+* Adding non-temp table orchestra.P6_S6_R0_L_INS
+* Adding non-temp table orchestra.P6_S6_R0_L_DEL
+* Adding non-temp table orchestra.P6_S6_R0_L_INV
+* Adding non-temp table orchestra.P6_S6_R1_L_NEW
+* Adding non-temp table orchestra.P6_S6_R1_L_INS
+* Adding non-temp table orchestra.P6_S6_R1_L_DEL
+* Adding non-temp table orchestra.P6_S6_R1_L_INV
+* Adding non-temp table orchestra.P7_S7_R0_NEW
+* Adding non-temp table orchestra.P7_S7_R0_INS
+* Adding non-temp table orchestra.P7_S7_R0_DEL
+* Adding non-temp table orchestra.P7_S7_R0_RCH
+* Adding non-temp table orchestra.P7_S7_R0_INV
+* Adding non-temp table orchestra.P7_S7_R1_NEW
+* Adding non-temp table orchestra.P7_S7_R1_INS
+* Adding non-temp table orchestra.P7_S7_R1_DEL
+* Adding non-temp table orchestra.P7_S7_R1_RCH
+* Adding non-temp table orchestra.P7_S7_R1_INV
+* Adding non-temp table orchestra.P8_S8_R0_NEW
+* Adding non-temp table orchestra.P8_S8_R0_INS
+* Adding non-temp table orchestra.P8_S8_R0_DEL
+* Adding non-temp table orchestra.P8_S8_R0_RCH
+* Adding non-temp table orchestra.P8_S8_R0_INV
+* Adding non-temp table orchestra.P8_S8_R1_NEW
+* Adding non-temp table orchestra.P8_S8_R1_INS
+* Adding non-temp table orchestra.P8_S8_R1_DEL
+* Adding non-temp table orchestra.P8_S8_R1_RCH
+* Adding non-temp table orchestra.P8_S8_R1_INV
+* Adding non-temp table orchestra.P9_S9_R0_NEW
+* Adding non-temp table orchestra.P9_S9_R0_INS
+* Adding non-temp table orchestra.P9_S9_R0_DEL
+* Adding non-temp table orchestra.P9_S9_R0_RCH
+* Adding non-temp table orchestra.P9_S9_R0_INV
+* Adding non-temp table orchestra.P9_S9_R1_NEW
+* Adding non-temp table orchestra.P9_S9_R1_INS
+* Adding non-temp table orchestra.P9_S9_R1_DEL
+* Adding non-temp table orchestra.P9_S9_R1_RCH
+* Adding non-temp table orchestra.P9_S9_R1_INV
++++ Migration +++
+EXP: MIGRATE ORIG RELATIONS TIME: 6817 msec
+EXP: MIGRATE PROVENANCE RELATIONS TIME: 2746 msec
+EXP: TOTAL MIGRATE TIME: 10062 msec
+> 
+>         set workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/20p-topo5-red1-modl10
+EXP: =========================================
+EXP:workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/20p-topo5-red1-modl10
+EXP: =========================================
+>   
+> 
+>          # Compute initial
+>          set delete=false
+EXP: =========================================
+EXP:delete=false
+EXP: =========================================
+>          set insert=true
+EXP: =========================================
+EXP:insert=true
+EXP: =========================================
+>          set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>          set applybaseIns=true
+EXP: =========================================
+EXP:applybaseIns=true
+EXP: =========================================
+>          generateDeltaRules
+NET: Cleanup prepared statements
+>      
+>          import-bulk D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/20p-topo5-red1-modl10/20p-topo5-red1-modl10
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/20p-topo5-red1-modl10/20p-topo5-red1-modl10.delete
+Process returned non-zero value:8
+Process output:
+DB21005E  An error occurred while accessing the file "".
+
+Process error:
+
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/10000/20p-topo5-red1-modl10/20p-topo5-red1-modl10.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 10000
+Number of rows skipped      = 0
+Number of rows inserted     = 10000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 10000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 5070 msec
+0 tuples imported into orchestra.P6_S6_R0_L_DEL
+10000 tuples imported into orchestra.P6_S6_R0_L_INS
+0 tuples imported into orchestra.P6_S6_R1_L_DEL
+10000 tuples imported into orchestra.P6_S6_R1_L_INS
+0 tuples imported into orchestra.P19_S19_R1_L_DEL
+10000 tuples imported into orchestra.P19_S19_R1_L_INS
+0 tuples imported into orchestra.P19_S19_R0_L_DEL
+10000 tuples imported into orchestra.P19_S19_R0_L_INS
+0 tuples imported into orchestra.P12_S12_R1_L_DEL
+10000 tuples imported into orchestra.P12_S12_R1_L_INS
+0 tuples imported into orchestra.P12_S12_R0_L_DEL
+10000 tuples imported into orchestra.P12_S12_R0_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 65
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 124 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 65
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 180000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 180000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 180000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 180000
+Recursive sequence - LAST ITERATION (6) RETURNED COUNT: 180000
+Recursive sequence - LAST ITERATION (7) RETURNED COUNT: 180000
+Recursive sequence - LAST ITERATION (8) RETURNED COUNT: 120000
+Recursive sequence - LAST ITERATION (9) RETURNED COUNT: 120000
+Recursive sequence - LAST ITERATION (10) RETURNED COUNT: 120000
+Recursive sequence - LAST ITERATION (11) RETURNED COUNT: 120000
+Recursive sequence - LAST ITERATION (12) RETURNED COUNT: 120000
+Recursive sequence - LAST ITERATION (13) RETURNED COUNT: 120000
+Recursive sequence - LAST ITERATION (14) RETURNED COUNT: 60000
+Recursive sequence - LAST ITERATION (15) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 30436 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 0 msec
+EXP: NET INSERTION TIME: 30436 msec
+TOTAL TUPLE COUNT: 2040000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 2009
+POST INSERTION TIME: 12683 msec
+TOTAL TUPLE COUNT: 3150000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 260
+# OF BASE AND MAPPING TABLES: 65
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 1050000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 740000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+> 				 runStats
+>   
+> #proqlBFS [P0.S0.P0_S0_R0] *- []
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 172 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 406 msec
+Rule has 8 body atoms
+Query size (bytes): 4854
+TIME WITHOUT AGGREGATE: 30016 msec
+Rule has 16 body atoms
+Query size (bytes): 9119
+TIME WITHOUT AGGREGATE: 3682 msec
+Rule has 23 body atoms
+Query size (bytes): 12296
+TIME WITHOUT AGGREGATE: 6958 msec
+Rule has 25 body atoms
+Query size (bytes): 13385
+TIME WITHOUT AGGREGATE: 9001 msec
+Rule has 25 body atoms
+Query size (bytes): 13472
+TIME WITHOUT AGGREGATE: 8143 msec
+Rule has 24 body atoms
+Query size (bytes): 12742
+TIME WITHOUT AGGREGATE: 8175 msec
+Rule has 23 body atoms
+Query size (bytes): 11988
+TIME WITHOUT AGGREGATE: 6615 msec
+Rule has 25 body atoms
+Query size (bytes): 13077
+TIME WITHOUT AGGREGATE: 7769 msec
+Rule has 25 body atoms
+Query size (bytes): 13164
+TIME WITHOUT AGGREGATE: 7847 msec
+Rule has 24 body atoms
+Query size (bytes): 12386
+TIME WITHOUT AGGREGATE: 7722 msec
+Rule has 15 body atoms
+Query size (bytes): 8530
+TIME WITHOUT AGGREGATE: 2449 msec
+Rule has 17 body atoms
+Query size (bytes): 9615
+TIME WITHOUT AGGREGATE: 4368 msec
+Rule has 17 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 4290 msec
+Rule has 16 body atoms
+Query size (bytes): 9041
+TIME WITHOUT AGGREGATE: 4072 msec
+Rule has 16 body atoms
+Query size (bytes): 8796
+TIME WITHOUT AGGREGATE: 2667 msec
+Rule has 23 body atoms
+Query size (bytes): 11737
+TIME WITHOUT AGGREGATE: 5616 msec
+Rule has 25 body atoms
+Query size (bytes): 12826
+TIME WITHOUT AGGREGATE: 7145 msec
+Rule has 25 body atoms
+Query size (bytes): 12913
+TIME WITHOUT AGGREGATE: 6724 msec
+Rule has 24 body atoms
+Query size (bytes): 12136
+TIME WITHOUT AGGREGATE: 6583 msec
+Rule has 23 body atoms
+Query size (bytes): 12153
+TIME WITHOUT AGGREGATE: 6396 msec
+Rule has 25 body atoms
+Query size (bytes): 13242
+TIME WITHOUT AGGREGATE: 7566 msec
+Rule has 25 body atoms
+Query size (bytes): 13329
+TIME WITHOUT AGGREGATE: 7005 msec
+Rule has 24 body atoms
+Query size (bytes): 12556
+TIME WITHOUT AGGREGATE: 7051 msec
+Rule has 15 body atoms
+Query size (bytes): 8386
+TIME WITHOUT AGGREGATE: 2138 msec
+Rule has 17 body atoms
+Query size (bytes): 9468
+TIME WITHOUT AGGREGATE: 3978 msec
+Rule has 17 body atoms
+Query size (bytes): 9555
+TIME WITHOUT AGGREGATE: 3713 msec
+Rule has 16 body atoms
+Query size (bytes): 8855
+TIME WITHOUT AGGREGATE: 3369 msec
+Rule has 15 body atoms
+Query size (bytes): 9425
+TIME WITHOUT AGGREGATE: 6115 msec
+Rule has 22 body atoms
+Query size (bytes): 12203
+TIME WITHOUT AGGREGATE: 9439 msec
+Rule has 24 body atoms
+Query size (bytes): 13292
+TIME WITHOUT AGGREGATE: 11435 msec
+Rule has 24 body atoms
+Query size (bytes): 13379
+TIME WITHOUT AGGREGATE: 11591 msec
+Rule has 23 body atoms
+Query size (bytes): 12715
+TIME WITHOUT AGGREGATE: 11372 msec
+Rule has 22 body atoms
+Query size (bytes): 12312
+TIME WITHOUT AGGREGATE: 9517 msec
+Rule has 24 body atoms
+Query size (bytes): 13401
+TIME WITHOUT AGGREGATE: 12091 msec
+Rule has 24 body atoms
+Query size (bytes): 13488
+TIME WITHOUT AGGREGATE: 11841 msec
+Rule has 23 body atoms
+Query size (bytes): 12780
+TIME WITHOUT AGGREGATE: 11201 msec
+Rule has 14 body atoms
+Query size (bytes): 8766
+TIME WITHOUT AGGREGATE: 4696 msec
+Rule has 16 body atoms
+Query size (bytes): 9855
+TIME WITHOUT AGGREGATE: 5304 msec
+Rule has 16 body atoms
+Query size (bytes): 9942
+TIME WITHOUT AGGREGATE: 5289 msec
+Rule has 15 body atoms
+Query size (bytes): 9413
+TIME WITHOUT AGGREGATE: 5850 msec
+PROQL EXP: NET EVAL TIME: 297174 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 297174 msec
+PROQL EXP: TOTAL PROQL TIME : 297580 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+}
+EXP: NET TO QUERY SET TIME: 140 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 374 msec
+Rule has 8 body atoms
+Query size (bytes): 4854
+TIME WITHOUT AGGREGATE: 343 msec
+Rule has 16 body atoms
+Query size (bytes): 9119
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 12296
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13385
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 13472
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 12742
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 11988
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13164
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 12386
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 15 body atoms
+Query size (bytes): 8530
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 9615
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 17 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 202 msec
+Rule has 16 body atoms
+Query size (bytes): 9041
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 16 body atoms
+Query size (bytes): 8796
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 11737
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 12826
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 12913
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12136
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 12153
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13242
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13329
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12556
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 15 body atoms
+Query size (bytes): 8386
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 17 body atoms
+Query size (bytes): 9468
+TIME WITHOUT AGGREGATE: 188 msec
+Rule has 17 body atoms
+Query size (bytes): 9555
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 8855
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 9425
+TIME WITHOUT AGGREGATE: 686 msec
+Rule has 22 body atoms
+Query size (bytes): 12203
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 13292
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 13379
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 12715
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 22 body atoms
+Query size (bytes): 12312
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13401
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 13488
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 12780
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 14 body atoms
+Query size (bytes): 8766
+TIME WITHOUT AGGREGATE: 687 msec
+Rule has 16 body atoms
+Query size (bytes): 9855
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 9942
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 9413
+TIME WITHOUT AGGREGATE: 219 msec
+PROQL EXP: NET EVAL TIME: 3542 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3542 msec
+PROQL EXP: TOTAL PROQL TIME : 3916 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 374 msec
+Rule has 8 body atoms
+Query size (bytes): 4854
+TIME WITHOUT AGGREGATE: 359 msec
+Rule has 16 body atoms
+Query size (bytes): 9119
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 12296
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13385
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 13472
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 12742
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 11988
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13077
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13164
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12386
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8530
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 9615
+TIME WITHOUT AGGREGATE: 171 msec
+Rule has 17 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 16 body atoms
+Query size (bytes): 9041
+TIME WITHOUT AGGREGATE: 187 msec
+Rule has 16 body atoms
+Query size (bytes): 8796
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 11737
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 12826
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 12913
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12136
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 12153
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13242
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 13329
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12556
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8386
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 9468
+TIME WITHOUT AGGREGATE: 187 msec
+Rule has 17 body atoms
+Query size (bytes): 9555
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 8855
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 9425
+TIME WITHOUT AGGREGATE: 702 msec
+Rule has 22 body atoms
+Query size (bytes): 12203
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 13292
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13379
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 12715
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 22 body atoms
+Query size (bytes): 12312
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 13401
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13488
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 12780
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 14 body atoms
+Query size (bytes): 8766
+TIME WITHOUT AGGREGATE: 702 msec
+Rule has 16 body atoms
+Query size (bytes): 9855
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 16 body atoms
+Query size (bytes): 9942
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 9413
+TIME WITHOUT AGGREGATE: 218 msec
+PROQL EXP: NET EVAL TIME: 3572 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3572 msec
+PROQL EXP: TOTAL PROQL TIME : 3946 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 141 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 375 msec
+Rule has 8 body atoms
+Query size (bytes): 4854
+TIME WITHOUT AGGREGATE: 375 msec
+Rule has 16 body atoms
+Query size (bytes): 9119
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 12296
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13385
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13472
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 12742
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 11988
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13164
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 12386
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8530
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 9615
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 17 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 218 msec
+Rule has 16 body atoms
+Query size (bytes): 9041
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 16 body atoms
+Query size (bytes): 8796
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 11737
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 12826
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 12913
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12136
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 12153
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13242
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 13329
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 12556
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 15 body atoms
+Query size (bytes): 8386
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 9468
+TIME WITHOUT AGGREGATE: 187 msec
+Rule has 17 body atoms
+Query size (bytes): 9555
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 8855
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 9425
+TIME WITHOUT AGGREGATE: 718 msec
+Rule has 22 body atoms
+Query size (bytes): 12203
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13292
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13379
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 12715
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 22 body atoms
+Query size (bytes): 12312
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13401
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 13488
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 12780
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 14 body atoms
+Query size (bytes): 8766
+TIME WITHOUT AGGREGATE: 718 msec
+Rule has 16 body atoms
+Query size (bytes): 9855
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 9942
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 9413
+TIME WITHOUT AGGREGATE: 203 msec
+PROQL EXP: NET EVAL TIME: 3604 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3604 msec
+PROQL EXP: TOTAL PROQL TIME : 3979 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+}
+EXP: NET TO QUERY SET TIME: 140 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 374 msec
+Rule has 8 body atoms
+Query size (bytes): 4854
+TIME WITHOUT AGGREGATE: 390 msec
+Rule has 16 body atoms
+Query size (bytes): 9119
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 12296
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 13385
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13472
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 12742
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 11988
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13077
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13164
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12386
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 15 body atoms
+Query size (bytes): 8530
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 17 body atoms
+Query size (bytes): 9615
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 17 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 16 body atoms
+Query size (bytes): 9041
+TIME WITHOUT AGGREGATE: 171 msec
+Rule has 16 body atoms
+Query size (bytes): 8796
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 11737
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 12826
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 12913
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 12136
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 12153
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 13242
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13329
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 12556
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 15 body atoms
+Query size (bytes): 8386
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 9468
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 17 body atoms
+Query size (bytes): 9555
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 16 body atoms
+Query size (bytes): 8855
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 9425
+TIME WITHOUT AGGREGATE: 733 msec
+Rule has 22 body atoms
+Query size (bytes): 12203
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 13292
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13379
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 12715
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 22 body atoms
+Query size (bytes): 12312
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13401
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 13488
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 12780
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 14 body atoms
+Query size (bytes): 8766
+TIME WITHOUT AGGREGATE: 733 msec
+Rule has 16 body atoms
+Query size (bytes): 9855
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 16 body atoms
+Query size (bytes): 9942
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 9413
+TIME WITHOUT AGGREGATE: 218 msec
+PROQL EXP: NET EVAL TIME: 3697 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3697 msec
+PROQL EXP: TOTAL PROQL TIME : 4071 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 141 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 375 msec
+Rule has 8 body atoms
+Query size (bytes): 4854
+TIME WITHOUT AGGREGATE: 406 msec
+Rule has 16 body atoms
+Query size (bytes): 9119
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 12296
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13385
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13472
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 12742
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 11988
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 13077
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13164
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 12386
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8530
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 9615
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 17 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 202 msec
+Rule has 16 body atoms
+Query size (bytes): 9041
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 16 body atoms
+Query size (bytes): 8796
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 11737
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 12826
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 12913
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12136
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 12153
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 13242
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13329
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 12556
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 15 body atoms
+Query size (bytes): 8386
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 17 body atoms
+Query size (bytes): 9468
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 17 body atoms
+Query size (bytes): 9555
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 16 body atoms
+Query size (bytes): 8855
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 9425
+TIME WITHOUT AGGREGATE: 749 msec
+Rule has 22 body atoms
+Query size (bytes): 12203
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13292
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13379
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 12715
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 22 body atoms
+Query size (bytes): 12312
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 13401
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13488
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 12780
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 14 body atoms
+Query size (bytes): 8766
+TIME WITHOUT AGGREGATE: 749 msec
+Rule has 16 body atoms
+Query size (bytes): 9855
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 9942
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 9413
+TIME WITHOUT AGGREGATE: 219 msec
+PROQL EXP: NET EVAL TIME: 3744 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3744 msec
+PROQL EXP: TOTAL PROQL TIME : 4119 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+}
+EXP: NET TO QUERY SET TIME: 140 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 374 msec
+Rule has 8 body atoms
+Query size (bytes): 4854
+TIME WITHOUT AGGREGATE: 421 msec
+Rule has 16 body atoms
+Query size (bytes): 9119
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 12296
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13385
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13472
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12742
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 11988
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 13077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13164
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 12386
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 15 body atoms
+Query size (bytes): 8530
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 17 body atoms
+Query size (bytes): 9615
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 17 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 218 msec
+Rule has 16 body atoms
+Query size (bytes): 9041
+TIME WITHOUT AGGREGATE: 188 msec
+Rule has 16 body atoms
+Query size (bytes): 8796
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 11737
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 12826
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 12913
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 12136
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 12153
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 13242
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 13329
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 12556
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 15 body atoms
+Query size (bytes): 8386
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 17 body atoms
+Query size (bytes): 9468
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 17 body atoms
+Query size (bytes): 9555
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 16 body atoms
+Query size (bytes): 8855
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 9425
+TIME WITHOUT AGGREGATE: 764 msec
+Rule has 22 body atoms
+Query size (bytes): 12203
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 13292
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 13379
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 12715
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 22 body atoms
+Query size (bytes): 12312
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13401
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 13488
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 12780
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 14 body atoms
+Query size (bytes): 8766
+TIME WITHOUT AGGREGATE: 764 msec
+Rule has 16 body atoms
+Query size (bytes): 9855
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 9942
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 9413
+TIME WITHOUT AGGREGATE: 219 msec
+PROQL EXP: NET EVAL TIME: 3776 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3776 msec
+PROQL EXP: TOTAL PROQL TIME : 4150 msec
+> #proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+}
+EXP: NET TO QUERY SET TIME: 140 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 358 msec
+Rule has 8 body atoms
+Query size (bytes): 3947
+TIME WITHOUT AGGREGATE: 29891 msec
+Rule has 16 body atoms
+Query size (bytes): 7728
+TIME WITHOUT AGGREGATE: 3634 msec
+Rule has 23 body atoms
+Query size (bytes): 10010
+TIME WITHOUT AGGREGATE: 6942 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 8970 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 8081 msec
+Rule has 24 body atoms
+Query size (bytes): 10443
+TIME WITHOUT AGGREGATE: 8081 msec
+Rule has 23 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 6599 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 7628 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 7645 msec
+Rule has 24 body atoms
+Query size (bytes): 10087
+TIME WITHOUT AGGREGATE: 7738 msec
+Rule has 15 body atoms
+Query size (bytes): 7158
+TIME WITHOUT AGGREGATE: 2465 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 4321 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 4243 msec
+Rule has 16 body atoms
+Query size (bytes): 7656
+TIME WITHOUT AGGREGATE: 4056 msec
+Rule has 16 body atoms
+Query size (bytes): 7318
+TIME WITHOUT AGGREGATE: 2637 msec
+Rule has 23 body atoms
+Query size (bytes): 9364
+TIME WITHOUT AGGREGATE: 5569 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 7098 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 6614 msec
+Rule has 24 body atoms
+Query size (bytes): 9750
+TIME WITHOUT AGGREGATE: 6506 msec
+Rule has 23 body atoms
+Query size (bytes): 9780
+TIME WITHOUT AGGREGATE: 6334 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 7488 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 6927 msec
+Rule has 24 body atoms
+Query size (bytes): 10170
+TIME WITHOUT AGGREGATE: 7052 msec
+Rule has 15 body atoms
+Query size (bytes): 6927
+TIME WITHOUT AGGREGATE: 2122 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 3931 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 3635 msec
+Rule has 16 body atoms
+Query size (bytes): 7383
+TIME WITHOUT AGGREGATE: 3386 msec
+Rule has 15 body atoms
+Query size (bytes): 8393
+TIME WITHOUT AGGREGATE: 6147 msec
+Rule has 22 body atoms
+Query size (bytes): 10276
+TIME WITHOUT AGGREGATE: 9453 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 11482 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 11435 msec
+Rule has 23 body atoms
+Query size (bytes): 10775
+TIME WITHOUT AGGREGATE: 11217 msec
+Rule has 22 body atoms
+Query size (bytes): 10385
+TIME WITHOUT AGGREGATE: 9438 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 12153 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 11825 msec
+Rule has 23 body atoms
+Query size (bytes): 10840
+TIME WITHOUT AGGREGATE: 11154 msec
+Rule has 14 body atoms
+Query size (bytes): 7753
+TIME WITHOUT AGGREGATE: 4774 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 5304 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 5258 msec
+Rule has 15 body atoms
+Query size (bytes): 8387
+TIME WITHOUT AGGREGATE: 5819 msec
+PROQL EXP: NET EVAL TIME: 295396 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 295396 msec
+PROQL EXP: TOTAL PROQL TIME : 295754 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+}
+EXP: NET TO QUERY SET TIME: 140 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 374 msec
+Rule has 8 body atoms
+Query size (bytes): 3947
+TIME WITHOUT AGGREGATE: 422 msec
+Rule has 16 body atoms
+Query size (bytes): 7728
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 10010
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 10443
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 10087
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 15 body atoms
+Query size (bytes): 7158
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 218 msec
+Rule has 16 body atoms
+Query size (bytes): 7656
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 16 body atoms
+Query size (bytes): 7318
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 9364
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 9750
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 9780
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10170
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 6927
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 188 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 7383
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 8393
+TIME WITHOUT AGGREGATE: 764 msec
+Rule has 22 body atoms
+Query size (bytes): 10276
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 10775
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 22 body atoms
+Query size (bytes): 10385
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 10840
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 14 body atoms
+Query size (bytes): 7753
+TIME WITHOUT AGGREGATE: 780 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8387
+TIME WITHOUT AGGREGATE: 219 msec
+PROQL EXP: NET EVAL TIME: 3776 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3776 msec
+PROQL EXP: TOTAL PROQL TIME : 4150 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 140 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 374 msec
+Rule has 8 body atoms
+Query size (bytes): 3947
+TIME WITHOUT AGGREGATE: 452 msec
+Rule has 16 body atoms
+Query size (bytes): 7728
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 10010
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10443
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10087
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 7158
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 218 msec
+Rule has 16 body atoms
+Query size (bytes): 7656
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 16 body atoms
+Query size (bytes): 7318
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 9364
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 9750
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 9780
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10170
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 15 body atoms
+Query size (bytes): 6927
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 16 body atoms
+Query size (bytes): 7383
+TIME WITHOUT AGGREGATE: 171 msec
+Rule has 15 body atoms
+Query size (bytes): 8393
+TIME WITHOUT AGGREGATE: 765 msec
+Rule has 22 body atoms
+Query size (bytes): 10276
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 10775
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 22 body atoms
+Query size (bytes): 10385
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 10840
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 14 body atoms
+Query size (bytes): 7753
+TIME WITHOUT AGGREGATE: 780 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8387
+TIME WITHOUT AGGREGATE: 219 msec
+PROQL EXP: NET EVAL TIME: 3807 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3807 msec
+PROQL EXP: TOTAL PROQL TIME : 4181 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+}
+EXP: NET TO QUERY SET TIME: 140 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 374 msec
+Rule has 8 body atoms
+Query size (bytes): 3947
+TIME WITHOUT AGGREGATE: 452 msec
+Rule has 16 body atoms
+Query size (bytes): 7728
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 10010
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10443
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10087
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 7158
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 218 msec
+Rule has 16 body atoms
+Query size (bytes): 7656
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 16 body atoms
+Query size (bytes): 7318
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 9364
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 9750
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 9780
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10170
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 15 body atoms
+Query size (bytes): 6927
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 16 body atoms
+Query size (bytes): 7383
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 8393
+TIME WITHOUT AGGREGATE: 780 msec
+Rule has 22 body atoms
+Query size (bytes): 10276
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 10775
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 22 body atoms
+Query size (bytes): 10385
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 10840
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 14 body atoms
+Query size (bytes): 7753
+TIME WITHOUT AGGREGATE: 811 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8387
+TIME WITHOUT AGGREGATE: 219 msec
+PROQL EXP: NET EVAL TIME: 3869 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3869 msec
+PROQL EXP: TOTAL PROQL TIME : 4243 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 140 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 374 msec
+Rule has 8 body atoms
+Query size (bytes): 3947
+TIME WITHOUT AGGREGATE: 484 msec
+Rule has 16 body atoms
+Query size (bytes): 7728
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 10010
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 10443
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10087
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 15 body atoms
+Query size (bytes): 7158
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 171 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 16 body atoms
+Query size (bytes): 7656
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 16 body atoms
+Query size (bytes): 7318
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 9364
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 9750
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 9780
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10170
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 15 body atoms
+Query size (bytes): 6927
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 16 body atoms
+Query size (bytes): 7383
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 8393
+TIME WITHOUT AGGREGATE: 812 msec
+Rule has 22 body atoms
+Query size (bytes): 10276
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 10775
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 22 body atoms
+Query size (bytes): 10385
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 10840
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 14 body atoms
+Query size (bytes): 7753
+TIME WITHOUT AGGREGATE: 827 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8387
+TIME WITHOUT AGGREGATE: 219 msec
+PROQL EXP: NET EVAL TIME: 3932 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3932 msec
+PROQL EXP: TOTAL PROQL TIME : 4306 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+}
+EXP: NET TO QUERY SET TIME: 140 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 374 msec
+Rule has 8 body atoms
+Query size (bytes): 3947
+TIME WITHOUT AGGREGATE: 499 msec
+Rule has 16 body atoms
+Query size (bytes): 7728
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 10010
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 10443
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 10087
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 7158
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 218 msec
+Rule has 16 body atoms
+Query size (bytes): 7656
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 16 body atoms
+Query size (bytes): 7318
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 9364
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 9750
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 23 body atoms
+Query size (bytes): 9780
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 10170
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 15 body atoms
+Query size (bytes): 6927
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 202 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 16 body atoms
+Query size (bytes): 7383
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 15 body atoms
+Query size (bytes): 8393
+TIME WITHOUT AGGREGATE: 826 msec
+Rule has 22 body atoms
+Query size (bytes): 10276
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 10775
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 22 body atoms
+Query size (bytes): 10385
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 10840
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 14 body atoms
+Query size (bytes): 7753
+TIME WITHOUT AGGREGATE: 842 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8387
+TIME WITHOUT AGGREGATE: 218 msec
+PROQL EXP: NET EVAL TIME: 3978 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 3978 msec
+PROQL EXP: TOTAL PROQL TIME : 4352 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 156 msec
+EXP: EXPANSION TIME: 156 msec
+
+Unfolded program has 40 rules:
+
+Unfolded program with ASRs (40):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 375 msec
+Rule has 8 body atoms
+Query size (bytes): 3947
+TIME WITHOUT AGGREGATE: 515 msec
+Rule has 16 body atoms
+Query size (bytes): 7728
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 10010
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10723
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 10443
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 9702
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 25 body atoms
+Query size (bytes): 10415
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10087
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 7158
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 171 msec
+Rule has 17 body atoms
+Query size (bytes): 7867
+TIME WITHOUT AGGREGATE: 203 msec
+Rule has 16 body atoms
+Query size (bytes): 7656
+TIME WITHOUT AGGREGATE: 172 msec
+Rule has 16 body atoms
+Query size (bytes): 7318
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 9364
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10077
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 9750
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 9780
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 25 body atoms
+Query size (bytes): 10493
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 10170
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 15 body atoms
+Query size (bytes): 6927
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 187 msec
+Rule has 17 body atoms
+Query size (bytes): 7633
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 7383
+TIME WITHOUT AGGREGATE: 156 msec
+Rule has 15 body atoms
+Query size (bytes): 8393
+TIME WITHOUT AGGREGATE: 842 msec
+Rule has 22 body atoms
+Query size (bytes): 10276
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 10989
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 23 body atoms
+Query size (bytes): 10775
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 22 body atoms
+Query size (bytes): 10385
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 24 body atoms
+Query size (bytes): 11098
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 23 body atoms
+Query size (bytes): 10840
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 14 body atoms
+Query size (bytes): 7753
+TIME WITHOUT AGGREGATE: 858 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 16 body atoms
+Query size (bytes): 8466
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 15 body atoms
+Query size (bytes): 8387
+TIME WITHOUT AGGREGATE: 218 msec
+PROQL EXP: NET EVAL TIME: 4040 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 4040 msec
+PROQL EXP: TOTAL PROQL TIME : 4415 msec
+> #proqlBFS [P10.S10.P10_S10_R0] *- []
+> proqlBFS [P10.S10.P10_S10_R0] *- []
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 16 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 4 body atoms
+Query size (bytes): 2342
+TIME WITHOUT AGGREGATE: 436 msec
+Rule has 6 body atoms
+Query size (bytes): 3377
+TIME WITHOUT AGGREGATE: 1077 msec
+Rule has 6 body atoms
+Query size (bytes): 3464
+TIME WITHOUT AGGREGATE: 1108 msec
+Rule has 5 body atoms
+Query size (bytes): 2962
+TIME WITHOUT AGGREGATE: 374 msec
+PROQL EXP: NET EVAL TIME: 2995 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 2995 msec
+PROQL EXP: TOTAL PROQL TIME : 3011 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+}
+EXP: NET TO QUERY SET TIME: 16 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 4 body atoms
+Query size (bytes): 2342
+TIME WITHOUT AGGREGATE: 390 msec
+Rule has 6 body atoms
+Query size (bytes): 3377
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 3464
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 5 body atoms
+Query size (bytes): 2962
+TIME WITHOUT AGGREGATE: 47 msec
+PROQL EXP: NET EVAL TIME: 483 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 483 msec
+PROQL EXP: TOTAL PROQL TIME : 499 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 16 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 4 body atoms
+Query size (bytes): 2342
+TIME WITHOUT AGGREGATE: 375 msec
+Rule has 6 body atoms
+Query size (bytes): 3377
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 6 body atoms
+Query size (bytes): 3464
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 5 body atoms
+Query size (bytes): 2962
+TIME WITHOUT AGGREGATE: 47 msec
+PROQL EXP: NET EVAL TIME: 499 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 499 msec
+PROQL EXP: TOTAL PROQL TIME : 515 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+}
+EXP: NET TO QUERY SET TIME: 16 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 4 body atoms
+Query size (bytes): 2342
+TIME WITHOUT AGGREGATE: 374 msec
+Rule has 6 body atoms
+Query size (bytes): 3377
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 3464
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 5 body atoms
+Query size (bytes): 2962
+TIME WITHOUT AGGREGATE: 47 msec
+PROQL EXP: NET EVAL TIME: 483 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 483 msec
+PROQL EXP: TOTAL PROQL TIME : 499 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+}
+EXP: NET TO QUERY SET TIME: 16 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 4 body atoms
+Query size (bytes): 2342
+TIME WITHOUT AGGREGATE: 390 msec
+Rule has 6 body atoms
+Query size (bytes): 3377
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 3464
+TIME WITHOUT AGGREGATE: 32 msec
+Rule has 5 body atoms
+Query size (bytes): 2962
+TIME WITHOUT AGGREGATE: 46 msec
+PROQL EXP: NET EVAL TIME: 483 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 483 msec
+PROQL EXP: TOTAL PROQL TIME : 499 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+}
+EXP: NET TO QUERY SET TIME: 16 msec
+EXP: EXPANSION TIME: 16 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 32 msec
+Rule has 4 body atoms
+Query size (bytes): 2342
+TIME WITHOUT AGGREGATE: 577 msec
+Rule has 6 body atoms
+Query size (bytes): 3377
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 6 body atoms
+Query size (bytes): 3464
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 5 body atoms
+Query size (bytes): 2962
+TIME WITHOUT AGGREGATE: 63 msec
+PROQL EXP: NET EVAL TIME: 702 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 702 msec
+PROQL EXP: TOTAL PROQL TIME : 734 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+}
+EXP: NET TO QUERY SET TIME: 15 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 15 msec
+Rule has 4 body atoms
+Query size (bytes): 2342
+TIME WITHOUT AGGREGATE: 1108 msec
+Rule has 6 body atoms
+Query size (bytes): 3377
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 6 body atoms
+Query size (bytes): 3464
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 5 body atoms
+Query size (bytes): 2962
+TIME WITHOUT AGGREGATE: 515 msec
+PROQL EXP: NET EVAL TIME: 1685 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 1685 msec
+PROQL EXP: TOTAL PROQL TIME : 1700 msec
+> #proqlBFS [P10.S10.P10_S10_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+> proqlBFS [P10.S10.P10_S10_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+}
+EXP: NET TO QUERY SET TIME: 16 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 4 body atoms
+Query size (bytes): 1487
+TIME WITHOUT AGGREGATE: 437 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 1060 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 1108 msec
+Rule has 5 body atoms
+Query size (bytes): 2094
+TIME WITHOUT AGGREGATE: 359 msec
+PROQL EXP: NET EVAL TIME: 2964 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 2964 msec
+PROQL EXP: TOTAL PROQL TIME : 2980 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+}
+EXP: NET TO QUERY SET TIME: 31 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 31 msec
+Rule has 4 body atoms
+Query size (bytes): 1487
+TIME WITHOUT AGGREGATE: 374 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 32 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 5 body atoms
+Query size (bytes): 2094
+TIME WITHOUT AGGREGATE: 47 msec
+PROQL EXP: NET EVAL TIME: 468 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 468 msec
+PROQL EXP: TOTAL PROQL TIME : 499 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+}
+EXP: NET TO QUERY SET TIME: 16 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 4 body atoms
+Query size (bytes): 1487
+TIME WITHOUT AGGREGATE: 359 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 5 body atoms
+Query size (bytes): 2094
+TIME WITHOUT AGGREGATE: 32 msec
+PROQL EXP: NET EVAL TIME: 468 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 468 msec
+PROQL EXP: TOTAL PROQL TIME : 484 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+}
+EXP: NET TO QUERY SET TIME: 15 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 31 msec
+Rule has 4 body atoms
+Query size (bytes): 1487
+TIME WITHOUT AGGREGATE: 359 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 5 body atoms
+Query size (bytes): 2094
+TIME WITHOUT AGGREGATE: 31 msec
+PROQL EXP: NET EVAL TIME: 452 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 452 msec
+PROQL EXP: TOTAL PROQL TIME : 483 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+}
+EXP: NET TO QUERY SET TIME: 31 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 31 msec
+Rule has 4 body atoms
+Query size (bytes): 1487
+TIME WITHOUT AGGREGATE: 359 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 32 msec
+Rule has 5 body atoms
+Query size (bytes): 2094
+TIME WITHOUT AGGREGATE: 46 msec
+PROQL EXP: NET EVAL TIME: 468 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 468 msec
+PROQL EXP: TOTAL PROQL TIME : 499 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+}
+EXP: NET TO QUERY SET TIME: 16 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 4 body atoms
+Query size (bytes): 1487
+TIME WITHOUT AGGREGATE: 374 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 32 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 5 body atoms
+Query size (bytes): 2094
+TIME WITHOUT AGGREGATE: 31 msec
+PROQL EXP: NET EVAL TIME: 468 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 468 msec
+PROQL EXP: TOTAL PROQL TIME : 484 msec
+> proqlBFS [P10.S10.P10_S10_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+QUERY: ([P10.S10.P10_S10_R0 ] ** [])
+Schema graph: {([P6.S6.P6_S6_R1][P6.S6.P6_S6_R0] <M6< [P7.S7.P7_S7_R0][P7.S7.P7_S7_R1])
+([P6.S6.P6_S6_R1] <BASEP6_S6_R1< [P6.S6.P6_S6_R1_L])
+([P12.S12.P12_S12_R1] <BASEP12_S12_R1< [P12.S12.P12_S12_R1_L])
+([P1.S1.P1_S1_R0][P1.S1.P1_S1_R1] <M1< [P2.S2.P2_S2_R1][P2.S2.P2_S2_R0])
+([P16.S16.P16_S16_R1][P16.S16.P16_S16_R0] <M16< [P17.S17.P17_S17_R0][P17.S17.P17_S17_R1])
+([P10.S10.P10_S10_R1][P10.S10.P10_S10_R0] <M10< [P11.S11.P11_S11_R0][P11.S11.P11_S11_R1])
+([P5.S5.P5_S5_R0][P5.S5.P5_S5_R1] <M5< [P6.S6.P6_S6_R1][P6.S6.P6_S6_R0])
+([P12.S12.P12_S12_R0] <BASEP12_S12_R0< [P12.S12.P12_S12_R0_L])
+([P3.S3.P3_S3_R0][P3.S3.P3_S3_R1] <M3< [P4.S4.P4_S4_R1][P4.S4.P4_S4_R0])
+([P4.S4.P4_S4_R1][P4.S4.P4_S4_R0] <M4< [P5.S5.P5_S5_R0][P5.S5.P5_S5_R1])
+([P14.S14.P14_S14_R1][P14.S14.P14_S14_R0] <M14< [P15.S15.P15_S15_R0][P15.S15.P15_S15_R1])
+([P8.S8.P8_S8_R1][P8.S8.P8_S8_R0] <M8< [P9.S9.P9_S9_R1][P9.S9.P9_S9_R0])
+([P6.S6.P6_S6_R0] <BASEP6_S6_R0< [P6.S6.P6_S6_R0_L])
+([P17.S17.P17_S17_R0][P17.S17.P17_S17_R1] <M17< [P18.S18.P18_S18_R1][P18.S18.P18_S18_R0])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M13< [P14.S14.P14_S14_R1][P14.S14.P14_S14_R0])
+([P0.S0.P0_S0_R0][P0.S0.P0_S0_R1] <M0< [P1.S1.P1_S1_R0][P1.S1.P1_S1_R1])
+([P7.S7.P7_S7_R0][P7.S7.P7_S7_R1] <M7< [P8.S8.P8_S8_R1][P8.S8.P8_S8_R0])
+([P12.S12.P12_S12_R1][P12.S12.P12_S12_R0] <M12< [P13.S13.P13_S13_R1][P13.S13.P13_S13_R0])
+([P19.S19.P19_S19_R0] <BASEP19_S19_R0< [P19.S19.P19_S19_R0_L])
+([P9.S9.P9_S9_R1][P9.S9.P9_S9_R0] <M9< [P10.S10.P10_S10_R1][P10.S10.P10_S10_R0])
+([P11.S11.P11_S11_R0][P11.S11.P11_S11_R1] <M11< [P12.S12.P12_S12_R1][P12.S12.P12_S12_R0])
+([P2.S2.P2_S2_R1][P2.S2.P2_S2_R0] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P15.S15.P15_S15_R0][P15.S15.P15_S15_R1] <M15< [P16.S16.P16_S16_R1][P16.S16.P16_S16_R0])
+([P19.S19.P19_S19_R1] <BASEP19_S19_R1< [P19.S19.P19_S19_R1_L])
+([P18.S18.P18_S18_R1][P18.S18.P18_S18_R0] <M18< [P19.S19.P19_S19_R1][P19.S19.P19_S19_R0])
+}
+EXP: NET TO QUERY SET TIME: 31 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 4 rules:
+
+Unfolded program with ASRs (4):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 31 msec
+Rule has 4 body atoms
+Query size (bytes): 1487
+TIME WITHOUT AGGREGATE: 375 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 2146
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 5 body atoms
+Query size (bytes): 2094
+TIME WITHOUT AGGREGATE: 47 msec
+PROQL EXP: NET EVAL TIME: 468 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 468 msec
+PROQL EXP: TOTAL PROQL TIME : 499 msec
+> 
+> #          clear
+> #           stopUSS
+>           drop
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 1050000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 365
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 365
+>           quit

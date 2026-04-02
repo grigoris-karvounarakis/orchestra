@@ -1,0 +1,129 @@
+package edu.upenn.cis.orchestra.datamodel;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import junit.framework.TestCase;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import edu.upenn.cis.orchestra.datamodel.exceptions.DuplicateRelationIdException;
+import edu.upenn.cis.orchestra.datamodel.exceptions.InvalidBeanException;
+import edu.upenn.cis.orchestra.datamodel.exceptions.RelationNotFoundException;
+import edu.upenn.cis.orchestra.datamodel.exceptions.UnknownRefFieldException;
+import edu.upenn.cis.orchestra.datamodel.exceptions.UnsupportedTypeException;
+import edu.upenn.cis.orchestra.repository.model.beans.SchemaBean;
+
+public class TestSchema extends TestCase {
+
+	
+	private Relation _relation1;
+	private Relation _relation2;
+	
+	@Before
+	public void setUp () throws UnsupportedTypeException
+	{
+		RelationField field1 = new RelationField ("field1", "dfield1", false, "integer");
+		RelationField field2 = new RelationField ("field2", "dfield2", false, "long");
+		RelationField field3 = new RelationField ("field3", "dfield3", true, "integer");
+		List<RelationField> fields = new ArrayList<RelationField> ();
+		fields.add (field1); fields.add(field2); fields.add(field3);
+		_relation1 = new Relation ("dbCat", "dbSchem", "dbRel", "name", "descr", true, true, fields);
+		fields = new ArrayList<RelationField> ();
+		fields.add (field1.deepCopy()); fields.add (field2.deepCopy()); fields.add(field3.deepCopy());
+		_relation2 = new Relation ("dbCat", "dbSchem", "dbRel", "name2", "descr", true, true, fields);
+	}
+	
+	public Schema getTwoRelsSchema (String schemaId)
+	{
+		Schema schema = new Schema (schemaId, schemaId + "descr");
+		Relation rel1 = _relation1.deepCopy();
+		Relation rel2 = _relation2.deepCopy();
+		addRelation (schema, rel1, false);
+		addRelation (schema, rel2, false);
+		
+		List<String> refFlds = new ArrayList<String> ();
+		refFlds.add("field1");
+		List<String> flds = new ArrayList<String> ();
+		flds.add("field1");
+		try
+		{
+			ForeignKey fk = new ForeignKey ("FK_REL1_REL2", rel1, flds, rel2, refFlds);
+			rel2.addForeignKey(fk);
+		} catch (UnknownRefFieldException ex)
+		{
+			assertTrue(false);
+		}
+		
+		return schema;
+	}
+
+	@Test
+	public void testBasicProperties () throws InvalidBeanException
+	{
+		Schema schema = getTwoRelsSchema ("schema1");
+		
+		SchemaBean bean = schema.deepCopy().toBean();
+		assertTrue(bean.getSchemaId().equals("schema1"));
+		assertTrue(bean.getDescription().equals("schema1descr"));
+		assertTrue(bean.getRelations().size()==2);
+		assertTrue(bean.getRelations().get(0).getForeignKeys().size()==1
+					|| bean.getRelations().get(1).getForeignKeys().size()==1);
+		checkTwoNames ("name", "name2", bean.getRelations().get(0).getName(), bean.getRelations().get(1).getName());
+		
+		Schema schema2 = new Schema (bean);
+		assertTrue(schema2.getSchemaId().equals("schema1"));
+		assertTrue(schema2.getDescription().equals("schema1descr"));
+		assertTrue(schema2.getRelations().size()==2);
+		Iterator<Relation> itRel = schema2.getRelations().iterator(); 
+		checkTwoNames ("name", "name2", itRel.next().getName(), itRel.next().getName());
+		try{
+			assertTrue(schema2.getRelation("name")!=null);
+			assertTrue(schema2.getRelation("name2")!=null);
+			assertTrue(schema2.existsRelation("name2"));
+			assertTrue(schema2.getRelation("name2").getForeignKeys().size()==1);
+		}catch(RelationNotFoundException e){
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static void checkTwoNames (String wtdFld1, String wtdFld2, String fld1, String fld2)
+	{
+		if (wtdFld1.equals(fld1))
+			assertTrue(wtdFld2.equals(fld2));
+		else
+		{
+			assertTrue(wtdFld2.equals(fld1));
+			assertTrue(wtdFld1.equals(fld2));
+		}
+	}
+	
+	@Test
+	public void testRelationIdConflict ()
+	{
+		Relation rel1 = _relation1.deepCopy();
+		Relation rel2 = _relation1.deepCopy();
+		
+		Schema sc = new Schema ("schema", "schema");
+		addRelation (sc, rel1, false);
+		addRelation (sc, rel2, true);
+
+		
+	}
+
+	
+	public void addRelation (Schema sc, Relation rel, boolean shouldFail)
+	{
+		try
+		{
+			sc.addRelation(rel);
+			assertTrue(!shouldFail);
+		} catch (DuplicateRelationIdException ex)
+		{
+			assertTrue(shouldFail);
+		}
+	}
+}

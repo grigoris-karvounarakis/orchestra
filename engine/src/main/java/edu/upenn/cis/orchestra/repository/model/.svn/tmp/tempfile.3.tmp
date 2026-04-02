@@ -1,0 +1,637 @@
+package edu.upenn.cis.orchestra.repository.model;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.ws.Holder;
+
+import org.springframework.beans.BeanUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
+
+import edu.upenn.cis.orchestra.repository.model.beans.ScMappingAtomBean;
+import edu.upenn.cis.orchestra.repository.model.beans.ScMappingAtomValSkolemBean;
+import edu.upenn.cis.orchestra.repository.model.beans.ScMappingAtomValueBean;
+import edu.upenn.cis.orchestra.repository.model.exceptions.InvalidBeanException;
+
+
+/****************************************************************
+ * Mapping definition : Mapping atom
+ * @author Olivier Biton
+ *****************************************************************
+ */
+public class ScMappingAtom {
+
+
+	/**
+	 * Relation referenced by this atom
+	 */
+	private ScRelationContext _relationContext;
+	/**
+	 * List of values (variables, skolems...) 
+	 */
+	private List<ScMappingAtomValue> _values = new ArrayList<ScMappingAtomValue> ();	
+	
+	/**
+	 * Atom type used for delta rules. When a rule is not a delta rule, type will be AtomType.NONE
+	 */
+	
+	/**
+	 * Is this atom negated
+	 */
+	private boolean _neg=false;
+	
+	private boolean _allStrata=false;
+	
+	public enum AtomType 
+				{
+					NONE,  // ALL
+//					OLD,
+					NEW,   // 
+					INS,   // ALL
+					DEL,   // ALL
+					RCH,   // Only IDBs
+					INV,   // ALL
+					ALLDEL // Not used in STRATIFIED deletions
+				};
+				
+	/**
+	 * Atom type used for delta rules. When a rule is not a delta rule, type will be AtomType.NONE
+	 */			
+	protected AtomType _type;
+
+	public static String typeToSuffix(AtomType type){
+		if(type == AtomType.NONE){
+			return "";
+		}else{
+			return "_" + type.toString();
+		}
+	}
+
+	public static String typeToString(AtomType type){
+		if(type == AtomType.NONE){
+			return "";
+		}else{
+			return type.toString();
+		}
+	}
+	
+	//TODO: Check if peer/schema/relation coherent
+	//TODO: Check if nb values = nb fields in relation
+	
+	/**
+	 * Creates a new Mapping atom
+	 * @param peer Peer containing the schema/relation referenced by this atom
+	 * @param schema Schema containing the relation referenced by this atom
+	 * @param relation Relation referenced by this atom
+	 * @param values List of values (variables, skolems...) 
+	 */
+	public ScMappingAtom (Peer peer, Schema schema, ScRelation relation, List<ScMappingAtomValue> values)
+	{
+		this (new ScRelationContext (relation, schema, peer, false), values);
+	}
+	
+	/**
+	 * Creates a new Mapping atom
+	 * @param relationContext Relation referenced by this atom with its full context
+	 * @param values List of values (variables, skolems...) 
+	 */
+	public ScMappingAtom (ScRelationContext relationContext, List<ScMappingAtomValue> values, AtomType type)
+	{
+		_relationContext = relationContext;
+		_values.addAll(values);
+		_type = type;
+	}	
+	
+	public ScMappingAtom (ScRelationContext relationContext, List<ScMappingAtomValue> values)
+	{
+		this(relationContext, values, AtomType.NONE);
+	}	
+
+	
+	/**
+	 * Creates a deep copy of a givem atom. <BR>
+	 * To benefit from polymorphism, use method <code>deepCopy (OrchestraSystem)</code>
+	 * @param atom Atom to deep copy
+	 * @param system Deep copy of the system containing the original mapping. 
+	 * 				 Used to get find the peer/schema/relation referenced by the new mapping atom.
+	 * @see ScMappingAtom#deepCopy(OrchestraSystem) 
+	 * @see ScMappingAtom#deepCopy() 
+	 */
+	protected ScMappingAtom (ScMappingAtom atom, OrchestraSystem system)
+	{
+		Peer peer = system.getPeer(atom.getPeer().getId());
+		Schema schema = peer.getSchema(atom.getSchema().getSchemaId());
+		ScRelation relation = schema.getRelation(atom.getRelation().getName());
+		_relationContext = new ScRelationContext (relation, schema, peer, false);
+		
+		for (ScMappingAtomValue val : atom.getValues())
+			_values.add (val.deepCopy());
+		
+		_type = AtomType.NONE;
+		_neg = atom.isNeg();
+		_allStrata = atom.allStrata();
+	}
+	
+	/**
+	 * Creates a deep copy of a givem atom but keeping a reference to the same relation. <BR>
+	 * If the full system is being copied, call deepCopy (OrchestraSystem) to
+	 * update the relations references.<BR>
+	 * To benefit from polymorphism, use method <code>deepCopy ()</code>
+	 * @param atom Atom to deep copy
+	 * @see ScMappingAtom#deepCopy(OrchestraSystem)
+	 * @see ScMappingAtom#deepCopy()
+	 */
+	public ScMappingAtom (ScMappingAtom atom)
+	{
+		this(atom, atom.getValues(), AtomType.NONE);
+	}
+
+	//TODO Exception if peer ref or rel unknown
+
+	
+	/**
+	 * Creates a new mapping Atom as a copy of <code>atom</code>, with a new set of values 
+	 * @param atom Atom from which basic properties (everything but values) must be copied
+	 * @param newValues New values
+	 */
+	public ScMappingAtom (ScMappingAtom atom, List<ScMappingAtomValue> newValues, AtomType type)
+	{
+		Peer peer = atom.getPeer();
+		Schema schema = atom.getSchema();
+		ScRelation relation = atom.getRelation();
+		boolean mapping = atom.isMapping();
+		_relationContext = new ScRelationContext (relation, schema, peer, mapping);
+		
+		for (ScMappingAtomValue val : newValues)
+			_values.add (val.deepCopy());
+		
+		_type = type;
+		_neg = atom.isNeg();
+		_allStrata = atom.allStrata();
+
+	}
+	
+	public ScMappingAtom (ScMappingAtom atom, List<ScMappingAtomValue> newValues)
+	{
+		this(atom, newValues, AtomType.NONE);
+	}
+	
+	public ScMappingAtom (ScMappingAtom atom, AtomType type)
+	{
+		this(atom, atom.getValues(), type);
+	}
+	
+	
+	/**
+	 * Creates a new mapping atom from its bean description 
+	 * @param bean Bean describing the atom
+	 * @param system System created from the system beam containing the mapping bean.
+	 * 				 Used to get find the peer/schema/relation referenced by the new mapping atom.
+	 * @throws InvalidBeanException If a bean property (value type for example) is incorrect
+	 */
+	public ScMappingAtom (ScMappingAtomBean bean, OrchestraSystem system)
+				throws InvalidBeanException
+	{		
+		Peer peer = system.getPeer(bean.getPeerId());
+		Schema schema = peer.getSchema(bean.getSchemaId());
+		ScRelation relation = schema.getRelation(bean.getRelationId());
+
+		_relationContext = new ScRelationContext (relation, schema, peer, false);
+		
+		for (ScMappingAtomValueBean value : bean.getValues())		
+			_values.add (atomValueFromValueBean(value));
+		_type = AtomType.NONE;
+	}	
+	
+	public AtomType getType() 
+	{
+		return _type;
+	}
+
+	public void setType(AtomType type) 
+	{
+		_type = type;
+	}
+	
+	public static ScMappingAtomValue atomValueFromValueBean (ScMappingAtomValueBean value)
+		throws InvalidBeanException
+	{
+		if (value.getType().equals("C"))
+			return (new ScMappingAtomValConst(value));
+		else
+			if (value.getType().equals("V"))
+				return (new ScMappingAtomValVariable(value));
+			else
+				if (value.getType().equals("S") && value instanceof ScMappingAtomValSkolemBean)
+					return (new ScMappingAtomValSkolem((ScMappingAtomValSkolemBean) value));
+				else
+					throw new InvalidBeanException (value, "Invalid mapping value type (or invalid bean object): " + value.getType());
+		
+	}
+	
+	/**
+	 * Get the peer containing the schema/relation referenced by the mapping atom
+	 * @return Peer referenced
+	 */	
+	public Peer getPeer() {
+		return _relationContext.getPeer();
+	}
+	
+	/**
+	 * Get the schema containing the relation referenced by the mapping atom
+	 * @return Schema referenced
+	 */	
+	public Schema getSchema() {
+		return _relationContext.getSchema();
+	}
+
+
+	/**
+	 * Check whether the relation for this atom is a mapping relation
+	 * @return true, if relation is mapping relation, false otherwise
+	 */	
+	public boolean isMapping ()
+	{
+		return _relationContext.isMapping();
+	}
+
+
+	/**
+	 * Get the relation referenced by the mapping atom
+	 * @return Relation referenced
+	 */	
+	public ScRelation getRelation ()
+	{
+		return _relationContext.getRelation();		
+	}
+	
+	/**
+	 * Get the relation with it's full context (relation's schema and peer)
+	 * @return
+	 */
+	public ScRelationContext getRelationContext ()
+	{
+		return _relationContext;
+	}
+	
+	/** 
+	 * Get the list of values for this mapping atom
+	 * @return List of atom values
+	 */
+	public List<ScMappingAtomValue> getValues ()
+	{
+		return _values;
+	}
+	
+	public void setAllStrata ()
+	{
+		_allStrata = true;
+	}
+
+	public boolean allStrata ()
+	{
+		return _allStrata;
+	}
+	
+	public void setNeg (boolean neg)
+	{
+		_neg = neg;
+	}
+	
+	public void negate ()
+	{
+		setNeg(true);
+	}
+	
+	public boolean isNeg ()
+	{
+		return _neg;
+	}
+
+	/**
+	 * Get a deep copy of the current atom when the whole system is being deep copied
+	 * @param system Deep copy of the system containing the mapping.
+	 * 				 Used to get find the peer/schema/relation referenced by the new mapping atom.
+	 * @return Deep copy
+	 * @see ScMappingAtom#ScMappingAtom(ScMappingAtom, OrchestraSystem)
+	 */
+	public ScMappingAtom deepCopy (OrchestraSystem system)
+	{
+		return new ScMappingAtom(this, system);
+	}
+
+	/**
+	 * Get a deep copy of the current atom, but keeps references to the same relation.<BR>
+	 * If the whole system is being deep copied, then call deepCopy(OrchestraSystem) to update
+	 * the references to the relation (to use the new one)
+	 * @return Deep copy
+	 * @see ScMappingAtom#ScMappingAtom(ScMappingAtom)
+	 * @see ScMappingAtom#deepCopy(OrchestraSystem)
+	 */
+	public ScMappingAtom deepCopy ()
+	{
+		return new ScMappingAtom(this);
+	}	
+
+	/**
+	 * Creates a bean representation of the atom.
+	 * @param atomPosition Atom rank in the list of atoms
+	 * @return Bean representing the atom
+	 */
+	protected ScMappingAtomBean toBean (int atomPosition)
+	{
+		ScMappingAtomBean bean = new ScMappingAtomBean ();
+		BeanUtils.copyProperties(this, bean, new String[] {"relation", "values"});
+
+		bean.setPeerId(getPeer().getId());
+		bean.setSchemaId(getSchema().getSchemaId());
+		bean.setRelationId(getRelation().getName());
+		bean.setAtomPosition(atomPosition);
+		
+
+		List<ScMappingAtomValueBean> values = new ArrayList<ScMappingAtomValueBean> ();
+		for (ScMappingAtomValue val : getValues())
+			values.add(val.toBean());
+		bean.setValues(values);
+		
+		return bean;
+	}
+
+
+   /**
+    * Returns a description of the mapping, conforms to the 
+    * flat file format defined in <code>RepositoryDAO</code>
+    * @return Mapping description
+    */
+	
+   /**
+    * Returns a description of the mapping, conforms to the 
+    * flat file format defined in <code>RepositoryDAO</code>
+    * @return Mapping description Peer.Schema.RelName(variables)
+    */
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		
+		StringBuffer buff = new StringBuffer ();
+		buff.append(_relationContext.toString() + "(");
+		boolean first = true;
+		for (ScMappingAtomValue value : getValues())
+		{
+			buff.append((first?"":",") + value.toString());
+			first = false;
+		}
+		buff.append (")");
+		String strRes = buff.toString();
+		
+		if (getType() != AtomType.NONE)
+			strRes = getType().toString() + "_" + strRes;
+		if (isNeg())
+			strRes = "not(" + strRes + ")";
+		return strRes;
+	}
+		
+	/*
+	 * 	 @return RelName(variables) - not used anywhere
+	 */	
+	public String toString2() {
+		// TODO Auto-generated method stub
+		StringBuffer buff = new StringBuffer ();
+		buff.append(getRelation().getName());
+		if (getType() != AtomType.NONE)
+			buff.append("_" + getType().toString());
+		buff.append("(");
+		boolean first = true;
+		for (ScMappingAtomValue value : getValues())
+		{
+			buff.append ((first?"":",") + value.toString());
+			first = false;
+		}
+
+		String strRes = buff.toString();
+		if (isNeg())
+			strRes = "not(" + strRes + ")";
+		return strRes;
+	}
+		
+/*
+ *  @return Schema.RelName only
+ */
+	public String toString3() {
+		// TODO Auto-generated method stub
+		String strRes = getRelation().getFullQualifiedDbId();
+		if (getType() != AtomType.NONE)
+			strRes = strRes + "_" + getType().toString();
+		return strRes;
+	}
+	
+/*
+ * 	 @return RelName only
+ */	
+	public String toString4() {
+		// TODO Auto-generated method stub
+		String strRes = getRelation().getName();
+		if (getType() != AtomType.NONE)
+			strRes = strRes + "_" + getType().toString();
+		return strRes;
+	}
+
+	/**
+	 * Get a fresh version of this atom value, that is a version whose variables 
+	 * are renamed so that they are not mixed up with original variables composition
+	 * @param freshenVars old/new names for already freshen variables
+	 * @param asNewObject If true the a new freshen atom will be returned, if false this atom will be
+	 * 					freshen and then returned 
+	 * @return Freshen atom
+	 */
+	public ScMappingAtom fresh(Map<String, String> freshenVars, boolean asNewObject) {
+		ScMappingAtom atom;
+
+		List<ScMappingAtomValue> newValues = new ArrayList<ScMappingAtomValue> ();
+		for (ScMappingAtomValue val : getValues())
+			newValues.add(val.fresh(freshenVars, asNewObject));
+		
+		if (asNewObject){
+			atom = new ScMappingAtom(this, newValues);
+
+			atom.setType(getType());
+			atom.setNeg(isNeg());
+			if(allStrata())
+				atom.setAllStrata();
+			return atom;
+		}else{
+			_values = newValues;
+
+			return this;
+		}
+	}	
+
+	
+	/**
+	 * Substitute all occurences of <code>valInit</code> with <code>valRepl</code>
+	 * in the atom values
+	 * @param oldVal Value to be replaced
+	 * @param newVal New value
+	 */	
+	public void substitute (ScMappingAtomValue oldVal, 
+								ScMappingAtomValue newVal)
+	{
+		for (int i = 0 ; i < _values.size() ; i++)
+		{
+			ScMappingAtomValue value = _values.get(i);
+			// If the atom value is to be replaced ...
+			if (value.equals(oldVal) && oldVal.equals(value))
+			{
+				_values.remove(i);
+				_values.add(i, newVal);
+			}
+			// Else replace any occurence of oldVal inside the atom sub-atoms if any
+			else
+				value.substitute(oldVal, newVal);
+		}
+	}
+	
+	protected void renameVariables (String extension)
+	{
+		for (ScMappingAtomValue val : getValues())
+			val.renameVariable(extension);
+	}
+
+	public Map<String, ScMappingAtomValue> varHomomorphism(ScMappingAtom other){
+		HashMap<String, ScMappingAtomValue> varmap = new HashMap<String, ScMappingAtomValue> ();
+		if(getRelationContext().equals(other.getRelationContext())){
+			for(int i = 0; i < getValues().size(); i++){
+				ScMappingAtomValue v = getValues().get(i);
+				if(v instanceof ScMappingAtomValVariable){
+					ScMappingAtomValVariable var = (ScMappingAtomValVariable)v;
+					varmap.put(var.getName(), other.getValues().get(i));
+				}else if(v instanceof ScMappingAtomValConst){
+					ScMappingAtomValConst c = (ScMappingAtomValConst)v;
+					ScMappingAtomValue v2 = other.getValues().get(i);
+					if(v2 instanceof ScMappingAtomValConst){
+						ScMappingAtomValConst c2 =(ScMappingAtomValConst)v2;
+						if(!c2.equals(c)){
+							return null;
+						}
+					}else{
+						return null;
+					}
+				}else{
+					return null;
+				}
+			}
+			return varmap;
+		}else{
+			return null;
+		}
+	}
+	
+	public void substituteVars(Map<String, ScMappingAtomValue> varmap){
+    	
+    	for(int i = 0; i < getValues().size(); i++){
+    		ScMappingAtomValue v = getValues().get(i);
+    	
+    		if(v instanceof ScMappingAtomValVariable){
+    			ScMappingAtomValVariable var = (ScMappingAtomValVariable)v;
+    			if(varmap.containsKey(var.getName())){
+    				getValues().remove(i);
+    				getValues().add(i, varmap.get(var.getName()));
+    			}
+    		}else if (v instanceof ScMappingAtomValConst){ 
+    			
+    		} else { // Should do smth else for skolems 
+    			throw new RuntimeException("Cannot substitute non-variable: " + v.toString());
+    			//System.out.println(1/0);
+    		}
+    	}
+    }
+    
+    public boolean samePattern(ScMappingAtom other){
+    	if((!getRelationContext().equals(other.getRelationContext())) || (getValues().size() != other.getValues().size()))
+    		return false;	
+    	
+    	for(int i = 0; i < getValues().size(); i++) {
+    		ScMappingAtomValue v = getValues().get(i);
+    		ScMappingAtomValue ov = other.getValues().get(i);
+    		
+    		if(((v instanceof ScMappingAtomValVariable) && !(ov instanceof ScMappingAtomValVariable)) ||
+    		   ((v instanceof ScMappingAtomValConst) && !(ov instanceof ScMappingAtomValConst))) {
+    			return false;
+    		} else if ((v instanceof ScMappingAtomValConst) && (ov instanceof ScMappingAtomValConst)) {
+    			ScMappingAtomValConst vc = (ScMappingAtomValConst)v;
+    			ScMappingAtomValConst ovc = (ScMappingAtomValConst)ov;
+    			
+    			if(!vc.equals(ovc))
+    				return false;
+    		} // else Skolem?
+    	}
+    	
+    	return true;
+    }
+    
+    public void renameExistentialVars(ScMapping r){
+    	for(ScMappingAtomValue val : getValues()){
+    		if(val instanceof ScMappingAtomValVariable){
+    			if(!r.isDistinguished((ScMappingAtomValVariable) val))
+    				((ScMappingAtomValVariable) val).setName(ScMapping.getFreshAutogenVariableName());
+    		}else if(val instanceof ScMappingAtomValConst){
+    			// do nothing?
+   			}else{
+    			//System.out.println(1/0);
+        		throw new RuntimeException("Cannot rename non-variable: " + val.toString());
+    		}
+    	}
+    }
+    
+    public void serialize(Document doc, Element atom) {
+    	StringBuffer buf = new StringBuffer(_relationContext.toString());
+    	buf.append("(");
+    	boolean first = true;
+    	for (ScMappingAtomValue value : _values) {
+    		if (first) {
+    			first = false;
+    		} else {
+    			buf.append(", ");
+    		}
+    		buf.append(value.toString());
+    	}
+    	buf.append(")");
+    	atom.setTextContent(buf.toString());
+    }
+    
+    public static ScMappingAtom deserialize(OrchestraSystem catalog, Element atom, Holder<Integer> counter) throws SAXException {
+    	String text = atom.getTextContent().trim();
+    	int left = text.indexOf("(");
+    	int right = text.indexOf(")");
+    	if (left == -1 || right == -1) {
+    		throw new SAXException("Badly formed atom string (missing parenthesis): " + text);
+    	}
+    	String name = text.substring(0, left);
+    	String args = text.substring(left+1, right);
+    	String[] parts = name.split("\\.");
+    	if (parts.length != 3) {
+    		throw new SAXException("Badly formed atom string (expected two dots in relation name): " + text);
+    	}
+    	ScRelationContext rel = catalog.getRelationByName(parts[0], parts[1], parts[2]);
+    	ArrayList<ScMappingAtomValue> values = new ArrayList<ScMappingAtomValue>();
+    	for (String arg : args.split(",")) {
+    		arg = arg.trim();
+    		ScMappingAtomValue val;
+    		if (arg.equals("-")) {
+    			val = new ScMappingAtomValConst((String)null);
+    		} else if (arg.equals("_")) {
+    			val = new ScMappingAtomValVariable("a:v" + counter.value++);
+    		} else if (arg.startsWith("'") && arg.endsWith("'")) {
+    			val = new ScMappingAtomValConst(arg.substring(1, arg.length()-1));
+    		} else {
+    			val = new ScMappingAtomValVariable(arg);
+    		}
+    		values.add(val);
+    	}
+    	return new ScMappingAtom(rel, values);
+    }
+}

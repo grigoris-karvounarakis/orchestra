@@ -1,0 +1,137 @@
+<catalog recmode="true" name="simple">
+  <peer name="Alaska" address="localhost" description="University of Alaska">
+  <schema name="seq" description="Sequences">
+    <relation name="Sequences" size="5" description="Protein sequences" materialized="false">
+      <dbinfo catalog="C" schema="seq" table="seq"/>
+      <field name="org" description="Organism name" type="varchar(20)" nullable="false" key="true"/>
+      <field name="prot" description="Protein name" type="varchar(20)" nullable="false" key="true"/>
+      <field name="sequence" description="Protein sequence" type="varchar(40)" nullable="false" key="false"/>
+    </relation>
+  </schema>
+  </peer>
+  <peer name="Beijing" address="localhost" description="University of Beijing">
+  <schema name="seq" description="Sequences">
+    <relation name="Sequences" size="5" description="Protein sequences" materialized="false">
+      <dbinfo catalog="C" schema="seq" table="seq"/>
+      <field name="org" description="Organism name" type="varchar(20)" nullable="false" key="true"/>
+      <field name="prot" description="Protein name" type="varchar(20)" nullable="false" key="true"/>
+      <field name="sequence" description="Protein sequence" type="varchar(40)" nullable="false" key="false"/>
+    </relation>
+  </schema>
+  </peer>
+  <peer name="Crete" address="localhost" description="University of Crete">
+  <schema name="seq" description="Sequences">
+    <relation name="Sequences" size="5" description="Protein sequences" materialized="false">
+      <dbinfo catalog="C" schema="seq" table="seq"/>
+      <field name="org" description="Organism name" type="varchar(20)" nullable="false" key="true"/>
+      <field name="prot" description="Protein name" type="varchar(20)" nullable="false" key="true"/>
+      <field name="sequence" description="Protein sequence" type="varchar(40)" nullable="false" key="false"/>
+    </relation>
+  </schema>
+  </peer>
+  <peer name="Dresden" address="localhost" description="University of Dresden">
+  <schema name="seq" description="Sequences">
+    <relation name="Sequences" size="5" description="Protein sequences" materialized="false">
+      <dbinfo catalog="C" schema="seq" table="seq"/>
+      <field name="org" description="Organism name" type="varchar(20)" nullable="false" key="true"/>
+      <field name="prot" description="Protein name" type="varchar(20)" nullable="false" key="true"/>
+      <field name="sequence" description="Protein sequence" type="varchar(40)" nullable="false" key="false"/>
+    </relation>
+  </schema>
+  </peer>
+  <mapping materialized="true" name="AB">
+     <head>
+       <atom>
+         Beijing.seq.Sequences(org,prot,sequence)
+       </atom>
+     </head>
+     <body>
+       <atom>
+         Alaska.seq.Sequences(org,prot,sequence)
+       </atom>
+     </body>
+  </mapping>
+  <mapping materialized="true" name="BA">
+     <head>
+       <atom>
+         Alaska.seq.Sequences(org,prot,sequence)
+       </atom>
+     </head>
+     <body>
+       <atom>
+         Beijing.seq.Sequences(org,prot,sequence)
+       </atom>
+     </body>
+  </mapping>
+  <mapping materialized="true" name="AC">
+     <head>
+       <atom>
+         Crete.seq.Sequences(org,prot,sequence)
+       </atom>
+     </head>
+     <body>
+       <atom>
+         Alaska.seq.Sequences(org,prot,sequence)
+       </atom>
+     </body>
+  </mapping>
+  <mapping materialized="true" name="CA">
+     <head>
+       <atom>
+         Alaska.seq.Sequences(org,prot,sequence)
+       </atom>
+     </head>
+     <body>
+       <atom>
+         Crete.seq.Sequences(org,prot,sequence)
+       </atom>
+     </body>
+  </mapping>
+  <mapping materialized="true" name="DC">
+     <head>
+       <atom>
+         Crete.seq.Sequences(org,prot,sequence)
+       </atom>
+     </head>
+     <body>
+       <atom>
+         Dresden.seq.Sequences(org,prot,sequence)
+       </atom>
+     </body>
+  </mapping>
+  <mapping materialized="true" name="CD">
+     <head>
+       <atom>
+         Dresden.seq.Sequences(org,prot,sequence)
+       </atom>
+     </head>
+     <body>
+       <atom>
+         Crete.seq.Sequences(org,prot,sequence)
+       </atom>
+     </body>
+  </mapping>
+  <store>
+    <update type="sql" server="jdbc:db2://grw561-3.cis.upenn.edu:50000/ORCHESTR" username="orchestra" password="apollo"/>
+    <state type="hash"/>
+  </store>
+  <trustConditions peer="Alaska" schema="seq">
+    <trusts pid="Beijing" pidType="STRING" priority="5" relation="Sequences"/>
+    <trusts pid="Crete" pidType="STRING" priority="5" relation="Sequences"/>
+    <trusts pid="Dresden" pidType="STRING" priority="5" relation="Sequences"/>
+  </trustConditions>
+  <trustConditions peer="Beijing" schema="seq">
+    <trusts pid="Alaska" pidType="STRING" priority="5" relation="Sequences"/>
+    <trusts pid="Crete" pidType="STRING" priority="5" relation="Sequences"/>
+    <trusts pid="Dresden" pidType="STRING" priority="5" relation="Sequences"/>
+  </trustConditions>
+  <trustConditions peer="Crete" schema="seq">
+    <trusts pid="Beijing" pidType="STRING" priority="10" relation="Sequences"/>
+    <trusts pid="Dresden" pidType="STRING" priority="5" relation="Sequences"/>
+  </trustConditions>
+  <trustConditions peer="Dresden" schema="seq">
+    <trusts pid="Alaska" pidType="STRING" priority="5" relation="Sequences"/>
+    <trusts pid="Beijing" pidType="STRING" priority="5" relation="Sequences"/>
+    <trusts pid="Crete" pidType="STRING" priority="5" relation="Sequences"/>
+  </trustConditions>
+</catalog>

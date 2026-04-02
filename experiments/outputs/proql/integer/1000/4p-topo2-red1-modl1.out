@@ -1,0 +1,1435 @@
+#PEERS:  4p-topo2-red1-modl1
+===========
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/orchestraScripts/proql/integer/1000/test-4p-topo2-red1-modl1
+> 
+>         set apply=true
+EXP: =========================================
+EXP:apply=true
+EXP: =========================================
+>         set batch=false
+EXP: =========================================
+EXP:batch=false
+EXP: =========================================
+>         set incremental=true
+EXP: =========================================
+EXP:incremental=true
+EXP: =========================================
+>         set debug=false
+EXP: =========================================
+EXP:debug=false
+EXP: =========================================
+>         set wideprov=true
+EXP: =========================================
+EXP:wideprov=true
+EXP: =========================================
+>         set autocommit=false
+EXP: =========================================
+EXP:autocommit=false
+EXP: =========================================
+>         set prepare=true
+EXP: =========================================
+EXP:prepare=true
+EXP: =========================================
+>         set union=false
+EXP: =========================================
+EXP:union=false
+EXP: =========================================
+>         set indexall=true
+EXP: =========================================
+EXP:indexall=true
+EXP: =========================================
+>       set rejectionTables=false
+EXP: =========================================
+EXP:rejectionTables=false
+EXP: =========================================
+>         set stratified=true
+EXP: =========================================
+EXP:stratified=true
+EXP: =========================================
+> 
+>         set workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/
+EXP: =========================================
+EXP:workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/
+EXP: =========================================
+>         set schema=4p-topo2-red1-modl1
+EXP: =========================================
+EXP:schema=4p-topo2-red1-modl1
+EXP: =========================================
+>         set skipFakeMappings=true
+EXP: =========================================
+EXP:skipFakeMappings=true
+EXP: =========================================
+>         set queryCutoff=5000000
+EXP: =========================================
+EXP:queryCutoff=5000000
+EXP: =========================================
+>         set transactionCutoff=500000000
+EXP: =========================================
+EXP:transactionCutoff=500000000
+EXP: =========================================
+> #            set queryCutoff=500
+> #            set transactionCutoff=50000
+>         set runStatistics=false
+EXP: =========================================
+EXP:runStatistics=false
+EXP: =========================================
+> 
+>         startUSS
+*******deserializing catalog********
+Unable to find schema map 4p-topo2-red1-modl1
+Successfully verified schema 4p-topo2-red1-modl1
+>         create-noscript
++++ Initialization +++
+EXP: INIT TIME: 78 msec
+> 	
+> 
+>         migrate
+* Adding non-temp table orchestra.P0_S0_R0_NEW
+* Adding non-temp table orchestra.P0_S0_R0_INS
+* Adding non-temp table orchestra.P0_S0_R0_DEL
+* Adding non-temp table orchestra.P0_S0_R0_RCH
+* Adding non-temp table orchestra.P0_S0_R0_INV
+* Adding non-temp table orchestra.P0_S0_R1_NEW
+* Adding non-temp table orchestra.P0_S0_R1_INS
+* Adding non-temp table orchestra.P0_S0_R1_DEL
+* Adding non-temp table orchestra.P0_S0_R1_RCH
+* Adding non-temp table orchestra.P0_S0_R1_INV
+* Adding non-temp table orchestra.P0_S0_R0_L_NEW
+* Adding non-temp table orchestra.P0_S0_R0_L_INS
+* Adding non-temp table orchestra.P0_S0_R0_L_DEL
+* Adding non-temp table orchestra.P0_S0_R0_L_INV
+* Adding non-temp table orchestra.P0_S0_R1_L_NEW
+* Adding non-temp table orchestra.P0_S0_R1_L_INS
+* Adding non-temp table orchestra.P0_S0_R1_L_DEL
+* Adding non-temp table orchestra.P0_S0_R1_L_INV
+* Adding non-temp table orchestra.P1_S1_R0_NEW
+* Adding non-temp table orchestra.P1_S1_R0_INS
+* Adding non-temp table orchestra.P1_S1_R0_DEL
+* Adding non-temp table orchestra.P1_S1_R0_RCH
+* Adding non-temp table orchestra.P1_S1_R0_INV
+* Adding non-temp table orchestra.P1_S1_R1_NEW
+* Adding non-temp table orchestra.P1_S1_R1_INS
+* Adding non-temp table orchestra.P1_S1_R1_DEL
+* Adding non-temp table orchestra.P1_S1_R1_RCH
+* Adding non-temp table orchestra.P1_S1_R1_INV
+* Adding non-temp table orchestra.P1_S1_R0_L_NEW
+* Adding non-temp table orchestra.P1_S1_R0_L_INS
+* Adding non-temp table orchestra.P1_S1_R0_L_DEL
+* Adding non-temp table orchestra.P1_S1_R0_L_INV
+* Adding non-temp table orchestra.P1_S1_R1_L_NEW
+* Adding non-temp table orchestra.P1_S1_R1_L_INS
+* Adding non-temp table orchestra.P1_S1_R1_L_DEL
+* Adding non-temp table orchestra.P1_S1_R1_L_INV
+* Adding non-temp table orchestra.P2_S2_R0_NEW
+* Adding non-temp table orchestra.P2_S2_R0_INS
+* Adding non-temp table orchestra.P2_S2_R0_DEL
+* Adding non-temp table orchestra.P2_S2_R0_RCH
+* Adding non-temp table orchestra.P2_S2_R0_INV
+* Adding non-temp table orchestra.P2_S2_R1_NEW
+* Adding non-temp table orchestra.P2_S2_R1_INS
+* Adding non-temp table orchestra.P2_S2_R1_DEL
+* Adding non-temp table orchestra.P2_S2_R1_RCH
+* Adding non-temp table orchestra.P2_S2_R1_INV
+* Adding non-temp table orchestra.P2_S2_R0_L_NEW
+* Adding non-temp table orchestra.P2_S2_R0_L_INS
+* Adding non-temp table orchestra.P2_S2_R0_L_DEL
+* Adding non-temp table orchestra.P2_S2_R0_L_INV
+* Adding non-temp table orchestra.P2_S2_R1_L_NEW
+* Adding non-temp table orchestra.P2_S2_R1_L_INS
+* Adding non-temp table orchestra.P2_S2_R1_L_DEL
+* Adding non-temp table orchestra.P2_S2_R1_L_INV
+* Adding non-temp table orchestra.P3_S3_R0_NEW
+* Adding non-temp table orchestra.P3_S3_R0_INS
+* Adding non-temp table orchestra.P3_S3_R0_DEL
+* Adding non-temp table orchestra.P3_S3_R0_RCH
+* Adding non-temp table orchestra.P3_S3_R0_INV
+* Adding non-temp table orchestra.P3_S3_R1_NEW
+* Adding non-temp table orchestra.P3_S3_R1_INS
+* Adding non-temp table orchestra.P3_S3_R1_DEL
+* Adding non-temp table orchestra.P3_S3_R1_RCH
+* Adding non-temp table orchestra.P3_S3_R1_INV
+* Adding non-temp table orchestra.P3_S3_R0_L_NEW
+* Adding non-temp table orchestra.P3_S3_R0_L_INS
+* Adding non-temp table orchestra.P3_S3_R0_L_DEL
+* Adding non-temp table orchestra.P3_S3_R0_L_INV
+* Adding non-temp table orchestra.P3_S3_R1_L_NEW
+* Adding non-temp table orchestra.P3_S3_R1_L_INS
+* Adding non-temp table orchestra.P3_S3_R1_L_DEL
+* Adding non-temp table orchestra.P3_S3_R1_L_INV
++++ Migration +++
+EXP: MIGRATE ORIG RELATIONS TIME: 1154 msec
+EXP: MIGRATE PROVENANCE RELATIONS TIME: 390 msec
+EXP: TOTAL MIGRATE TIME: 1669 msec
+> 
+>         set workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1
+EXP: =========================================
+EXP:workdir=D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1
+EXP: =========================================
+>   
+> 
+>          # Compute initial
+>          set delete=false
+EXP: =========================================
+EXP:delete=false
+EXP: =========================================
+>          set insert=true
+EXP: =========================================
+EXP:insert=true
+EXP: =========================================
+> 				 set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>          set applybaseIns=false
+EXP: =========================================
+EXP:applybaseIns=false
+EXP: =========================================
+>          generateDeltaRules
+NET: Cleanup prepared statements
+>          import-bulk D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1/4p-topo2-red1-modl1
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1/4p-topo2-red1-modl1.delete
+Process returned non-zero value:8
+Process output:
+DB21005E  An error occurred while accessing the file "".
+
+Process error:
+
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1/4p-topo2-red1-modl1.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2902 msec
+0 tuples imported into orchestra.P2_S2_R1_L_DEL
+1000 tuples imported into orchestra.P2_S2_R1_L_INS
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+1000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P2_S2_R0_L_DEL
+1000 tuples imported into orchestra.P2_S2_R0_L_INS
+0 tuples imported into orchestra.P3_S3_R0_L_DEL
+1000 tuples imported into orchestra.P3_S3_R0_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+1000 tuples imported into orchestra.P0_S0_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+1000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+1000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R1_L_DEL
+1000 tuples imported into orchestra.P3_S3_R1_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 19
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 31 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 19
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 8000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 18000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 12000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 6000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 733 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 0 msec
+EXP: NET INSERTION TIME: 733 msec
+TOTAL TUPLE COUNT: 60000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 131
+POST INSERTION TIME: 296 msec
+TOTAL TUPLE COUNT: 68000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 38
+# OF BASE AND MAPPING TABLES: 19
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+>          import-bulk D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1/4p-topo2-red1-modl1
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1/4p-topo2-red1-modl1.delete
+Process returned non-zero value:8
+Process output:
+DB21005E  An error occurred while accessing the file "".
+
+Process error:
+
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1/4p-topo2-red1-modl1.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2870 msec
+0 tuples imported into orchestra.P2_S2_R1_L_DEL
+1000 tuples imported into orchestra.P2_S2_R1_L_INS
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+1000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P2_S2_R0_L_DEL
+1000 tuples imported into orchestra.P2_S2_R0_L_INS
+0 tuples imported into orchestra.P3_S3_R0_L_DEL
+1000 tuples imported into orchestra.P3_S3_R0_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+1000 tuples imported into orchestra.P0_S0_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+1000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+1000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R1_L_DEL
+1000 tuples imported into orchestra.P3_S3_R1_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 19
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 16 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 19
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 8000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 18000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 12000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 6000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 858 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 0 msec
+EXP: NET INSERTION TIME: 858 msec
+TOTAL TUPLE COUNT: 60000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 131
+POST INSERTION TIME: 281 msec
+TOTAL TUPLE COUNT: 68000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 38
+# OF BASE AND MAPPING TABLES: 19
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+> 
+>          set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>          set applybaseIns=true
+EXP: =========================================
+EXP:applybaseIns=true
+EXP: =========================================
+>          generateDeltaRules
+NET: Cleanup prepared statements
+>      
+>          import-bulk D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1/4p-topo2-red1-modl1
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1/4p-topo2-red1-modl1.delete
+Process returned non-zero value:8
+Process output:
+DB21005E  An error occurred while accessing the file "".
+
+Process error:
+
+D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments
+db2cmd /c /w /i db2 -tf D:\cygwin\home\gkarvoun\EclipseWorkspace\orchestra\experiments/tests/proql/autogen/integer/1000/4p-topo2-red1-modl1/4p-topo2-red1-modl1.insert
+Process executed successfully
+Process output:
+
+   Database Connection Information
+
+ Database server        = DB2/NT64 9.5.0
+ SQL authorization ID   = ORCHESTR...
+ Local database alias   = EXPERIM
+
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+
+Number of rows read         = 1000
+Number of rows skipped      = 0
+Number of rows inserted     = 1000
+Number of rows updated      = 0
+Number of rows rejected     = 0
+Number of rows committed    = 1000
+
+
+DB20000I  The RUNSTATS command completed successfully.
+
+DB20000I  The SQL command completed successfully.
+
+DB20000I  The SQL DISCONNECT command completed successfully.
+
+
+Process error:
+
+EXP: IMPORT DATA TIME: 2855 msec
+0 tuples imported into orchestra.P2_S2_R1_L_DEL
+1000 tuples imported into orchestra.P2_S2_R1_L_INS
+0 tuples imported into orchestra.P1_S1_R0_L_DEL
+1000 tuples imported into orchestra.P1_S1_R0_L_INS
+0 tuples imported into orchestra.P2_S2_R0_L_DEL
+1000 tuples imported into orchestra.P2_S2_R0_L_INS
+0 tuples imported into orchestra.P3_S3_R0_L_DEL
+1000 tuples imported into orchestra.P3_S3_R0_L_INS
+0 tuples imported into orchestra.P0_S0_R0_L_DEL
+1000 tuples imported into orchestra.P0_S0_R0_L_INS
+0 tuples imported into orchestra.P1_S1_R1_L_DEL
+1000 tuples imported into orchestra.P1_S1_R1_L_INS
+0 tuples imported into orchestra.P0_S0_R1_L_DEL
+1000 tuples imported into orchestra.P0_S0_R1_L_INS
+0 tuples imported into orchestra.P3_S3_R1_L_DEL
+1000 tuples imported into orchestra.P3_S3_R1_L_INS
+>          translate P0
+EXP: --------------------------------------
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+# OF BASE AND MAPPING TABLES: 19
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER DELETIONS: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER DELETIONS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+=====================================================
+INSERTIONS
+=====================================================
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+INSERTION PREP TIME: 0 msec
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 19
+Recursive sequence - LAST ITERATION (1) RETURNED COUNT: 8000
+Recursive sequence - LAST ITERATION (2) RETURNED COUNT: 18000
+Recursive sequence - LAST ITERATION (3) RETURNED COUNT: 12000
+Recursive sequence - LAST ITERATION (4) RETURNED COUNT: 6000
+Recursive sequence - LAST ITERATION (5) RETURNED COUNT: 0
+INCREMENTAL INSERTION ALG TIME (INCL COMMIT): 858 msec
+EXP: TIME SPENT FOR COMMIT AND LOGGING DEACTIVATION: 0 msec
+EXP: TIME SPENT FOR EMPTY CHECKING: 0 msec
+EXP: NET INSERTION TIME: 858 msec
+TOTAL TUPLE COUNT: 60000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 131
+POST INSERTION TIME: 422 msec
+TOTAL TUPLE COUNT: 102000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 76
+# OF BASE AND MAPPING TABLES: 19
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 34000
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 28000
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+> 				 runStats
+>   
+> #proqlBFS [P0.S0.P0_S0_R0] *- []
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 16 msec
+
+Unfolded program has 14 rules:
+PROV: 219
+
+Unfolded program with ASRs (14):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 31 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 5 body atoms
+Query size (bytes): 2735
+TIME WITHOUT AGGREGATE: 187 msec
+Rule has 7 body atoms
+Query size (bytes): 3774
+TIME WITHOUT AGGREGATE: 3105 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 3198 msec
+Rule has 6 body atoms
+Query size (bytes): 3227
+TIME WITHOUT AGGREGATE: 874 msec
+Rule has 5 body atoms
+Query size (bytes): 2822
+TIME WITHOUT AGGREGATE: 202 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 3120 msec
+Rule has 7 body atoms
+Query size (bytes): 3948
+TIME WITHOUT AGGREGATE: 3214 msec
+Rule has 6 body atoms
+Query size (bytes): 3273
+TIME WITHOUT AGGREGATE: 843 msec
+Rule has 4 body atoms
+Query size (bytes): 2326
+TIME WITHOUT AGGREGATE: 78 msec
+Rule has 6 body atoms
+Query size (bytes): 3365
+TIME WITHOUT AGGREGATE: 1029 msec
+Rule has 6 body atoms
+Query size (bytes): 3452
+TIME WITHOUT AGGREGATE: 1045 msec
+Rule has 5 body atoms
+Query size (bytes): 2956
+TIME WITHOUT AGGREGATE: 359 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 17285 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 17285 msec
+PROQL EXP: TOTAL PROQL TIME : 17316 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+}
+EXP: NET TO QUERY SET TIME: 15 msec
+EXP: EXPANSION TIME: 16 msec
+
+Unfolded program has 14 rules:
+PROV: 219
+
+Unfolded program with ASRs (14):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 31 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 5 body atoms
+Query size (bytes): 2735
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3774
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3227
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2822
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3948
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3273
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 4 body atoms
+Query size (bytes): 2326
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 6 body atoms
+Query size (bytes): 3365
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3452
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2956
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 16 msec
+PROQL EXP: NET EVAL TIME: 109 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 109 msec
+PROQL EXP: TOTAL PROQL TIME : 140 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 15 msec
+
+Unfolded program has 14 rules:
+PROV: 219
+
+Unfolded program with ASRs (14):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 15 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 5 body atoms
+Query size (bytes): 2735
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3774
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3227
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2822
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3948
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3273
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 4 body atoms
+Query size (bytes): 2326
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 3365
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3452
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2956
+TIME WITHOUT AGGREGATE: 32 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 110 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 110 msec
+PROQL EXP: TOTAL PROQL TIME : 125 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 16 msec
+
+Unfolded program has 14 rules:
+PROV: 219
+
+Unfolded program with ASRs (14):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2735
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 7 body atoms
+Query size (bytes): 3774
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3227
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 5 body atoms
+Query size (bytes): 2822
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3948
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3273
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 4 body atoms
+Query size (bytes): 2326
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 6 body atoms
+Query size (bytes): 3365
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3452
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 5 body atoms
+Query size (bytes): 2956
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 109 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 109 msec
+PROQL EXP: TOTAL PROQL TIME : 125 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 15 msec
+
+Unfolded program has 14 rules:
+PROV: 219
+
+Unfolded program with ASRs (14):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 15 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 5 body atoms
+Query size (bytes): 2735
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3774
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3227
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2822
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3948
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 6 body atoms
+Query size (bytes): 3273
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 4 body atoms
+Query size (bytes): 2326
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 3365
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3452
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2956
+TIME WITHOUT AGGREGATE: 31 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 109 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 109 msec
+PROQL EXP: TOTAL PROQL TIME : 124 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 16 msec
+
+Unfolded program has 14 rules:
+PROV: 219
+
+Unfolded program with ASRs (14):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2735
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 7 body atoms
+Query size (bytes): 3774
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3227
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 5 body atoms
+Query size (bytes): 2822
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3948
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 3273
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 4 body atoms
+Query size (bytes): 2326
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 6 body atoms
+Query size (bytes): 3365
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3452
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 5 body atoms
+Query size (bytes): 2956
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 109 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 109 msec
+PROQL EXP: TOTAL PROQL TIME : 125 msec
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+QUERY: ([P0.S0.P0_S0_R0 ] ** [])
+Schema graph: {([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 15 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 14 rules:
+PROV: 219
+
+Unfolded program with ASRs (14):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 31 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 5 body atoms
+Query size (bytes): 2735
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3774
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 3227
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2822
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 7 body atoms
+Query size (bytes): 3861
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 7 body atoms
+Query size (bytes): 3948
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 6 body atoms
+Query size (bytes): 3273
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 4 body atoms
+Query size (bytes): 2326
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 6 body atoms
+Query size (bytes): 3365
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 6 body atoms
+Query size (bytes): 3452
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 5 body atoms
+Query size (bytes): 2956
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 94 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 109 msec
+PROQL EXP: TOTAL PROQL TIME : 140 msec
+> #proqlBFS [P2.S2.P2_S2_R0] *- []
+> proqlBFS [P2.S2.P2_S2_R0] *- []
+QUERY: ([P2.S2.P2_S2_R0 ] ** [])
+Schema graph: {([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 2 rules:
+PROV: 13
+
+Unfolded program with ASRs (2):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 0 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 31 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 31 msec
+PROQL EXP: TOTAL PROQL TIME : 31 msec
+> proqlBFS [P2.S2.P2_S2_R0] *- []
+QUERY: ([P2.S2.P2_S2_R0 ] ** [])
+Schema graph: {([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 2 rules:
+PROV: 13
+
+Unfolded program with ASRs (2):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 0 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 16 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 16 msec
+PROQL EXP: TOTAL PROQL TIME : 16 msec
+> proqlBFS [P2.S2.P2_S2_R0] *- []
+QUERY: ([P2.S2.P2_S2_R0 ] ** [])
+Schema graph: {([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 2 rules:
+PROV: 13
+
+Unfolded program with ASRs (2):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 0 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 15 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 15 msec
+PROQL EXP: TOTAL PROQL TIME : 15 msec
+> proqlBFS [P2.S2.P2_S2_R0] *- []
+QUERY: ([P2.S2.P2_S2_R0 ] ** [])
+Schema graph: {([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 2 rules:
+PROV: 13
+
+Unfolded program with ASRs (2):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 0 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 16 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 16 msec
+PROQL EXP: TOTAL PROQL TIME : 16 msec
+> proqlBFS [P2.S2.P2_S2_R0] *- []
+QUERY: ([P2.S2.P2_S2_R0 ] ** [])
+Schema graph: {([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 2 rules:
+PROV: 13
+
+Unfolded program with ASRs (2):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 16 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 0 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 15 msec
+PROQL EXP: NET EVAL TIME: 15 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 15 msec
+PROQL EXP: TOTAL PROQL TIME : 31 msec
+> proqlBFS [P2.S2.P2_S2_R0] *- []
+QUERY: ([P2.S2.P2_S2_R0 ] ** [])
+Schema graph: {([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 2 rules:
+PROV: 13
+
+Unfolded program with ASRs (2):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 0 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 16 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 16 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 16 msec
+PROQL EXP: TOTAL PROQL TIME : 16 msec
+> proqlBFS [P2.S2.P2_S2_R0] *- []
+QUERY: ([P2.S2.P2_S2_R0 ] ** [])
+Schema graph: {([P0.S0.P0_S0_R0] <BASEP0_S0_R0< [P0.S0.P0_S0_R0_L])
+([P3.S3.P3_S3_R0] <BASEP3_S3_R0< [P3.S3.P3_S3_R0_L])
+([P2.S2.P2_S2_R1] <BASEP2_S2_R1< [P2.S2.P2_S2_R1_L])
+([P2.S2.P2_S2_R0] <BASEP2_S2_R0< [P2.S2.P2_S2_R0_L])
+([P3.S3.P3_S3_R1] <BASEP3_S3_R1< [P3.S3.P3_S3_R1_L])
+([P2.S2.P2_S2_R0][P2.S2.P2_S2_R1] <M2< [P3.S3.P3_S3_R0][P3.S3.P3_S3_R1])
+([P1.S1.P1_S1_R1] <BASEP1_S1_R1< [P1.S1.P1_S1_R1_L])
+([P0.S0.P0_S0_R1] <BASEP0_S0_R1< [P0.S0.P0_S0_R1_L])
+([P1.S1.P1_S1_R1][P1.S1.P1_S1_R0] <M1< [P2.S2.P2_S2_R0][P2.S2.P2_S2_R1])
+([P0.S0.P0_S0_R1][P0.S0.P0_S0_R0] <M0< [P1.S1.P1_S1_R1][P1.S1.P1_S1_R0])
+([P1.S1.P1_S1_R0] <BASEP1_S1_R0< [P1.S1.P1_S1_R0_L])
+}
+EXP: NET TO QUERY SET TIME: 0 msec
+EXP: EXPANSION TIME: 0 msec
+
+Unfolded program has 2 rules:
+PROV: 13
+
+Unfolded program with ASRs (2):
+PROQL EXP: TOTAL QUERY UNFOLDING TIME : 0 msec
+Rule has 3 body atoms
+Query size (bytes): 1696
+TIME WITHOUT AGGREGATE: 15 msec
+Rule has 1 body atoms
+Query size (bytes): 657
+TIME WITHOUT AGGREGATE: 0 msec
+PROQL EXP: NET EVAL TIME: 15 msec
+PROQL EXP: TOTAL EVAL TIME (INCL RESULT CONSTR): 15 msec
+PROQL EXP: TOTAL PROQL TIME : 15 msec
+> 
+> #          clear
+> #           stopUSS
+>           drop
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 34000
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 103
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 0
+TOTAL TUPLE COUNT: 0
+TRANSACTION CNT BEFORE RESET WAS: 0
+QUERY CNT BEFORE RESET WAS: 103
+>           quit

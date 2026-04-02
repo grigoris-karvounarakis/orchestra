@@ -1,0 +1,114 @@
+Correct output counts after deleting INTERPRO2GO(12262,4146)
+----------------
+Count the contents of relations
+select count(*) from PLASMO.GOTERM_SUMMARY_R
+(select count(*) from PLASMO.GOTERM_SUMMARY_R) RETURNED: 0
+select count(*) from PLASMO.pM1
+(select count(*) from PLASMO.pM1) RETURNED: 12
+select count(*) from INTERPRO.pM3
+(select count(*) from INTERPRO.pM3) RETURNED: 19
+select count(*) from INTERPRO.pM4
+(select count(*) from INTERPRO.pM4) RETURNED: 48
+select count(*) from PLASMO.pM2
+(select count(*) from PLASMO.pM2) RETURNED: 2
+select count(*) from GO.TERM_L
+(select count(*) from GO.TERM_L) RETURNED: 2
+select count(*) from PLASMO.DOMAIN_REF_R
+(select count(*) from PLASMO.DOMAIN_REF_R) RETURNED: 0
+select count(*) from PLASMO.GOTERM
+(select count(*) from PLASMO.GOTERM) RETURNED: 6
+select count(*) from PLASMO.DOMAIN_REF_L
+(select count(*) from PLASMO.DOMAIN_REF_L) RETURNED: 4
+select count(*) from INTERPRO.ENTRY2METH_L
+(select count(*) from INTERPRO.ENTRY2METH_L) RETURNED: 48
+select count(*) from PLASMO.GOTERM_R
+(select count(*) from PLASMO.GOTERM_R) RETURNED: 0
+select count(*) from PLASMO.pM7
+(select count(*) from PLASMO.pM7) RETURNED: 4
+select count(*) from PLASMO.GOTERM_SUMMARY_L
+(select count(*) from PLASMO.GOTERM_SUMMARY_L) RETURNED: 1
+select count(*) from GO.pM6
+(select count(*) from GO.pM6) RETURNED: 2
+select count(*) from PLASMO.pM0
+(select count(*) from PLASMO.pM0) RETURNED: 20
+select count(*) from INTERPRO.ENTRY
+(select count(*) from INTERPRO.ENTRY) RETURNED: 19
+select count(*) from PLASMO.DOMAIN_REF
+(select count(*) from PLASMO.DOMAIN_REF) RETURNED: 16
+select count(*) from INTERPRO.INTERPRO2GO_R
+(select count(*) from INTERPRO.INTERPRO2GO_R) RETURNED: 0
+select count(*) from INTERPRO.ENTRY_R
+(select count(*) from INTERPRO.ENTRY_R) RETURNED: 0
+select count(*) from INTERPRO.INTERPRO2GO
+(select count(*) from INTERPRO.INTERPRO2GO) RETURNED: 2
+select count(*) from INTERPRO.INTERPRO2GO_L
+(select count(*) from INTERPRO.INTERPRO2GO_L) RETURNED: 2
+select count(*) from PLASMO.pM8
+(select count(*) from PLASMO.pM8) RETURNED: 1
+select count(*) from PLASMO.GOTERM_L
+(select count(*) from PLASMO.GOTERM_L) RETURNED: 2
+select count(*) from INTERPRO.ENTRY2METH_R
+(select count(*) from INTERPRO.ENTRY2METH_R) RETURNED: 0
+select count(*) from INTERPRO.ENTRY2METH
+(select count(*) from INTERPRO.ENTRY2METH) RETURNED: 48
+select count(*) from INTERPRO.ENTRY_L
+(select count(*) from INTERPRO.ENTRY_L) RETURNED: 19
+select count(*) from GO.TERM_R
+(select count(*) from GO.TERM_R) RETURNED: 0
+select count(*) from PLASMO.pM9
+(select count(*) from PLASMO.pM9) RETURNED: 2
+select count(*) from INTERPRO.pM5
+(select count(*) from INTERPRO.pM5) RETURNED: 2
+select count(*) from GO.TERM
+(select count(*) from GO.TERM) RETURNED: 2
+select count(*) from PLASMO.GOTERM_SUMMARY
+(select count(*) from PLASMO.GOTERM_SUMMARY) RETURNED: 5
+# OF BASE AND MAPPING TABLES: 31
+TOTAL NUM OF TUPLES IN BASE AND MAPPING RELATIONS AFTER INSERTIONS: 288
+Count the contents of relations
+select count(*) from GO.TERM_R
+(select count(*) from GO.TERM_R) RETURNED: 0
+select count(*) from INTERPRO.ENTRY
+(select count(*) from INTERPRO.ENTRY) RETURNED: 19
+select count(*) from PLASMO.DOMAIN_REF
+(select count(*) from PLASMO.DOMAIN_REF) RETURNED: 16
+select count(*) from INTERPRO.ENTRY_R
+(select count(*) from INTERPRO.ENTRY_R) RETURNED: 0
+select count(*) from INTERPRO.ENTRY2METH_R
+(select count(*) from INTERPRO.ENTRY2METH_R) RETURNED: 0
+select count(*) from INTERPRO.INTERPRO2GO
+(select count(*) from INTERPRO.INTERPRO2GO) RETURNED: 2
+select count(*) from INTERPRO.INTERPRO2GO_L
+(select count(*) from INTERPRO.INTERPRO2GO_L) RETURNED: 2
+select count(*) from GO.TERM_L
+(select count(*) from GO.TERM_L) RETURNED: 2
+select count(*) from INTERPRO.INTERPRO2GO_R
+(select count(*) from INTERPRO.INTERPRO2GO_R) RETURNED: 0
+select count(*) from PLASMO.GOTERM_SUMMARY_R
+(select count(*) from PLASMO.GOTERM_SUMMARY_R) RETURNED: 0
+select count(*) from PLASMO.GOTERM
+(select count(*) from PLASMO.GOTERM) RETURNED: 6
+select count(*) from PLASMO.GOTERM_L
+(select count(*) from PLASMO.GOTERM_L) RETURNED: 2
+select count(*) from PLASMO.DOMAIN_REF_L
+(select count(*) from PLASMO.DOMAIN_REF_L) RETURNED: 4
+select count(*) from INTERPRO.ENTRY2METH
+(select count(*) from INTERPRO.ENTRY2METH) RETURNED: 48
+select count(*) from INTERPRO.ENTRY2METH_L
+(select count(*) from INTERPRO.ENTRY2METH_L) RETURNED: 48
+select count(*) from PLASMO.GOTERM_R
+(select count(*) from PLASMO.GOTERM_R) RETURNED: 0
+select count(*) from INTERPRO.ENTRY_L
+(select count(*) from INTERPRO.ENTRY_L) RETURNED: 19
+select count(*) from GO.TERM
+(select count(*) from GO.TERM) RETURNED: 2
+select count(*) from PLASMO.GOTERM_SUMMARY_L
+(select count(*) from PLASMO.GOTERM_SUMMARY_L) RETURNED: 1
+select count(*) from PLASMO.GOTERM_SUMMARY
+(select count(*) from PLASMO.GOTERM_SUMMARY) RETURNED: 5
+select count(*) from PLASMO.DOMAIN_REF_R
+(select count(*) from PLASMO.DOMAIN_REF_R) RETURNED: 0
+TOTAL NUM OF TUPLES IN BASE RELATIONS AFTER INSERTIONS: 176
+
+---------------------
+

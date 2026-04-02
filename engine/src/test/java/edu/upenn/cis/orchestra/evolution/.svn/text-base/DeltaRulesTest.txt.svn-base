@@ -1,0 +1,121 @@
+#-----------------------------------------------------------
+:TEST
+delta rules 2
+#-----------------------------------------------------------
+
+:FLAGS
+SEMIEXHAUSTIVE
+
+:SCHEMA
+R(2), S(2), T(2), RI(2), SI(2), TI(2), Q(2)
+
+:DATA
+R chain 0 99990
+S chain 0 99990
+T chain 0 99990
+RI chain 99990 100000
+SI chain 99990 100000
+TI chain 99990 100000
+
+:VIEWS
+RN(x,y) :- R(x,y)
+RN(x,y) :- RI(x,y)
+SN(x,y) :- S(x,y)
+SN(x,y) :- SI(x,y)
+TN(x,y) :- T(x,y)
+TN(x,y) :- TI(x,y)
+Q(x,y)  :- R(x,u), S(u,v), T(v,y)
+
+:QUERY
+QN(x,y) :- RN(x,u), SN(u,v), TN(v,y)
+
+:EXPECTED
+QN(x,y) :- Q(x,y)
+QN(x,y) :- R(x,u), S(u,v), TI(v,y)
+QN(x,y) :- R(x,u), SI(u,v), TN(v,y)
+QN(x,y) :- RI(x,u), SN(u,v), TN(v,y)
+
+:ENDTEST
+
+#-----------------------------------------------------------
+:TEST
+delta rules 2 with mashing
+#-----------------------------------------------------------
+
+:FLAGS
+SEMIEXHAUSTIVE | MASHING
+
+:SCHEMA 
+R(2), S(2), T(2), RI(2), SI(2), TI(2), Q(2)
+
+:DATA
+R chain 0 99990
+S chain 0 99990
+T chain 0 99990
+RI chain 99990 100000
+SI chain 99990 100000
+TI chain 99990 100000
+
+:VIEWS
+RN(x,y) :- R(x,y)
+RN(x,y) :- RI(x,y)
+SN(x,y) :- S(x,y)
+SN(x,y) :- SI(x,y)
+TN(x,y) :- T(x,y)
+TN(x,y) :- TI(x,y)
+Q(x,y)  :- R(x,u), S(u,v), T(v,y)
+
+:QUERY
+QN(x,y) :- RN(x,u), SN(u,v), TN(v,y)
+
+:EXPECTED
+QN(x,y) :- Q(x,y)
+QN(x,y) :- R(x,u), S(u,v), TI(v,y)
+QN(x,y) :- R(x,u), SI(u,v), TN(v,y)
+QN(x,y) :- RI(x,u), SN(u,v), TN(v,y)
+
+:ENDTEST
+
+
+#-----------------------------------------------------------
+:TEST
+delta rules
+#-----------------------------------------------------------
+
+:FLAGS
+SEMIEXHAUSTIVE
+
+:SCHEMA 
+R(2), S(2), T(2), RI(2), SI(2), TI(2)
+
+:DATA
+R chain 0 9990
+S chain 0 9990
+T chain 0 9990
+RI chain 9990 20000
+SI chain 9990 10000
+TI chain 9990 10000
+
+:VIEWS
+RN(x,y) :- R(x,y)
+RN(x,y) :- RI(x,y)
+SN(x,y) :- S(x,y)
+SN(x,y) :- SI(x,y)
+TN(x,y) :- T(x,y)
+TN(x,y) :- TI(x,y)
+
+:QUERY
+QI(x,y) :- R(x,y), S(x,y), TI(x,y)
+QI(x,y) :- R(x,y), SI(x,y), T(x,y)
+QI(x,y) :- R(x,y), SI(x,y), TI(x,y)
+QI(x,y) :- RI(x,y), S(x,y), T(x,y)
+QI(x,y) :- RI(x,y), S(x,y), TI(x,y)
+QI(x,y) :- RI(x,y), SI(x,y), T(x,y)
+QI(x,y) :- RI(x,y), SI(x,y), TI(x,y)
+
+:EXPECTED
+QI(x,y) :- R(x,y), S(x,y), TI(x,y)
+QI(x,y) :- R(x,y), SI(x,y), TN(x,y)
+QI(x,y) :- RI(x,y), SN(x,y), TN(x,y)
+
+:ENDTEST

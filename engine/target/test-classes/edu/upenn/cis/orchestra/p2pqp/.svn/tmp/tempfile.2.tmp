@@ -1,0 +1,301 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import rice.p2p.commonapi.Id;
+import edu.upenn.cis.orchestra.datamodel.IntType;
+import edu.upenn.cis.orchestra.datamodel.PrimaryKey;
+import edu.upenn.cis.orchestra.p2pqp.PastryNodeFactory.PastryIdFactory;
+import edu.upenn.cis.orchestra.p2pqp.QpTuple.WhichChild;
+import edu.upenn.cis.orchestra.p2pqp.UpdateProvenance.UpdateType;
+
+
+public class TestRelativeAbsorption{
+    QpSchema link, hop;
+
+    List<Integer> _nodeNum = new ArrayList<Integer>();
+    List<Integer> _proType = new ArrayList<Integer>();
+    List<Integer> _hopNum = new ArrayList<Integer>();
+    List<Double> _density = new ArrayList<Double>();
+    List<Integer> _testCase = new ArrayList<Integer>();
+    
+    Map<Integer,Set<Integer>> deps = Collections.emptyMap();
+    Set<Integer> empty;
+    RecordTuplesLocal rtl; 
+
+    final byte[] nodeIdBytes = {25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    PastryIdFactory pFactory = new PastryIdFactory();
+    final Id nodeId = pFactory.getIdFromByteArray(nodeIdBytes);
+    final int queryId = 17;
+    static MetadataFactory<UpdateProvenance> mdf = UpdateProvenanceMetadataFactory.getInstance();
+    static ProvenanceTokenHashFactory pthFactory;
+    
+    
+    PrintStream file = new PrintStream("result.dat");
+    
+    public TestRelativeAbsorption() throws Exception {
+    	
+    	link = new QpSchema("LINK", 1);
+    	link.addCol("start", IntType.INT);
+    	link.addCol("end", IntType.INT);
+    	link.setPrimaryKey(new PrimaryKey("pk", link, Arrays.asList("start", "end")));
+    	link.markFinished();
+    	
+    	hop = new QpSchema("HOP", 2);
+    	hop.addCol("start", IntType.INT);
+    	hop.addCol("end", IntType.INT);
+    	hop.setPrimaryKey(new PrimaryKey("pk", hop, Arrays.asList("start", "end")));
+    	hop.markFinished();
+    	
+        BufferedReader fis = new BufferedReader(new FileReader("configure.dat"));
+        
+        String tmp = fis.readLine();
+        int number = Integer.parseInt(tmp);
+        file.println(number);	file.flush();        
+        for (int i=0; i<number; i++) {
+        	tmp = fis.readLine();
+        	StringTokenizer st = new StringTokenizer(tmp);
+        	int hopNum = Integer.parseInt(st.nextToken());
+        	int proType = Integer.parseInt(st.nextToken());
+        	int nodeNum = Integer.parseInt(st.nextToken());
+        	double density = Double.valueOf(st.nextToken());
+        	int testCase = Integer.parseInt(st.nextToken());
+        	
+        	_hopNum.add(Integer.valueOf(hopNum));
+        	_proType.add(Integer.valueOf(proType));
+        	_nodeNum.add(Integer.valueOf(nodeNum));
+        	_density.add(density);
+        	_testCase.add(Integer.valueOf(testCase));
+        }
+        fis.close();
+        
+        empty = Collections.emptySet();
+		rtl = new RecordTuplesLocal(null, deps, empty, empty);
+    }
+    
+	public void runTest() throws Exception{
+		
+		pthFactory = new ProvenanceTokenHashFactory();
+		
+		for (int i=0; i<_hopNum.size(); i++) {
+			int linkNum;
+			if (_density.get(i) == 0) linkNum = _nodeNum.get(i) - 1;
+			else linkNum = (int) (_nodeNum.get(i)*_density.get(i));
+			if (_testCase.get(i) == 0) {
+				testJoin(_hopNum.get(i), _proType.get(i), _nodeNum.get(i), linkNum);	
+			} else if (_testCase.get(i) == 1) {
+				testFixpoint(_hopNum.get(i), _proType.get(i), _nodeNum.get(i), linkNum);	
+			}
+			
+			System.out.println("Run: " + i);
+		}
+		
+		pthFactory.stop();
+		
+	}
+	
+	public void testJoin(int hopNum, int proType, int nodeNum, int linkNum) throws Exception{
+    	TupleId.Factory idf = new TupleId.Factory(0, 0, nodeId);
+        UpdateType updateType = UpdateType.INS;
+        
+
+        if (proType == 0) {
+        	ProvenanceFactory.defaultProvenance = ProvenanceFactory.PROV_TYPE.ABSORP_PROVENANCE;	
+        } else if (proType == 1) {
+        	ProvenanceFactory.defaultProvenance = ProvenanceFactory.PROV_TYPE.COUNT_PROVENANCE;	
+        } else if (proType == 2) {
+        	ProvenanceFactory.defaultProvenance = ProvenanceFactory.PROV_TYPE.RELATIVE_PROVENANCE;	
+        }
+
+    	List<QpTuple<UpdateProvenance>> test = new ArrayList<QpTuple<UpdateProvenance>>();		
+	
+    	Random generator = new Random();
+    	
+    	for (int i=0; i<nodeNum-1; i++) {
+    		QpTuple<UpdateProvenance> tmp = new QpTuple<UpdateProvenance>(link, i+1, idf.next(),null);
+    		tmp.set("start", i);
+    		tmp.set("end", i+1);
+    		tmp.setReadOnly();
+    		tmp.setMetadata(new UpdateProvenance(ProvenanceFactory.getProvenanceFor(0, nodeId, new KeyandEpoch(tmp)), updateType, null));
+    		test.add(tmp);
+    	}
+	
+    	for (int i=nodeNum-1; i<linkNum; i++) {
+    		QpTuple<UpdateProvenance> tmp = new QpTuple<UpdateProvenance>(link, i+1, idf.next(), null);
+    		tmp.set("start", generator.nextInt(nodeNum));
+    		tmp.set("end", generator.nextInt(nodeNum));
+    		tmp.setReadOnly();
+    		tmp.setMetadata(new UpdateProvenance(ProvenanceFactory.getProvenanceFor(0, nodeId, new KeyandEpoch(tmp)), updateType, null));
+    		test.add(tmp);
+    	}
+
+    	if (proType == 0) {
+    		file.print("Absorption	");
+    	} else if (proType == 1) {
+    		file.print("Count		");
+    	} else if (proType == 2) {
+    		file.print("Relative	");
+    	}
+    	
+		file.print(hopNum + " hops	");
+		file.print(nodeNum + " nodes	");
+		file.print(linkNum + " links	");
+	
+		System.gc();	System.gc();
+		//long mem = Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
+			
+		List<Integer> leftOutputVariables = new ArrayList<Integer>();
+		List<Integer> rightOutputVariables = new ArrayList<Integer>();
+		leftOutputVariables.add(null);
+		leftOutputVariables.add(1);
+		rightOutputVariables.add(0);
+		rightOutputVariables.add(null);
+
+		Set<QpTuple<UpdateProvenance>> output = new HashSet<QpTuple<UpdateProvenance>>();
+		CollectionOperator<UpdateProvenance> outputOp = new CollectionOperator<UpdateProvenance>(output, 25);
+	
+		Configuration.countMessageBytes = 0;
+		
+		PipelinedHashJoin<UpdateProvenance> phj = new PipelinedHashJoin<UpdateProvenance>("LINK", "LINK", Collections.singletonList(0), Collections.singletonList(1),
+													leftOutputVariables, rightOutputVariables, false, link, outputOp, WhichChild.LEFT, queryId, nodeId, 100, rtl, mdf);
+
+		Set<QpTuple<UpdateProvenance>> leftTuples = new HashSet<QpTuple<UpdateProvenance>>();
+		Set<QpTuple<UpdateProvenance>> rightTuples = new HashSet<QpTuple<UpdateProvenance>>();
+	
+		long time = System.currentTimeMillis();
+		
+		for (int i=0; i<linkNum; i++) {
+			QpTuple<UpdateProvenance> tmp = test.get(i);
+			tmp.setDest(WhichChild.RIGHT);
+			rightTuples.add(tmp);
+		}
+		phj.receiveTuples(rightTuples);
+	
+		for (int i=0; i<linkNum; i++) {
+			QpTuple<UpdateProvenance> tmp = test.get(i);
+			tmp.setDest(WhichChild.LEFT);
+	    	leftTuples.add(tmp);
+		}
+		phj.receiveTuples(leftTuples);
+	
+		for (int i = 0; i<hopNum-2; i++)
+			phj.receiveTuples(output);
+	
+		file.print(System.currentTimeMillis()-time);
+		file.print("ms	");
+		Iterator<QpTuple<UpdateProvenance>> iterator = output.iterator();
+		long bytesSum = 0;
+		while (iterator.hasNext()) {
+			QpTuple<UpdateProvenance> tuple = iterator.next();
+			bytesSum += tuple.getFullBytes(mdf).length;
+		}
+		file.print(bytesSum/1024+"KB	");
+		file.println(Configuration.countMessageBytes/1024 + "KB");
+		file.flush();
+
+    }
+
+	public void testFixpoint(int hopNum, int proType, int nodeNum, int linkNum) throws Exception{
+    	TupleId.Factory idf = new TupleId.Factory(0, 0, nodeId);
+        UpdateType updateType = UpdateType.INS;
+        
+
+        if (proType == 0) { 
+        	ProvenanceFactory.defaultProvenance = ProvenanceFactory.PROV_TYPE.ABSORP_PROVENANCE;	
+        } else if (proType == 2) {
+        	ProvenanceFactory.defaultProvenance = ProvenanceFactory.PROV_TYPE.RELATIVE_PROVENANCE;	
+        } else if (proType == 1) return;
+        
+        List<QpTuple<UpdateProvenance>> test = new ArrayList<QpTuple<UpdateProvenance>>();		
+		
+		Random generator = new Random();
+		for (int i=0; i<nodeNum-1; i++) {
+			QpTuple<UpdateProvenance> tmp = new QpTuple<UpdateProvenance>(link, i+1, idf.next(),null);
+		    tmp.set("start", i);
+		    tmp.set("end", i+1);
+		    tmp.setReadOnly();
+		    tmp.setMetadata(new UpdateProvenance(ProvenanceFactory.getProvenanceFor(0, nodeId, new KeyandEpoch(tmp)), updateType, null));
+		    test.add(tmp);
+		}
+
+		for (int i=nodeNum-1; i<linkNum; i++) {
+			QpTuple<UpdateProvenance> tmp = new QpTuple<UpdateProvenance>(link, i+1, idf.next(),null);
+		    tmp.set("start", generator.nextInt(nodeNum));
+		    tmp.set("end", generator.nextInt(nodeNum));
+		    tmp.setReadOnly();
+		    tmp.setMetadata(new UpdateProvenance(ProvenanceFactory.getProvenanceFor(0, nodeId, new KeyandEpoch(tmp)), updateType, null));
+		    test.add(tmp);
+		}
+		
+
+		if (proType == 0) {
+    		file.print("Absorption	");
+    	} else if (proType == 2) {
+    		file.print("Relative    ");
+    	}
+		
+		file.print(hopNum + " hops	");
+		file.print(nodeNum + " nodes	");
+		file.print(linkNum + " links	");
+		
+		System.gc();	System.gc();
+		
+				
+		List<Integer> leftOutputVariables = new ArrayList<Integer>();
+		List<Integer> rightOutputVariables = new ArrayList<Integer>();
+		leftOutputVariables.add(null);
+		leftOutputVariables.add(1);
+		rightOutputVariables.add(0);
+		rightOutputVariables.add(null);
+
+		Configuration.countMessageBytes = 0;		
+		
+		Set<QpTuple<UpdateProvenance>> output = new HashSet<QpTuple<UpdateProvenance>>();
+		CollectionOperator<UpdateProvenance> outputOp = new CollectionOperator<UpdateProvenance>(output, 25);
+		
+		
+		HashJoinFixedPoint<UpdateProvenance> fp = new HashJoinFixedPoint<UpdateProvenance>(outputOp, WhichChild.LEFT, queryId, nodeId, 500, rtl, mdf, link, "LINK", Collections.singletonList(0),
+			      Collections.singletonList(1), leftOutputVariables, rightOutputVariables);
+		
+		long time = System.currentTimeMillis();
+		
+		for (int i=0; i<linkNum; i++) {
+		    QpTuple<UpdateProvenance> tmp = test.get(i);
+		    tmp.setDest(WhichChild.RIGHT);
+		    fp.receiveTuples(Collections.singleton(tmp));
+		    tmp.setDest(WhichChild.LEFT);
+		    fp.receiveTuples(Collections.singleton(tmp));
+		}
+		
+		file.print(System.currentTimeMillis()-time);
+		file.print("ms	");
+
+
+		Iterator<QpTuple<UpdateProvenance>> iterator = output.iterator();
+		long bytesSum = 0;
+		while (iterator.hasNext()) {
+			QpTuple<UpdateProvenance> tuple = iterator.next();
+			bytesSum += tuple.getFullBytes(mdf).length;
+		}
+		file.print(bytesSum/1024+"KB	");
+		file.println(Configuration.countMessageBytes/1024+"KB");
+
+    }
+	
+	public static void main(String argsp[]) throws Exception {
+		TestRelativeAbsorption testCase = new TestRelativeAbsorption();
+		testCase.runTest();
+	}
+}

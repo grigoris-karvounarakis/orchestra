@@ -1,0 +1,1375 @@
+package edu.upenn.cis.orchestra.exchange;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import edu.upenn.cis.orchestra.Config;
+import edu.upenn.cis.orchestra.Debug;
+import edu.upenn.cis.orchestra.datalog.DatalogSequence;
+import edu.upenn.cis.orchestra.datamodel.OrchestraSystem;
+import edu.upenn.cis.orchestra.datamodel.Peer;
+import edu.upenn.cis.orchestra.datamodel.Relation;
+import edu.upenn.cis.orchestra.datamodel.RelationContext;
+import edu.upenn.cis.orchestra.datamodel.Tuple;
+import edu.upenn.cis.orchestra.datamodel.RelationField;
+import edu.upenn.cis.orchestra.datamodel.Mapping;
+import edu.upenn.cis.orchestra.datamodel.Atom;
+import edu.upenn.cis.orchestra.datamodel.AtomArgument;
+import edu.upenn.cis.orchestra.datamodel.AtomConst;
+import edu.upenn.cis.orchestra.datamodel.AtomSkolem;
+import edu.upenn.cis.orchestra.datamodel.AtomVariable;
+import edu.upenn.cis.orchestra.datamodel.Schema;
+import edu.upenn.cis.orchestra.datamodel.TranslationState;
+import edu.upenn.cis.orchestra.datamodel.Atom.AtomType;
+import edu.upenn.cis.orchestra.datamodel.exceptions.UnsupportedTypeException;
+import edu.upenn.cis.orchestra.datamodel.iterators.ResultSetIterator;
+import edu.upenn.cis.orchestra.deltaRules.DeletionDeltaRuleGen;
+import edu.upenn.cis.orchestra.deltaRules.DeltaRuleGen;
+import edu.upenn.cis.orchestra.deltaRules.InsertionDeltaRuleGen;
+import edu.upenn.cis.orchestra.exchange.flatfile.FileDb;
+import edu.upenn.cis.orchestra.exchange.sql.SqlDb;
+import edu.upenn.cis.orchestra.exchange.sql.SqlEngine;
+import edu.upenn.cis.orchestra.exchange.tukwila.TukwilaDb;
+import edu.upenn.cis.orchestra.exchange.tukwila.TukwilaEngine;
+import edu.upenn.cis.orchestra.mappings.MappingsCompositionMgt;
+import edu.upenn.cis.orchestra.mappings.MappingsIOMgt;
+import edu.upenn.cis.orchestra.mappings.MappingsInversionMgt;
+import edu.upenn.cis.orchestra.mappings.Rule;
+import edu.upenn.cis.orchestra.repository.dao.flatfile.grammar.ParseException;
+import edu.upenn.cis.orchestra.util.DomUtils;
+import edu.upenn.cis.orchestra.util.XMLParseException;
+
+/**
+ * 
+ * @author gkarvoun
+ *
+ */
+public abstract class BasicEngine implements IEngine {
+	
+	protected CreateProvenanceStorage _provenancePrep;
+	
+	protected TranslationState _state;
+	
+	protected OrchestraSystem _system;
+	protected IDb _mappingDb;
+//	protected IDb _updateDb;
+	
+	public TranslationState getState(){
+		return _state;
+	}
+	
+	public IDb getMappingDb() {
+		return _mappingDb;
+	}
+	
+//	public IDb getUpdateDb() {
+//		return _updateDb;
+//	}
+
+	public List<DatalogSequence> getIncrementalDeletionProgram() {
+		return _delRuleGen.getCode();
+	}
+	
+    public List<DatalogSequence> getIncrementalInsertionProgram() {
+		return _insRuleGen.getCode();
+	}
+
+	public BasicEngine(IDb mappingDb, 
+//			IDb updateDb, 
+			OrchestraSystem system, boolean
+			generateRules) throws Exception {
+		_mappingDb = mappingDb;
+//		_updateDb = updateDb;
+		_system = system;
+		if (_system.getMappingEngine() == null)
+			_system.setMappingEngine(this);
+		
+		if (generateRules) {
+			_system.setMigrated();
+			computeTranslationRules();
+			computeDeltaRules();
+		}
+	}
+
+	/**
+	 * Get the initial, non-delta translation rules
+	 * 
+	 * @return
+	 */
+//	protected List<Rule> getBaseRules() {
+//		return _baseRules;
+//	}
+
+
+	public void computeDeltaRules() {
+//	false = our algo, true = DRed w provenance
+
+		if(Config.getDRED())
+			computeDeltaRules(true);
+		else
+			computeDeltaRules(false);
+	}
+	
+	protected DeltaRuleGen _delRuleGen;
+	//protected DeltaRules _deltas;
+	protected DeltaRuleGen _insRuleGen;
+
+	public List<Rule> getTranslationRules() {
+		return getState().getBaseInsRules();
+	}
+	
+	/*
+	public DeltaRules getDeltaRules() {
+		return _deltas;
+	}*/
+	
+	/**
+     * Creates the set of delta rules for the system
+     */
+	public void computeDeltaRules(final boolean DRed) {
+		if (_provenancePrep == null)
+			_provenancePrep = createProvenanceStorage();
+		
+		// Cache data in the first peer/first schema...
+		final Peer cachePeer = _system.getPeers().iterator().next();
+		final Schema cacheSchema = cachePeer.getSchemas().iterator().next();
+		cacheSchema.getRelations().iterator().next().getDbCatalog();
+		cacheSchema.getRelations().iterator().next().getDbSchema();
+
+		if (Config.getInsert())
+			_insRuleGen = new InsertionDeltaRuleGen(_system, DRed);
+		
+		if (Config.getDelete())
+			_delRuleGen = new DeletionDeltaRuleGen(_system, DRed);
+		
+	}	
+
+    protected void mergeMappingRules(List<Mapping> inputRules, List<Rule>mappingRules, List<Mapping> mappingProjections, IDb db){
+	
+		// Cache data in the first peer/first schema...
+		//final Peer cachePeer = 
+		_system.getPeers().iterator().next();
+
+		for(int i = 0; i < inputRules.size(); i++){
+       		Mapping mapping = inputRules.get(i);
+    		
+    		List<AtomVariable> allVars = mapping.getAllBodyVariables();
+    		if(Config.isWideProvenance()){
+    			final List<AtomVariable> headVars = mapping.getAllHeadVariables();
+    			for(AtomVariable v : headVars){
+    				if(!allVars.contains(v))
+    					allVars.add(v);
+    			}
+    		}		
+    		
+    		List<AtomArgument> allVarsCast = new ArrayList<AtomArgument> (allVars.size());
+    		for (AtomVariable var : allVars)
+    			allVarsCast.add(var);
+            
+    		RelationContext relCtx = getMappingRelations().get(i);
+    		
+    		Atom newHead = new Atom(relCtx, allVarsCast);
+            
+    		List<Atom> ruleBody = new ArrayList<Atom>();
+			for(Atom ma : mapping.getBody()){
+				ruleBody.add(new Atom(ma.getRelationContext(), ma.getValues()));
+			}
+
+			// Don't create any rules with built-in relations in the head
+			// (And likewise don't create projection rules from these)
+			if (!getMappingDb().isBuiltInAtom(newHead)) {
+				mappingRules.add(new Rule(newHead, ruleBody, _system.getMappingDb()));
+            
+				List<Atom> projBody = new ArrayList<Atom>();
+				projBody.add(newHead);
+	
+				List<Atom> projHead = new ArrayList<Atom>();
+				for(Atom ma : mapping.getMappingHead()){
+					projHead.add(ma.deepCopy());
+				}
+				
+				Mapping proj = new Mapping("MH-PROJ"+i, "MH-PROJ"+i, true, 1, projHead, projBody);
+			        
+	            mappingProjections.add(proj);
+			}
+    	}	
+    }
+
+	/**
+	 * Creates a set of translation rules
+	 * 
+	 * @param dao
+	 * @return
+	 */
+
+    public List<Rule> computeTranslationRules() throws Exception {
+
+    	try{
+    		List<Mapping> mappings = _system.getAllSystemMappings(true);
+    		for(Mapping m : mappings){
+    			m.renameExistentialVars();
+    		}
+    		List<RelationContext>_rels = _system.getAllUserRelations();
+
+    		_state = new TranslationState(mappings, _rels);
+
+    		Debug.println ("Mappings: " + mappings.size());
+
+    		Calendar before = Calendar.getInstance();
+
+    		List<Rule> rules;
+    		//List<Rule> baseRules;
+    		List<Rule> inOutRulesIns;
+    		//List<Rule> inOutRulesDel;
+
+//  		_edbs = new ArrayList<RelationContext>();
+//  		_idbs = new ArrayList<RelationContext>();
+
+//  		List<RelationContext>_rels = _system.getAllUserRelations();
+
+//  		mappings.addAll(MappingsIOMgt.inOutTranslationL(_system, _rels));
+
+    		getState().setLocal2PeerRules(MappingsIOMgt.inOutTranslationL(_system, _rels));
+    		mappings.addAll(getState().getLocal2PeerRules());
+    		getState().setMappings(mappings);
+
+    		if(!Config.getOuterUnion()){
+    			List<Rule> mergedHeads = new ArrayList<Rule>();
+    			List<Mapping> projections = new ArrayList<Mapping>();
+
+//  			Repeated in migrate	
+    			getState().setMappingRels(createProvenanceTables(false, mappings));//true);
+
+    			mergeMappingRules(mappings, mergedHeads, projections, _system.getMappingDb());
+
+    			rules = MappingsInversionMgt.inverseMappings(projections, _system.getMappingDb());
+
+    			inOutRulesIns = MappingsIOMgt.inOutTranslationR(_system, rules, true);
+
+    			MappingsCompositionMgt.compose(inOutRulesIns);
+
+    			getState().setBaseDelRules(MappingsInversionMgt.inverseMappings(mappings, _system.getMappingDb()));
+    			MappingsCompositionMgt.compose(getState().getBaseDelRules());
+
+    			getState().setMappingRules(mergedHeads);
+    			getState().setMappingProjectionRules(inOutRulesIns);
+
+    			getState().setBaseInsRules(inOutRulesIns);
+    			getState()._projectionsBeforeInversion = projections;
+    		}else{
+    			rules = MappingsInversionMgt.inverseMappings(mappings, _system.getMappingDb());
+
+//  			Repeated in migrate			
+    			_state._mappingRels = createOUProvenanceTables(false, rules);//true);
+
+    			inOutRulesIns = MappingsIOMgt.inOutTranslationR(_system, rules, true);
+
+    			MappingsCompositionMgt.compose(inOutRulesIns);
+
+    			_state.setBaseInsRules(inOutRulesIns);
+    			_state._baseDelRules = inOutRulesIns;
+
+    			_system.getMappingEngine().calcOuMappingRules();
+    			Debug.println("");
+    		}
+
+    		Calendar after = Calendar.getInstance();
+    		long time = after.getTimeInMillis() - before.getTimeInMillis();
+    		Debug.println("TOTAL RULE MANIPULATION TIME: " + time + "msec");
+
+//  		List<Rule> ret = new ArrayList<Rule>();
+
+//  		try{
+//  		foo();
+//  		}catch(Exception e){
+
+//  		}
+    		return inOutRulesIns;
+    	}catch(Exception e){
+    		e.printStackTrace();
+    		throw(e);
+    		//return null;
+    	}
+    }
+	
+	public void open() throws Exception {
+		migrate();
+		
+//		_baseRules = generateTranslationRules();
+	}
+	
+	public void close() throws Exception {
+		if (_mappingDb != null) {
+			_mappingDb.disconnect();
+			_mappingDb = null;
+		}
+//		if (_updateDb != null) {
+//			_updateDb.disconnect();
+//			_updateDb = null;
+//		}
+	}
+	
+	public void commit() throws Exception {
+		_mappingDb.commit();
+	}
+	
+	public void finalize() throws Exception {
+		_mappingDb.finalize();
+	}
+	
+//	public void reset() throws IOException, ParseException, Exception {
+//		_d.resetCounters();
+//		clearAllTables();
+////		finalize();
+//		commit();
+//		_d.resetCounters();
+//	}
+
+	public void reset() throws Exception {
+		throw new Exception("SHOULD NEVER GO HERE!");
+	}
+	
+	public void clean() throws IOException, ParseException, Exception {
+		_mappingDb.resetCounters();
+		dropAllTables();
+		_mappingDb.resetCounters();
+		finalize();
+	}
+
+	protected abstract CreateProvenanceStorage createProvenanceStorage();
+	
+	
+	/***************************************************************************************
+	 * OBI: Changes for SIGMOD 2007: integrate Greg's new developments
+	 ****************************************************************************************
+	*/
+    protected List<RelationContext> createProvenanceTables(final boolean create, List<Mapping> mappings) {
+		_provenancePrep = createProvenanceStorage();
+		List<RelationContext> mappingRels = null;
+    	
+		if(!create)
+			mappingRels = new ArrayList<RelationContext>();
+  	
+    	for(int i = 0; i < mappings.size(); i++){
+    		final Mapping mapping = mappings.get(i);
+    		
+    		final List<AtomVariable> allVars = mapping.getAllBodyVariables();
+    		final List<AtomArgument> allVarsCast = new ArrayList<AtomArgument> (allVars.size());
+    		for (final AtomVariable var : allVars)
+    			allVarsCast.add(var);
+    		
+//    		Hack - create a rule with the right body and a fake head
+    		final Rule rule = new Rule(mapping.getMappingHead().get(0), mapping.getBody(), _system.getMappingDb());
+    		if(mapping instanceof Rule)
+    			rule.setDescription("+");
+    		else
+    			rule.setDescription(mapping.getId());
+    		
+    		final Relation rel = _provenancePrep.createProvenanceRelation(rule, i, create, 
+    				!Config.getAutocommit(), getMappingDb());
+    		
+    		setSkolemizedFields(rel, mapping);
+    		
+    		RelationContext relCtx = new RelationContext(rel, rule.getHead().getSchema(), rule.getHead().getPeer(), true);
+
+    		//		    		_mappingRels.add(rel);
+    	
+    		if(!create)
+    			mappingRels.add(relCtx);
+    	}
+
+    	// Copy each R entry to pR
+    	//for (int i = 0; i < keys.size(); i++)
+    	//	_ruleMappings.put(provs.get(i), _ruleMappings.get(keys.get(i)));
+    	
+		return mappingRels;
+    }
+    
+    protected void setSkolemizedFields(Relation rel, Mapping mapping){
+    	List<String> foo = new ArrayList<String>();
+    	List<RuleFieldMapping> rfm = mapping.getRuleFieldMapping(foo);
+    	HashMap<String, RelationField> varmap = new HashMap<String, RelationField>();
+    	
+    	if(rel.getSkolemizedFields() == null){
+    		rel.setSkolemizedFields(new ArrayList<RelationField>());
+// I think this is not needed with current encoding of labeled nulls, so return here
+    		return;
+    	}
+    	
+    	for(RuleFieldMapping rf : rfm){
+    		varmap.put(rf.srcArg.toString(), rf.outputField);
+    	}
+    	
+    	for(AtomVariable var : mapping.getAllHeadVariables()){
+    		if(var.isSkolem()){
+    			int i = 0;
+    			for(AtomArgument v : var.skolemDef().getValues()){
+    				if(i > 0 && v instanceof AtomVariable){
+    					AtomVariable vv = (AtomVariable)v;
+    					
+    					if(!rel.getSkolemizedFields().contains(varmap.get(vv.getName()))){
+    						rel.getSkolemizedFields().add(varmap.get(vv.getName()));
+    					}
+    				}
+    				i++;
+    			}
+    		}
+    	}
+    	
+    	Debug.println("RELATION: " + rel.getName());
+    	Debug.println(rel.getSkolemizedFields().toString());
+    }
+
+	/***************************************************************************************
+	 * OBI: Changes for SIGMOD 2007: integrate Greg's new developments
+	 * @throws UnsupportedTypeException 
+	 ****************************************************************************************
+	 */
+    protected List<RelationContext> createOUProvenanceTables(final boolean create, List<Rule> invRules) throws UnsupportedTypeException {
+    	_provenancePrep = createProvenanceStorage();
+    	List<OuterUnionMapping> ouMappings = new ArrayList<OuterUnionMapping>();
+    	List<RelationContext> mappingRels = null;
+    	
+    	if(!create)
+    		mappingRels = new ArrayList<RelationContext>();
+
+    	// Only rules with variables - no skolems or constants for now ...
+    	for(final RelationContext idb : getIdbs()){
+    		final List<Rule> rules4idb = new ArrayList<Rule>();
+    		for(final Rule rule : invRules){
+    			if(rule.getHead().getRelationContext().equals(idb))
+    				rules4idb.add(rule);
+    		}
+
+    		final List<AtomArgument> newVars = new ArrayList<AtomArgument>(rules4idb.get(0).getHead().getValues().size());
+    		for(int i = 0; i < rules4idb.get(0).getHead().getValues().size(); i++){
+    			final AtomVariable var = new AtomVariable("GREG_" + i);		
+    			newVars.add(var);
+    		}
+
+    		final Atom template = new Atom(rules4idb.get(0).getHead().getRelationContext(), newVars); 
+    		template.setType(rules4idb.get(0).getHead().getType());
+
+    		for(int i = 0; i < rules4idb.size(); i++){
+    			final HashMap<String, String> varmap = new HashMap<String, String>();
+    			//    			final Rule current = rules4idb.get(i).deepCopy();
+    			final Rule current = rules4idb.get(i);
+    			for(int j = 0; j < current.getHead().getValues().size(); j++){
+    				if(current.getHead().getValues().get(j) instanceof AtomVariable)
+    				{
+    					varmap.put(current.getHead().getValues().get(j).toString(), template.getValues().get(j).toString());			
+    				}else if(current.getHead().getValues().get(j) instanceof AtomConst)	{ //Constant or null
+    					//    					Debug.println(">>>>>>>>>>>>>>>>>>> CONSTANT IN MAPPING: " + current.getHead().getValues().get(j).toString());
+    					varmap.put(current.getHead().getValues().get(j).toString(), current.getHead().getValues().get(j).toString());
+    				}else if(current.getHead().getValues().get(j) instanceof AtomSkolem){ //Skolem
+    					throw new RuntimeException("Skolem unsupported");
+    					//final float foo = 1/0;
+    				}else{ // should never go here ...
+    					//final float foo = 1/0;
+    					throw new RuntimeException("Unexpected head");
+    				}
+    			}
+    			current.fresh(varmap, false);
+    		}
+    	}
+
+
+    	// The basic rule-field mappings
+    	final Map<String, List<List<RuleFieldMapping>>> ruleMappings = _provenancePrep.createBasicProvenanceMappings(invRules); 
+
+    	// The info for creating outer-union tables
+    	//Map<String, List<RuleFieldMapping>> 
+    	//	oUnions = new HashMap<String, List<RuleFieldMapping>>();
+
+    	//List<TableSchema> ouRelations = new ArrayList<TableSchema>();
+
+    	final List<String> keys = new ArrayList<String>();
+    	final List<String> provs = new ArrayList<String>();
+    	final Iterator<String> rels = ruleMappings.keySet().iterator();
+    	while (rels.hasNext()) {
+    		final String key = rels.next();
+    		final List<List<RuleFieldMapping>> fieldListSet = ruleMappings.get(key);
+
+    		final OuterUnionMapping outerUnion =
+    			_provenancePrep.createOuterUnionMappingAndSchema(key, fieldListSet);
+    		boolean notFirst = false;
+    		Debug.print("Prov" + key + "(");
+    		for (final OuterUnionColumn field : outerUnion.getColumns()) {
+    			if (notFirst) {
+    				Debug.print(", ");
+    			} else
+    				notFirst = true;
+    			Debug.print(field.getSourceColumns().toString());
+    		}
+    		Debug.println(")");
+
+    		//oUnions.put(key, outerUnion);
+    		//TableSchema rel = _provenancePrep.getOuterUnionRelation(key, outerUnion);
+    		ouMappings.add(outerUnion);
+    		//_ouMappingRels.add(rel);
+    		_provenancePrep.createOuterUnionStatement(outerUnion.getRelation(), outerUnion, true, create, _mappingDb);
+    		keys.add(key);
+    		provs.add(outerUnion.getRelation().getName());
+    	}
+
+
+    	// Copy each R entry to pR
+    	//for (int i = 0; i < keys.size(); i++)
+    	//	_ruleMappings.put(provs.get(i), _ruleMappings.get(keys.get(i)));
+
+    	getState().setOUMappings(ouMappings);
+    	return mappingRels;
+    }
+
+	/**
+		 * Computes the set of Outer Union mapping rules, projection rules, and population rules
+		 *
+		 */
+	    public void calcOuMappingRules() {
+	    	List<Rule> ouMappingRules = new ArrayList<Rule>();
+	    	List<RelationContext> ouMappingRels = new ArrayList<RelationContext>();
+	    	List<Rule> ouMappingProjectionRules = new ArrayList<Rule>();
+			Peer cachePeer = _system.getPeers().iterator().next();
+			Schema cacheSchema = cachePeer.getSchemas().iterator().next();
+
+	    	int count = 0;
+	    	for (OuterUnionMapping mapping : getState().getOuterUnionMappings()) {
+	 //   		Debug.println("Creating outer union mapping for " + mapping.getName() + " with " + 
+	 //   				mapping.getMappings().size() + " mappings:");
+	
+	    		// Look at each mapping rule that produces this relation
+	    		for (int i = 0; i < mapping.getMappings().size(); i++) {
+	//    			Debug.println("Mapping of: " + mapping.getColumns());
+	    			List<RuleFieldMapping> map = mapping.getMappings().get(i);
+	
+	    			// All atoms should have the same rule, so use the first one
+	    			Rule rule = (Rule)map.get(0).rule;
+	
+	    			//Debug.println("START-RULE: " + rule);
+	
+	//		    	List<ScMappingAtomValue> headVars = new ArrayList<ScMappingAtomValue> ();
+	//		    	List<ScMappingAtomValue> projHeadVars = rule.getHead().getValues();
+	//		    	List<ScMappingAtomValue> projBodyVars = new ArrayList<ScMappingAtomValue> ();
+	
+			    	List<AtomArgument> headVars = new ArrayList<AtomArgument> (mapping.getColumns().size());
+	//		    	List<ScMappingAtomValue> projHeadVars = new ArrayList<ScMappingAtomValue> (mapping.getColumns().size());
+	//		    	List<ScMappingAtomValue> projBodyVars = new ArrayList<ScMappingAtomValue> (mapping.getColumns().size());
+			    	headVars.add(new AtomConst(Integer.toString(i)));
+	
+			    	// Iterate over each column.  See if, for this rule, we have any source
+			    	// columns.  Otherwise, add a "NULL" column.
+			    	
+			    	for (OuterUnionColumn c: mapping.getColumns()) {
+	//		    		Debug.println("Source of " + c.getColumn().getName() + " is "
+	//		    				+ c.getSourceColumns() + " / " + c.getSourceVariables());
+			    				
+			    		if (//i < c.getSourceVariables().size() && 
+			    				(c.getSourceArgs().get(i) == null) && (c.getSourceColumns().size() == 1) && (c.getSourceColumns().get(0).equals(OuterUnionColumn.ORIGINAL_NULL))){
+	//		    			headVars.add(new ScMappingAtomValConst("-"));
+			    			headVars.add(new AtomVariable("-"));
+			    			//ScMappingAtomValVariable newvar = 
+			    				new AtomVariable(Mapping.getFreshAutogenVariableName());
+	//		    			projHeadVars.set(j, newvar);
+	//		    			projBodyVars.add(newvar);
+	//		    			j++;
+			    		}else if (//i >= c.getSourceVariables().size() || 
+			    				(c.getSourceArgs().get(i) == null)) {
+			    			if(c.getColumn().getSQLTypeName().contains("INTEGER") || (c.getColumn().getSQLTypeName().contains("DECIMAL"))){
+			    				headVars.add(new AtomConst(Integer.toString(Integer.MIN_VALUE)));
+			    			}else if(c.getColumn().getSQLTypeName().contains("CHAR")){
+			    				headVars.add(new AtomConst("UND"));
+	//		    				headVars.add(new ScMappingAtomValConst("UNDEFINED"));
+	//		    				headVars.add(new ScMappingAtomValConst("-"));
+			    			}else{
+			    				headVars.add(new AtomConst("UND"));
+	//		    				headVars.add(new ScMappingAtomValConst("UNDEFINED"));
+	//		    				headVars.add(new ScMappingAtomValConst("-"));
+			    			}
+	//		    			projBodyVars.add(new ScMappingAtomValVariable(Rule.getFreshAutogenVariableName()));
+			    		} else {
+			    			headVars.add(c.getSourceArgs().get(i));
+	//		    			projHeadVars.set(j, c.getSourceVariables().get(i));
+	//		    			projBodyVars.add(c.getSourceVariables().get(i));
+	//		    			j++;
+			    		}
+			    	}
+	
+			    	RelationContext relCtx = null;
+	//	    		try
+	//				{
+	//	Commented out in order to be able to run migrate many times
+	//	    			_cacheSchema.addRelation(mapping.getRelation());
+						
+			    		relCtx = new RelationContext(mapping.getRelation(), cacheSchema, cachePeer, true);
+			            if(!ouMappingRels.contains(relCtx))
+			            	ouMappingRels.add(relCtx);
+	//				} catch (DuplicateRelationIdException ex)
+	//				{
+	//					// Multiple rules may have the same head -- if we have such a case,
+	//					// then look up the previous context
+	//					for (RelationContext r : _ouMappingRels)
+	//						if (r.getRelation().equals(mapping.getRelation()))
+	//							relCtx = r;
+	//				}
+					
+		    		Atom mapping_head = new Atom(relCtx, headVars);//allVarsCast);
+		            
+		    		Rule r = new Rule(mapping_head, rule.getBody(), _system.getMappingDb());
+		            ouMappingRules.add(r);
+		            Debug.println(r.toString());
+	
+	
+	 
+	 	    		// Now do the rules to derive provenance tuples from base, and vice-versa
+		            // Create projections for first rule
+	//	            if (i == 0) {
+			            List<Atom> new_body = new ArrayList<Atom>();
+				    	List<AtomArgument> bodyVars = 
+				    			new ArrayList<AtomArgument> (mapping.getColumns().size());
+				    	
+				    	bodyVars.addAll(headVars);
+				    	
+				    	//bodyVars.set(0, new ScMappingAtomValVariable("MRULE"));
+				    	bodyVars.set(0, new AtomConst(Integer.toString(i)));
+	//			    	projBodyVars.set(0, new ScMappingAtomValVariable("MRULE"));
+	//			    	projHeadVars.remove(0);
+				    	
+	//			    	projBodyVars.add(0, new ScMappingAtomValVariable("MRULE"));
+				    	
+				    	new_body.add(new Atom(relCtx, bodyVars));
+	//			    	new_body.add(new ScMappingAtom(relCtx, projBodyVars));
+			            
+				    	Atom head = new Atom(rule.getHead());
+			
+	//			    	ScMappingAtom head = new ScMappingAtom(rule.getHead().getRelationContext(), projHeadVars);
+			            Rule proj = new Rule(head, new_body, _mappingDb);
+			            ouMappingProjectionRules.add(proj);
+			            Debug.println(proj.toString());
+		            }
+	
+		        	count++;
+	
+	    	}
+	    	
+	    	getState().setMappingRels(ouMappingRels);
+	    	getState().setMappingRules(ouMappingRules);
+	    	getState().setMappingProjectionRules(ouMappingProjectionRules);
+	
+	    }
+
+	//    protected void ZacksCalcOuMappingRules() {
+	//    	_ouMappingRules = new ArrayList<Rule>();
+	//    	_mappingProjections = new ArrayList<Rule>();
+	//    	_ouMappingRels = new ArrayList<RelationContext>();
+	//    	_ouDeriveBaseRules = new ArrayList<Rule>();
+	//    	_ouPopulateRules = new ArrayList<Rule>();
+	//    	
+	//    	int count = 0;
+	//    	for (OuterUnionMapping mapping : _engine.getOuterUnionMappingRelations()) {
+	//    		Debug.println("Creating outer union mapping for " + mapping.getName() + " with " + mapping.getMappings().size() + " mappings:");
+	//
+	//    		// Look at each mapping rule that produces this relation
+	//    		for (int i = 0; i < mapping.getMappings().size(); i++) {
+	//    			List<RuleFieldMapping> map = mapping.getMappings().get(i);
+	//
+	//    			// All atoms should have the same rule, so use the first one
+	//    			Rule rule = map.get(0).rule;
+	//
+	//    			//Debug.println("START-RULE: " + rule);
+	//	            
+	//		    	List<ScMappingAtomValue> headVars = new ArrayList<ScMappingAtomValue> (mapping.getColumns().size());
+	//		    	headVars.add(new ScMappingAtomValConst(Integer.toString(count)));
+	//
+	//		    	// Iterate over each column.  See if, for this rule, we have any source
+	//		    	// columns.  Otherwise, add a "NULL" column.
+	//		    	for (OuterUnionColumn c: mapping.getColumns()) {
+	////		    		Debug.println("Source of " + c.column.getName() + " is "
+	////		    				+ c.sourceColumns + " / " + c.sourceVars);
+	//		    		if (i >= c.getSourceVariables().size() || 
+	//		    				c.getSourceVariables().get(i) == null)
+	//		    			headVars.add(new ScMappingAtomValVariable("-"));
+	//		    		else {
+	//		    			headVars.add(c.getSourceVariables().get(i));
+	//		    		}
+	//		    	}
+	//
+	//		    	RelationContext relCtx = null;
+	//	    		try
+	//				{
+	//					_cacheSchema.addRelation(mapping.getRelation());
+	//					
+	//		    		relCtx = new RelationContext(mapping.getRelation(), _cacheSchema, _cachePeer);
+	//		            _ouMappingRels.add(relCtx);
+	//				} catch (DuplicateRelationIdException ex)
+	//				{
+	//					// Multiple rules may have the same head -- if we have such a case,
+	//					// then look up the previous context
+	//					for (RelationContext r : _ouMappingRels)
+	//						if (r.getRelation().equals(mapping.getRelation()))
+	//							relCtx = r;
+	//				}
+	//				
+	//	    		ScMappingAtom mapping_head = new ScMappingAtom(relCtx, headVars);//allVarsCast);
+	//	            
+	//	    		Rule r = new Rule(mapping_head, rule.getBody());
+	//	            _ouMappingRules.add(r);
+	//	            Debug.println(r.toString());
+	//
+	//	    		// Now do the rules to derive provenance tuples from base, and vice-versa
+	//	            // Create projections for first rule
+	//	            if (i == 0) {
+	//		            List<ScMappingAtom> new_body = new ArrayList<ScMappingAtom>();
+	//			    	List<ScMappingAtomValue> bodyVars = 
+	//			    			new ArrayList<ScMappingAtomValue> (mapping.getColumns().size());
+	//			    	bodyVars.addAll(headVars);
+	//			    	bodyVars.set(0, new ScMappingAtomValVariable("MRULE"));
+	//	
+	//			    	new_body.add(new ScMappingAtom(relCtx, bodyVars));
+	//	
+	//		            ScMappingAtom head = new ScMappingAtom(rule.getHead());
+	//		
+	//		            Rule proj = new Rule(head, new_body);
+	//		            _ouDeriveBaseRules.add(proj);
+	//		            Debug.println(proj.toString());
+	//		            
+	//			    	List<ScMappingAtomValue> popHead = new ArrayList<ScMappingAtomValue> (mapping.getColumns().size());
+	//			    	popHead.add(new ScMappingAtomValConst(Integer.toString(-1)));
+	//
+	//			    	// Iterate over each column.  See if, for this rule, we have any source
+	//			    	// columns.  Otherwise, add a "NULL" column.
+	//			    	
+	//		            List<ScMappingAtomValue> vars = new ArrayList<ScMappingAtomValue>();
+	//			    	for (ScMappingAtomValue v: head.getValues())
+	//			    		vars.add(v);
+	//			    		
+	//			    	for (OuterUnionColumn c: mapping.getColumns()) {
+	////			    		Debug.println("Source of " + c.column.getName() + " is "
+	////			    				+ c.sourceVars.get(i) + " versus " + vars);
+	//			    		boolean fnd = false;
+	//			    		if (c.getSourceVariables().get(i) != null) {
+	//				    		for (ScMappingAtomValue s: vars)
+	//				    			if (s.equals(c.getSourceVariables().get(i))) {
+	//				    				fnd = true;
+	//				    				break;
+	//				    			}
+	//			    		}
+	//			    		if (!fnd)
+	//			    			popHead.add(new ScMappingAtomValVariable("-"));
+	//			    		else
+	//			    			popHead.add(c.getSourceVariables().get(i));
+	//			    	}
+	//		            List<ScMappingAtom> popBody = new ArrayList<ScMappingAtom>();
+	//			    	popBody.add(new ScMappingAtom(rule.getHead()));
+	//			    	
+	//		            ScMappingAtom popHeadAtom = new ScMappingAtom(relCtx, popHead);
+	//		
+	//		            Rule populate = new Rule(popHeadAtom, popBody);
+	//		            _ouPopulateRules.add(populate);
+	//		            Debug.println(populate.toString());
+	//		            
+	//	            }
+	//	            
+	////	            _mappingProjections.add(proj);
+	//	        	count++;
+	//	    	}
+	//    	}
+	//    	
+	//    	Debug.println("+++ Creating expanded provenance atoms +++");
+	//    	
+	//    	// Replace each atom in the mapping rule with the expanded provenance atom
+	//    	for (int i = 0; i < _ouMappingRules.size(); i++) {
+	//    		Rule r = _ouMappingRules.get(i);
+	//    		List<ScMappingAtom> newBody = new ArrayList<ScMappingAtom>();
+	//    		
+	//			int c = 0;
+	//    		for (ScMappingAtom atom : r.getBody()) {
+	//    			ScMappingAtom match = null;
+	//    			
+	//				//Debug.println(atom.getRelation().getName());
+	//    			for (Rule r2 : _ouPopulateRules) {
+	//    				//Debug.println("? " + r2.getHead().getRelation().getName().substring(1));
+	//    				if (r2.getHead().getRelation().getName().substring(1).equals(
+	//    						atom.getRelation().getName())) {
+	//    					match = r2.getHead().deepCopy();
+	//    					
+	//    					//Debug.println("Realigning " + r2.getBody().get(0).getValues() + " to " + atom);
+	//    					
+	//    					// Rename the variables as necessary
+	//    					for (int j = 0; j < r2.getBody().get(0).getValues().size(); j++) {
+	//    						if (r2.getBody().get(0).getValues().get(j).toString().equals("-"))
+	//    							continue;
+	//    						
+	//    						if (!r2.getBody().get(0).getValues().get(j).equals(atom.getValues().get(j)))
+	//    							match.substitute(r2.getBody().get(0).getValues().get(j), 
+	//    									atom.getValues().get(j));
+	//    					}
+	//    				}
+	//    			}
+	//    			
+	//    			if (match == null) { 
+	//    				match = atom;//throw new RuntimeException("Could not find defn for " + atom.getRelation().getName().toString());
+	//    			}
+	//    			
+	//    			newBody.add(match);
+	//    			match.getValues().set(0, new ScMappingAtomValVariable("M" + Integer.toString(c)));
+	//				c++;
+	//    		}
+	//    		
+	//    		//Debug.println("Nulling out unsafe variables");
+	//    		
+	//    		// Replace any unsafe variables in the head with nulls
+	//			List<ScMappingAtomValVariable> v = r.getAllBodyVariables();
+	//			// Skip the MRULE
+	//    		for (int j = 1; j < r.getHead().getValues().size(); j++) {
+	//    			ScMappingAtomValue h = r.getHead().getValues().get(j);
+	//    			boolean fnd = false;
+	//    			for (ScMappingAtomValVariable var : v) {
+	//    				if (var.toString().equals(h.toString())) {
+	//    					fnd = true;
+	//    					break;
+	//    				}
+	//    			}
+	//    			if (!fnd)
+	//    				r.getHead().substitute(h, new ScMappingAtomValVariable("-"));
+	//    		}
+	//    		
+	//    		Rule rPrime = new Rule(r.getHead(), newBody);
+	//    		_ouMappingRules.set(i, rPrime);
+	//    		Debug.println(rPrime.toString());
+	//    	}
+	//    }
+	
+		/***************************************************************************************
+		 * OBI: Changes for SIGMOD 2007: integrate Greg's new developments
+		 ****************************************************************************************
+		 */
+//		// ZI:  split the construction of the table off from the creation of the mapping
+//		// rule.  This means we currently assume that _engine.getMappingRelations() returns
+//		// a list with parallel elements to the original rule list
+//	    protected void calcMappingRules(boolean create){
+//	    	List<Rule> mappingRules = new ArrayList<Rule>();
+//	    	List<Rule> mappingProjections = new ArrayList<Rule>();
+//	    	List<RelationContext> mappingRels = new ArrayList<RelationContext>();
+//	    	
+//	    	
+//	    	
+//	    	// Only rules with variables - no skolems or constants for now ...
+//	    	for(RelationContext idb : getIdbs()){
+//	    		List<Rule> rules4idb = new ArrayList<Rule>();
+//	//    		for(Rule rule : _rules){
+//	    		for(Rule rule : _state.getBaseInsRules()){
+//	    			if(rule.getHead().getRelationContext().equals(idb))
+//	    				rules4idb.add(rule);
+//	    		}
+//	    		
+//	    		//Rule baserule = rules4idb.get(0);
+//	    		
+//	
+//	    		List<ScMappingAtomValue> newVars = new ArrayList<ScMappingAtomValue>(rules4idb.get(0).getHead().getValues().size());
+//	    		for(int i = 0; i < rules4idb.get(0).getHead().getValues().size(); i++){
+//	    			ScMappingAtomValVariable var = new ScMappingAtomValVariable("GREG_" + i);		
+//	//    			Debug.println("GREG_" + i);
+//	    			newVars.add(var);
+//	    		}
+//	    		
+//	    		ScMappingAtom template = new ScMappingAtom(rules4idb.get(0).getHead().getRelationContext(), newVars); 
+//	    		template.setType(rules4idb.get(0).getHead().getType());
+//	    		    		
+//	    		for(int i = 0; i < rules4idb.size(); i++){
+//	    			HashMap<String, String> varmap = new HashMap<String, String>();
+//	    			Rule current = rules4idb.get(i); 
+//	    			for(int j = 0; j < current.getHead().getValues().size(); j++){
+//	    				if(current.getHead().getValues().get(j) instanceof ScMappingAtomValVariable)
+//	    				{
+//	    					varmap.put(current.getHead().getValues().get(j).toString(), template.getValues().get(j).toString());			
+//	    				}else if(current.getHead().getValues().get(j) instanceof ScMappingAtomValConst)	{ //Constant or null
+//	    				}else if(current.getHead().getValues().get(j) instanceof ScMappingAtomValSkolem){ //Skolem
+//	    					throw new RuntimeException("Unable to process Skolem function");
+//	    					//float foo = 1/0;
+//	    				}else{ // should never go here ...
+//	    					//float foo = 1/0;
+//	    					throw new RuntimeException("Unknown mapping atom");
+//	    				}
+//	    			}
+//	    			current.fresh(varmap, false);
+//	    		}
+//	    	}
+//	    	
+//	    	
+//	    	
+//	//    	for(int i = 0; i < _rules.size(); i++){
+//	//    		Rule rule = _rules.get(i);
+//	    		
+//	       	for(int i = 0; i < _state.getBaseInsRules().size(); i++){
+//	       		Rule rule = _state.getBaseInsRules().get(i);
+//	    		
+//	    		List<ScMappingAtomValVariable> allVars = rule.getAllBodyVariables();
+//	    		List<ScMappingAtomValue> allVarsCast = new ArrayList<ScMappingAtomValue> (allVars.size());
+//	    		for (ScMappingAtomValVariable var : allVars)
+//	    			allVarsCast.add(var);
+//	    		/*
+//	    		// For each rule, create a new "caching" relation in the schema...
+//	    		// TODO: The actual datatype should be extracted from the corresp relation!!???
+//	    		List<ScField> fields = new ArrayList<ScField> ();    		
+//	    		for (int j = 0 ; j < allVars.size() ; j++){
+//	    			fields.add (new ScField("C" + j, "C" + j, Types.VARCHAR, true));
+//	    		}
+//	    		
+//	    		TableSchema rel = new TableSchema(_dbCacheCatalog, 
+//													_dbCacheSchema, 
+//													  "M"+i, "M"+i, 
+//													  "Cache relation for M" + i,
+//													  true,
+//													  fields,
+//													  -1
+//												);
+//				*/
+//	
+//	    		//TableSchema rel = _provenancePrep.createProvenanceRelation(rule, i, create, 
+//	    		//		!Debug.autocommitMode());
+//	    		TableSchema rel = _engine.getMappingRelations().get(i).getRelation();
+//			
+//	    		try
+//				{
+//					_cacheSchema.addRelation(rel);
+//				} catch (DuplicateRelationIdException ex)
+//				{
+//					throw new RuntimeException("This error should be dealt with ... if a relation already has the same name");
+//				}
+//				
+//	    		RelationContext relCtx = new RelationContext(rel, _cacheSchema, _cachePeer, true);
+//	            _mappingRels.add(relCtx);
+//	    		ScMappingAtom mapping_head = new ScMappingAtom(relCtx, allVarsCast);
+//	            
+//	        	
+//	            _mappingRules.add(new Rule(mapping_head, rule.getBody()));
+//	            
+//	            ScMappingAtom head = new ScMappingAtom(rule.getHead());
+//	
+//	            
+//	            List<ScMappingAtom> new_body = new ArrayList<ScMappingAtom>();
+//	            new_body.add(mapping_head.deepCopy());
+//	            _mappingProjections.add(new Rule(head, new_body));
+//	    	}
+//	
+//	    }
+
+	/**
+		 * Computes the names of all of the tables in the Orchestra system.
+		 * Package-level because it's SQL-specific
+		 * 
+		 * @param syst
+		 * @param includeMappings: include the mapping relations
+		 * @param includeDeltas: include the delta relations
+		 * @param includeBase: include the base relations
+		 */
+		public static List<String> getNamesOfAllTables(final OrchestraSystem syst, 
+				final boolean includeMappings,
+				final boolean includeDeltas, final boolean includeBase) {
+			final ArrayList<String> tables = new ArrayList<String>();
+			
+			for (final Peer p : syst.getPeers())
+				for (final Schema sc : p.getSchemas())
+					for (final Relation rel : sc.getRelations())
+					{
+						if (includeBase)
+							tables.add(rel.getFullQualifiedDbId());
+						
+						if (includeDeltas)
+							for (final Atom.AtomType type : Atom.AtomType.values()){
+								String suffix = Atom.typeToString(type);
+								
+								//if((rel.getFullQualifiedDbId().endsWith("_L") || rel.getFullQualifiedDbId().endsWith("_R"))
+								if (rel.isInternalRelation()
+										&& type != AtomType.RCH){
+
+								}else{
+									if(!suffix.equals("")){
+										suffix = "_" + suffix;
+									}
+
+									//							tables.add(rel.getFullQualifiedDbId() + "_" + type.toString());
+									tables.add(rel.getFullQualifiedDbId() + suffix);
+								}
+							}
+						}
+
+			if(syst.getMappingEngine() != null && syst.getMappingEngine().getMappingRelations() != null){
+				for(RelationContext rel : syst.getMappingEngine().getMappingRelations()){
+
+					for (final Atom.AtomType type : Atom.AtomType.values()) {
+						String suffix = Atom.typeToString(type);
+
+						if(type != AtomType.RCH){
+							if(!suffix.equals("")){
+								suffix = "_" + suffix;
+							}
+
+							tables.add((rel.getRelation().getDbSchema()==null?"": rel.getRelation().getDbSchema()+".")
+									+ rel.getRelation().getName() + suffix
+							);
+						}
+					}
+				}
+			}else{
+//				Translation state not set yet ...
+//				Still, I don't think I need e.g., inverse here
+				if (includeMappings){
+					final List<Mapping> mappings = syst.getAllSystemMappings(true);
+					final List<Rule> rules = MappingsInversionMgt.inverseMappings(mappings, syst.getMappingDb());
+					MappingsCompositionMgt.compose(rules);
+
+					for (int  i = 0 ;  i < rules.size() ; i++)
+					{
+						final Rule r = rules.get(i);
+						final Relation rel = r.getHead().getRelation();
+						//				tables.add((rel.getDbSchema()!=null?rel.getDbSchema() + ".":"")
+						//						+ rel.getDbRelName() + "M" + i);
+
+						for (final Atom.AtomType type : Atom.AtomType.values()) {
+							String suffix = Atom.typeToString(type);
+
+							if(type != AtomType.RCH){
+								if(!suffix.equals("")){
+									suffix = "_" + suffix;
+								}
+
+								tables.add((rel.getDbSchema()==null?"": rel.getDbSchema()+".")
+										+ "M" + i + suffix
+								);
+							}
+						}
+					}
+				}
+			}
+			return tables;
+		}
+
+	public static List<String> getNamesOfAllTablesFromDeltas(/*DeltaRules deltas,*/ final OrchestraSystem syst, boolean allTypes, boolean includeMappings){
+//		ArrayList<RelationContext> tables = new ArrayList<RelationContext>();
+		HashMap<RelationContext, Integer> tables = new HashMap<RelationContext, Integer>();
+		
+		for(RelationContext rel : syst.getMappingEngine().getEdbs()){	
+			tables.put(rel, 0);
+		}
+		
+		for(RelationContext rel : syst.getMappingEngine().getIdbs()){	
+			tables.put(rel, 1);
+		}
+		
+		if(includeMappings){
+			for(RelationContext rel : syst.getMappingEngine().getMappingRelations()){
+				if(!tables.containsKey(rel))
+					tables.put(rel, 2);
+			}
+		}
+		
+		List<String> names = new ArrayList<String>();
+		for(RelationContext rel : tables.keySet()){
+			
+			if(allTypes){
+				for (final Atom.AtomType type : Atom.AtomType.values()){
+					String suffix = Atom.typeToString(type);
+					
+					if(((tables.get(rel) == 1) || (type != AtomType.RCH)) &&
+							(!Config.getStratified() || type != AtomType.ALLDEL)){
+						if(!suffix.equals("")){
+							suffix = "_" + suffix;
+						}
+						if(!names.contains(rel.getRelation().getFullQualifiedDbId() + suffix))	
+							names.add(rel.getRelation().getFullQualifiedDbId() + suffix);
+					}
+				}
+			}else{
+				if(!names.contains(rel.getRelation().getFullQualifiedDbId()))	
+					names.add(rel.getRelation().getFullQualifiedDbId());
+			}		
+		}
+		
+//		for (final Peer p : syst.getPeers())
+//		{
+//			for (final Schema sc : p.getSchemas())
+//			{
+//				for (final TableSchema rel : sc.getRelations())
+//				{	
+//					if (!names.contains(rel.getFullQualifiedDbId()))
+//					{
+////						if(includeMappings || !deltas.getMappingRelations().contains(new RelationContext(rel, sc, p))){
+//						if(includeMappings && !deltas.getMappingRelations().contains(new RelationContext(rel, sc, p, true))){
+//							for (final ScMappingAtom.AtomType type : ScMappingAtom.AtomType.values())
+//							{
+//								String suffix = ScMappingAtom.typeToString(type);
+//	
+//								if((type != AtomType.RCH) && 
+//										(!Config.DO_STRATIFIED || type != AtomType.ALLDEL)){
+//									if(!suffix.equals("")){
+//										suffix = "_" + suffix;
+//									}
+//									if(!names.contains(rel.getFullQualifiedDbId() + suffix))
+//										names.add(rel.getFullQualifiedDbId() + suffix);
+//								}
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+//
+////		I think this should not be necessary in either case - but anyway only works 
+////		for outer union because it involves inverse rules before counting the mappings ...
+//		if(Config.DO_OUTER_UNION){
+//			if(includeMappings){
+//				final List<ScMapping> mappings;
+//				final List<Rule> rules;
+//
+//				mappings = syst.getAllSystemMappings(true);
+//				rules = MappingsInversionMgt.inverseMappings(mappings);
+//				MappingsCompositionMgt.compose(rules);
+//
+//				for (int  i = 0 ;  i < rules.size() ; i++)
+//				{
+//					final Rule r = rules.get(i);
+//					final TableSchema rel = r.getHead().getRelation();
+//
+//					String name;
+//
+//					if(Config.DO_OUTER_UNION){
+//						name = rel.getFullQualifiedOUProvDbId();
+//					}else{
+//						name = (rel.getDbSchema()==null?"": rel.getDbSchema()+".") + "M" + i;
+//					}
+//
+//					if (!names.contains(name)){
+//
+//						for (final ScMappingAtom.AtomType type : ScMappingAtom.AtomType.values()) {
+//							String suffix = ScMappingAtom.typeToString(type);
+//
+//							if((type != AtomType.RCH) &&
+//									(!Config.DO_STRATIFIED || type != AtomType.ALLDEL)){
+//								if(!suffix.equals("")){
+//									suffix = "_" + suffix;
+//								}
+//								if(!names.contains(name + suffix))
+//									names.add(name + suffix);
+//							}
+//						}
+//					}
+//				}
+//			}
+//		}
+		return names;
+	}
+
+	public List<OuterUnionMapping> getOuterUnionMappings(){
+		if (_state == null)
+			return null;
+		return _state.getOuterUnionMappings();
+	}
+
+	//public Map<String, List<List<RuleFieldMapping>>> getRuleMappings();
+	//public List<OUMapping> getRuleMappings();
+	public List<Mapping> getProjBefInv(){
+		if (_state == null)
+			return null;
+		return _state.getProjBefInv();
+	}
+
+	public List<RelationContext> getEdbs(){
+		if (_state == null)
+			return null;
+		return _state.getEdbs();
+	}
+
+	public List<RelationContext> getIdbs(){
+		if (_state == null)
+			return null;
+		return _state.getIdbs();
+	}
+
+	public List<RelationContext> getMappingRelations(){
+		if (_state == null)
+			return null;
+		return _state.getMappingRelations();
+	}
+
+	public List<Rule> getMappingRules() {
+		if (_state == null)
+			return null;
+		return _state.getMappingRules();
+	}
+
+	public List<Rule> getMappingProjectionRules() {
+		if (_state == null)
+			return null;
+		return _state.getMappingProjectionRules();
+	}
+
+	/**
+	 * Given a relation context, see what mapping tables were
+	 * mapped into it.  The basis of generating inverse rules.
+	 * 
+	 * @param rel
+	 * @return
+	 */
+	public Map<Atom,Rule> getMappingAtomsFor(RelationContext rel) {
+		Map<Atom,Rule> atoms = new HashMap<Atom,Rule>();
+		for (Rule m : getMappingProjectionRules()) {
+			if ((m.getHead().getRelationContext().equals(rel))) {
+				for (Atom b : m.getBody())
+					if (!b.isNeg())
+						atoms.put(b, m);
+			}
+		}
+		
+		for (Rule m : getMappingRules()) {
+			if ((m.getHead().getRelationContext().equals(rel))) {
+				for (Atom b : m.getBody())
+					if (!b.isNeg())
+						atoms.put(b, m);
+			}
+		}
+		return atoms;
+	}
+	
+	
+	public List<Rule> getBaseInsertionRules() {
+		return getState().getBaseInsRules();
+	}
+
+	public List<Rule> getBaseDeletionRules() {
+		return getState().getBaseDelRules();
+	}
+
+	/** Evaluate a query and return results with iterator */
+	public ResultSetIterator<Tuple> evalQueryRule(Rule r) throws Exception {
+		if (!_mappingDb.isConnected()) {
+			_mappingDb.connect();
+		}
+		return _mappingDb.evalQueryRule(r);
+	}
+	
+	/** Evaluate an update (insertion or deletion) and return count of tuples updated */
+	public int evalUpdateRule(Rule rule) throws Exception {
+		if (!_mappingDb.isConnected()) {
+			_mappingDb.connect();
+		}
+//		if (_updateDb != null && !_updateDb.isConnected()) {
+//			_updateDb.connect();
+//		}
+		int trans = _mappingDb.evalUpdateRule(rule);
+//		int store = _updateDb != null ? _updateDb.evalUpdateRule(rule) : trans;
+//		assert(store == trans);
+		return trans;
+	}
+
+	public void serialize(Document doc, Element el) {
+		Element trans = DomUtils.addChild(doc, el, "mappings");
+		_mappingDb.serialize(doc, trans);
+//		if (_updateDb != null) {
+//			Element update = DomUtils.addChild(doc, el, "updates");
+//			_updateDb.serialize(doc, update);
+//		}
+	}
+	
+	protected static IDb deserializeDb(OrchestraSystem catalog, Element el) throws XMLParseException {
+		String type = el.getAttribute("type");
+		if (type.compareToIgnoreCase("sql") == 0) {
+			return SqlDb.deserialize(catalog, el);
+		} else if (type.compareToIgnoreCase("tukwila") == 0) {
+			return TukwilaDb.deserialize(catalog, el);
+		} else {
+			throw new XMLParseException("Unknown database type: " + type, el);
+		}
+	}
+	
+	public static BasicEngine deserialize(OrchestraSystem catalog, Element el, boolean
+			isMigrated) throws Exception {
+		Element trans = DomUtils.getChildElementByName(el, "mappings");
+		if (trans == null) {
+			trans = el;
+		}
+		IDb db = deserializeDb(catalog, trans);
+/*		Element update = DomUtils.getChildElementByName(el, "updates");
+		IDb updateDb;
+		if (update == null) {
+			updateDb = null;
+		} else {
+			updateDb = deserializeDb(catalog, update);
+		}
+*/		String type = trans.getAttribute("type");
+		if (type.compareToIgnoreCase("sql") == 0) {
+			return new SqlEngine((SqlDb)db, //updateDb, 
+					catalog, isMigrated);
+		} else if (type.compareToIgnoreCase("tukwila") == 0) {
+			return new TukwilaEngine((TukwilaDb)db, 
+//					updateDb, 
+					catalog, isMigrated);
+		} else {
+			throw new XMLParseException("Unknown database type: " + type, el);
+		}
+	}
+
+	public void importUpdates(Peer specificPeer, String dir, ArrayList<String> succeeded,
+			ArrayList<String> failed) throws IOException
+	{
+		if (specificPeer != null)
+			importPeerRelationData(dir, specificPeer, succeeded, failed);
+		else
+			for (Peer p : _system.getPeers())
+				importPeerRelationData(dir, p, succeeded, failed);
+	}
+	
+	private String getPeerFileName(Peer p, Schema s, Relation r, String dir) {
+		return dir + File.separator + p.getId() + 
+		Config.getProperty("importNameSeparator") + s.getSchemaId() + 
+		Config.getProperty("importNameSeparator") + 
+		r.getName() + "." + Config.getImportExtension();
+	}
+
+	private void importPeerRelationData(String dir, Peer p, ArrayList<String> succeeded,
+			ArrayList<String> failed) throws IOException {
+		for (Schema s : p.getSchemas()) {
+			System.out.println("Importing " + s.getSchemaId());
+			for (Relation r: s.getRelations()) {
+				if (!r.isInternalRelation()) {
+					String str = getPeerFileName(p, s, r, dir);
+					try {
+						FileReader fr = new FileReader(str);
+						fr.close();
+						try {
+							_mappingDb.importRelation(new FileDb(
+									dir, p.getId() + 
+									Config.getProperty("importNameSeparator") + 
+									s.getSchemaId() + 
+									Config.getProperty("importNameSeparator") + 
+									r.getName(), Config.getImportExtension(), r, 
+									Config.getProperty("importColumnSeparator").charAt(0)), 
+									s.getRelation(r.getLocalName()),//r.getName() + "_L"),
+									true /* By default, replace all */,
+									r, s, p, _system.getRecDb(p.getId()));
+							
+							succeeded.add(str);
+						} catch (Exception e) {
+							e.printStackTrace();
+							throw new IOException("Unable to import data: " + e.getMessage());
+						}
+					} catch (FileNotFoundException fnf) {
+						System.out.println("Warning -- did not find file: " + fnf.getMessage());
+						failed.add(str);
+					}
+				}
+			}
+		}
+	}
+}

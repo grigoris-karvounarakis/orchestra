@@ -1,0 +1,347 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+import rice.p2p.commonapi.Id;
+import edu.upenn.cis.orchestra.datamodel.Subtuple;
+import edu.upenn.cis.orchestra.datamodel.exceptions.ValueMismatchException;
+import edu.upenn.cis.orchestra.p2pqp.QpTuple.Dest;
+
+/*
+ * Pipelined hash join for stream data - uses sliding window on n tuples or n seconds worth 
+ * of tuples, or simply a window of last current states...
+ * 
+ * @author: Marie Jacob
+ */
+// TODO: Replace M with your timestamps type (Date?) -NT
+public class StreamPipelinedHashJoin<M> extends Operator<M> {
+
+	@SuppressWarnings("unused")
+	private LinkedList<QpTuple<M>> SQueue, RQueue;
+	private String mode;
+	private final int n, sizeQ, advanceQ;
+	protected final String leftSchema, rightSchema;
+	protected final int[] leftJoinIndices, rightJoinIndices, leftOutputPos, rightOutputPos;
+	protected final HashMap<Subtuple,Collection<QpTuple<M>>> leftTuples, rightTuples;
+	private final QpSchema outputSchema;
+	private final boolean retainDuplicates;
+	
+	public  StreamPipelinedHashJoin(String leftSchema, String rightSchema, List<Integer> leftJoinIndices,
+			List<Integer> rightJoinIndices, List<Integer> leftOutputPos, List<Integer> rightOutputPos, boolean retainDuplicates,
+			QpSchema outputSchema, Operator<M> dest, Dest outputDest, int queryId, Id nodeId, int operatorId, RecordTuples rt,
+			MetadataFactory<M> mdf,
+			String tmode, int num, int size, int advance) 
+	{
+		super(dest,outputDest,queryId, nodeId, operatorId, rt, mdf);
+		this.leftSchema = leftSchema;
+		this.rightSchema = rightSchema;
+
+		final int numJoinVars = leftJoinIndices.size();
+		if (rightJoinIndices.size() != numJoinVars) {
+			throw new IllegalArgumentException("Must have same number of left and right join variables");
+		}
+
+
+
+		this.leftJoinIndices = new int[numJoinVars];
+		this.rightJoinIndices = new int[numJoinVars];
+		for (int i = 0; i < numJoinVars; ++i) {
+			this.leftJoinIndices[i] = leftJoinIndices.get(i);
+			this.rightJoinIndices[i] = rightJoinIndices.get(i);
+		}
+
+		final int numOutputCols = outputSchema.getNumCols();
+		Set<Integer> remainingOutputPos = new HashSet<Integer>(numOutputCols);
+		for (int i = 0; i < numOutputCols; ++i) {
+			remainingOutputPos.add(i);
+		}
+
+		this.leftOutputPos = new int[leftOutputPos.size()];
+		this.rightOutputPos = new int[rightOutputPos.size()];
+
+		int pos = 0;
+		for (Integer i : leftOutputPos) {
+			if (i == null || i == -1) {
+				this.leftOutputPos[pos] = -1;
+			} else if (i >= 0) {
+				if (remainingOutputPos.remove(i)) {
+					this.leftOutputPos[pos] = i;
+				} else {
+					throw new IllegalArgumentException("Output position " + i + " is specified more than once");
+				}
+			} else {
+				throw new IllegalArgumentException("Output position must be >= -1");
+			}
+			++pos;
+		}
+
+		pos = 0;
+		for (Integer i : rightOutputPos) {
+			if (i == null) {
+				this.rightOutputPos[pos] = -1;
+			} else if (i >= 0) {
+				if (remainingOutputPos.remove(i)) {
+					this.rightOutputPos[pos] = i;
+				} else {
+					throw new IllegalArgumentException("Output position " + i + " is specified more than once");
+				}
+			} else {
+				throw new IllegalArgumentException("Output position must be >= -1");
+			}
+			++pos;
+		}
+
+		if (! remainingOutputPos.isEmpty()) {
+			throw new IllegalArgumentException("Output positions " + remainingOutputPos + " are not specified");
+		}
+
+		this.retainDuplicates = retainDuplicates;
+
+		leftTuples = new HashMap<Subtuple,Collection<QpTuple<M>>>();
+		rightTuples = new HashMap<Subtuple,Collection<QpTuple<M>>>();
+
+		this.outputSchema = outputSchema;
+		
+		// 'mode' --> either "tuple" or "time" or "window".
+		// TODO: change 'seconds' into more generic time(secs, mins, hours, etc...).
+		this.mode = tmode;
+		this.n = num;
+		this.sizeQ=size;
+		this.advanceQ=advance;
+		
+		// TODO: Make sure queues are thread-safe.
+		if(tmode.equals("tuple"))
+		{
+			SQueue = new LinkedList<QpTuple<M>>();
+			RQueue = new LinkedList<QpTuple<M>>();
+		}
+		
+		
+		
+	}
+	
+	// This must be defined to override superclass method...
+	protected void receiveTuples(Collection<QpTuple<M>> tuples)
+	{
+		for(QpTuple<M> t:tuples)
+		{
+			receiveTuple(t);
+			System.out.println("Receiving " +t);
+		}
+		
+	}
+	
+	// Precondition to this method: tuples in the collection are sorted (newest tuple first) 
+	protected void receiveTuple(QpTuple<M> tuple)
+	{
+		if(this.mode.equals("tuple"))
+			receiveTupleBased(tuple); // Do join on window of last n tuples
+		else if(this.mode.equals("time"))
+		{
+			if (tuple.getMetadata() instanceof Date)
+					receiveTimeBased(tuple); // Do join on window of last n seconds
+			else
+				throw new RuntimeException("Asked to perform a time-based join on tuples with no Date metadata.");
+		}
+		else
+			receiveWindowBased(tuple);
+		
+	}
+	
+	// Do window join 
+	protected void receiveWindowBased(QpTuple<M> t)
+	{
+		tupleRemoved(t);
+		performJoin(t);
+		
+	}
+	protected void receiveTimeBased(QpTuple<M> t)
+	{
+		//tupleRemoved?
+		tupleRemoved(t);
+		
+		// For each tuple, check if it's in the range of currentTime - n:
+		synchronized (this) {
+			Date now = new Date();
+			Date d = (Date) t.getMetadata();
+			if(now.getTime() - d.getTime() > this.n*1000)
+			{
+				//Do nothing here, just continue;	
+			}
+			else
+			{
+				performJoin(t);
+			}				
+		}	
+	}
+	protected void receiveTupleBased(QpTuple<M> tuples)
+	{
+		/* TODO: implement "last n tuples" method for later...
+		//tupleRemoved?
+		for (QpTuple t : tuples) {
+			tupleRemoved(t);
+		}
+		
+		synchronized (this) {
+			for (QpTuple t : tuples) {
+				if (t.isLeft() && t.getRelationName().equals(leftSchema)) {
+					
+					//Check if the queue is full. If so, block:
+					if(SQueue.size()==this.n)
+					{
+						if(RQueue.size()!=this.n)
+						{
+							//TODO: Check here - maybe use the Java blocking queue instead
+						}
+						else // If both queues are full, then dequeue each and remove the last element from the hash table...
+						{
+							Subtuple s; 
+							
+							s = new Subtuple((QpTuple) SQueue.removeLast(), leftJoinIndices);
+							leftTuples.remove(s);
+							s = new Subtuple((QpTuple) RQueue.removeLast(), rightJoinIndices);
+							rightTuples.remove(s);
+	
+							SQueue.addFirst(t);
+							performJoin(t);
+						}
+					}
+					else
+					{
+						SQueue.addFirst(t); // Enqueue the tuple
+						performJoin(t);
+					}
+				}
+				else if(t.isRight() && t.getRelationName().equals(rightSchema))
+				{
+					if(RQueue.size()==n)
+					{
+						if(RQueue.size()!=this.n)
+						{
+							//TODO: Check here - maybe use the Java blocking queue instead
+						}
+						else // If both queues are full, then dequeue each...
+						{
+							Subtuple s; 
+							
+							s = new Subtuple((QpTuple) SQueue.removeLast(), rightJoinIndices);
+							rightTuples.remove(s);
+							s = new Subtuple((QpTuple) RQueue.removeLast(), leftJoinIndices);
+							leftTuples.remove(s);
+
+							RQueue.addFirst(t);
+							performJoin(t);
+						}
+					}
+					else
+					{
+						RQueue.addFirst(t); // Enqueue the tuple
+						performJoin(t);
+					}
+				}
+			}
+		}*/
+	}
+	
+	protected void performJoin(QpTuple<M> t)
+	{
+		List<QpTuple<M>> tuplesProduced = new ArrayList<QpTuple<M>>();
+		Subtuple s;
+		HashMap<Subtuple,Collection<QpTuple<M>>> storeTable, probeTable;
+		int[] thisOutputPos, otherOutputPos;
+		if (t.isLeft() && t.getRelationName().equals(leftSchema)) {
+			s = new Subtuple(t, leftJoinIndices);
+			storeTable = leftTuples;
+			probeTable = rightTuples;
+			thisOutputPos = leftOutputPos;
+			otherOutputPos = rightOutputPos;
+		} else if (t.isRight() && t.getRelationName().equals(rightSchema)) {
+			s = new Subtuple(t, rightJoinIndices);
+			storeTable = rightTuples;
+			probeTable = leftTuples;
+			thisOutputPos = rightOutputPos;
+			otherOutputPos = leftOutputPos;
+		} else {
+			throw new RuntimeException("Received unexpected " + (t.getDest() == null ? "unlabeled" : t.getDest().toString()) + " tuple " + t + " in join operator");
+		}
+		// Update table for input relation
+		Collection<QpTuple<M>> tuplesForSubtuple = storeTable.get(s);
+		if (tuplesForSubtuple == null) {
+			if(this.mode.equals("window"))
+				tuplesForSubtuple = new LinkedList<QpTuple<M>>();
+			else if(!retainDuplicates)
+				tuplesForSubtuple = new HashSet<QpTuple<M>>();
+			else
+				tuplesForSubtuple = new ArrayList<QpTuple<M>>();
+			
+			storeTable.put(s, tuplesForSubtuple);
+		} 
+		QpTuple<M> storeCopy = new QpTuple<M>(t);
+		storeCopy.setReadOnly();
+		
+		if(! this.mode.equals("window") || (this.mode.equals("window") && !tuplesForSubtuple.contains(storeCopy)))
+				tuplesForSubtuple.add(storeCopy);
+		
+
+		// If we're in window mode, advance the queue as needed
+		// This really should be in receiveWindowBased() method
+		if(mode.equals("window") && tuplesForSubtuple.size()>this.sizeQ)
+		{
+			for(int i=0;i<advanceQ;i++)
+			{
+				((LinkedList<QpTuple<M>>)tuplesForSubtuple).removeFirst();
+			}
+		}
+		// Probe table for other relation 
+		tuplesForSubtuple = probeTable.get(s);
+		if (tuplesForSubtuple == null) {
+			return;
+		}
+		//System.out.println("Tuples for subtuple:"+tuplesForSubtuple);
+		final int thisOutputSize = thisOutputPos.length;
+		final int otherOutputSize = otherOutputPos.length;
+
+		final int tEpoch = t.getEpoch();
+		
+		// This does the actual joining of tuples
+		for (QpTuple<M> joinTuple : tuplesForSubtuple) {
+			Date now = new Date();
+			Date d = (Date) t.getMetadata();
+			if(this.mode.equals("time") && now.getTime() -  d.getTime() > n*1000)
+			{
+				// remove the joinTuple and skip the join...
+				tuplesForSubtuple.remove(joinTuple);
+				continue;
+			}
+			final int joinTupleEpoch = joinTuple.getEpoch();
+			final int epoch = joinTupleEpoch > tEpoch ? joinTupleEpoch : tEpoch;
+			QpTuple<M> newTuple = new QpTuple<M>(outputSchema, epoch, getNextId(), t.isLeft() ? mdf.join(this, t.getMetadata(), joinTuple.getMetadata()) : mdf.join(this, joinTuple.getMetadata(), t.getMetadata()));
+			try {
+				for (int i = 0; i < thisOutputSize; ++i) {
+					if (thisOutputPos[i] >= 0) {
+						newTuple.set(thisOutputPos[i], t.get(i));
+					}
+				}
+				for (int i = 0; i < otherOutputSize; ++i) {
+					if (otherOutputPos[i] >= 0) {
+						newTuple.set(otherOutputPos[i], joinTuple.get(i));
+					}
+				}
+			} catch (ValueMismatchException vm) {
+				throw new RuntimeException("Error creating joined tuple", vm);
+			}
+			tuplesProduced.add(newTuple);
+		}
+		// Send this out immediately after join?
+		if (! tuplesProduced.isEmpty()) {
+			sendTuples(tuplesProduced);
+		}
+	}
+}

@@ -1,0 +1,198 @@
+
+package edu.upenn.cis.orchestra.repository.model;
+
+import org.springframework.beans.BeanUtils;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import edu.upenn.cis.orchestra.XMLParseException;
+import edu.upenn.cis.orchestra.datamodel.Type;
+import edu.upenn.cis.orchestra.repository.model.beans.ScFieldBean;
+
+/****************************************************************
+ * Class used to describe a relation field (equivalent to a 
+ * table column for relational).
+ * Types are used as JDBC types.
+ * @author Olivier Biton
+ * @see java.sql.Types
+ *****************************************************************
+ */
+public class ScField 
+{
+	public static final long serialVersionUID = 1L;
+
+	/** Field name */
+	private String _name;
+	/** Field description */
+	private String _description;
+	/** Orchestra type */
+	private Type _type;
+
+	/**
+	 * Creates a new field
+	 * @param name Field's name
+	 * @param description Field's description
+	 * @param isNullable True if the field can contain null values
+	 * @param dbType Database type (RDBMS specific)
+	 */
+	public ScField(String name, String description, 
+			boolean isNullable, String dbType)   
+	{
+		_name = name;
+		_description = description;
+		_type = Type.deserialize(dbType, isNullable, false);
+		assert(_type != null);
+	}
+
+	public ScField(String name, String description, Type type) {
+		_name = name;
+		_description = description;
+		_type = type;
+		assert(_type != null);
+	}
+
+	/**
+	 * Deep copy of a given field. <BR>
+	 * Use the method deepCopy to benefit from polymorphism
+	 * @param field Field to copy
+	 * @roseuid 449AEADF00BB
+	 * @see ScField#deepCopy()
+	 */
+	protected ScField(ScField field) 
+	{
+		_name = field.getName();
+		_description = field.getDescription();
+		_type = field.getType();	// TODO: deep copy?
+		assert(_type != null);
+	}
+
+	public ScField (ScFieldBean fieldB)
+	{
+		_name = fieldB.getName();
+		_description = fieldB.getDescription();
+		_type = Type.deserialize(fieldB.getDbType(), fieldB.isNullable(), false);
+		assert(_type != null);
+	}
+
+	public Type getType() {
+		return _type;
+	}
+
+
+	/**
+	 * Get the field's name
+	 * @return Field's name
+	 * @roseuid 44AD2CE8006D
+	 */
+	public String getName() 
+	{
+		return _name;
+	}
+
+
+	/**
+	 * Change the field description
+	 *@param description New description
+	 */
+	public void setDescription (String description)
+	{
+		_description = description;
+	}
+
+	/**
+	 * Get the field's description
+	 * @return Field's description
+	 * @roseuid 44AD2CF101A5
+	 */
+	public String getDescription() 
+	{
+		return _description;
+	}
+
+
+
+	/**
+	 * Get the field's type, as defined in the JDBC API
+	 * @return Fields type
+	 * @roseuid 44AD2D00007D
+	 * @see java.sql.Types
+	 */
+	public int getSqlTypeCode() 
+	{
+		return _type.getSqlTypeCode();
+	}
+
+	/**
+	 * Is this field nullable?
+	 * @return True if the field can contain null values
+	 */   
+	public boolean isNullable ()
+	{
+		return _type.isNullable();
+	}
+
+	/**
+	 * Get a deep copy of the field
+	 * @return Deep copy of this field
+	 * @see ScField#ScField(ScField)
+	 */
+	protected ScField deepCopy ()
+	{
+		return new ScField(this);
+	}
+
+	/**
+	 * Returns a description of the field, conforms to the 
+	 * flat file format defined in <code>RepositoryDAO</code>
+	 * @return Field's description
+	 */   
+	public String toString () {
+		return getName() + " " + _type.getSQLType() + " " + _type.toString();
+	}
+
+
+	/**
+	 * Convert this object to its bean representation
+	 * @return Bean describing the object
+	 */
+	public ScFieldBean toBean ()
+	{
+		ScFieldBean res = new ScFieldBean ();
+
+		// Copy the bean properties
+		BeanUtils.copyProperties(this, res);
+
+		return res;
+	}
+
+	/**
+	 * Get the database type (RDMBS specific)
+	 * @return Database type
+	 */
+	public String getSQLTypeName() 
+	{
+		return _type.getSQLTypeName();
+	}
+	
+	/**
+	 * Get the database type (DON'T APPEND "NOT NULL")
+	 * @return
+	 */
+	public String getSQLTypeName()
+	{
+		return _type.getSQLTypeName();
+	}
+
+	public void serialize(Document doc, Element field) {
+		field.setAttribute("name", _name);
+		field.setAttribute("description", _description);
+		_type.serialize(doc, field);
+	}
+
+	public static ScField deserialize(Element field) throws XMLParseException {
+		String name = field.getAttribute("name");
+		String description = field.getAttribute("description");
+		Type type = Type.deserialize(field);
+		return new ScField(name, description, type); 
+	}
+}

@@ -1,0 +1,54 @@
+QUERY: 
+DB2PreparedStatement 
+{
+    DB2Statement 
+    {
+        Connection -> DB2Connection
+        Connection -> {
+        Connection ->     connectionHandle = 1
+        Connection ->     SPConnected = false
+        Connection ->     source = SIGMOD
+        Connection ->     user = gkarvoun
+        Connection ->     conArgs = 
+        Connection ->     closed = false
+        Connection ->     describeCached = false
+        Connection ->     describeParam = true
+        Connection ->     isReadOnly = false
+        Connection ->     autoClose = false
+        Connection ->     LONGDATA compat = false
+        Connection -> }
+
+        ResultSet -> null
+
+        statementHandle = 1:254
+        SQL = insert into GKARVOUN.M0_DEL  (select CAST(? AS INTEGER) STRATUM, R0.KID C0, cast(null as VARCHAR(821)) C1, cast(null as VARCHAR(1024)) C2, cast(null as VARCHAR(1024)) C3, cast(null as VARCHAR(44)) C4, cast(null as VARCHAR(911)) C5, cast(null as VARCHAR(115)) C6, cast(null as VARCHAR(1024)) C7, cast(null as VARCHAR(259)) C8, cast(null as VARCHAR(58)) C9, cast(null as VARCHAR(1024)) C10, cast(null as VARCHAR(1024)) C11, cast(null as VARCHAR(18)) C12, cast(null as VARCHAR(1024)) C13, cast(null as VARCHAR(1024)) C14, R0.KID_LN C0_LN, R0.RN_LN C1_LN, R0.FT_LN C2_LN, R0.DR_LN C3_LN, R0.ID_LN C4_LN, R0.AC_LN C5_LN, R1.DT_LN C6_LN, R1.RC_LN C7_LN, R1.RG_LN C8_LN, R1.SQ_LN C9_LN, R1.GN_LN C10_LN, R2.RA_LN C11_LN, R2.OX_LN C12_LN, R2.RP_LN C13_LN, R2.CC_LN C14_LN from GKARVOUN.P1_S1_R0_DEL R0, GKARVOUN.P1_S1_R1 R1, GKARVOUN.P1_S1_R2 R2 where ((((R0.STRATUM = CAST(? AS INTEGER)) and ((R1.KID = R0.KID) and (R1.KID_LN = R0.KID_LN))) and ((R2.KID = R0.KID) and (R2.KID_LN = R0.KID_LN))) and (not (exists (select R3.C0 C0, cast(null as VARCHAR(821)) C1, cast(null as VARCHAR(1024)) C2, cast(null as VARCHAR(1024)) C3, cast(null as VARCHAR(44)) C4, cast(null as VARCHAR(911)) C5, cast(null as VARCHAR(115)) C6, cast(null as VARCHAR(1024)) C7, cast(null as VARCHAR(259)) C8, cast(null as VARCHAR(58)) C9, cast(null as VARCHAR(1024)) C10, cast(null as VARCHAR(1024)) C11, cast(null as VARCHAR(18)) C12, cast(null as VARCHAR(1024)) C13, cast(null as VARCHAR(1024)) C14, R3.C0_LN C0_LN, R3.C1_LN C1_LN, R3.C2_LN C2_LN, R3.C3_LN C3_LN, R3.C4_LN C4_LN, R3.C5_LN C5_LN, R3.C6_LN C6_LN, R3.C7_LN C7_LN, R3.C8_LN C8_LN, R3.C9_LN C9_LN, R3.C10_LN C10_LN, R3.C11_LN C11_LN, R3.C12_LN C12_LN, R3.C13_LN C13_LN, R3.C14_LN C14_LN from GKARVOUN.M0_DEL R3 where ((((((((((((((((R3.C0 = R0.KID) and (R3.C0_LN = R0.KID_LN)) and (R3.C1_LN = R0.RN_LN)) and (R3.C2_LN = R0.FT_LN)) and (R3.C3_LN = R0.DR_LN)) and (R3.C4_LN = R0.ID_LN)) and (R3.C5_LN = R0.AC_LN)) and (R3.C6_LN = R1.DT_LN)) and (R3.C7_LN = R1.RC_LN)) and (R3.C8_LN = R1.RG_LN)) and (R3.C9_LN = R1.SQ_LN)) and (R3.C10_LN = R1.GN_LN)) and (R3.C11_LN = R2.RA_LN)) and (R3.C12_LN = R2.OX_LN)) and (R3.C13_LN = R2.RP_LN)) and (R3.C14_LN = R2.CC_LN)))))))
+        maxRows = 0
+        maxFieldSize = 0
+        rowCount = 0
+        colCount = 0
+        closed = false
+        internalStmt = false
+        returnCode = 0
+    }
+
+    statementType = 26
+    executed = false
+    maxNumParams = 2
+    parameters[0] = 0
+    direction[0] = 0
+    sqltypes[0] = 0
+    sqltypeGuessed[0] = false
+    precisions[0] = 0
+    ctypes[0] = 0
+    scales[0] = 0
+    described[0] = 0
+    parameters[1] = 0
+    direction[1] = 0
+    sqltypes[1] = 0
+    sqltypeGuessed[1] = false
+    precisions[1] = 0
+    ctypes[1] = 0
+    scales[1] = 0
+    described[1] = 0
+}
+

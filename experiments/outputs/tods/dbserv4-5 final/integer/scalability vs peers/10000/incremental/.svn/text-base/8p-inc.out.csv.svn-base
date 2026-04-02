@@ -1,0 +1,53 @@
+#PEERS:  8
+EXP:schema=8p
+>           set applybaseDel=false
+EXP:applybaseDel=false
+>           set applybaseIns=false
+EXP:applybaseIns=false
+27706 
+29344 
+29048 
+29063 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=true
+EXP:applybaseIns=true
+29048 
+>            set applybaseDel=false
+EXP:applybaseDel=false
+>            set applybaseIns=false
+EXP:applybaseIns=false
+7192 
+1732 
+1778 
+1747 
+1731 
+4118 
+4337 
+4306 
+4306 
+4306 
+15632 
+16490 
+16505 
+16521 
+16521 
+>          set applybaseDel=false
+EXP:applybaseDel=false
+>          set applybaseIns=false
+EXP:applybaseIns=false
+6318 
+4945 
+4929 
+4930 
+4945 
+7332 
+7410 
+7426 
+7426 
+7441 
+18221 
+20249 
+20249 
+20764 
+19937 

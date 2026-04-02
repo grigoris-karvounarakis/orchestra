@@ -1,0 +1,473 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import edu.upenn.cis.orchestra.datamodel.Date;
+import edu.upenn.cis.orchestra.datamodel.DateType;
+import edu.upenn.cis.orchestra.datamodel.IntType;
+import edu.upenn.cis.orchestra.datamodel.PrimaryKey;
+import edu.upenn.cis.orchestra.datamodel.StringType;
+import edu.upenn.cis.orchestra.p2pqp.TupleStore.ConstraintViolation;
+import edu.upenn.cis.orchestra.p2pqp.TupleStore.TupleStoreException;
+import edu.upenn.cis.orchestra.predicate.ComparePredicate;
+import edu.upenn.cis.orchestra.predicate.ComparePredicate.Op;
+import edu.upenn.cis.orchestra.util.ByteArraySet;
+
+public abstract class TestTupleStore {
+	abstract TupleStore<Null> getTupleStore() throws Exception;
+	abstract void close(TupleStore<Null> ts) throws Exception;
+
+	private TupleStore<Null> ts;
+
+	private QpSchema r, t, s;
+
+	private QpTuple<Null> Nick5_1, Nick10_2, Jack10_1, Fred20_1;
+	private QpTupleKey Nick, Jack, Fred;
+
+	private QpTuple<Null> r1, r2, r3, r4, t1, s1, s2, s3, s4, s4b;
+	private QpTupleKey r1k, r2k, r3k, r4k, t1k, s1k, s2k, s3k, s4k, s4bk;
+
+	private InetSocketAddress nodeId;
+	private final int queryId = 17;
+	private final MetadataFactory<Null> mdf = null;
+	private static final int phaseNo = 0;
+
+	private QpSchema.Source schemas;
+	
+	private Filter<QpTuple<Null>> trueFilter;
+
+	@BeforeClass
+	public static void setupLogging() {
+		Logger root = Logger.getRootLogger();
+		root.setLevel(Level.INFO);
+		root.addAppender(new ConsoleAppender(new PatternLayout("%d{ABSOLUTE} %m%n"), ConsoleAppender.SYSTEM_ERR));
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		nodeId = new InetSocketAddress(InetAddress.getLocalHost(), 5000);
+
+		ts = getTupleStore();
+		r = new QpSchema("R", 5);
+		r.addCol("a", new StringType(false, true, true, 10));
+		r.addCol("b", IntType.INT);
+		r.setPrimaryKey(Collections.singleton("a"));
+		r.markFinished();
+
+		s = new QpSchema("S", 4);
+		s.addCol("a", IntType.INT);
+		s.addCol("b", IntType.INT);
+		s.setPrimaryKey(new PrimaryKey("pk", s, Arrays.asList("a", "b")));
+		s.setHashCols(Collections.singleton("a"));
+		s.markFinished();
+
+		t = new QpSchema("T", 2);
+		t.addCol("a", IntType.INT);
+		t.addCol("c", DateType.DATE);
+		t.setPrimaryKey(new PrimaryKey("pk", t, Collections.singleton("a")));
+		t.markFinished();
+
+		Object[] data = new Object[2];
+		data[0] = "Nick";
+		data[1] = 5;
+		Nick5_1 = new QpTuple<Null>(r, data);
+
+		data[0] = "Nick";
+		data[1] = 10;
+		Nick10_2 = new QpTuple<Null>(r, data);
+
+		data[0] = "Jack";
+		data[1] = 10;
+		Jack10_1 = new QpTuple<Null>(r, data);
+
+		data[0] = "Fred";
+		data[1] = 20;
+		Fred20_1 = new QpTuple<Null>(r, data);
+
+		data[0] = "Nick";
+		data[1] = null;
+		Nick = new QpTupleKey(r,data,1);
+
+		data[0] = "Jack";
+		data[1] = null;
+		Jack = new QpTupleKey(r,data,1);
+
+		data[0] = "Fred";
+		data[1] = null;
+		Fred = new QpTupleKey(r,data,1);
+
+		r1 = new QpTuple<Null>(r, new Object[] {"Hello!", 5});
+		r1k = r1.getKeyTuple(2);
+		r2 = new QpTuple<Null>(r, new Object[] {"Hello!", 7});
+		r2k = r2.getKeyTuple(1);
+		r3 = new QpTuple<Null>(r, new Object[] {"Hello!", null});
+		r3k = r3.getKeyTuple(2);
+		r4 = new QpTuple<Null>(r, new Object[] {"Good-bye!", 6});
+		r4k = r4.getKeyTuple(1);
+		t1 = new QpTuple<Null>(t, new Object[] {5, new Date(1998,6,17)});
+		t1k = t1.getKeyTuple(1);
+
+		s1 = new QpTuple<Null>(s, new Object[] {1,1});
+		s1k = s1.getKeyTuple(1);
+		s2 = new QpTuple<Null>(s, new Object[] {2,2});
+		s2k = s2.getKeyTuple(1);
+		s3 = new QpTuple<Null>(s, new Object[] {3,3});
+		s3k = s3.getKeyTuple(1);
+		s4 = new QpTuple<Null>(s, new Object[] {4,4});
+		s4k = s4.getKeyTuple(1);
+		s4b = new QpTuple<Null>(s, new Object[] {4,4});
+		s4bk = s4b.getKeyTuple(3);
+		
+		schemas = new QpSchema.CollectionSource(Arrays.asList(r, s, t));
+		
+		trueFilter = new Filter<QpTuple<Null>>() {
+
+			@Override
+			public boolean eval(QpTuple<Null> t) {
+				return true;
+			}
+
+			@Override
+			public Set<Integer> getColumns() {
+				return null;
+			}
+			
+		};
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		close(ts);
+	}
+
+	@Test
+	public void testRetrieve() throws Exception {
+		ts.addTable(r);
+		ts.addTuple(Nick5_1, 1);
+		ts.addTuple(Nick10_2, 2);
+		ts.addTuple(Jack10_1, 1);
+		ts.addTuple(Fred20_1, 1);
+
+		QpTuple<Null> n = ts.getTupleByKey(Nick);
+		assertEquals(Nick5_1, n);
+
+		QpTuple<Null> f = ts.getTupleByKey(Fred);
+		assertEquals(Fred20_1, f);
+		
+		QpTuple<Null> j = ts.getTupleByKey(Jack);
+		assertEquals(Jack10_1, j);
+	}
+
+	@Test(expected=IllegalArgumentException.class)
+	public void testAddWrongSchema() throws TupleStoreException {
+		ts.addTuple(t1, t1k.epoch);
+	}
+
+	@Test
+	public void testContraintViolation() throws TupleStoreException {
+		ts.addTable(r);
+		ts.addTuple(r1, r1k.epoch);
+
+		ConstraintViolation cv = ts.addTuple(r3, r3k.epoch);
+		assertNotNull("Could violate relation key within an epoch", cv);
+	}
+
+	@Test
+	public void testScanAtImplicitEpoch() throws Exception {
+		ts.addTable(r);
+		ts.addTuple(r1, r1k.epoch);
+		ts.addTuple(r2, r2k.epoch);
+		ts.addTuple(r4, r4k.epoch);
+
+		HashSet<QpTuple<Null>> rTuples = new HashSet<QpTuple<Null>>();
+		rTuples.add(r1);
+		rTuples.add(r4);
+		
+		RecordTuplesTest rt = new RecordTuplesTest();
+		SpoolOperator<Null> tuplesDest = SpoolOperator.create(r, schemas, nodeId, 5, rt, mdf, false, false);
+		PullScanOperator<Null> so = ts.beginScan("R", tuplesDest, null, null, null, null, queryId, nodeId, 1, rt, false, phaseNo);
+		so.scanAll(0);
+		assertFalse("Should not have failed", tuplesDest.hasFailed());
+		assertTrue("Should have finished processing all data", tuplesDest.hasFinished());
+		Set<QpTuple<Null>> tuples = new HashSet<QpTuple<Null>>(tuplesDest.getResultsWithoutMetadata());
+		assertEquals("Retrieved wrong tuples from scan", rTuples, tuples);
+	}
+	
+	@Test
+	public void testScanAtCurrentEpoch() throws Exception {
+		ts.addTable(r);
+		ts.addTuple(r1, r1k.epoch);
+		ts.addTuple(r2, r2k.epoch);
+		ts.addTuple(r4, r4k.epoch);
+		
+		RecordTuplesTest rt = new RecordTuplesTest();
+		SpoolOperator<Null> tuplesDest = SpoolOperator.create(r, schemas, nodeId, 5, rt, mdf, false, false);
+		PullScanOperator<Null> so = ts.beginScan("R", tuplesDest, null, null, null, 2, queryId, nodeId, 4, rt, false, phaseNo);
+		so.scanAll(0);
+		assertFalse("Should not have failed", tuplesDest.hasFailed());
+		assertTrue("Should have finished processing all data", tuplesDest.hasFinished());
+		Set<QpTuple<?>> expectedResult = new HashSet<QpTuple<?>>();
+		expectedResult.add(r1);
+		expectedResult.add(r4);
+		Set<QpTuple<?>> tuples = new HashSet<QpTuple<?>>(tuplesDest.getResultsWithoutMetadata());
+		assertEquals("Retrieved wrong tuples from scan for epochs 1 & 2", expectedResult, tuples);
+	}
+
+	@Test
+	public void testScanWithPredicate() throws Exception {
+		ts.addTable(r);
+		ts.addTuple(r1, r1k.epoch);
+		ts.addTuple(r2, r2k.epoch);
+		ts.addTuple(r4, r4k.epoch);
+		
+		RecordTuplesTest rt = new RecordTuplesTest();
+		SpoolOperator<Null> tuplesDest = SpoolOperator.create(r, schemas, nodeId, 5, rt, mdf, false, false);
+		PullScanOperator<Null> so = ts.beginScan("R", tuplesDest, null, null, ComparePredicate.createColLit(r, "a", Op.NE, "Hello!"), null, queryId, nodeId, 2, rt, false, phaseNo);
+		so.scanAll(0);
+		assertFalse("Should not have failed", tuplesDest.hasFailed());
+		assertTrue("Should have finished processing all data", tuplesDest.hasFinished());
+		Set<QpTuple<Null>> tuples = new HashSet<QpTuple<Null>>(tuplesDest.getResultsWithoutMetadata());
+		assertEquals("Retrieved wrong tuples from scan with predicate", Collections.singleton(r4), tuples);
+	}
+	
+	@Test
+	public void testScanAtPreviousEpoch() throws Exception {
+		ts.addTable(r);
+		ts.addTuple(r1, r1k.epoch);
+		ts.addTuple(r2, r2k.epoch);
+		ts.addTuple(r4, r4k.epoch);
+		
+		RecordTuplesTest rt = new RecordTuplesTest();
+		SpoolOperator<Null> tuplesDest = SpoolOperator.create(r, schemas, nodeId, 5, rt, mdf, false, false);
+		PullScanOperator<Null> so = ts.beginScan("R", tuplesDest, null, null, null, 1, queryId, nodeId, 3, rt, false, phaseNo);
+		so.scanAll(0);
+		assertFalse("Should not have failed", tuplesDest.hasFailed());
+		assertTrue("Should have finished processing all data", tuplesDest.hasFinished());
+		Set<QpTuple<Null>> epoch1 = new HashSet<QpTuple<Null>>();
+		epoch1.add(r2);
+		epoch1.add(r4);
+		Set<QpTuple<Null>> tuples = new HashSet<QpTuple<Null>>(tuplesDest.getResultsWithoutMetadata());
+		assertEquals("Retrieved wrong tuples from scan for epoch 1", epoch1, tuples);
+	}
+	
+	@Test
+	public void testDeletion() throws Exception {
+		ts.addTable(r);
+		ts.addTuple(r1, r1k.epoch);
+		ts.addTuple(r2, r2k.epoch);
+		ts.addTuple(r4, r4k.epoch);
+		ts.deleteTuple(r1, 5);
+		QpTuple<?> result4 = ts.getTuple(r1, 4);
+		assertEquals("Should have value for r1 at epoch 4", r1, result4);
+		QpTuple<?> result5 = ts.getTuple(r1, 5);
+		assertNull("Should not have a value for r1 at epoch 5", result5);
+	}
+	
+	@Test
+	public void testDeletionScan() throws Exception {
+		ts.addTable(r);
+		ts.addTuple(r1, r1k.epoch);
+		ts.addTuple(r2, r2k.epoch);
+		ts.addTuple(r4, r4k.epoch);
+		ts.deleteTuple(r1, 5);
+		RecordTuplesTest rt = new RecordTuplesTest();
+		SpoolOperator<Null> tuplesDest = SpoolOperator.create(r, schemas, nodeId, 5, rt, mdf, false, false);
+		PullScanOperator<Null> so = ts.beginScan("R", tuplesDest, null, null, null, 5, queryId, nodeId, 5, rt, false, phaseNo);
+		so.scanAll(0);
+		assertFalse("Should not have failed", tuplesDest.hasFailed());
+		assertTrue("Should have finished processing all data", tuplesDest.hasFinished());
+		Set<QpTuple<Null>> tuples = new HashSet<QpTuple<Null>>(tuplesDest.getResultsWithoutMetadata());
+		assertEquals("Should get a single tuple at epoch 5", Collections.singleton(r4), tuples);
+	}
+	
+	@Test
+	public void testSpecifiedKeyScan() throws Exception {
+		ts.addTable(s);
+		ts.addTuple(s1, s1k.epoch);
+		ts.addTuple(s2, s2k.epoch);
+		ts.addTuple(s3, s3k.epoch);
+		ts.addTuple(s4, s4k.epoch);
+		ts.addTuple(s4b, s4bk.epoch);
+	
+		Set<QpTuple<?>> expectedResult = new HashSet<QpTuple<?>>();
+		expectedResult.add(s1);
+		expectedResult.add(s3);
+		expectedResult.add(s4);
+		ByteArraySet keys = new ByteArraySet(5);
+		keys.add(s1k.getBytes());
+		keys.add(s2k.getBytes());
+		keys.add(s3k.getBytes());
+		keys.add(s4k.getBytes());
+		
+		System.out.println("s1 ID: " + s1.getQPid());
+		System.out.println("s2 ID: " + s2.getQPid());
+		System.out.println("s3 ID: " + s3.getQPid());
+		System.out.println("s4 ID: " + s4.getQPid());
+
+		Id low = Id.fromMSBBytes(new byte[] {0x47, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		Id high = Id.fromMSBBytes(new byte[] {(byte) 0xF1, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		
+		
+		RecordTuplesTest rt = new RecordTuplesTest();
+		SpoolOperator<Null> tuplesDest = SpoolOperator.create(s, schemas, nodeId, 5, rt, mdf, false, false);
+		Operator<Null> holder = new Operator<Null>(tuplesDest, null, nodeId,
+				99, mdf, schemas, rt, false) {
+					@Override
+					protected void receiveTuples(WhichInput destInput, QpTupleBag<Null> tuples) {
+						throw new UnsupportedOperationException();
+					}
+
+					@Override
+					protected void inputHasFinished(WhichInput whichChild,
+							int phaseNo) {
+					}
+		};
+		
+		IdRangeSet ranges = IdRangeSet.empty();
+		ranges.add(new IdRange(low, high));
+		PullScanOperator<Null> so = ts.beginScan(s.relId, keys, trueFilter, holder, ranges, 19);
+		so.scanAll(19);
+		holder.finishedSending(19);
+		Set<QpTuple<Null>> tuples = new HashSet<QpTuple<Null>>(tuplesDest.getResultsWithoutMetadata());
+		assertFalse("Should not have failed", tuplesDest.hasFailed());
+		assertTrue("Should have finished processing all data", tuplesDest.hasFinished());
+
+		assertEquals("Should not find s2 since it is outside the range", Collections.singleton(s2k), rt.notFound);
+		assertEquals("Incorrect result from specified key scan", expectedResult, tuples);
+		for (QpTuple<?> t : tuples) {
+			assertEquals("Incorrect phase from SpecifiedKeyScan", 19, t.getPhase());
+		}
+	}
+	
+	@Test
+	public void testWrappingSpecifiedKeyScan() throws Exception {
+		ts.addTable(s);
+		ts.addTuple(s1, s1k.epoch);
+		ts.addTuple(s2, s2k.epoch);
+		ts.addTuple(s3, s3k.epoch);
+		ts.addTuple(s4, s4k.epoch);
+		System.out.println("s1 ID: " + s1.getQPid());
+		System.out.println("s2 ID: " + s2.getQPid());
+		System.out.println("s3 ID: " + s3.getQPid());
+		System.out.println("s4 ID: " + s4.getQPid());
+		Id low = Id.fromMSBBytes(new byte[] {(byte) 0xF0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		Id high = Id.fromMSBBytes(new byte[] {(byte) 0x50, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		IdRange range = new IdRange(low, high);
+		ByteArraySet keys = new ByteArraySet(5);
+		keys.add(s1k.getBytes());
+		keys.add(s4k.getBytes());
+		Set<QpTuple<?>> expectedResult = new HashSet<QpTuple<?>>();
+		expectedResult.add(s1);
+		expectedResult.add(s4);
+		
+		
+		RecordTuplesTest rt = new RecordTuplesTest();
+		SpoolOperator<Null> tuplesDest = SpoolOperator.create(s, schemas, nodeId, 5, rt, mdf, false, false);
+		Operator<Null> holder = new Operator<Null>(tuplesDest, null, nodeId,
+				99, mdf, schemas, rt, false) {
+					@Override
+					protected void receiveTuples(WhichInput destInput,QpTupleBag<Null> tuples) {
+						throw new UnsupportedOperationException();
+					}
+
+					@Override
+					protected void inputHasFinished(WhichInput whichChild,
+							int phaseNo) {
+					}
+		};
+		
+		IdRangeSet ranges = IdRangeSet.empty();
+		ranges.add(range);
+		PullScanOperator<Null> so = ts.beginScan(s.relId, keys, null, holder, ranges, 0);
+		so.scanAll(0);
+		holder.finishedSending(19);
+		assertFalse("Should not have failed", tuplesDest.hasFailed());
+		assertTrue("Should have finished processing all data", tuplesDest.hasFinished());
+		Set<QpTuple<Null>> tuples = new HashSet<QpTuple<Null>>(tuplesDest.getResultsWithoutMetadata());
+		
+		assertEquals("Incorrect result from specified key scan", expectedResult, tuples);
+	}
+	
+	@Test
+	public void testSpecifiedKeyScanMultipleRanges() throws Exception {
+		ts.addTable(s);
+		ts.addTuple(s1, s1k.epoch);
+		ts.addTuple(s2, s2k.epoch);
+		ts.addTuple(s3, s3k.epoch);
+		ts.addTuple(s4, s4k.epoch);
+		ts.addTuple(s4b, s4bk.epoch);
+	
+		Set<QpTuple<?>> expectedResult = new HashSet<QpTuple<?>>();
+		expectedResult.add(s1);
+		expectedResult.add(s3);
+		expectedResult.add(s4);
+		ByteArraySet keys = new ByteArraySet(5);
+		keys.add(s1k.getBytes());
+		keys.add(s2k.getBytes());
+		keys.add(s3k.getBytes());
+		keys.add(s4k.getBytes());
+		
+		System.out.println("s1 ID: " + s1.getQPid());
+		System.out.println("s2 ID: " + s2.getQPid());
+		System.out.println("s3 ID: " + s3.getQPid());
+		System.out.println("s4 ID: " + s4.getQPid());
+
+		Id low1 = Id.fromMSBBytes(new byte[] {0x47, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		Id high1 = Id.fromMSBBytes(new byte[] {(byte) 0xB0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		Id low2 = Id.fromMSBBytes(new byte[] {(byte) 0xF0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		Id high2 = Id.fromMSBBytes(new byte[] {(byte) 0xFF, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+		IdRangeSet ranges = IdRangeSet.empty();
+		ranges.add(new IdRange(low1, high1));
+		ranges.add(new IdRange(low2, high2));
+		
+		
+		RecordTuplesTest rt = new RecordTuplesTest();
+		SpoolOperator<Null> tuplesDest = SpoolOperator.create(s, schemas, nodeId, 5, rt, mdf, false, false);
+		Operator<Null> holder = new Operator<Null>(tuplesDest, null, nodeId,
+				99, mdf, schemas, rt, false) {
+					@Override
+					protected void receiveTuples(WhichInput destInput, QpTupleBag<Null> tuples) {
+						throw new UnsupportedOperationException();
+					}
+
+					@Override
+					protected void inputHasFinished(WhichInput whichChild,
+							int phaseNo) {
+					}
+		};
+		
+		PullScanOperator<Null> so = ts.beginScan(s.relId, keys, trueFilter, holder, ranges, 19);
+		so.scanAll(19);
+		holder.finishedSending(19);
+		Set<QpTuple<Null>> tuples = new HashSet<QpTuple<Null>>(tuplesDest.getResultsWithoutMetadata());
+		assertFalse("Should not have failed", tuplesDest.hasFailed());
+		assertTrue("Should have finished processing all data", tuplesDest.hasFinished());
+
+		assertEquals("Should not find s2 since it is outside the range", Collections.singleton(s2k), rt.notFound);
+		assertEquals("Incorrect result from specified key scan", expectedResult, tuples);
+		for (QpTuple<?> t : tuples) {
+			assertEquals("Incorrect phase from SpecifiedKeyScan", 19, t.getPhase());
+		}
+	}
+
+}

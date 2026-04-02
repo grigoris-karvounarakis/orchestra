@@ -1,0 +1,565 @@
+package edu.upenn.cis.orchestra.p2pqp;
+
+
+import static org.junit.Assert.assertEquals;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.SimpleLayout;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.sleepycat.je.DatabaseException;
+import com.sleepycat.je.Environment;
+import com.sleepycat.je.EnvironmentConfig;
+
+import edu.upenn.cis.orchestra.datamodel.AbstractRelation;
+import edu.upenn.cis.orchestra.datamodel.IntType;
+import edu.upenn.cis.orchestra.datamodel.PrimaryKey;
+import edu.upenn.cis.orchestra.datamodel.StringType;
+import edu.upenn.cis.orchestra.optimization.Aggregate.AggFunc;
+import edu.upenn.cis.orchestra.p2pqp.FunctionEvaluator.ColumnInput;
+import edu.upenn.cis.orchestra.p2pqp.FunctionEvaluator.ColumnOrFunction;
+import edu.upenn.cis.orchestra.p2pqp.FunctionEvaluator.EvalFunc;
+import edu.upenn.cis.orchestra.p2pqp.QpApplication.RecoveryMode;
+import edu.upenn.cis.orchestra.p2pqp.plan.AggregateNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.CentralizedLoc;
+import edu.upenn.cis.orchestra.p2pqp.plan.DistributedLoc;
+import edu.upenn.cis.orchestra.p2pqp.plan.FunctionNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.NamedLoc;
+import edu.upenn.cis.orchestra.p2pqp.plan.PipelinedJoinNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.QueryPlan;
+import edu.upenn.cis.orchestra.p2pqp.plan.ScanNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.ShipNode;
+import edu.upenn.cis.orchestra.p2pqp.plan.SpoolNode;
+import edu.upenn.cis.orchestra.predicate.ComparePredicate;
+
+import static edu.upenn.cis.orchestra.p2pqp.plan.ScanNode.Type.*;
+
+
+public class TestDistributedQP {
+	static Logger logger;
+	static Environment e;
+	static List<QpApplication<Null>> nodes;
+	static final int numNodes = 5;
+	static QpSchema r, s, t, u, uu, v, w;
+	static final int[] rHashCols = {0};
+	static final int[] sHashCols = {1};
+	static final int[] uHashCols = {0};
+	static QpTuple<Null> r1, r10, r100, r11, r101, r1001;
+	static int r1e, r10e, r100e, r11e, r101e, r1001e;
+	static Map<Integer,Integer> mapping;
+	
+	QpApplication.Configuration config = new QpApplication.Configuration().setRecoveryMode(RecoveryMode.INCREMENTAL);
+
+	static AbstractRelation.FieldSource[] copy2 = { new AbstractRelation.FieldSource(0,true), new AbstractRelation.FieldSource(1,true) };
+	
+	static class InitializedNodes<M> {
+		final List<QpApplication<M>> nodes;
+		final Environment e;
+		
+		InitializedNodes(List<QpApplication<M>> nodes, Environment e) {
+			this.nodes = nodes;
+			this.e = e;
+		}
+	}
+	
+	static <M> InitializedNodes<M> initNodes(Logger logger, int numNodes, InetAddress bindAddress, int baseQPport, MetadataFactory<M> mdf, Map<String,InetSocketAddress> allNames) throws DatabaseException, IOException, InterruptedException {
+		List<QpApplication<M>> nodes = new ArrayList<QpApplication<M>>(numNodes);
+		File f = new File("dbenv");
+		if (f.exists()) {
+			File[] files = f.listFiles();
+			for (File file : files) {
+				file.delete();
+			}
+		} else {
+			f.mkdir();
+		}
+		ScratchFileGenerator sfg = new SimpleScratchFileGenerator(f,"temp");
+		EnvironmentConfig ec = new EnvironmentConfig();
+		ec.setAllowCreate(true);
+		Environment e = new Environment(f, ec);
+		
+		int port = baseQPport;
+		
+		TableNameGenerator tng = new SimpleTableNameGenerator("tempTable");
+		
+		InetSocketAddress bootNode = new InetSocketAddress(bindAddress, port);
+		
+		nodes.add(new QpApplication<M>(new InetSocketAddress(bindAddress,port++),null,null,bootNode,sfg,e,"store0", "index0", tng, mdf,allNames));
+
+		for (int i = 1; i < numNodes; ++i) {
+			nodes.add(new QpApplication<M>(new InetSocketAddress(bindAddress,port++),null,null,bootNode,sfg,e,"store" + i, "index" + i, tng, mdf,allNames));
+		}
+
+
+		nodes.get(0).performRoutingTableUpdate();
+		for ( ; ; ) {
+			boolean foundMissing = false;
+			for (QpApplication<?> node : nodes) {
+				if (node.getParticipants().size() != numNodes) {
+					foundMissing = true;
+					logger.info("Node " + node.localAddr + " routing table contains " + node.getParticipants().size() + " entries, scheduling update");
+					node.scheduleRoutingTableUpdate();
+				}
+			}
+			if (foundMissing) {
+				System.out.println("Waiting for all nodes to know about each other");
+				Thread.sleep((long) (QpApplication.FLOODING_MAX_WAIT_INTERVAL_MS * 1.5));
+			} else {
+				break;
+			}
+		}
+
+		
+		return new InitializedNodes<M>(nodes,e);
+	}
+	
+	@BeforeClass
+	public static void setUpNetwork() {
+		Logger.getRootLogger().setLevel(Level.INFO);
+		Logger.getRootLogger().removeAllAppenders();
+		Logger.getRootLogger().addAppender(new ConsoleAppender(new SimpleLayout()));
+		logger = Logger.getLogger(TestDistributedQP.class);
+
+		try {
+			Map<Integer,Integer> mapping = new HashMap<Integer,Integer>();
+			mapping.put(0,0);
+			mapping.put(1,1);
+			TestDistributedQP.mapping = Collections.unmodifiableMap(mapping);
+
+			Map<String,InetSocketAddress> named = Collections.singletonMap("node0", new InetSocketAddress(InetAddress.getLocalHost(), 6000));
+
+			InetAddress localhost = InetAddress.getLocalHost();
+
+			InitializedNodes<Null> initData = initNodes(logger, numNodes, localhost, 6000, NullMetadataFactory.getInstance(), named);
+			e = initData.e;
+			nodes = initData.nodes;
+			
+			r = new QpSchema("R", 1);
+			r.addCol("a", IntType.INT);
+			r.addCol("b", new StringType(true, false, true, 10));
+			r.setPrimaryKey(new PrimaryKey("pk", r, Collections.singleton("a")));
+			r.setHashCols(rHashCols);
+			r.markFinished();
+
+			s = new QpSchema("S", 2);
+			s.addCol("a", IntType.INT);
+			s.addCol("b", new StringType(true, false, true, 10));
+			s.setPrimaryKey(new PrimaryKey("pk", s, Arrays.asList("a", "b")));
+			s.setHashCols(sHashCols);
+			s.markFinished();
+
+			t = new QpSchema("T", 3);
+			t.addCol("a", IntType.INT);
+			t.addCol("b", new StringType(true, false, true, 10));
+			t.setCentralized();
+			t.markFinished();
+
+			u = new QpSchema("U", 4);
+			u.addCol("a", IntType.INT);
+			u.addCol("b", IntType.INT);
+			u.setPrimaryKey(Arrays.asList("a", "b"));
+			u.setHashCols(uHashCols);
+			u.markFinished();
+			
+			uu = new QpSchema("UU", 44);
+			uu.addCol("a", IntType.INT);
+			uu.addCol("b", IntType.INT);
+			uu.setPrimaryKey(Arrays.asList("a", "b"));
+			uu.setCentralized();
+			uu.markFinished();
+
+			v = new QpSchema("V", 5);
+			v.addCol("a", IntType.INT);
+			v.addCol("b", IntType.INT);
+			v.setPrimaryKey(Arrays.asList("a"));
+			v.setHashCols(uHashCols);
+			v.markFinished();
+
+			w = new QpSchema("W", 6);
+			w.addCol("a", IntType.INT);
+			w.addCol("c", new StringType(true,false,true,10));
+			w.setNamedLocation("node0");
+			w.setPrimaryKey(Arrays.asList("a"));
+			w.markFinished();
+
+
+			Object[] fields = new Object[2];
+			fields[0] = 1;
+			fields[1] = "Nick";
+			r1 = new QpTuple<Null>(r, fields);
+			r1e = 0;
+
+			fields[0] = 11;
+			fields[1] = "Nick";
+			r11 = new QpTuple<Null>(r, fields);
+			r11e = 0;
+
+			fields[0] = 10;
+			fields[1] = "Fred";			
+			r10 = new QpTuple<Null>(r, fields);
+			r10e = 1;
+
+			fields[0] = 101;
+			fields[1] = "Fred";			
+			r101 = new QpTuple<Null>(r, fields);
+			r101e = 1;
+
+			fields[0] = 100;
+			fields[1] = "Jim";			
+			r100 = new QpTuple<Null>(r, fields);
+			r100e = 2;
+
+			fields[0] = 1001;
+			fields[1] = "Jim";			
+			r1001 = new QpTuple<Null>(r, fields);
+			r1001e = 2;
+		} catch (Exception e) {
+			logger.fatal("Error setting up network", e);
+		}
+	}
+
+	@AfterClass
+	public static void tearDownNetwork() {
+		try {
+			for (QpApplication<?> node : nodes) {
+				node.stop();
+			}
+			e.close();
+		} catch (Exception e) {
+			logger.fatal("Error tearing down network", e);
+		}
+	}
+
+	@Before
+	public void setUp() {
+		try {
+			for (QpApplication<?> node : nodes) {
+				node.clear();
+				node.addTable(r, 0);
+				node.addTable(u, 0);
+				node.addTable(v, 0);
+				node.addViewSchema(w);
+			}
+			System.out.println("Reset network state");
+		} catch (Exception e) {
+			logger.fatal("Error clearing network state", e);
+		}
+	}
+
+	@Test
+	public void testProbeScan() throws Exception {
+		QpApplication<Null> n0 = nodes.get(0), n1 = nodes.get(1), n2 = nodes.get(2),
+		n3 = nodes.get(3);
+		n0.dht.addTuple(r1, r1e);
+		n0.dht.finishEpochForRelation("R");
+		n1.dht.addTuple(r10, r10e);
+		n1.dht.finishEpochForRelation("R");
+		n2.dht.addTuple(r100, r100e);
+		n2.dht.finishEpochForRelation("R");
+
+
+		QueryPlan<Null> qp = new ScanNode<Null>(r, null, null, DistributedLoc.getInstance(), 1, DistributedProbe);
+		List<ColumnOrFunction> output = new ArrayList<ColumnOrFunction>();
+		output.add(new EvalFunc(new Sum(Arrays.asList(1),true,false,false,5), Collections.singleton(new ColumnInput(0))));
+		output.add(new ColumnInput(1));
+		qp = new FunctionNode<Null>(r, s, output, DistributedLoc.getInstance(), 2, qp);
+		qp = new ShipNode<Null>(s,mapping,t,DistributedLoc.getInstance(),3,qp);
+		qp = new SpoolNode<Null>(t,4,qp);
+
+		n3.beginQuery(5000, 2, qp, Arrays.asList(s, t), config);
+		Set<QpTuple<Null>> result = new HashSet<QpTuple<Null>>(n3.getQueryResultWithoutMetadata(5000));
+		n3.endQuery(5000);
+
+		QpTuple<Null> t6, t15, t105;
+		t6 = new QpTuple<Null>(t, new Object[] {6, r1.get(1)});
+		t15 = new QpTuple<Null>(t, new Object[] {15, r10.get(1)});
+		t105 = new QpTuple<Null>(t, new Object[] {105, r100.get(1)});
+
+		Set<QpTuple<Null>> expected = new HashSet<QpTuple<Null>>();
+		expected.add(t6); 
+		expected.add(t15);
+		expected.add(t105);
+
+		assertEquals("Incorrect results from simple distributed query execution", expected, result);
+		Thread.sleep(1000);
+	}
+
+	@Test
+	public void testAggregation() throws Exception {
+		QueryPlan<Null> qp = new ScanNode<Null>(r, null, null, DistributedLoc.getInstance(), 1, DistributedProbe);
+		qp = new ShipNode<Null>(r, mapping, s, DistributedLoc.getInstance(), 2, qp);
+		List<Integer> grouping = Collections.singletonList(1);
+		List<AggregateNode.OutputColumn> output = new ArrayList<AggregateNode.OutputColumn>();
+		output.add(new AggregateNode.OutputColumn(0, AggFunc.SUM));
+		output.add(new AggregateNode.OutputColumn(1));
+		qp = new AggregateNode<Null>(s, s, grouping, output, DistributedLoc.getInstance(), 3, qp);
+		qp = new ShipNode<Null>(s, mapping, t, DistributedLoc.getInstance(), 4, qp);
+		qp = new SpoolNode<Null>(t, 5, qp);
+
+		QpApplication<Null> n0 = nodes.get(0), n1 = nodes.get(1), n2 = nodes.get(2),
+		n3 = nodes.get(3);
+		n0.dht.addTuple(r1, r1e);
+		n0.dht.addTuple(r11, r11e);
+		n0.dht.finishEpochForRelation("R");
+		n1.dht.addTuple(r10, r10e);
+		n1.dht.addTuple(r101, r101e);
+		n1.dht.finishEpochForRelation("R");
+		n2.dht.addTuple(r100, r100e);
+		n2.dht.addTuple(r1001, r1001e);
+		n2.dht.finishEpochForRelation("R");
+
+		n3.beginQuery(76, 2, qp, Arrays.asList(s, t), config);
+		Set<QpTuple<Null>> result = new HashSet<QpTuple<Null>>(n3.getQueryResultWithoutMetadata(76));
+		n3.endQuery(76);
+
+
+		QpTuple<Null> t12, t111, t1101;
+		t12 = new QpTuple<Null>(t, new Object[] {12, r1.get(1)});
+
+		t111 = new QpTuple<Null>(t, new Object[] {111, r10.get(1)});
+
+		t1101 = new QpTuple<Null>(t, new Object[] {1101, r100.get(1)});
+
+		Set<QpTuple<Null>> expected = new HashSet<QpTuple<Null>>();
+		expected.add(t12);
+		expected.add(t111);
+		expected.add(t1101);
+
+		assertEquals("Incorrect results from aggregate", expected, result);
+		Thread.sleep(1000);
+	}
+
+	@Test
+	public void testViewScan() throws Exception {
+		QpApplication<Null> n0 = nodes.get(0), n1 = nodes.get(1), n2 = nodes.get(2);
+
+		Object[] data = new Object[2];
+		data[0] = 1;
+		data[1] = "Alex";
+		QpTuple<Null> w1 = new QpTuple<Null>(w, data);
+
+		data[0] = 10;
+		data[1] = "Bob";
+		QpTuple<Null> w10 = new QpTuple<Null>(w, data);
+
+		List<QpTuple<Null>> ws = new ArrayList<QpTuple<Null>>();
+		ws.add(w1);
+		ws.add(w10);
+		n0.store.addTuples(ws.iterator(), 0);
+		n0.addLocalName("node0");
+
+		QueryPlan<Null> qp1 = new ScanNode<Null>(w, ComparePredicate.createColLit(w, "a", ComparePredicate.Op.GE, 0),
+				ComparePredicate.createColLit(w, "c", ComparePredicate.Op.NE, "Alex"), new NamedLoc("node0"), 0, LocalScan);
+
+		QpSchema x = new QpSchema("X", 10);
+		x.addField(w.getField(0));
+		x.addField(w.getField(1));
+		x.setCentralized();
+		x.markFinished();
+
+		Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+		map.put(0, 0);
+		map.put(1, 1);
+
+		qp1 = new ShipNode<Null>(w, map, x, new NamedLoc("node0"), 1, qp1);
+
+		QueryPlan<Null> qp2 = new ScanNode<Null>(r, null, null, DistributedLoc.getInstance(), 2, DistributedProbe);
+		qp2 = new ShipNode<Null>(r, map, t, DistributedLoc.getInstance(), 3, qp2);
+
+		QpSchema y = new QpSchema("Y", 11);
+		y.addField(w.getField(0));
+		y.addField(w.getField(1));
+		y.addField(r.getField(1));
+		y.markFinished();
+
+		QueryPlan<Null> qp = new PipelinedJoinNode<Null>(y,
+				Collections.singletonList(0), Collections.singletonList(0),
+				Arrays.asList(0, 1), Arrays.asList(-1, 2),
+				CentralizedLoc.getInstance(), qp1, qp2, 4);
+		qp = new SpoolNode<Null>(y, 5, qp);
+
+		n2.dht.addTuple(r1, r1e);
+		n2.dht.finishEpochForRelation("R");
+		n0.dht.addTuple(r10, r10e);
+		n0.dht.finishEpochForRelation("R");
+
+		n1.beginQuery(95, 1, qp, Arrays.asList(x, y, t), config);
+
+		QpTuple<Null> expected = new QpTuple<Null>(y, new Object[] {10, "Bob", "Fred"});
+
+		Set<QpTuple<Null>> result = new HashSet<QpTuple<Null>>(n1.getQueryResultWithoutMetadata(95));
+		n1.endQuery(95);
+		assertEquals("Incorrect query results", Collections.singleton(expected), result);		
+		Thread.sleep(1000);
+	}
+
+	@Test
+	public void testShipToViewScan() throws Exception {
+		QpApplication<Null> n0 = nodes.get(0), n1 = nodes.get(1), n2 = nodes.get(2);
+
+		Object[] data = new Object[2];
+		data[0] = 1;
+		data[1] = "Alex";
+		QpTuple<Null> w1 = new QpTuple<Null>(w, data);
+
+		data[0] = 10;
+		data[1] = "Bob";
+		QpTuple<Null> w10 = new QpTuple<Null>(w, data);
+
+		List<QpTuple<Null>> ws = new ArrayList<QpTuple<Null>>();
+		ws.add(w1);
+		ws.add(w10);
+		n0.store.addTuples(ws.iterator(), 0);
+		n0.addLocalName("node0");
+
+		QueryPlan<Null> qp1 = new ScanNode<Null>(w, ComparePredicate.createColLit(w, "a", ComparePredicate.Op.GE, 0),
+				ComparePredicate.createColLit(w, "c", ComparePredicate.Op.NE, "Alex"), new NamedLoc("node0"), 0, LocalScan);
+
+		QpSchema x = new QpSchema("X", 12);
+		x.addField(r.getField(0));
+		x.addField(r.getField(1));
+		x.setNamedLocation("node0");
+		x.markFinished();
+
+		Map<Integer,Integer> map = new HashMap<Integer,Integer>();
+		map.put(0, 0);
+		map.put(1, 1);
+
+		QueryPlan<Null> qp2 = new ScanNode<Null>(r, null, null, DistributedLoc.getInstance(), 2, DistributedProbe);
+		qp2 = new ShipNode<Null>(r, map, x, DistributedLoc.getInstance(), 3, qp2);
+
+		QpSchema y = new QpSchema("Y", 13);
+		y.addField(w.getField(0));
+		y.addField(w.getField(1));
+		y.addField(r.getField(1));
+		y.setCentralized();
+		y.markFinished();
+
+		QueryPlan<Null> qp = new PipelinedJoinNode<Null>(y,
+				Collections.singletonList(0), Collections.singletonList(0),
+				Arrays.asList(0, 1), Arrays.asList(-1, 2),
+				new NamedLoc("node0"), qp1, qp2, 4);
+		qp = new ShipNode<Null>(y, new NamedLoc("node0"), 30, qp);
+		qp = new SpoolNode<Null>(y, 5, qp);
+
+		n2.dht.addTuple(r1, r1e);
+		n2.dht.finishEpochForRelation("R");
+		n0.dht.addTuple(r10, r10e);
+		n0.dht.finishEpochForRelation("R");
+
+		n1.beginQuery(105, 1, qp, Arrays.asList(x, y, t), config);
+
+		QpTuple<Null> expected = new QpTuple<Null>(y, new Object[] {10, "Bob", "Fred"});
+
+		Set<QpTuple<Null>> result = new HashSet<QpTuple<Null>>(n1.getQueryResultWithoutMetadata(105));
+		n1.endQuery(105);
+		assertEquals("Incorrect query results", Collections.singleton(expected), result);		
+		Thread.sleep(1000);
+	}
+
+	@Test
+	public void testIndexScan() throws Exception {
+		QpApplication<Null> n0 = nodes.get(0), n1 = nodes.get(1), n2 = nodes.get(2),
+		n3 = nodes.get(3);
+		n0.dht.addTuple(r1, r1e);
+		n0.dht.finishEpochForRelation("R");
+		n1.dht.addTuple(r10, r10e);
+		n1.dht.finishEpochForRelation("R");
+		n2.dht.addTuple(r100, r100e);
+		n2.dht.finishEpochForRelation("R");
+
+		QpSchema x = new QpSchema("X", -1);
+		x.addCol("a", IntType.INT);
+		x.setCentralized();
+		x.markFinished();
+
+		QueryPlan<Null> qp = new ScanNode<Null>(r, null, null, CentralizedLoc.getInstance(), 0, IndexScan);
+		qp = new FunctionNode<Null>(r, x, Collections.singletonList(new ColumnInput(0)),
+				CentralizedLoc.getInstance(), 1, qp);
+		qp = new SpoolNode<Null>(x, 2, qp);
+
+		n3.beginQuery(300, 2, qp, Collections.singleton(x), config);
+
+		QpTuple<Null> x1 = new QpTuple<Null>(x, new Object[] {1});
+		QpTuple<Null> x10 = new QpTuple<Null>(x, new Object[] {10});
+		QpTuple<Null> x100 = new QpTuple<Null>(x, new Object[] {100});
+		Set<QpTuple<Null>> expected = new HashSet<QpTuple<Null>>();
+		expected.add(x1);
+		expected.add(x10);
+		expected.add(x100);
+
+		Set<QpTuple<Null>> result = new HashSet<QpTuple<Null>>(n3.getQueryResultWithoutMetadata(300));
+		n3.endQuery(300);
+
+		assertEquals("Incorrect results from index scan", expected, result);
+	}
+
+	@Test
+	public void testDistributedScan() throws Exception {
+		QpApplication<Null> n0 = nodes.get(0), n1 = nodes.get(1), n2 = nodes.get(2),
+		n3 = nodes.get(3);
+		n0.dht.addTuple(r1, r1e);
+		n0.dht.finishEpochForRelation("R");
+		n1.dht.addTuple(r10, r10e);
+		n1.dht.finishEpochForRelation("R");
+		n2.dht.addTuple(r100, r100e);
+		n2.dht.finishEpochForRelation("R");
+
+		QueryPlan<Null> qp = new ScanNode<Null>(r, null, null, DistributedLoc.getInstance(), 0, DistributedScan);
+		Map<Integer,Integer> mapping = new HashMap<Integer,Integer>();
+		mapping.put(0, 0);
+		mapping.put(1, 1);
+		qp = new ShipNode<Null>(r, mapping, t, DistributedLoc.getInstance(), 1, qp);
+		qp = new SpoolNode<Null>(t, 2, qp);
+
+		n3.beginQuery(301, 2, qp, Collections.singletonList(t), config);
+
+		Set<QpTuple<Null>> expected = new HashSet<QpTuple<Null>>();
+		expected.add(new QpTuple<Null>(t,copy2,r1,null));
+		expected.add(new QpTuple<Null>(t,copy2,r10,null));
+		expected.add(new QpTuple<Null>(t,copy2,r100,null));
+
+		Set<QpTuple<Null>> result = new HashSet<QpTuple<Null>>(n3.getQueryResultWithoutMetadata(301));
+		n3.endQuery(301);
+
+		assertEquals("Incorrect results from distributed scan", expected, result);
+	}
+
+	@Test
+	public void testCheckRelation() throws Exception {
+		QpApplication<Null> n0 = nodes.get(0), n1 = nodes.get(1);
+
+		n0.dht.addTuple(r1, r1e);
+		n0.dht.addTuple(r11, r11e);
+		n0.dht.finishEpochForRelation("R");
+		n0.dht.addTuple(r10, r10e);
+		n0.dht.addTuple(r101, r101e);
+		n0.dht.finishEpochForRelation("R");
+		n0.dht.addTuple(r100, r100e);
+		n0.dht.addTuple(r1001, r1001e);
+		n0.dht.finishEpochForRelation("R");
+
+		Map<InetSocketAddress,Set<QpTupleKey>> missing = n1.findMissingTuples("R", 2);
+		Map<InetSocketAddress,Set<QpTupleKey>> empty = Collections.emptyMap();
+		assertEquals("Missing tuples from striped relation R", empty, missing);
+	}
+
+}

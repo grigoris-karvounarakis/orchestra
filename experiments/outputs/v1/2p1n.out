@@ -1,0 +1,8 @@
+PARAMS:
+OUTER UNION: false
+java.util.ConcurrentModificationException
+	at java.util.AbstractList$Itr.checkForComodification(Unknown Source)
+	at java.util.AbstractList$Itr.next(Unknown Source)
+	at edu.upenn.cis.orchestra.mappings.MappingsIOMgt.inOutTranslation(MappingsIOMgt.java:19)
+	at edu.upenn.cis.orchestra.engine.BasicEngine.generateTranslationRules(BasicEngine.java:108)
+	at edu.upenn.cis.orchestra.Db2Map.main(Db2Map.java:81)

@@ -1,0 +1,187 @@
+#PEERS:  10p-topo2-red1-modl1
+===========
+C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/orchestraScripts/proql/integer/10000/test-10p-topo2-red1-modl1
+> 
+>         set apply=true
+SET: KEY=apply, VALUE=true
+EXP: =========================================
+EXP:apply=true
+EXP: =========================================
+>         set batch=false
+SET: KEY=batch, VALUE=false
+EXP: =========================================
+EXP:batch=false
+EXP: =========================================
+>         set incremental=true
+SET: KEY=incremental, VALUE=true
+EXP: =========================================
+EXP:incremental=true
+EXP: =========================================
+>         set debug=false
+EXP: =========================================
+EXP:debug=false
+EXP: =========================================
+>         set wideprov=true
+EXP: =========================================
+EXP:wideprov=true
+EXP: =========================================
+>         set autocommit=false
+EXP: =========================================
+EXP:autocommit=false
+EXP: =========================================
+>         set prepare=true
+EXP: =========================================
+EXP:prepare=true
+EXP: =========================================
+>         set union=false
+EXP: =========================================
+EXP:union=false
+EXP: =========================================
+>         set indexall=true
+EXP: =========================================
+EXP:indexall=true
+EXP: =========================================
+>       set rejectionTables=false
+EXP: =========================================
+EXP:rejectionTables=false
+EXP: =========================================
+>         set stratified=true
+EXP: =========================================
+EXP:stratified=true
+EXP: =========================================
+> 
+>         set workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/proql/autogen/integer/10000/
+EXP: =========================================
+EXP:workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/proql/autogen/integer/10000/
+EXP: =========================================
+>         set schema=10p-topo2-red1-modl1
+EXP: =========================================
+EXP:schema=10p-topo2-red1-modl1
+EXP: =========================================
+>         set skipFakeMappings=true
+EXP: =========================================
+EXP:skipFakeMappings=true
+EXP: =========================================
+>         set queryCutoff=5000000
+EXP: =========================================
+EXP:queryCutoff=5000000
+EXP: =========================================
+>         set transactionCutoff=500000000
+EXP: =========================================
+EXP:transactionCutoff=500000000
+EXP: =========================================
+> #            set queryCutoff=500
+> #            set transactionCutoff=50000
+>         set runStatistics=false
+EXP: =========================================
+EXP:runStatistics=false
+EXP: =========================================
+> 
+>         startUSS
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1.schema (The system cannot find the file specified)
+>         create-noscript
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1.schema (The system cannot find the file specified)
+> 	
+> 
+>         migrate
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1.schema (The system cannot find the file specified)
+> 
+>         set workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/proql/autogen/integer/10000/10p-topo2-red1-modl1
+EXP: =========================================
+EXP:workdir=C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/proql/autogen/integer/10000/10p-topo2-red1-modl1
+EXP: =========================================
+>   
+> 
+>          # Compute initial
+>          set delete=false
+EXP: =========================================
+EXP:delete=false
+EXP: =========================================
+>          set insert=true
+EXP: =========================================
+EXP:insert=true
+EXP: =========================================
+>          set applybaseDel=false
+EXP: =========================================
+EXP:applybaseDel=false
+EXP: =========================================
+>          set applybaseIns=true
+EXP: =========================================
+EXP:applybaseIns=true
+EXP: =========================================
+>          generateDeltaRules
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+>      
+>          import-bulk C:\cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments/tests/proql/autogen/integer/10000/10p-topo2-red1-modl1/10p-topo2-red1-modl1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+>          translate P0
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> 				 runStats
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+>   
+> #proqlBFS [P0.S0.P0_S0_R0] *- []
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> #proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P0.S0.P0_S0_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> #proqlBFS [P5.S5.P5_S5_R0] *- []
+> proqlBFS [P5.S5.P5_S5_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> #proqlBFS [P5.S5.P5_S5_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+> proqlBFS [P5.S5.P5_S5_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> proqlBFS [P5.S5.P5_S5_R0] *- []|EVALUATE TRUST ASSIGNING EACH|DEFAULT SET 1
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+> 
+> #          clear
+> #           stopUSS
+>           drop
+java.io.FileNotFoundException: \cygwin\home\gkarvoun\EclipseWorkspace\sharq\experiments\tests\proql\autogen\integer\10000\10p-topo2-red1-modl1\10p-topo2-red1-modl1.schema (The system cannot find the path specified)
+>           quit

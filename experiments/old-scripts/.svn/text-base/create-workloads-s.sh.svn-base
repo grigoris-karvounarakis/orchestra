@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#./one-workload.sh $1 $2 $3 $4 100 100 $5
+#./one-workload.sh $1 $2 $3 $4 500 500 $5
+#
+#./one-workload.sh $1 $2 $3 $4 1000 1000 $5
+#
+#./one-workload.sh $1 $2 $3 $4 10000 0 $5
+
+./one-workload.sh $1 $2 $3 $4 100 0 $5
+./one-workload.sh $1 $2 $3 $4 10 0 $5
+./one-workload.sh $1 $2 $3 $4 10 10 $5
+./one-workload.sh $1 $2 $3 $4 1 1 $5
+./one-workload.sh $1 $2 $3 $4 2 2 $5
+
+cp $1p$2n-$3c$4v-10i10d.create tests/$1p$2n-$3c$4v.create
+cp $1p$2n-$3c$4v-10i10d.schema tests/$1p$2n-$3c$4v.schema
+cp $1p$2n-$3c$4v-10i10d.cycles tests/$1p$2n-$3c$4v.cycles
+#./copy-schema.sh tests/$1p$2n.schema
+mv *.insert tests/
+mv *.delete tests/
+mv *_INS tests/
+mv *_DEL tests/
+rm *.create
+rm *.destroy
+rm *.schema
+rm *.cycles
+chmod a+x tests/*.insert
+chmod a+x tests/*.delete

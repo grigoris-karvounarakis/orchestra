@@ -1,0 +1,1 @@
+DROP TABLE mappingsAtoms, mappings, foreignKeys, constraintsFields, constraints, fields, relations,  orchSchema, peer;

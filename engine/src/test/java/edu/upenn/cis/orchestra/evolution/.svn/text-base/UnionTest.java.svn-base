@@ -1,0 +1,351 @@
+package edu.upenn.cis.orchestra.evolution;
+
+import java.util.HashMap;
+
+import junit.framework.Assert;
+import junit.framework.TestCase;
+
+public class UnionTest extends TestCase {
+
+	public void testProgram() {
+		Program prog = Program.parse("Q(x) :- R(x)\nQ0(x) :- S(x)\nQ2(x) :- S(x)\nQ10(x) :- T(x)\nP0(x) :- R(x)\nP0Q(x) :- J(x)");
+		System.out.println(prog.toString());
+	}
+	
+	public void testDifference() {
+		String[] cases = {
+			"P(x,y) :- R(x,y)",
+			"Q(x,y) :- S(x,y)",
+			"D(x,y) :- R(x,y) \n ~D(x,y) :- S(x,y)",
+
+			"P(x,y) :- R(x,y) \n P(x,y) :- S(x,y)",
+			"Q(x,y) :- S(x,y)",
+			"D(x,y) :- R(x,y)",
+		};
+		for (int i = 0; i < cases.length-2; i+=3) {
+			Union minuend = Union.parse(cases[i]);
+			Union subtrahend = Union.parse(cases[i+1]);
+			Union expected = Union.parse(cases[i+2]);
+			int d = Utils.TOKENIZER.getInteger("D");
+			Union difference = minuend.difference(d, subtrahend);
+			difference = difference.shallowMinimize();
+			UnionMorphism m = difference.findIsomorphism(expected);
+			Assert.assertNotNull(i + "", m);
+		}
+	}
+	
+	public void testHashing() {
+		String[] cases = {
+			"P(x,y) :- R(x,y)",
+			"Q(u,v) :- R(u,v)",
+			
+			"P(x,y) :- R(x,y), S(y,z)",
+			"Q(x,y,z) :- R(x,y), S(y,z)",
+			
+			"P(x,y) :- R(x,y), S(y,z) \n P(x,x) :- T(x,x)",
+			"Q(x,x) :- T(x,x) \n Q(x,y) :- R(x,y), S(y,z)",
+
+			"P(x,y) :- R(x,y), S(y,z)",
+			"~Q(x,y) :- R(x,y), S(y,z)",
+		};
+		for (int i = 0; i < cases.length-1; i+= 2) {
+			Union q1 = Union.parse(cases[i]);
+			Union q2 = Union.parse(cases[i+1]);
+			int h1 = q1.hashCode();
+			int h2 = q2.hashCode();
+			UnionMorphism m = q1.findIsomorphism(q2);
+			Assert.assertTrue(i + "", (h1 == h2) == (m != null));
+			Assert.assertTrue(i + "", (h1 == h2) == (q1.equals(q2)));
+		}
+	}
+	
+	public void testMash() {
+		String[] cases = {
+			"Q(x) :- U(x,y), S(y,z) \nQ(x) :- V(x,y), S(y,z) \nQ(x) :- W(x,y), S(y,z)",
+			"P(x,y) :- U(x,y) \nP(x,y) :- V(x,y) \nP(x,y) :- X(x,y)",
+			"Q(x) :- W(x,y), S(y,z) \n Q(x) :- P(x,y), S(y,z) \n ~Q(x) :- X(x,y), S(y,z)",
+		};
+		for (int i = 0; i < cases.length-2; i+=3) {
+			Union query = Union.parse(cases[i]);
+			Union view = Union.parse(cases[i+1]);
+			Union expected = Union.parse(cases[i+2]);
+			SignedRule source = view.m_rules[0];
+			SignedRule target = query.m_rules[0]; 
+			RuleMorphism morph = source.firstMorphism(target, MorphismType.SUBSTITUTION, true);
+			Assert.assertNotNull(i + "", morph);
+			Union mash = query.mash(view, morph, 0, 0);
+			mash = mash.shallowMinimize();
+			UnionMorphism iso = mash.findIsomorphism(expected);
+			Assert.assertNotNull(i + "", iso);
+		}
+	}
+	
+	public void testFolding() {
+		final String[] cases = {
+//			"R(x,y) :- S(x,y) \n R(x,x) :- T(x,y)",
+//			"V(x,y) :- S(x,y) \n V(x,x) :- T(x,y)",
+//			"R(x,y) :- V(x,y)",
+//
+//			"R(x,y) :- S(x,y) \n R(x,x) :- T(x,'2')",
+//			"V(x,y) :- S(x,y) \n V(x,x) :- T(x,'2')",
+//			"R(x,y) :- V(x,y)",
+
+			"Q(x,y) :- S(x,y),Z(y,'2')\n ~Q(x,y) :- T(x,y),Z(y,'2')",
+			"~V(x,y) :- S(x,y)\n V(x,y) :- T(x,y)",
+			"~Q(x,y) :- V(x,y),Z(y,'2')",
+				
+			"Q(x,y) :- S(x,y),Z(y,y)\n ~Q(x,y) :- T(x,y),Z(y,y)",
+			"~V(x,y) :- S(x,y)\n V(x,y) :- T(x,y)",
+			"~Q(x,y) :- V(x,y),Z(y,y)",
+
+			"Q(x,y) :- S(x,y),Z(y,y)\n ~Q(x,y) :- T(x,y),Z(y,y)",
+			"V(x,y) :- S(x,y)\n V(x,y) :- T(x,y)",
+			"Q(x,y) :- S(x,y),Z(y,y)\n ~Q(x,y) :- T(x,y),Z(y,y)",
+				
+			"R(x,y) :- S(x,y)",
+			"V(x,y) :- S(x,y)",
+			"R(x,y) :- V(x,y)",
+			
+			"R(x,y) :- S(x,y)",
+			"V(x,y) :- S(x,y) \n V(x,y) :- T(x,y)",
+			"R(x,y) :- S(x,y)",
+			
+			"R(x,y) :- S(y,z), S(u,u), T(u,z), S(z,z), T(z,u)" +
+				"\n R(x,y) :- S(y,y), T(y,x)" +
+			    "\n R(x,y) :- T(x,y)",
+			"V(u,v) :- S(v,v), T(v,u)",
+			"R(x,y) :- S(y,z), V(z,u), V(u,z) \n R(x,y) :- V(x,y) \n R(x,y) :- T(x,y)",
+
+			"Q(x,y) :- S(x,u), S(u,z), S(z,y)\n" +
+					"Q(x,y) :- S(x,u), T(u,v), T(v,z), S(z,y)\n" +
+					"Q(x,y) :- T(x,w), T(w,u), S(u,z), S(z,y)\n" +
+					"Q(x,y) :- T(x,w), T(w,u), T(u,v), T(v,z), S(z,y)",
+			"V(x,y) :- S(x,y)" +
+				"\nV(x,z) :- T(x,y), T(y,z)",
+			"Q(x,y) :- V(x,u), V(u,z), S(z,y)",
+			
+			"Q(x,y) :- S(x,y),Z(y,y)\n ~Q(x,y) :- T(x,y),Z(y,y)",
+			"V(x,y) :- S(x,y)\n ~V(x,y) :- T(x,y)",
+			"Q(x,y) :- V(x,y),Z(y,y)",			
+		};
+		for (int i = 0; i+2 < cases.length; i += 3) {
+			Union query = Union.parse(cases[i]);
+			Union view = Union.parse(cases[i+1]);
+			Union expected = Union.parse(cases[i+2]);
+			Union last = query;
+			Union result = query.foldView(view);
+			while (last != result) {
+				last = result;
+				result = result.foldView(view);
+			}
+			UnionMorphism m = result.findIsomorphism(expected);
+			Assert.assertNotNull(i + "", m);
+		}
+	}
+	
+	public void testIsomorphism() {
+		final String[] yes = {
+			"R(x,y) :- S(x,y,'2') \n R(x,'3') :- S(x,y,'4'), S(y,x,z)", 
+			"R(u,v) :- S(u,v,'2') \n R(u,'3') :- S(u,v,'4'), S(v,u,w)",
+
+			"R(x,y) :- S(x,y,z)", 
+			"R(u,v) :- S(u,v,w)",
+
+			"R(x,y) :- S(x,z), T(z,y) \n R(x,x) :- S(x,z), T(z,z)",
+			"R(u,u) :- S(u,v), T(v,v) \n R(u,v) :- T(w,v), S(u,w)",
+
+			"~R(x,y) :- S(x,y,z)", 
+			"~R(u,v) :- S(u,v,w)",
+
+			"R(x,y) :- S(x,z), T(z,y) \n ~R(x,x) :- S(x,z), T(z,z)",
+			"~R(u,u) :- S(u,v), T(v,v) \n R(u,v) :- T(w,v), S(u,w)",
+
+			"Q1(0,1) :- R(2,1), R(0,3), R(3,2)\nQ1(0,1) :- R(0,2), R(2,1)\nQ1(0,1) :- Q0(0,1)\n~Q1(0,1) :- R(0,2), R(2,3), R(3,4), R(4,1)",
+			"Q1(0,1) :- R(0,2), R(2,1)\nQ1(0,1) :- R(2,1), R(0,3), R(3,2)\nQ1(0,1) :- Q0(0,1)\n~Q1(0,1) :- R(0,2), R(2,3), R(3,4), R(4,1)"
+		};
+		final String[] no = {
+			"R(x,y) :- S(x,y,'2')", 
+			"R(u,v) :- S(u,v,'3')",
+
+			"R(x,y) :- S(x,y,y)", 
+			"R(u,v) :- S(u,v,w)",
+
+			"R(x,y) :- S(x,z), T(z,y) \n R(x,x) :- S(x,z), T(z,z)",
+			"R(u,v) :- S(u,v), T(v,v) \n R(u,v) :- T(w,v), S(u,w)",
+
+			"R(x,y) :- S(x,z), T(z,y)",
+			"R(u,u) :- S(u,v), T(v,v) \n R(u,v) :- T(w,v), S(u,w)",
+
+			"R(x,y) :- S(x,y,z)", 
+			"~R(u,v) :- S(u,v,w)",
+
+			"~R(x,y) :- S(x,z), T(z,y) \n R(x,x) :- S(x,z), T(z,z)",
+			"~R(u,u) :- S(u,v), T(v,v) \n R(u,v) :- T(w,v), S(u,w)",
+		};
+		HashMap<Union,Boolean> map = new HashMap<Union,Boolean>();
+		for (int i = 0; i+1 < yes.length; i+=2) {
+			Union u1 = Union.parse(yes[i]);
+			Union u2 = Union.parse(yes[i+1]);
+			UnionMorphism m = u1.findIsomorphism(u2);
+			Assert.assertNotNull("yes " + i, m);
+			Assert.assertEquals(u1.hashCode(), u2.hashCode());
+			Assert.assertTrue(u1.equals(u2) && u2.equals(u1));
+			map.put(u1, true);
+			Assert.assertTrue(map.containsKey(u2));
+		}
+		for (int i = 0; i+1 < no.length; i+=2) {
+			Union u1 = Union.parse(no[i]);
+			Union u2 = Union.parse(no[i+1]);
+			UnionMorphism m = u1.findIsomorphism(u2);
+			Assert.assertNull("no " + i, m);
+			Assert.assertNotSame(u1.hashCode(), u2.hashCode());
+		}
+	}
+	
+	public void testHomomorphism() {
+		final String[] yes = {
+				"R(x,y) :- S(x,y,z)", 
+				"R(u,v) :- S(u,v,w)",
+				"R(x,y) :- S(x,z), T(z,y) \n R(x,x) :- S(x,z), T(z,z)",
+				"R(u,u) :- S(u,v), T(v,v) \n R(u,v) :- T(w,v), S(u,w)",
+				"R(x,y) :- S(x,y,z) \n R(x,x) :- S(x,y,z)", 
+				"R(u,v) :- S(u,v,u) \n R(u,u) :- S(u,v,w), S(u,u,u)",
+				"R(x,y) :- S(x,z), T(z,y)",
+				"R(u,u) :- S(u,v), T(v,v) \n R(u,v) :- T(w,v), S(u,w)",
+			};
+			final String[] no = {
+				"R(x,y) :- S(x,y,y)", 
+				"R(u,v) :- S(u,v,w)",
+				"R(x,y) :- S(x,z), T(z,y) \n R(x,x) :- S(x,z), T(z,z)",
+				"R(u,v) :- S(u,v), T(v,v) \n R(u,v) :- T(w,v), S(u,w)",
+				"R(x,y) :- S(x,z), T(z,y)",
+				"R(u,v) :- S(v,u), T(v,v) \n R(u,v) :- T(v,v), S(u,w)",
+			};
+			for (int i = 0; i+1 < yes.length; i+=2) {
+				Union u1 = Union.parse(yes[i]);
+				Union u2 = Union.parse(yes[i+1]);
+				UnionMorphism m = u1.findHomomorphism(u2);
+				Assert.assertNotNull("yes " + i, m);
+			}
+			for (int i = 0; i+1 < no.length; i+=2) {
+				Union u1 = Union.parse(no[i]);
+				Union u2 = Union.parse(no[i+1]);
+				UnionMorphism m = u1.findHomomorphism(u2);
+				Assert.assertNull("no " + i, m);
+			}
+		
+	}
+
+	public void testToSQL() {
+		final String[] cases = {
+			"R(x,y) :- S(x,y,z)", 
+			"R(u,v) :- S(u,v,w)",
+			"R(x,y) :- S(x,z), T(z,y) \n R(x,x) :- S(x,z), T(z,z)",
+			"R(u,u) :- S(u,v), T(v,v) \n R(u,v) :- T(w,v), S(u,w)",
+			"R(u,u) :- S(u,v), T(v,v) \n ~R(u,v) :- T(w,v), S(u,w)",
+		};
+		for (String s : cases) {
+			Union u = Union.parse(s);
+			System.out.println();
+			System.out.println();
+			System.out.println(u);
+			System.out.println();
+			System.out.println(u.toSQL());
+		}
+	}
+	
+	public void testUnfold() {
+		final String[] cases = {
+			"R(x,y) :- S(u,y), V(y,x)",
+			"V(x,'3') :- S(x,'3') \n V('2',y) :- S(y,z)",
+			"R('3',y) :- S(u,y), S(y,'3') \n R(x,'2') :- S(u,'2'), S(x,z)",
+
+			"R(x,y) :- S(u,y), V(y,x)",
+			"~V(u,v) :- S(u,u), S(u,v) \n V(u,u) :- S(u,v), T(v,u)",
+			"~R(x,y) :- S(u,y), S(y,y), S(y,x) \n R(x,x) :- S(u,x), S(x,v), T(v,x)",
+
+			"R(x,y) :- S(u,y), V(y,x)",
+			"V(u,v) :- S(u,u), S(u,v)",
+			"R(x,y) :- S(u,y), S(y,y), S(y,x) \n R(x,y) :- false",
+
+			"R(x,y) :- S(u,y), V(y,x)",
+			"V(u,v) :- S(u,u), S(u,v) \n V(u,u) :- S(u,v), T(v,u)",
+			"R(x,y) :- S(u,y), S(y,y), S(y,x) \n R(x,x) :- S(u,x), S(x,v), T(v,x)",
+		};
+		for (int i = 0; i+2 < cases.length; i+=3) {
+			Union query = Union.parse(cases[i]);
+			Union view = Union.parse(cases[i+1]);
+			Union expected = Union.parse(cases[i+2]);
+			Union result = query.unfoldView(view);
+			UnionMorphism m = result.findIsomorphism(expected);
+			Assert.assertNotNull("unfolding " + i, m);
+		}
+	}
+	
+	public void testSubstitutionRegression() {
+		Union query = Union.parse("QI(x,y) :- RI(x,y), TN(x,y), SN(x,y)\n" + 
+				"QI(x,y) :- R(x,y), SI(x,y), TN(x,y)\n" +
+				"QI(x,y) :- RI(x,y), SI(x,y), TI(x,y)");
+		Union view = Union.parse("RN(x,y) :- R(x,y)\nRN(x,y) :- RI(x,y)");
+		UnionMorphism m = view.findSubstitution(query);
+		Assert.assertNull(m);
+	}
+	
+	static final String BIGUNION = 
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)\n" +
+		"Q4_R1(0,1,2,3,4,5,6,7,8,9,10,11,12) :- P0_R0_src(0,51,52,35,30,26,54,31,53,56,32,13,33,55), P0_R1_src(0,29,3,58,57,60,59,17,8,27,62,61,28), P0_R0_src(0,10,6,75,76,77,37,79,5,16,78,81,80,9), P0_R1_src(0,83,82,14,36,12,18,85,84,87,34,15,86), P0_R0_src(0,63,64,11,4,21,66,2,65,68,7,40,20,67), P0_R1_src(0,1,38,70,69,72,71,39,42,24,74,73,25), P0_R0_src(0,50,48,88,89,90,22,92,47,44,91,94,93,43), P0_R1_src(0,96,95,49,19,46,45,98,97,100,23,41,99)";
+
+	public void testIsomorphismPerf() {
+		Union u1 = Union.parse(BIGUNION);
+		Union u2 = u1.reverse();
+		int reps = 3000;
+		System.out.println("Isomorphism UCQ performance test (" + reps + " reps)...");
+		long time = System.currentTimeMillis();
+		UnionMorphism m = null;
+		for (int i = 0; i < reps; i++) {
+			m = u1.findIsomorphism(u2);
+		}
+		assert(m != null);
+		time = System.currentTimeMillis() - time;
+		System.out.println(time + " ms");
+
+		System.out.println("Isomorphism CQ performance test (" + reps + " reps)...");
+		time = System.currentTimeMillis();
+		RuleMorphism rm = null;
+		for (int i = 0; i < u1.getRules().length; i++) {
+			Rule r1 = u1.getRules()[i].getRule();
+			Rule r2 = u2.getRules()[i].getRule();
+			for (int j = 0; j < reps; j++) {
+				rm = r1.findIsomorphism(r2);
+			}
+			assert(rm != null);
+		}
+		time = System.currentTimeMillis() - time;
+		System.out.println(time + " ms");
+	}
+	
+	public void testDeepMinimize() {
+		Union union = Union.parse("Q(x,y) :- R(x,y)\n~Q(x,y) :- V(x,y)\nQ(x,y) :- S(x,y)\nQ(x,y) :- T(x,y)");
+		Program views = Program.parse("V(x,y) :- R(x,y)\nV(x,y) :- S(x,y)");
+		Union expected = Union.parse("Q(x,y) :- T(x,y)");
+		Union minimized = union.deepMinimize(views);
+		Assert.assertNotNull(minimized.findIsomorphism(expected));
+	}
+	
+	static public void main(String[] args) {
+	}
+}

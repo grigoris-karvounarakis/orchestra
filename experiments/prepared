@@ -1,0 +1,77 @@
+SLOW
+====
+{
+    DB2Statement 
+    {
+        Connection -> DB2Connection
+        Connection -> {
+        Connection ->     connectionHandle = 1
+        Connection ->     SPConnected = false
+        Connection ->     source = SIGMOD
+        Connection ->     user = gkarvoun
+        Connection ->     conArgs = 
+        Connection ->     closed = false
+        Connection ->     describeCached = false
+        Connection ->     describeParam = true
+        Connection ->     isReadOnly = false
+        Connection ->     autoClose = false
+        Connection ->     LONGDATA compat = false
+        Connection -> }
+
+        ResultSet -> null
+
+        statementHandle = 1:267
+        SQL = DELETE FROM GKARVOUN.M1_NEW R0 WHERE (exists (select R1.C0 C0, R1.C1 C1, R1.C2 C2, R1.C3 C3, R1.C4 C4, R1.C5 C5, R1.C6 C6, R1.C7 C7, R1.C8 C8, R1.C9 C9, R1.C10 C10, R1.C11 C11, R1.C12 C12, R1.C13 C13, R1.C14 C14, R1.C15 C15, R1.C16 C16, R1.C17 C17, R1.C0_LN C0_LN, R1.C1_LN C1_LN, R1.C2_LN C2_LN, R1.C3_LN C3_LN, R1.C4_LN C4_LN, R1.C5_LN C5_LN, R1.C6_LN C6_LN, R1.C7_LN C7_LN, R1.C8_LN C8_LN, R1.C9_LN C9_LN, R1.C10_LN C10_LN, R1.C11_LN C11_LN, R1.C12_LN C12_LN, R1.C13_LN C13_LN, R1.C14_LN C14_LN, R1.C15_LN C15_LN, R1.C16_LN C16_LN, R1.C17_LN C17_LN from GKARVOUN.M1_DEL R1 where (((((((((((((((((((R1.C0 = R0.C0) and (R1.C0_LN = R0.C0_LN)) and (R1.C1_LN = R0.C1_LN)) and (R1.C2_LN = R0.C2_LN)) and (R1.C3_LN = R0.C3_LN)) and (R1.C4_LN = R0.C4_LN)) and (R1.C5_LN = R0.C5_LN)) and (R1.C6_LN = R0.C6_LN)) and (R1.C7_LN = R0.C7_LN)) and (R1.C8_LN = R0.C8_LN)) and (R1.C9_LN = R0.C9_LN)) and (R1.C10_LN = R0.C10_LN)) and (R1.C11_LN = R0.C11_LN)) and (R1.C12_LN = R0.C12_LN)) and (R1.C13_LN = R0.C13_LN)) and (R1.C14_LN = R0.C14_LN)) and (R1.C15_LN = R0.C15_LN)) and (R1.C16_LN = R0.C16_LN)) and (R1.C17_LN = R0.C17_LN))))
+        maxRows = 0
+        maxFieldSize = 0
+        rowCount = 0
+        colCount = 0
+        closed = false
+        internalStmt = false
+        returnCode = 0
+    }
+
+    statementType = 26
+    executed = true
+    maxNumParams = 0
+}
+
+
+FAST
+====
+{
+    DB2Statement 
+    {
+        Connection -> DB2Connection
+        Connection -> {
+        Connection ->     connectionHandle = 1
+        Connection ->     SPConnected = false
+        Connection ->     source = SIGMOD
+        Connection ->     user = gkarvoun
+        Connection ->     conArgs = 
+        Connection ->     closed = false
+        Connection ->     describeCached = false
+        Connection ->     describeParam = true
+        Connection ->     isReadOnly = false
+        Connection ->     autoClose = false
+        Connection ->     LONGDATA compat = false
+        Connection -> }
+
+        ResultSet -> null
+
+        statementHandle = 1:267
+        SQL = DELETE FROM GKARVOUN.M1_NEW R0 WHERE (exists (select R1.C0 C0, R1.C1 C1, R1.C2 C2, R1.C3 C3, R1.C4 C4, R1.C5 C5, R1.C6 C6, R1.C7 C7, R1.C8 C8, R1.C9 C9, R1.C10 C10, R1.C11 C11, R1.C12 C12, R1.C13 C13, R1.C14 C14, R1.C15 C15, R1.C16 C16, R1.C17 C17, R1.C0_LN C0_LN, R1.C1_LN C1_LN, R1.C2_LN C2_LN, R1.C3_LN C3_LN, R1.C4_LN C4_LN, R1.C5_LN C5_LN, R1.C6_LN C6_LN, R1.C7_LN C7_LN, R1.C8_LN C8_LN, R1.C9_LN C9_LN, R1.C10_LN C10_LN, R1.C11_LN C11_LN, R1.C12_LN C12_LN, R1.C13_LN C13_LN, R1.C14_LN C14_LN, R1.C15_LN C15_LN, R1.C16_LN C16_LN, R1.C17_LN C17_LN from GKARVOUN.M1_DEL R1 where (((((((((((((((((((R1.C0 = R0.C0) and (R1.C0_LN = R0.C0_LN)) and (R1.C1_LN = R0.C1_LN)) and (R1.C2_LN = R0.C2_LN)) and (R1.C3_LN = R0.C3_LN)) and (R1.C4_LN = R0.C4_LN)) and (R1.C5_LN = R0.C5_LN)) and (R1.C6_LN = R0.C6_LN)) and (R1.C7_LN = R0.C7_LN)) and (R1.C8_LN = R0.C8_LN)) and (R1.C9_LN = R0.C9_LN)) and (R1.C10_LN = R0.C10_LN)) and (R1.C11_LN = R0.C11_LN)) and (R1.C12_LN = R0.C12_LN)) and (R1.C13_LN = R0.C13_LN)) and (R1.C14_LN = R0.C14_LN)) and (R1.C15_LN = R0.C15_LN)) and (R1.C16_LN = R0.C16_LN)) and (R1.C17_LN = R0.C17_LN))))
+        maxRows = 0
+        maxFieldSize = 0
+        rowCount = 0
+        colCount = 0
+        closed = false
+        internalStmt = false
+        returnCode = 0
+    }
+
+    statementType = 26
+    executed = false
+    maxNumParams = 0
+}
+

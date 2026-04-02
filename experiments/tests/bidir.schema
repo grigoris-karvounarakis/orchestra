@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<catalog recmode="false" name="bidir">
+  <migrated>true</migrated>
+  <peer address="localhost" name="P1">
+  	<description>P1</description>
+    <schema name="S1">
+  		<description>S1</description>
+      <relation materialized="true" name="R">
+        <dbinfo schema="S1" table="R"/>
+        <field name="X" type="integer"/>
+        <field name="Y" type="integer"/>
+	<primaryKey name="pk1">
+        	<field name="X"/>
+        	<field name="Y"/>
+	</primaryKey>
+      </relation>
+      <relation materialized="true" name="S">
+        <dbinfo schema="S1" table="S"/>
+        <field name="Y" type="integer"/>
+        <field name="Z" type="integer"/>
+	<primaryKey name="pk1">
+        	<field name="Y"/>
+        	<field name="Z"/>
+	</primaryKey>
+      </relation>
+    </schema>
+  </peer>
+  <peer address="localhost" name="P2">
+  	<description>P2</description>
+    <schema name="S2">
+  		<description>S2</description>
+      <relation materialized="true" name="T">
+        <dbinfo schema="S2" table="T"/>
+        <field name="X" type="integer"/>
+        <field name="Y" type="integer"/>
+        <field name="Z" type="integer"/>
+	<primaryKey name="pk1">
+        	<field name="X"/>
+        	<field name="Y"/>
+        	<field name="Z"/>
+	</primaryKey>
+      </relation>
+    </schema>
+  </peer>
+  <mapping materialized="true" name="M0">
+    <head>
+      <atom>
+				P2.S2.T(X, Z, W)
+      </atom>
+    </head>
+    <body>
+      <atom>
+				P1.S1.R(X, Y)
+      </atom>
+      <atom>
+				P1.S1.S(Y, Z)
+      </atom>
+    </body>
+  </mapping>
+  <mapping materialized="true" name="M1">
+    <head>
+      <atom>
+				P1.S1.R(X, Y)
+      </atom>
+      <atom>
+				P1.S1.S(Y, Z)
+      </atom>
+    </head>
+    <body>
+      <atom>
+				P2.S2.T(X, Z, W)
+      </atom>
+    </body>
+  </mapping>
+  <engine>
+    <mappings password="apollo13!" server="jdbc:db2://clust-dbserv.dbgroup.cis.upenn.edu:50000/BIOTBG" type="sql" username="orchestra"/>
+<!--    <updates password="greg2db2" server="jdbc:db2://greg:50000/BIOTB2" type="sql" username="db2admin"/>-->
+  </engine>
+  <store>
+    <update hostname="localhost" port="9999" type="bdb"/>
+    <state type="hash"/>
+  </store>
+  <trustConditions peer="P1" schema="S1">
+	    <trusts pid="P2" pidType="STRING" priority="5" relation="T"/>
+  </trustConditions>
+  <trustConditions peer="P2" schema="S2">
+	    <trusts pid="P1" pidType="STRING" priority="5" relation="R"/>
+	    <trusts pid="P1" pidType="STRING" priority="5" relation="S"/>
+  </trustConditions>
+</catalog>
+
